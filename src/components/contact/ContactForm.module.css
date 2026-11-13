@@ -1,0 +1,316 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--gutter);
+  row-gap: 8px;
+}
+
+.field {
+  position: relative;
+  grid-column: 1 / -1;
+  padding-top: 18px;
+}
+
+.half {
+  grid-column: span 1;
+}
+
+.field input,
+.field textarea {
+  display: block;
+  width: 100%;
+  padding: 10px 0 12px;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
+  font-size: var(--fs-base);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.3s var(--ease);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field textarea {
+  min-height: 140px;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-bottom-color: var(--ink);
+}
+
+.field label {
+  position: absolute;
+  left: 0;
+  top: 30px;
+  color: var(--mute);
+  pointer-events: none;
+  transform-origin: left top;
+  transition:
+    transform 0.35s var(--ease),
+    color 0.35s var(--ease);
+}
+
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:focus + label,
+.field textarea:not(:placeholder-shown) + label {
+  transform: translateY(-26px) scale(0.8);
+  color: var(--ink);
+}
+
+.field[data-error] input,
+.field[data-error] textarea {
+  border-bottom-color: var(--red);
+}
+
+.error {
+  grid-column: 1 / -1;
+  margin-top: 6px;
+  font-size: var(--fs-xs);
+  color: var(--red);
+}
+
+.formError {
+  grid-column: 1 / -1;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  border-left: 2px solid var(--red);
+  background: #f6f6f6;
+  font-size: var(--fs-sm);
+}
+
+.types {
+  grid-column: 1 / -1;
+  margin: 18px 0 6px;
+  padding: 0;
+  border: 0;
+}
+
+.types legend {
+  margin-bottom: 10px;
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.types > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chip span {
+  display: inline-block;
+  padding: 9px 16px;
+  border: 1px solid var(--line-strong);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition:
+    background-color 0.3s var(--ease),
+    color 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+
+.chip span:hover {
+  border-color: var(--ink);
+}
+
+.chip input:checked + span {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.chip input:focus-visible + span {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.consent {
+  grid-column: 1 / -1;
+  position: relative;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 14px;
+  margin-top: 22px;
+  font-size: var(--fs-sm);
+  color: var(--mute);
+  cursor: pointer;
+}
+
+.consent input {
+  position: absolute;
+  opacity: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.box {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  border: 1px solid var(--ink);
+  position: relative;
+}
+
+.box::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: var(--red);
+  transform: scale(0);
+  transition: transform 0.3s var(--ease);
+}
+
+.consent input:checked + .box::after {
+  transform: scale(1);
+}
+
+.consent input:focus-visible + .box {
+  outline: 2px solid var(--red);
+  outline-offset: 2px;
+}
+
+.consent[data-error] .box {
+  border-color: var(--red);
+}
+
+.inlineLink {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.submitRow {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.req {
+  font-size: var(--fs-xs);
+  color: var(--mute);
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  height: 52px;
+  padding: 0 26px;
+  background: var(--ink);
+  color: var(--paper);
+  transition: background-color 0.35s var(--ease);
+}
+
+.submit span {
+  transition: transform 0.45s var(--ease);
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--red);
+}
+
+.submit:hover:not(:disabled) span {
+  transform: translateX(4px);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* C03 – Bestätigung: die drei Buchstaben fallen nacheinander in ihren Rahmen. */
+.success {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  padding: 32px 0;
+  outline: none;
+}
+
+.mark {
+  display: inline-flex;
+  gap: 2px;
+  padding: 10px 12px 6px;
+  margin-bottom: 18px;
+  border: 1.5px solid var(--ink);
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  overflow: hidden;
+  animation: frame 0.6s var(--ease) both;
+}
+
+.mark span {
+  display: inline-block;
+  animation: drop 0.7s var(--ease) both;
+}
+
+.mark span:nth-child(1) {
+  color: var(--red);
+  animation-delay: 0.15s;
+}
+
+.mark span:nth-child(2) {
+  color: var(--mute);
+  animation-delay: 0.25s;
+}
+
+.mark span:nth-child(3) {
+  animation-delay: 0.35s;
+}
+
+@keyframes drop {
+  from {
+    transform: translateY(-120%);
+  }
+}
+
+@keyframes frame {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.successTitle {
+  font-size: var(--fs-h3);
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 560px) {
+  .half {
+    grid-column: 1 / -1;
+  }
+
+  .submitRow {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .submit {
+    justify-content: space-between;
+  }
+}

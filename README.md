@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ZQD – Website
 
-## Getting Started
+Next.js-Website für ZQD Zooquariumdesign / Architekturgarage.
 
-First, run the development server:
+## Entwicklung
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Struktur
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- `src/app` – Seiten (Home, Projekte mit Overlay-Karte und eigener URL je Projekt, Team, Kontakt, Rechtliches)
+- `src/components` – Header/Footer, Startseiten-Abschnitte, Galerie, Projektkarte, Formular
+- `src/content/site.js` – Kontaktdaten und Navigation (**Platzhalter in eckigen Klammern ersetzen**)
+- `src/content/team.js` – Teamangaben und Partner (**Platzhalter ersetzen**)
+- `src/content/projects.generated.js`, `src/content/media.js` – automatisch erzeugt
+- `src/assets` – web-optimierte Bilder (automatisch erzeugt)
+- `public/Reference/` – Originalmaterial; wird nicht ausgeliefert (siehe `.vercelignore`)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Bilder neu erzeugen
 
-## Learn More
+Auswahl und Texte stehen in `scripts/media-manifest.json`. Nach Änderungen:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+python3 scripts/build-media.py
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+(benötigt Python mit Pillow)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Kontaktformular
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Versand über [Resend](https://resend.com). Auf Vercel als Umgebungsvariablen setzen:
+`RESEND_API_KEY`, `CONTACT_TO`, `CONTACT_FROM`. Ohne diese Werte meldet das Formular ehrlich, dass es noch nicht verbunden ist.

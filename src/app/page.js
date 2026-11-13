@@ -1,69 +1,130 @@
 import Image from "next/image";
+import Link from "next/link";
+import PageTransition from "@/components/PageTransition";
+import Hero from "@/components/home/Hero";
+import Phases from "@/components/home/Phases";
+import Disciplines from "@/components/home/Disciplines";
+import { homeMedia } from "@/content/media";
+import styles from "./page.module.css";
 
-export default function Home() {
+const principles = ["Klarheit", "Verantwortung", "Weitblick"];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.js
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <PageTransition>
+      <Hero slides={homeMedia.hero} />
+
+      {/* H02 Planungsphilosophie */}
+      <section className={`${styles.philosophy} wrap`} aria-labelledby="philosophie">
+        <div className="grid">
+          <h2 id="philosophie" className={`${styles.h2} reveal`}>
+            Was unsere Planung prägt.
+          </h2>
+          <p className={`${styles.lead} reveal`}>
+            Gute Planung beginnt mit dem genauen Verständnis der Aufgabe, ihrer
+            Anforderungen und ihres Umfelds. Wir verbinden Funktion und
+            Gestaltung zu schlüssigen Lösungen, die im Alltag überzeugen und
+            langfristig Bestand haben. Dabei hinterfragen wir Gewohntes, denken
+            vorausschauend und lassen Raum für neue Entwicklungen.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <ol className={styles.principles}>
+          {principles.map((p, i) => (
+            <li key={p} className="reveal">
+              <span className={styles.pIndex}>{String(i + 1).padStart(2, "0")}</span>
+              <span className={styles.pWord}>{p}</span>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* H03 Eine Kernkompetenz */}
+      <section id="kompetenz" className={`${styles.competence} wrap`} aria-labelledby="kompetenz-titel">
+        <Link
+          href="/projekte"
+          className={styles.compTile}
+          transitionTypes={["page"]}
+        >
+          <div className={styles.compMedia}>
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src={homeMedia.competence.image}
+              alt={homeMedia.competence.alt}
+              fill
+              sizes="(max-width: 760px) 100vw, 94vw"
+              className={styles.compImg}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+          <div className={styles.compText}>
+            <h2 id="kompetenz-titel" className={styles.h2}>
+              Zoologische Lebensräume ganzheitlich planen.
+            </h2>
+            <div className={styles.compBody}>
+              <p>
+                Von der Entwicklung eines gesamten Zoos und seiner Masterplanung
+                bis zur Planung einzelner Tieranlagen, Gebäude und Aquarien: ZQD
+                verbindet unterschiedliche Maßstäbe innerhalb einer umfassenden
+                planerischen Kompetenz.
+              </p>
+              <ScaleBar />
+              <span className={styles.compLink}>
+                Zu den Projekten <span aria-hidden="true">→</span>
+              </span>
+            </div>
+          </div>
+        </Link>
+      </section>
+
+      {/* H04 Von der Idee bis zur Realisierung */}
+      <section className={`${styles.phases} wrap`} aria-labelledby="planungsweg">
+        <div className="grid">
+          <h2 id="planungsweg" className={`${styles.h2} ${styles.phasesTitle} reveal`}>
+            Von der Idee bis zur Realisierung.
+          </h2>
         </div>
-      </main>
+        <Phases />
+      </section>
+
+      {/* H05 Generalplanung */}
+      <section className={`${styles.general} wrap`} aria-labelledby="generalplanung">
+        <div className="grid">
+          <h2 id="generalplanung" className={`${styles.h2} ${styles.generalTitle} reveal`}>
+            Ein Projekt. Viele Disziplinen. Ein abgestimmtes Ganzes.
+          </h2>
+          <div className={`${styles.generalText} reveal`}>
+            <p>
+              Als Generalplaner übernehmen wir die Verantwortung für das
+              gesamte Planungsteam. Wir führen Zoologie, Architektur und
+              Fachplanungen zusammen, steuern die Schnittstellen und sind für
+              unsere Auftraggeber der eine Ansprechpartner – mit klaren
+              Zuständigkeiten von der ersten Idee bis zur Übergabe.
+            </p>
+            <Link href="/team" className="tlink" transitionTypes={["page"]}>
+              Das Team hinter unserer Planung kennenlernen{" "}
+              <span className="arrow" aria-hidden="true">→</span>
+            </Link>
+          </div>
+          <Disciplines className={styles.schema} />
+        </div>
+      </section>
+    </PageTransition>
+  );
+}
+
+// Maßstabsleiste: vom Masterplan bis zum Detail – die Bandbreite der Maßstäbe.
+function ScaleBar() {
+  const marks = ["1:5000", "1:1000", "1:200", "1:50", "1:20"];
+  return (
+    <div className={styles.scale} aria-hidden="true">
+      <div className={styles.scaleLine}>
+        {marks.map((m) => (
+          <span key={m} />
+        ))}
+      </div>
+      <div className={styles.scaleLabels}>
+        {marks.map((m) => (
+          <span key={m}>{m}</span>
+        ))}
+      </div>
     </div>
   );
 }

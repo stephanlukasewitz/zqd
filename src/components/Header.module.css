@@ -1,0 +1,259 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  color: var(--ink);
+  transition:
+    transform 0.6s var(--ease),
+    color 0.4s var(--ease);
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: var(--header-h);
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  transition:
+    opacity 0.4s var(--ease),
+    border-color 0.4s var(--ease);
+}
+
+.header[data-on-dark] {
+  color: var(--paper);
+}
+
+.header[data-on-dark]::before {
+  opacity: 0;
+}
+
+.hidden {
+  transform: translate3d(0, -100%, 0);
+}
+
+.bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
+  padding-inline: var(--margin);
+}
+
+.brand {
+  --logo-h: 30px;
+  display: block;
+}
+
+.logoMark {
+  display: none;
+}
+
+.nav ul {
+  display: flex;
+  gap: clamp(20px, 3vw, 44px);
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  padding: 6px 0;
+  font-size: var(--fs-sm);
+}
+
+/* Ein kleines Quadrat – das gerahmte ZQD-Zeichen im Kleinen – markiert die aktive Seite. */
+.link::before {
+  content: "";
+  position: absolute;
+  left: -13px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  background: var(--red);
+  transform: scale(0);
+  transition: transform 0.45s var(--ease);
+}
+
+.link[aria-current="page"]::before {
+  transform: scale(1);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease);
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.menuButton {
+  display: none;
+  align-items: center;
+  gap: 14px;
+  height: 44px;
+  margin-right: -6px;
+  padding-inline: 6px;
+  font-size: var(--fs-sm);
+}
+
+.menuLabel {
+  display: grid;
+  overflow: hidden;
+  height: 1.5em;
+}
+
+.menuLabel > span {
+  grid-area: 1 / 1;
+  transition: transform 0.5s var(--ease);
+}
+
+.menuLabel > span:last-child {
+  transform: translateY(110%);
+}
+
+.menuLabel[data-open] > span:first-child {
+  transform: translateY(-110%);
+}
+
+.menuLabel[data-open] > span:last-child {
+  transform: none;
+}
+
+.burger {
+  position: relative;
+  width: 26px;
+  height: 10px;
+}
+
+.burger::before,
+.burger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform 0.5s var(--ease);
+}
+
+.burger::before {
+  top: 0;
+}
+
+.burger::after {
+  bottom: 0;
+}
+
+.isOpen .burger::before {
+  transform: translateY(4.25px) rotate(14deg);
+}
+
+.isOpen .burger::after {
+  transform: translateY(-4.25px) rotate(-14deg);
+}
+
+.panel {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --header-h: 60px;
+  }
+
+  .brand {
+    --logo-h: 26px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+    position: relative;
+    z-index: 2;
+  }
+
+  .bar {
+    z-index: 2;
+  }
+
+  .panel {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: var(--night);
+    color: var(--paper);
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 0.7s var(--ease-in-out);
+    padding: calc(var(--header-h) + 8vh) var(--margin) 40px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .panel[data-open] {
+    clip-path: inset(0 0 0 0);
+  }
+
+  .panelList {
+    display: grid;
+    gap: 2px;
+  }
+
+  .panelList li {
+    overflow: hidden;
+  }
+
+  .panelLink {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    font-size: clamp(2.75rem, 13vw, 4.5rem);
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    transform: translateY(105%);
+    transition: transform 0.7s var(--ease);
+    transition-delay: 0s;
+  }
+
+  .panel[data-open] .panelLink {
+    transform: none;
+    transition-delay: calc(0.18s + var(--i) * 0.06s);
+  }
+
+  .panelLink[aria-current="page"] .panelIndex {
+    color: var(--red);
+  }
+
+  .panelIndex {
+    font-size: var(--fs-xs);
+    letter-spacing: 0;
+    color: var(--soft);
+    transform: translateY(-1.6em);
+  }
+}
+
+@media (max-width: 420px) {
+  .logoFull {
+    display: none;
+  }
+
+  .logoMark {
+    display: block;
+    --logo-h: 34px;
+  }
+}

@@ -1,0 +1,128 @@
+.h2 {
+  font-size: var(--fs-h3);
+  letter-spacing: -0.03em;
+}
+
+.intro {
+  padding-top: calc(var(--header-h) + clamp(56px, 9vw, 140px));
+  padding-bottom: clamp(40px, 5vw, 80px);
+}
+
+.title {
+  grid-column: 1 / span 9;
+  font-size: var(--fs-h1);
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+}
+
+.sub {
+  grid-column: 1 / span 6;
+  margin-top: clamp(20px, 2.6vw, 36px);
+  font-size: var(--fs-lead);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.contact {
+  padding-bottom: clamp(80px, 10vw, 160px);
+}
+
+.formCol {
+  grid-column: 1 / span 7;
+}
+
+.direct {
+  grid-column: 9 / -1;
+  padding-top: 18px;
+}
+
+.direct dl {
+  display: grid;
+  gap: 24px;
+  position: sticky;
+  top: calc(var(--header-h) + 32px);
+}
+
+.direct dt {
+  font-size: var(--fs-xs);
+  color: var(--mute);
+  margin-bottom: 4px;
+}
+
+.direct dd {
+  font-size: var(--fs-lead);
+  letter-spacing: -0.015em;
+}
+
+.location {
+  padding-block: clamp(64px, 8vw, 120px) clamp(96px, 12vw, 180px);
+  border-top: 1px solid var(--line);
+}
+
+.map {
+  grid-column: 1 / span 7;
+}
+
+.address {
+  grid-column: 9 / -1;
+  display: grid;
+  gap: 20px;
+  align-content: start;
+  justify-items: start;
+}
+
+.address address {
+  font-style: normal;
+  font-size: var(--fs-lead);
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+.route {
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  height: 48px;
+  padding: 0 22px;
+  border: 1px solid var(--ink);
+  font-size: var(--fs-sm);
+  transition:
+    background-color 0.35s var(--ease),
+    color 0.35s var(--ease);
+}
+
+.route:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (max-width: 900px) {
+  .title,
+  .sub,
+  .formCol,
+  .direct,
+  .map,
+  .address {
+    grid-column: 1 / -1;
+  }
+
+  .direct {
+    order: -1;
+    padding: 0 0 32px;
+  }
+
+  .direct dl {
+    position: static;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .address {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 560px) {
+  .direct dl {
+    grid-template-columns: 1fr;
+  }
+}

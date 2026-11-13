@@ -1,0 +1,191 @@
+.phases {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: clamp(40px, 5vw, 72px);
+}
+
+.phase {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding: 0 var(--gutter) 0 0;
+}
+
+.phase + .phase {
+  padding-left: var(--gutter);
+  border-left: 1px solid var(--line);
+}
+
+/* Lineal der Leistungsphasen: eine durchgehende Achse über alle drei Schritte. */
+.ruler {
+  display: flex;
+  justify-content: space-between;
+  height: 28px;
+  margin: 0 calc(var(--gutter) * -1) 28px 0;
+  padding-right: var(--gutter);
+  border-top: 1px solid var(--ink);
+  font-size: 11px;
+  color: var(--soft);
+}
+
+.phase + .phase .ruler {
+  margin-left: calc(var(--gutter) * -1);
+  padding-left: var(--gutter);
+}
+
+.tick {
+  position: relative;
+  padding-top: 10px;
+  transition: color 0.4s var(--ease);
+}
+
+.tick::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -1px;
+  width: 1px;
+  height: 7px;
+  background: var(--ink);
+  transform-origin: top;
+  transition:
+    background-color 0.4s var(--ease),
+    transform 0.4s var(--ease);
+}
+
+.tick[data-open] {
+  visibility: hidden;
+}
+
+.phase:hover .tick {
+  color: var(--ink);
+}
+
+.phase:hover .tick::before {
+  background: var(--red);
+  transform: scaleY(1.8);
+}
+
+.num {
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.title {
+  font-size: var(--fs-h3);
+  letter-spacing: -0.03em;
+}
+
+.text {
+  max-width: 34ch;
+  color: var(--mute);
+}
+
+.details {
+  margin-top: 8px;
+  font-size: var(--fs-sm);
+}
+
+.details summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.details summary::-webkit-details-marker {
+  display: none;
+}
+
+.plus {
+  position: relative;
+  width: 10px;
+  height: 10px;
+}
+
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.4s var(--ease);
+}
+
+.plus::after {
+  transform: rotate(90deg);
+}
+
+.details[open] .plus::after {
+  transform: rotate(0deg);
+}
+
+.details ul {
+  display: grid;
+  gap: 4px;
+  padding: 6px 0 4px;
+  color: var(--mute);
+}
+
+.details li {
+  padding-left: 14px;
+  position: relative;
+}
+
+.details li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 6px;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Sanftes Aufklappen, wo unterstützt */
+@supports (interpolate-size: allow-keywords) {
+  .details {
+    interpolate-size: allow-keywords;
+  }
+
+  .details::details-content {
+    height: 0;
+    overflow: clip;
+    transition:
+      height 0.45s var(--ease),
+      content-visibility 0.45s allow-discrete;
+  }
+
+  .details[open]::details-content {
+    height: auto;
+  }
+}
+
+@media (max-width: 860px) {
+  .phases {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .phase,
+  .phase + .phase {
+    padding: 0;
+    border-left: 0;
+  }
+
+  .ruler,
+  .phase + .phase .ruler {
+    margin: 0 0 16px;
+    padding: 0;
+  }
+
+  .tick[data-open] {
+    display: none;
+  }
+}

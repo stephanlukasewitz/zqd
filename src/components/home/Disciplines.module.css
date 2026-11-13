@@ -1,0 +1,84 @@
+.figure {
+  width: 100%;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+}
+
+.frame rect {
+  fill: none;
+  stroke: var(--line);
+  stroke-dasharray: 4 6;
+}
+
+.edge {
+  stroke: var(--ink);
+  stroke-width: 1;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.node rect {
+  fill: var(--paper);
+  stroke: var(--ink);
+}
+
+.node text {
+  fill: var(--ink);
+}
+
+.center rect {
+  fill: var(--paper);
+  stroke: var(--ink);
+  transition: fill 0.5s var(--ease);
+}
+
+.center text {
+  fill: var(--ink);
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  transition: fill 0.5s var(--ease);
+}
+
+.figure:hover .center rect {
+  fill: var(--red);
+  stroke: var(--red);
+}
+
+.figure:hover .center text {
+  fill: var(--paper);
+}
+
+.caption {
+  fill: var(--soft);
+  font-size: 13px;
+}
+
+/* Die Verbindungen zeichnen sich, sobald das Schema ins Bild kommt. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .svg {
+      view-timeline: --schema block;
+    }
+
+    .edge {
+      animation: draw linear both;
+      animation-timeline: --schema;
+      animation-range: entry calc(20% + var(--i) * 15%) cover 50%;
+    }
+  }
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

@@ -1,0 +1,181 @@
+.footer {
+  position: relative;
+  background: var(--night);
+  color: var(--paper);
+  padding: clamp(64px, 10vw, 140px) var(--margin) 24px;
+  overflow: hidden;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 56px;
+  align-items: start;
+}
+
+.brand {
+  grid-column: 1 / span 6;
+  --logo-h: clamp(48px, 5.6vw, 92px);
+  width: max-content;
+  max-width: 100%;
+  transform-origin: 0 0;
+}
+
+.brand > span {
+  max-width: 100%;
+  height: auto;
+  width: calc(var(--logo-h) * var(--ratio));
+}
+
+.contact {
+  grid-column: 8 / span 3;
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  font-size: var(--fs-sm);
+}
+
+.mail {
+  font-size: var(--fs-base);
+}
+
+.place {
+  color: var(--soft);
+  margin-bottom: 14px;
+}
+
+.menu {
+  grid-column: 11 / span 2;
+  justify-self: end;
+}
+
+.menu ul {
+  display: grid;
+  gap: 2px;
+  text-align: right;
+}
+
+.menu a {
+  display: inline-block;
+  font-size: var(--fs-lead);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  transition: color 0.3s var(--ease);
+}
+
+.menu a:hover {
+  color: var(--soft);
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 32px;
+  margin-top: clamp(72px, 9vw, 140px);
+  padding-top: 18px;
+  border-top: 1px solid rgb(255 255 255 / 0.16);
+  font-size: var(--fs-xs);
+  color: var(--soft);
+}
+
+.legal ul {
+  display: flex;
+  gap: 24px;
+}
+
+.legal a:hover {
+  color: var(--paper);
+}
+
+/* F00: Logo, Kontakt und Menü „entfalten“ sich, während der Footer ins Bild scrollt.
+   Rein über CSS-Scroll-Timelines – ohne JavaScript, ohne Scroll-Blockade. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 761px) {
+    .footer {
+      view-timeline: --footer block;
+    }
+
+    .brand {
+      animation: footer-logo linear both;
+      animation-timeline: --footer;
+      animation-range: entry 10% entry 90%;
+    }
+
+    .contact {
+      animation: footer-fade linear both;
+      animation-timeline: --footer;
+      animation-range: entry 40% entry 100%;
+    }
+
+    .menu li {
+      animation: footer-item linear both;
+      animation-timeline: --footer;
+      animation-range: entry calc(30% + var(--i) * 12%) entry calc(75% + var(--i) * 8%);
+    }
+  }
+}
+
+@keyframes footer-logo {
+  from {
+    transform: translate3d(0, -40px, 0) scale(0.42);
+    opacity: 0.4;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes footer-fade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes footer-item {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .brand {
+    grid-column: 1 / -1;
+  }
+
+  .contact {
+    grid-column: 1 / span 7;
+  }
+
+  .menu {
+    grid-column: 8 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact,
+  .menu {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .menu ul {
+    text-align: left;
+  }
+
+  .menu a {
+    font-size: var(--fs-h3);
+  }
+}

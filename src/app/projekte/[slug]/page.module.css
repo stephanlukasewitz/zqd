@@ -1,0 +1,8 @@
+.page {
+  padding-top: var(--header-h);
+}
+
+.back {
+  padding-block: 20px;
+  font-size: var(--fs-sm);
+}

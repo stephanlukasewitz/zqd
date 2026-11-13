@@ -1,0 +1,118 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  padding: clamp(16px, 3vw, 40px);
+  background: rgb(10 10 10 / 0.62);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: dim 0.4s var(--ease) both;
+}
+
+@keyframes dim {
+  from {
+    background: rgb(10 10 10 / 0);
+  }
+}
+
+.card {
+  position: relative;
+  width: min(1280px, 100%);
+  margin-block: auto;
+  outline: none;
+  box-shadow: 0 30px 80px rgb(0 0 0 / 0.25);
+  animation: card 0.45s var(--ease) both;
+  --pad: clamp(20px, 3vw, 48px);
+}
+
+@keyframes card {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) scale(0.98);
+  }
+}
+
+/* Wo View Transitions laufen, übernimmt das Morphing des Bildes die Bewegung. */
+@supports (view-transition-name: none) {
+  .card {
+    animation-name: fade;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  z-index: 3;
+  top: 14px;
+  right: 14px;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  color: var(--ink);
+  transition:
+    background-color 0.3s var(--ease),
+    color 0.3s var(--ease);
+}
+
+.close span,
+.close span::after {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: currentColor;
+  transform: rotate(45deg);
+}
+
+.close span::after {
+  content: "";
+  transform: rotate(90deg);
+}
+
+.close:hover {
+  background: var(--red);
+  color: var(--paper);
+}
+
+@media (max-width: 760px) {
+  .overlay {
+    padding: 0;
+    background: var(--paper);
+  }
+
+  .card {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    box-shadow: none;
+    animation-name: card-mobile;
+  }
+
+  @keyframes card-mobile {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 4vh, 0);
+    }
+  }
+
+  .close {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+}
