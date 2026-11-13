@@ -157,7 +157,6 @@
   overflow-y: auto;
   padding: calc(var(--header-h) + clamp(24px, 4vw, 64px)) var(--margin) clamp(24px, 3vw, 40px);
   background: var(--paper);
-  border-bottom: 1px solid var(--line);
   transform: translate3d(0, -101%, 0);
   visibility: hidden;
   transition:
@@ -183,9 +182,6 @@
   overflow: hidden;
 }
 
-.panelList li:last-child {
-  border-bottom: 1px solid var(--line);
-}
 
 .panelLink {
   display: grid;

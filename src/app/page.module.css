@@ -1,9 +1,8 @@
-/* Jeder Abschnitt: links ein ruhiges Stichwort, rechts der Inhalt. */
 .block {
   padding: clamp(110px, 14vw, 240px) var(--margin) 0;
 }
 
-.head {
+.row {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--gutter);
@@ -13,7 +12,7 @@
 
 .key {
   grid-column: 1 / span 3;
-  padding-top: 0.5em;
+  padding-top: 0.55em;
   font-size: var(--fs-sm);
   letter-spacing: 0;
   line-height: 1.4;
@@ -21,16 +20,36 @@
   color: var(--mute);
 }
 
-.statement {
+.main {
   grid-column: 4 / -1;
-  font-size: clamp(1.5rem, 1rem + 1.6vw, 2.75rem);
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  max-width: 34ch;
+}
+
+.statement {
+  font-size: clamp(1.6rem, 1rem + 1.8vw, 3rem);
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  max-width: 30ch;
+}
+
+.words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 0;
+  margin-top: clamp(28px, 3.4vw, 48px);
+  font-size: var(--fs-sm);
+}
+
+.words span + span::before {
+  content: "·";
+  margin: 0 0.8em;
+  color: var(--red);
+}
+
+.journeyGap {
+  height: clamp(80px, 10vw, 160px);
 }
 
 .title {
-  grid-column: 4 / -1;
   font-size: clamp(2.2rem, 0.8rem + 4vw, 6rem);
   letter-spacing: -0.055em;
   line-height: 0.95;
@@ -42,35 +61,61 @@
   color: var(--soft);
 }
 
-.after {
+.disciplines {
   display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: var(--gutter);
-  margin-top: clamp(40px, 5vw, 72px);
+  margin-top: clamp(48px, 6vw, 96px);
 }
 
-.after p {
-  grid-column: 4 / span 6;
+.disciplines li {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  padding-top: 12px;
+  border-top: 1px solid var(--ink);
+}
+
+.num {
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.dName {
+  font-size: clamp(1.4rem, 1rem + 1vw, 2.1rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.dText {
+  max-width: 30ch;
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.copy {
+  max-width: 56ch;
+  margin-top: clamp(48px, 6vw, 88px);
   color: #2b2b2b;
 }
 
-.after a {
-  grid-column: 4 / span 6;
-  justify-self: start;
-  margin-top: 24px;
+.main :global(.tlink) {
+  margin-top: 22px;
   font-size: var(--fs-sm);
 }
 
 @media (max-width: 900px) {
   .key,
-  .statement,
-  .title,
-  .after p,
-  .after a {
+  .main {
     grid-column: 1 / -1;
   }
 
   .key {
     margin-bottom: 16px;
+  }
+
+  .disciplines {
+    grid-template-columns: 1fr;
+    row-gap: 28px;
   }
 }
