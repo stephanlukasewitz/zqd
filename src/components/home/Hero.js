@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import TLink from "../transition/TLink";
 import Reveal from "../fx/Reveal";
 import WaterImage from "../fx/WaterImage";
+import Frame, { Dot } from "../fx/Frame";
 import styles from "./Hero.module.css";
 
 const INTERVAL = 7000;
@@ -39,27 +40,15 @@ export default function Hero({ slides }) {
   return (
     <section className={styles.hero} aria-label="Einstieg">
       <div className={styles.top}>
-        <p className={styles.service}>
-          <span>Zooquariumdesign</span>
-          <span>Architektur und Generalplanung für zoologische Einrichtungen</span>
-        </p>
         <h1 className={styles.claim}>
-          <Reveal className={styles.l1}>Erfahrung als Fundament.</Reveal>
+          <Reveal className={styles.l1}>
+            Erfahrung als <Frame delay={700}>Fundament</Frame>
+            <Dot />
+          </Reveal>
           <Reveal className={styles.l2} delay={120}>
             Entwicklung als Anspruch.
           </Reveal>
         </h1>
-        <div className={styles.row}>
-          <p className={styles.sub}>Wir denken Lebensräume weiter.</p>
-          <div className={styles.actions}>
-            <TLink href="/projekte" className="tlink">
-              Projekte entdecken <span className="arrow" aria-hidden="true">→</span>
-            </TLink>
-            <a href="#kompetenz" className="tlink">
-              Leistungen <span className="arrow" aria-hidden="true">↓</span>
-            </a>
-          </div>
-        </div>
       </div>
 
       <div ref={stage} className={styles.stage}>

@@ -73,27 +73,47 @@
   transform: none;
 }
 
-/* Kleines Quadrat – das gerahmte ZQD-Zeichen im Kleinen. Gefüllt, wenn offen. */
+/* Zwei feine Linien, die sich beim Öffnen zu einem flachen X kreuzen */
 .menuIcon {
   position: relative;
-  width: 11px;
-  height: 11px;
-  border: 1px solid currentColor;
-  transition: transform 0.6s var(--ease);
+  width: 30px;
+  height: 9px;
 }
 
+.menuIcon::before,
 .menuIcon::after {
   content: "";
   position: absolute;
-  inset: 2px;
-  background: var(--red);
-  transform: scale(0);
-  transition: transform 0.5s var(--ease);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: currentColor;
+  transition:
+    transform 0.6s var(--ease),
+    width 0.6s var(--ease);
 }
 
-.header[data-open] .menuIcon::after,
+.menuIcon::before {
+  top: 0;
+}
+
+.menuIcon::after {
+  bottom: 0;
+  left: auto;
+  width: 70%;
+}
+
 .menuButton:hover .menuIcon::after {
-  transform: scale(1);
+  width: 100%;
+}
+
+.header[data-open] .menuIcon::before {
+  transform: translateY(4px) rotate(12deg);
+}
+
+.header[data-open] .menuIcon::after {
+  width: 100%;
+  transform: translateY(-4px) rotate(-12deg);
 }
 
 /* Menü: kommt als Fläche von oben, der Rest der Seite liegt unscharf dahinter. */

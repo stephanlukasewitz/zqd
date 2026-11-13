@@ -1,0 +1,41 @@
+.frame {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.1em;
+  margin: 0 0 0 -0.04em;
+}
+
+.box {
+  position: absolute;
+  inset: 0.08em 0 -0.06em;
+  width: 100%;
+  height: calc(100% - 0.02em);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.box rect {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5px;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.65, 0, 0.35, 1) var(--delay);
+}
+
+.frame[data-on] .box rect {
+  stroke-dashoffset: 0;
+}
+
+.dot {
+  color: var(--red);
+  margin-left: 0.04em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .box rect {
+    transition: none;
+    stroke-dashoffset: 0;
+  }
+}
