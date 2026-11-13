@@ -2,136 +2,149 @@
   position: relative;
   background: var(--night);
   color: var(--paper);
-  padding: clamp(64px, 10vw, 140px) var(--margin) 24px;
+  padding: clamp(56px, 8vw, 120px) var(--margin) 28px;
   overflow: hidden;
 }
 
-.inner {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--gutter);
-  row-gap: 56px;
-  align-items: start;
-}
-
-.brand {
-  grid-column: 1 / span 6;
-  --logo-h: clamp(48px, 5.6vw, 92px);
-  width: max-content;
-  max-width: 100%;
-  transform-origin: 0 0;
-}
-
-.brand > span {
-  max-width: 100%;
-  height: auto;
-  width: calc(var(--logo-h) * var(--ratio));
-}
-
-.contact {
-  grid-column: 8 / span 3;
-  display: grid;
-  gap: 6px;
-  justify-items: start;
-  font-size: var(--fs-sm);
-}
-
-.mail {
-  font-size: var(--fs-base);
-}
-
-.place {
-  color: var(--soft);
-  margin-bottom: 14px;
-}
-
-.menu {
-  grid-column: 11 / span 2;
-  justify-self: end;
-}
-
-.menu ul {
-  display: grid;
-  gap: 2px;
-  text-align: right;
-}
-
-.menu a {
-  display: inline-block;
-  font-size: var(--fs-lead);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  transition: color 0.3s var(--ease);
-}
-
-.menu a:hover {
-  color: var(--soft);
-}
-
-.legal {
+/* Große Einladung über die volle Breite */
+.cta {
   display: flex;
-  flex-wrap: wrap;
+  align-items: flex-end;
   justify-content: space-between;
-  gap: 12px 32px;
-  margin-top: clamp(72px, 9vw, 140px);
-  padding-top: 18px;
-  border-top: 1px solid rgb(255 255 255 / 0.16);
-  font-size: var(--fs-xs);
-  color: var(--soft);
+  gap: 4vw;
+  padding-bottom: clamp(40px, 6vw, 96px);
+  border-bottom: 1px solid rgb(255 255 255 / 0.16);
 }
 
-.legal ul {
-  display: flex;
-  gap: 24px;
+.ctaText {
+  min-width: 0;
+  font-size: clamp(2.75rem, 1rem + 7.4vw, 10rem);
+  letter-spacing: -0.05em;
+  line-height: 0.92;
 }
 
-.legal a:hover {
+.ctaText span {
+  display: block;
+  color: rgb(255 255 255 / 0.42);
+  transition: color 0.6s var(--ease);
+}
+
+.cta:hover .ctaText span {
   color: var(--paper);
 }
 
-/* F00: Logo, Kontakt und Menü „entfalten“ sich, während der Footer ins Bild scrollt.
-   Rein über CSS-Scroll-Timelines – ohne JavaScript, ohne Scroll-Blockade. */
+.ctaArrow {
+  flex: none;
+  width: clamp(48px, 9vw, 150px);
+  aspect-ratio: 1;
+  margin-bottom: 0.4vw;
+  overflow: hidden;
+}
+
+.ctaArrow svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 7;
+  transition: transform 0.7s var(--ease);
+}
+
+.cta:hover .ctaArrow svg {
+  animation: arrow 0.8s var(--ease) both;
+}
+
+.cta:hover .ctaArrow path {
+  stroke: var(--red);
+}
+
+@keyframes arrow {
+  0% {
+    transform: none;
+  }
+  45% {
+    transform: translateX(110%);
+  }
+  46% {
+    transform: translateX(-110%);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 32px var(--gutter);
+  padding-block: clamp(32px, 4vw, 56px) clamp(72px, 10vw, 160px);
+  font-size: var(--fs-sm);
+}
+
+.col {
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  justify-items: start;
+}
+
+.col ul {
+  display: grid;
+  gap: 4px;
+}
+
+.key {
+  margin-bottom: 10px;
+  color: var(--soft);
+}
+
+.link {
+  position: relative;
+  transition: color 0.3s var(--ease);
+}
+
+.link:hover {
+  color: var(--soft);
+}
+
+.base {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.brand {
+  display: block;
+  width: min(56vw, 860px);
+}
+
+.brand > span {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.copy {
+  font-size: var(--fs-xs);
+  color: var(--soft);
+  white-space: nowrap;
+}
+
 @supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) and (min-width: 761px) {
-    .footer {
-      view-timeline: --footer block;
-    }
-
+  @media (prefers-reduced-motion: no-preference) {
+    .ctaText,
     .brand {
-      animation: footer-logo linear both;
-      animation-timeline: --footer;
-      animation-range: entry 10% entry 90%;
-    }
-
-    .contact {
-      animation: footer-fade linear both;
-      animation-timeline: --footer;
-      animation-range: entry 40% entry 100%;
-    }
-
-    .menu li {
-      animation: footer-item linear both;
-      animation-timeline: --footer;
-      animation-range: entry calc(30% + var(--i) * 12%) entry calc(75% + var(--i) * 8%);
+      animation: rise-in linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 80%;
     }
   }
 }
 
-@keyframes footer-logo {
-  from {
-    transform: translate3d(0, -40px, 0) scale(0.42);
-    opacity: 0.4;
-  }
-  to {
-    transform: none;
-    opacity: 1;
-  }
-}
-
-@keyframes footer-fade {
+@keyframes rise-in {
   from {
     opacity: 0;
-    transform: translate3d(0, 16px, 0);
+    transform: translate3d(0, 60px, 0);
   }
   to {
     opacity: 1;
@@ -139,43 +152,21 @@
   }
 }
 
-@keyframes footer-item {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -18px, 0);
+@media (max-width: 760px) {
+  .ctaText {
+    font-size: clamp(2.3rem, 10.5vw, 3.4rem);
   }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
 
-@media (max-width: 900px) {
+  .cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .base {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .brand {
-    grid-column: 1 / -1;
-  }
-
-  .contact {
-    grid-column: 1 / span 7;
-  }
-
-  .menu {
-    grid-column: 8 / -1;
-  }
-}
-
-@media (max-width: 560px) {
-  .contact,
-  .menu {
-    grid-column: 1 / -1;
-    justify-self: start;
-  }
-
-  .menu ul {
-    text-align: left;
-  }
-
-  .menu a {
-    font-size: var(--fs-h3);
+    width: 100%;
   }
 }

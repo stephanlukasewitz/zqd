@@ -1,6 +1,8 @@
 import { Instrument_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Cursor from "@/components/Cursor";
+import TransitionProvider from "@/components/transition/TransitionProvider";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -36,9 +38,12 @@ export default function RootLayout({ children }) {
         <a href="#inhalt" className="skip-link">
           Zum Inhalt springen
         </a>
-        <Header />
-        <main id="inhalt">{children}</main>
-        <Footer />
+        <TransitionProvider>
+          <Header />
+          <main id="inhalt">{children}</main>
+          <Footer />
+        </TransitionProvider>
+        <Cursor />
       </body>
     </html>
   );

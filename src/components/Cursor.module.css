@@ -1,0 +1,68 @@
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+  will-change: transform;
+}
+
+.cursor[data-visible] {
+  opacity: 1;
+}
+
+.dot {
+  position: absolute;
+  left: -9px;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ink);
+  transition:
+    transform 0.45s var(--ease),
+    background-color 0.3s var(--ease);
+}
+
+.cursor[data-state="link"] .dot {
+  transform: scale(0.45);
+  background: var(--red);
+}
+
+.cursor[data-state="label"] .dot {
+  transform: scale(5);
+}
+
+.cursor[data-down] .dot {
+  transform: scale(0.8);
+}
+
+.cursor[data-state="label"][data-down] .dot {
+  transform: scale(4.4);
+}
+
+.label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  color: var(--paper);
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.25s var(--ease);
+}
+
+.cursor[data-state="label"] .label {
+  opacity: 1;
+  transition-delay: 0.1s;
+}
+
+/* Über dunklen Flächen hell */
+:global(.on-dark) ~ .cursor .dot {
+  background: var(--paper);
+}

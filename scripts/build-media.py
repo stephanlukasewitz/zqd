@@ -80,10 +80,11 @@ open(os.path.join(ROOT, "src/content/projects.generated.js"), "w").write("\n".jo
 # Startseite
 imports.clear()
 hero_titles = ["Eismeer, Tierpark Hagenbeck", "Tropen-Aquarium, Tierpark Hagenbeck", "Orang-Utan-Dome, Tierpark Hagenbeck"]
+hero_slugs = ["eismeer-hagenbeck", "tropen-aquarium-hagenbeck", "orang-utan-dome-hagenbeck"]
 hl = []
 for i, f in enumerate(m["hero"]):
     dst = os.path.join(ASSETS, "home", f"hero-{i+1}.jpg"); save(f, dst, 2560, 80)
-    hl.append(f'{{ image: {imp(dst)}, alt: {js(hero_titles[i])}, title: {js(hero_titles[i])} }}')
+    hl.append(f'{{ image: {imp(dst)}, alt: {js(hero_titles[i])}, title: {js(hero_titles[i])}, slug: {js(hero_slugs[i])} }}')
 dst = os.path.join(ASSETS, "home", "competence.jpg"); save(m["competence"], dst, 2560, 80)
 comp = imp(dst)
 media = ["// Automatisch erzeugt von scripts/build-media.py.", ""] + imports + ["",

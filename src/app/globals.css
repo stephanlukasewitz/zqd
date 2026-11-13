@@ -155,6 +155,17 @@ button {
   transform: none;
 }
 
+/* Eigener Cursor (nur Desktop mit Maus) */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none;
+}
+
+html.has-cursor input,
+html.has-cursor textarea {
+  cursor: text;
+}
+
 /* Layout */
 
 .wrap {
@@ -205,6 +216,25 @@ button {
   }
 }
 
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .img-reveal {
+      animation: img-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+  }
+}
+
+@keyframes img-reveal {
+  from {
+    clip-path: inset(12% 6% 0 6%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 @keyframes reveal-up {
   from {
     opacity: 0;
@@ -216,49 +246,8 @@ button {
   }
 }
 
-/* Seitenübergang: die neue Seite steigt wie ein Wasserspiegel von unten auf. */
-
 ::view-transition {
   pointer-events: none;
-}
-
-::view-transition-old(.tide) {
-  animation: 0.55s var(--ease-in-out) both tide-out;
-}
-
-::view-transition-new(.tide) {
-  animation: 0.7s var(--ease-in-out) both tide-in;
-}
-
-@keyframes tide-in {
-  from {
-    clip-path: inset(100% 0 0 0);
-    transform: translate3d(0, 6vh, 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-    transform: none;
-  }
-}
-
-@keyframes tide-out {
-  to {
-    opacity: 0.35;
-    transform: translate3d(0, -3vh, 0);
-  }
-}
-
-::view-transition-group(site-header) {
-  animation: none;
-  z-index: 100;
-}
-
-::view-transition-old(site-header) {
-  display: none;
-}
-
-::view-transition-new(site-header) {
-  animation: none;
 }
 
 ::view-transition-group(.morph) {

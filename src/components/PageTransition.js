@@ -1,15 +1,5 @@
-import { ViewTransition } from "react";
-
-// Wird in jede page.js gesetzt (nicht ins Layout), damit enter/exit feuern.
-// Animiert nur Navigationen mit dem Typ "page" – Browser-Zurück bleibt sofort.
+// Der Seitenübergang läuft global über den TransitionProvider (Vorhang).
+// Diese Hülle bleibt als fester Einstiegspunkt pro Seite bestehen.
 export default function PageTransition({ children }) {
-  return (
-    <ViewTransition
-      enter={{ page: "tide", default: "none" }}
-      exit={{ page: "tide", default: "none" }}
-      default="none"
-    >
-      <div>{children}</div>
-    </ViewTransition>
-  );
+  return children;
 }

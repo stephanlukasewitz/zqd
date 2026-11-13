@@ -6,7 +6,7 @@ import i169 from "@/assets/home/hero-3.jpg";
 import i170 from "@/assets/home/competence.jpg";
 
 export const homeMedia = {
-  hero: [{ image: i167, alt: "Eismeer, Tierpark Hagenbeck", title: "Eismeer, Tierpark Hagenbeck" }, { image: i168, alt: "Tropen-Aquarium, Tierpark Hagenbeck", title: "Tropen-Aquarium, Tierpark Hagenbeck" }, { image: i169, alt: "Orang-Utan-Dome, Tierpark Hagenbeck", title: "Orang-Utan-Dome, Tierpark Hagenbeck" }],
+  hero: [{ image: i167, alt: "Eismeer, Tierpark Hagenbeck", title: "Eismeer, Tierpark Hagenbeck", slug: "eismeer-hagenbeck" }, { image: i168, alt: "Tropen-Aquarium, Tierpark Hagenbeck", title: "Tropen-Aquarium, Tierpark Hagenbeck", slug: "tropen-aquarium-hagenbeck" }, { image: i169, alt: "Orang-Utan-Dome, Tierpark Hagenbeck", title: "Orang-Utan-Dome, Tierpark Hagenbeck", slug: "orang-utan-dome-hagenbeck" }],
   competence: { image: i170, alt: "Polarium, Zoologischer Garten Rostock" },
 };
 

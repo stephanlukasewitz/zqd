@@ -178,6 +178,7 @@ function Card({ project: p, eager }) {
       href={`/projekte/${p.slug}`}
       className={styles.card}
       data-slug={p.slug}
+      data-cursor="Ansehen"
       scroll={false}
     >
       <ViewTransition name={`project-${p.slug}`} share="morph" default="none">

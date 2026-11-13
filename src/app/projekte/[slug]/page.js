@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import TLink from "@/components/transition/TLink";
 import PageTransition from "@/components/PageTransition";
 import ProjectDetail from "@/components/projects/ProjectDetail";
 import { getProject, placeOf, projects } from "@/content/projects";
@@ -29,9 +29,9 @@ export default async function ProjectPage({ params }) {
     <PageTransition>
       <div className={styles.page}>
         <nav className={`${styles.back} wrap`} aria-label="Zurück">
-          <Link href="/projekte" className="tlink" transitionTypes={["page"]}>
+          <TLink href="/projekte" className="tlink">
             <span className="arrow" aria-hidden="true">←</span> Alle Projekte
-          </Link>
+          </TLink>
         </nav>
         <ProjectDetail project={p} />
       </div>
