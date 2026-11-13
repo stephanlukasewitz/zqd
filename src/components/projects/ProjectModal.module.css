@@ -2,105 +2,107 @@
   position: fixed;
   inset: 0;
   z-index: 80;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  justify-items: center;
-  align-items: start;
-  padding: clamp(16px, 3vw, 40px);
-  background: rgb(10 10 10 / 0.62);
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  animation: dim 0.4s var(--ease) both;
 }
 
-@keyframes dim {
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgb(255 255 255 / 0.5);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  animation: fade 0.6s var(--ease) both;
+}
+
+.sheet {
+  position: absolute;
+  inset: clamp(10px, 1.6vw, 24px) 0 0;
+  background: var(--paper);
+  box-shadow: 0 -1px 0 var(--line), 0 -30px 80px rgb(0 0 0 / 0.08);
+  outline: none;
+  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroller {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.overlay[data-leaving] .sheet {
+  animation: sink 0.5s cubic-bezier(0.7, 0, 0.84, 0) both;
+}
+
+.overlay[data-leaving] .backdrop {
+  animation: fade 0.5s var(--ease) reverse both;
+}
+
+@keyframes rise {
   from {
-    background: rgb(10 10 10 / 0);
+    transform: translate3d(0, 100%, 0);
   }
 }
 
-.card {
-  position: relative;
-  width: min(1280px, 100%);
-  margin-block: auto;
-  outline: none;
-  box-shadow: 0 30px 80px rgb(0 0 0 / 0.25);
-  animation: card 0.45s var(--ease) both;
-  --pad: clamp(20px, 3vw, 48px);
+@keyframes sink {
+  to {
+    transform: translate3d(0, 100%, 0);
+  }
 }
 
-@keyframes card {
+@keyframes fade {
   from {
     opacity: 0;
-    transform: translate3d(0, 24px, 0) scale(0.98);
   }
 }
 
 .close {
-  position: absolute;
+  position: sticky;
+  top: 0;
   z-index: 3;
-  top: 14px;
-  right: 14px;
-  width: 48px;
-  height: 48px;
-  display: grid;
-  place-items: center;
+  float: right;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;
+  margin: 12px var(--margin) 0 0;
+  padding: 0 16px;
+  font-size: var(--fs-sm);
   background: var(--paper);
-  color: var(--ink);
-  transition:
-    background-color 0.3s var(--ease),
-    color 0.3s var(--ease);
 }
 
-.close span,
+.close span {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+
+.close span::before,
 .close span::after {
-  display: block;
-  width: 20px;
-  height: 1.5px;
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
   background: currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.5s var(--ease);
+}
+
+.close span::after {
+  transform: rotate(-45deg);
+}
+
+.close:hover span::before {
+  transform: rotate(135deg);
+}
+
+.close:hover span::after {
   transform: rotate(45deg);
 }
 
-.close span::after {
-  content: "";
-  transform: rotate(90deg);
-}
-
-.close:hover {
-  background: var(--red);
-  color: var(--paper);
-}
-
-@media (max-width: 760px) {
-  .overlay {
-    padding: 0;
-    background: var(--paper);
-  }
-
-  .card {
-    width: 100%;
-    min-height: 100%;
-    margin: 0;
-    box-shadow: none;
-    animation-name: card-mobile;
-  }
-
-  @keyframes card-mobile {
-    from {
-      opacity: 0;
-      transform: translate3d(0, 4vh, 0);
-    }
-  }
-
-  .close {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .card {
+  .sheet,
+  .backdrop {
     animation: none;
   }
 }

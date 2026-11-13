@@ -14,7 +14,7 @@ async function Content({ params }) {
   if (!p) notFound();
   return (
     <ProjectModal slug={slug}>
-      <ProjectDetail project={p} headingLevel={2} />
+      <ProjectDetail project={p} headingLevel={2} inModal />
     </ProjectModal>
   );
 }

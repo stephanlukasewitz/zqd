@@ -2,6 +2,7 @@ import { Archivo, Newsreader } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TransitionProvider from "@/components/transition/TransitionProvider";
+import SmoothScroll from "@/components/fx/SmoothScroll";
 import { site } from "@/content/site";
 import "./globals.css";
 
@@ -49,6 +50,7 @@ export default function RootLayout({ children }) {
           <main id="inhalt">{children}</main>
           <Footer />
         </TransitionProvider>
+        <SmoothScroll />
       </body>
     </html>
   );

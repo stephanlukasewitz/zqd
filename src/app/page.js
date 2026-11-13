@@ -5,6 +5,7 @@ import Section from "@/components/home/Section";
 import Selected from "@/components/home/Selected";
 import TLink from "@/components/transition/TLink";
 import { homeMedia } from "@/content/media";
+import Reveal from "@/components/fx/Reveal";
 import styles from "./page.module.css";
 
 export default function HomePage() {
@@ -56,7 +57,7 @@ export default function HomePage() {
           </div>
           <div className={styles.compText}>
             <h2 id="kompetenz-titel" className={styles.h2}>
-              Zoologische Lebensräume ganzheitlich planen.
+              <Reveal>Zoologische Lebensräume ganzheitlich planen.</Reveal>
             </h2>
             <p>
               Von der Entwicklung eines gesamten Zoos und seiner Masterplanung
@@ -74,15 +75,17 @@ export default function HomePage() {
       {/* H04 Von der Idee bis zur Realisierung */}
       <section className={`${styles.section} ${styles.phases}`} aria-labelledby="planungsweg">
         <h2 id="planungsweg" className={`${styles.h2} ${styles.phasesTitle}`}>
-          Von der Idee bis zur Realisierung.
+          <Reveal>Von der Idee bis zur Realisierung.</Reveal>
         </h2>
         <Phases />
       </section>
 
       {/* H05 Generalplanung */}
       <section className={`${styles.section} ${styles.general}`} aria-labelledby="generalplanung">
-        <h2 id="generalplanung" className={`${styles.statementLarge} reveal`}>
-          Ein Projekt. <span>Viele Disziplinen.</span> Ein abgestimmtes Ganzes.
+        <h2 id="generalplanung" className={styles.statementLarge}>
+          <Reveal>
+            Ein Projekt. <span className={styles.soft}>Viele Disziplinen.</span> Ein abgestimmtes Ganzes.
+          </Reveal>
         </h2>
         <Section>
           <p>

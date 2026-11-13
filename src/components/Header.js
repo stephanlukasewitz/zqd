@@ -56,10 +56,12 @@ export default function Header() {
     };
     document.addEventListener("keydown", onKey);
     document.documentElement.style.overflow = "hidden";
+    window.__lenis?.stop();
     panel.current?.querySelector("a")?.focus({ preventScroll: true });
     return () => {
       document.removeEventListener("keydown", onKey);
       document.documentElement.style.overflow = "";
+      window.__lenis?.start();
     };
   }, [open]);
 

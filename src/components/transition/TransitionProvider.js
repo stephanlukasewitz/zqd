@@ -49,7 +49,9 @@ export default function TransitionProvider({ children }) {
     if (phase !== "reveal") return;
     clearTimeout(timer.current);
     const anchor = window.location.hash && document.querySelector(window.location.hash);
-    if (anchor) anchor.scrollIntoView();
+    const lenis = window.__lenis;
+    if (lenis) lenis.scrollTo(anchor || 0, { immediate: true, force: true });
+    else if (anchor) anchor.scrollIntoView();
     else window.scrollTo(0, 0);
     const t = setTimeout(() => setPhase("idle"), 800);
     return () => clearTimeout(t);

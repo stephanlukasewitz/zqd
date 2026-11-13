@@ -42,7 +42,7 @@
   line-height: 0.96;
 }
 
-.title span {
+.hl {
   display: block;
   color: var(--mute);
 }

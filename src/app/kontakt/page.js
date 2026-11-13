@@ -1,6 +1,7 @@
 import PageTransition from "@/components/PageTransition";
 import ContactForm from "@/components/contact/ContactForm";
 import { site } from "@/content/site";
+import Reveal from "@/components/fx/Reveal";
 import styles from "./page.module.css";
 
 export const metadata = {
@@ -19,7 +20,9 @@ export default function KontaktPage() {
       {/* C01 */}
       <section className={`${styles.intro} wrap`}>
         <div className="grid">
-          <h1 className={styles.title}>Sprechen wir über Ihr Projekt.</h1>
+          <h1 className={styles.title}>
+            <Reveal>Sprechen wir über Ihr Projekt.</Reveal>
+          </h1>
           <p className={styles.sub}>
             Ob Masterplanung, neue Tieranlage oder Modernisierung – wir freuen
             uns auf Ihre Anfrage.

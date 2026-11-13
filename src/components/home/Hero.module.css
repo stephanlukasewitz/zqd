@@ -1,5 +1,5 @@
 .hero {
-  padding-top: calc(var(--header-h) + clamp(40px, 7vw, 120px));
+  padding-top: calc(var(--header-h) + clamp(48px, 8vw, 140px));
 }
 
 .top {
@@ -7,41 +7,31 @@
 }
 
 .service {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
   font-size: var(--fs-sm);
   color: var(--mute);
-  margin-bottom: clamp(20px, 3vw, 44px);
-  animation: fade-in 1s var(--ease) 0.4s both;
+  margin-bottom: clamp(24px, 3.4vw, 56px);
+  animation: fade-in 1.2s var(--ease) 0.5s both;
 }
 
 .claim {
-  font-size: clamp(2.5rem, 0.4rem + 7.3vw, 11.5rem);
-  letter-spacing: -0.055em;
+  font-size: clamp(2.5rem, 0.2rem + 7.6vw, 12rem);
+  letter-spacing: -0.058em;
   line-height: 0.9;
   font-weight: 400;
-  text-wrap: nowrap;
 }
 
-.line {
+.l1,
+.l2 {
   display: block;
-  overflow: hidden;
-  padding-bottom: 0.08em;
-  margin-bottom: -0.08em;
+  white-space: nowrap;
 }
 
-.line > span {
-  display: block;
-  animation: line-up 1.2s var(--ease) both;
-}
-
-.line + .line > span {
+.l2 {
   color: var(--soft);
-  animation-delay: 0.09s;
-}
-
-@keyframes line-up {
-  from {
-    transform: translate3d(0, 105%, 0);
-  }
+  padding-left: 8.33%;
 }
 
 @keyframes fade-in {
@@ -51,56 +41,106 @@
 }
 
 .row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
   align-items: baseline;
-  gap: 20px 40px;
-  margin-top: clamp(28px, 4vw, 64px);
-  animation: fade-in 1s var(--ease) 0.55s both;
+  margin-top: clamp(32px, 4.4vw, 72px);
+  animation: fade-in 1.2s var(--ease) 0.75s both;
 }
 
 .sub {
-  font-size: var(--fs-lead);
-  letter-spacing: -0.015em;
+  grid-column: 2 / span 6;
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 1rem + 0.9vw, 2rem);
+  letter-spacing: -0.01em;
 }
 
 .actions {
+  grid-column: 9 / -1;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 12px 36px;
   font-size: var(--fs-sm);
 }
 
-/* Bildband über die volle Breite, ohne Abdunklung */
-.band {
+/* Bühne: das Bild startet eingerückt und wächst beim Scrollen zum Vollbild. */
+.stage {
+  position: relative;
+  height: 165vh;
   margin-top: clamp(40px, 6vw, 96px);
 }
 
-.media {
-  position: relative;
-  display: block;
-  height: min(88vh, 62vw);
-  min-height: 340px;
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
   overflow: hidden;
-  background: #e6e6e6;
-  animation: band-in 1.4s var(--ease-in-out) 0.2s both;
 }
 
-@keyframes band-in {
+.frame {
+  position: absolute;
+  inset: 0;
+  color: var(--paper);
+  clip-path: inset(0 var(--margin) 22% var(--margin));
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .stage {
+      view-timeline: --stage block;
+    }
+
+    .frame {
+      animation: grow linear both;
+      animation-timeline: --stage;
+      animation-range: entry 35% entry 100%;
+    }
+
+    .img,
+    .canvas {
+      animation: settle linear both;
+      animation-timeline: --stage;
+      animation-range: entry 35% exit 100%;
+    }
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .frame {
+    clip-path: none;
+  }
+}
+
+@keyframes grow {
   from {
-    clip-path: inset(18% var(--margin) 0 var(--margin));
+    clip-path: inset(0 var(--margin) 22% var(--margin));
   }
   to {
     clip-path: inset(0 0 0 0);
   }
 }
 
+@keyframes settle {
+  from {
+    transform: scale(1.14) translate3d(0, -3%, 0);
+  }
+  to {
+    transform: scale(1.02) translate3d(0, 3%, 0);
+  }
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  background: #e8e8e8;
+}
+
 .slide {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1.2s var(--ease-in-out);
+  transition: opacity 1.4s var(--ease-in-out);
 }
 
 .slide[data-active] {
@@ -109,68 +149,134 @@
 
 .img {
   object-fit: cover;
-  transform: scale(1.08);
-  transition: transform 7s cubic-bezier(0.2, 0.6, 0.2, 1);
 }
 
-.slide[data-active] .img {
-  transform: scale(1);
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease);
 }
 
+.media[data-gl] .canvas {
+  opacity: 1;
+}
+
+.media[data-gl] .slide {
+  transition: none;
+}
+
+/* Bildunterschrift im Vollbild – ruhig, unten */
 .caption {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  bottom: clamp(20px, 3vw, 40px);
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  padding: 14px var(--margin) 0;
+  align-items: flex-end;
+  gap: 24px;
   font-size: var(--fs-sm);
+  text-shadow: 0 1px 18px rgb(0 0 0 / 0.35);
 }
 
 .title {
-  animation: fade-in 0.8s var(--ease) both;
+  display: grid;
+  gap: 2px;
+}
+
+.titleText {
+  font-size: clamp(1.4rem, 1rem + 1.2vw, 2.4rem);
+  letter-spacing: -0.03em;
+  animation: fade-in 0.9s var(--ease) both;
+}
+
+.view {
+  opacity: 0.8;
+  transition: opacity 0.3s var(--ease);
+}
+
+.title:hover .view {
+  opacity: 1;
 }
 
 .controls {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
   margin-right: -10px;
 }
 
 .controls button {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
-  transition: color 0.3s var(--ease);
+  transition: opacity 0.3s var(--ease);
 }
 
 .controls button:hover {
-  color: var(--red);
+  opacity: 0.6;
 }
 
 .count {
-  min-width: 4.2em;
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  min-width: 4em;
   text-align: center;
-  color: var(--mute);
+}
+
+.count i {
+  font-style: normal;
+  margin-inline: 0.3em;
+  opacity: 0.6;
 }
 
 @media (max-width: 760px) {
+  .service {
+    flex-direction: column;
+    gap: 2px;
+  }
+
   .claim {
-    font-size: clamp(2.3rem, 10.6vw, 4rem);
-    text-wrap: balance;
+    font-size: clamp(2.3rem, 10.8vw, 4rem);
     line-height: 0.95;
+  }
+
+  .l1,
+  .l2 {
+    white-space: normal;
+  }
+
+  .l2 {
+    padding-left: 0;
   }
 
   .row {
     display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
+  .sub,
   .actions {
-    gap: 14px 28px;
+    grid-column: 1;
+    justify-content: flex-start;
   }
 
-  .media {
-    height: 70svh;
+  .stage {
+    height: auto;
+  }
+
+  .sticky {
+    position: relative;
+    height: 78svh;
+  }
+
+  .frame {
+    clip-path: none !important;
+    animation: none !important;
   }
 }

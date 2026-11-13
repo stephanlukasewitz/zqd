@@ -1,6 +1,7 @@
 import Image from "next/image";
 import TLink from "../transition/TLink";
 import { projects } from "@/content/projects";
+import Reveal from "@/components/fx/Reveal";
 import styles from "./Selected.module.css";
 
 const PICK = [
@@ -19,7 +20,8 @@ export default function Selected() {
     <section className={styles.section} aria-labelledby="auswahl">
       <div className={styles.head}>
         <h2 id="auswahl" className={styles.title}>
-          Ausgewählte Projekte<sup>({projects.length})</sup>
+          <Reveal>Ausgewählte Projekte</Reveal>
+          <sup>({projects.length})</sup>
         </h2>
         <TLink href="/projekte" className="tlink">
           Alle Projekte <span className="arrow" aria-hidden="true">→</span>

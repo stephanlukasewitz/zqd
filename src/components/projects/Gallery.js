@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useDeferredValue, useMemo, useState } from "react";
+import IndexList from "./IndexList";
 import styles from "./Gallery.module.css";
 
 const PAGE = 8;
@@ -21,6 +22,11 @@ export default function Gallery({ items, options }) {
   const [service, setService] = useState("");
   const [country, setCountry] = useState("");
   const [limit, setLimit] = useState(PAGE);
+  const [view, setView] = useState("grid");
+  const numbers = useMemo(
+    () => Object.fromEntries(items.map((p, i) => [p.slug, String(i + 1).padStart(2, "0")])),
+    [items],
+  );
   const q = useDeferredValue(query);
 
   const filtered = useMemo(() => {
@@ -118,14 +124,26 @@ export default function Gallery({ items, options }) {
               Zurücksetzen
             </button>
           )}
+          <div className={styles.view} role="group" aria-label="Ansicht">
+            <button type="button" aria-pressed={view === "grid"} onClick={() => setView("grid")}>
+              Raster
+            </button>
+            <button type="button" aria-pressed={view === "list"} onClick={() => setView("list")}>
+              Index
+            </button>
+          </div>
         </div>
       </div>
 
-      {filtered.length ? (
+      {filtered.length && view === "list" ? (
+        <div className="wrap">
+          <IndexList items={filtered} numbers={numbers} />
+        </div>
+      ) : filtered.length ? (
         <ul className={`${styles.grid} wrap`}>
           {visible.map((p, i) => (
             <li key={p.slug} className={styles.item} style={{ "--d": `${(i % PAGE) * 40}ms` }}>
-              <Card project={p} eager={i < 2} />
+              <Card project={p} eager={i < 2} num={numbers[p.slug]} />
             </li>
           ))}
         </ul>
@@ -138,7 +156,7 @@ export default function Gallery({ items, options }) {
         </div>
       )}
 
-      {filtered.length > limit && (
+      {view === "grid" && filtered.length > limit && (
         <div className={`${styles.more} wrap`}>
           <button type="button" onClick={() => setLimit((l) => l + PAGE)}>
             Weitere Projekte anzeigen
@@ -171,7 +189,7 @@ function Select({ label, value, onChange, options }) {
   );
 }
 
-function Card({ project: p, eager }) {
+function Card({ project: p, eager, num }) {
   return (
     <Link
       href={`/projekte/${p.slug}`}
@@ -190,7 +208,10 @@ function Card({ project: p, eager }) {
           />
         </div>
       <div className={styles.meta}>
-        <h2 className={styles.cardTitle}>{p.title}</h2>
+        <h2 className={styles.cardTitle}>
+          <span className={styles.cardNum}>{num}</span>
+          {p.title}
+        </h2>
         <p className={styles.cardPlace}>
           {[p.zoo, p.city].filter((x, i, a) => x && a.indexOf(x) === i).join(", ")}
         </p>

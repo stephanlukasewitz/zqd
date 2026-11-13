@@ -125,7 +125,8 @@
   max-width: 14ch;
 }
 
-.statementLarge span {
+.soft,
+.soft span {
   color: var(--soft);
 }
 
