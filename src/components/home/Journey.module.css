@@ -1,0 +1,200 @@
+.journey {
+  position: relative;
+  height: calc(var(--steps) * 100svh + 40svh);
+  background: #05090d;
+  color: var(--paper);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity;
+  transform-origin: 50% 50%;
+}
+
+/* Feiner Rahmen, solange die nächste Ebene noch klein „im Fenster“ steht */
+.layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgb(255 255 255 / 0.95);
+  box-shadow: 0 30px 80px rgb(0 0 0 / 0.35);
+  opacity: var(--frame, 0);
+  pointer-events: none;
+}
+
+.img {
+  object-fit: cover;
+}
+
+/* Gleichmäßige, flache Abdunklung für Lesbarkeit */
+.shade {
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 0.28);
+  pointer-events: none;
+}
+
+.text {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  bottom: clamp(40px, 7vh, 96px);
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.claim {
+  font-size: clamp(2.6rem, 0.4rem + 7vw, 11rem);
+  letter-spacing: -0.055em;
+  line-height: 0.93;
+  font-weight: 400;
+}
+
+.claim2 {
+  display: block;
+  color: rgb(255 255 255 / 0.55);
+}
+
+.dot {
+  color: #e0222f;
+}
+
+.lede {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 32px;
+  margin-top: clamp(20px, 3vw, 40px);
+  font-size: var(--fs-sm);
+  color: rgb(255 255 255 / 0.75);
+}
+
+.scale {
+  font-size: var(--fs-sm);
+  color: rgb(255 255 255 / 0.7);
+  margin-bottom: 10px;
+}
+
+.word {
+  font-size: clamp(3rem, 0.6rem + 8.4vw, 13rem);
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+  font-weight: 400;
+}
+
+.line {
+  max-width: 34ch;
+  margin-top: clamp(16px, 2vw, 28px);
+  font-size: clamp(1.05rem, 0.9rem + 0.5vw, 1.4rem);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: var(--fs-sm);
+  border-bottom: 1px solid rgb(255 255 255 / 0.5);
+  padding-bottom: 2px;
+}
+
+/* Maßstabsleiste rechts */
+.gauge {
+  position: absolute;
+  right: var(--margin);
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  gap: 22px;
+  font-size: var(--fs-xs);
+  text-align: right;
+}
+
+.gauge li {
+  position: relative;
+  padding-right: 22px;
+  color: rgb(255 255 255 / 0.45);
+  transition: color 0.4s var(--ease);
+}
+
+.gauge li::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 12px;
+  height: 1px;
+  background: currentColor;
+  transition:
+    width 0.4s var(--ease),
+    background-color 0.4s var(--ease);
+}
+
+.gauge li[data-past] {
+  color: rgb(255 255 255 / 0.7);
+}
+
+.gauge li[data-on] {
+  color: var(--paper);
+}
+
+.gauge li[data-on]::after {
+  width: 18px;
+  background: #e0222f;
+}
+
+@media (max-width: 760px) {
+  .gauge {
+    top: auto;
+    bottom: auto;
+    top: calc(var(--header-h) + 16px);
+    transform: none;
+    gap: 8px;
+  }
+
+  .line {
+    max-width: 28ch;
+  }
+}
+
+/* Ohne Bewegung: die Ebenen stehen einfach untereinander */
+@media (prefers-reduced-motion: reduce) {
+  .journey {
+    height: auto;
+  }
+
+  .sticky {
+    position: relative;
+    height: auto;
+  }
+
+  .layer {
+    position: relative;
+    height: 90svh;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  .text {
+    position: relative;
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 40px 0;
+    color: var(--ink);
+  }
+
+  .shade,
+  .gauge {
+    display: none;
+  }
+}

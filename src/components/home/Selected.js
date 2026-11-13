@@ -5,12 +5,12 @@ import { placeOf, projects } from "@/content/projects";
 import styles from "./Selected.module.css";
 
 const PICK = [
-  "eismeer-hagenbeck",
-  "dickhaeuterhaus-tierpark-berlin",
+  "polarium-rostock",
   "artenschutz-aquarium-schoenbrunn",
-  "orang-utan-dome-hagenbeck",
+  "dickhaeuterhaus-tierpark-berlin",
   "haus-der-giganten-verona",
   "elefantenfreilaufhalle-hagenbeck",
+  "masterplan-2030-koeln",
 ];
 
 // Ausgewählte Projekte – zwei versetzte Spalten, wie Blätter auf dem Tisch.
