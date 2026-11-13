@@ -118,18 +118,14 @@
   transition: none;
 }
 
-/* Bildunterschrift im Vollbild – ruhig, unten */
+/* Bildunterschrift unter dem Bild */
 .caption {
-  position: absolute;
-  left: var(--margin);
-  right: var(--margin);
-  bottom: clamp(20px, 3vw, 40px);
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: baseline;
   gap: 24px;
+  padding: 16px var(--margin) 0;
   font-size: var(--fs-sm);
-  text-shadow: 0 1px 18px rgb(0 0 0 / 0.35);
 }
 
 .title {
@@ -137,14 +133,19 @@
   gap: 2px;
 }
 
+.title {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+
 .titleText {
-  font-size: clamp(1.4rem, 1rem + 1.2vw, 2.4rem);
-  letter-spacing: -0.03em;
   animation: fade-in 0.9s var(--ease) both;
 }
 
 .view {
-  opacity: 0.8;
+  color: var(--mute);
+  opacity: 0.9;
   transition: opacity 0.3s var(--ease);
 }
 
@@ -172,8 +173,8 @@
 }
 
 .count {
-  letter-spacing: -0.025em;
-  font-size: 1.1rem;
+  letter-spacing: 0;
+  color: var(--mute);
   min-width: 4em;
   text-align: center;
 }

@@ -104,26 +104,26 @@ export default function Hero({ slides }) {
               />
             </div>
 
+          </div>
             <div className={styles.caption}>
-              <TLink href={`/projekte/${current.slug}`} className={styles.title}>
-                <span key={current.title} className={styles.titleText}>
-                  {current.title}
-                </span>
-                <span className={styles.view}>Projekt ansehen →</span>
-              </TLink>
-              <div className={styles.controls}>
-                <button type="button" onClick={() => go(-1)} aria-label="Vorheriges Bild">
-                  ←
-                </button>
-                <span className={styles.count}>
-                  {String(index + 1).padStart(2, "0")}
-                  <i>/</i>
-                  {String(count).padStart(2, "0")}
-                </span>
-                <button type="button" onClick={() => go(1)} aria-label="Nächstes Bild">
-                  →
-                </button>
-              </div>
+            <TLink href={`/projekte/${current.slug}`} className={styles.title}>
+              <span key={current.title} className={styles.titleText}>
+                {current.title}
+              </span>
+              <span className={styles.view}>Projekt ansehen →</span>
+            </TLink>
+            <div className={styles.controls}>
+              <button type="button" onClick={() => go(-1)} aria-label="Vorheriges Bild">
+                ←
+              </button>
+              <span className={styles.count}>
+                {String(index + 1).padStart(2, "0")}
+                <i>/</i>
+                {String(count).padStart(2, "0")}
+              </span>
+              <button type="button" onClick={() => go(1)} aria-label="Nächstes Bild">
+                →
+              </button>
             </div>
           </div>
         </div>

@@ -1,28 +1,22 @@
-import IndexList from "../projects/IndexList";
+import Image from "next/image";
 import TLink from "../transition/TLink";
 import Reveal from "../fx/Reveal";
-import { projects, toCard } from "@/content/projects";
+import { placeOf, projects } from "@/content/projects";
 import styles from "./Selected.module.css";
 
 const PICK = [
-  "eismeer-hagenbeck",
   "tropen-aquarium-hagenbeck",
+  "dickhaeuterhaus-tierpark-berlin",
   "artenschutz-aquarium-schoenbrunn",
-  "polarium-rostock",
   "orang-utan-dome-hagenbeck",
   "haus-der-giganten-verona",
-  "masterplan-2030-koeln",
-  "dickhaeuterhaus-tierpark-berlin",
+  "elefantenfreilaufhalle-hagenbeck",
 ];
 
-// Ausgewählte Projekte als Index – dasselbe Muster wie die Projektübersicht.
+// Ausgewählte Projekte – zwei versetzte Spalten, wie Blätter auf dem Tisch.
 export default function Selected() {
   const list = PICK.map((s) => projects.find((p) => p.slug === s)).filter(Boolean);
-  const numbers = Object.fromEntries(
-    projects.map((p, i) => [p.slug, String(i + 1).padStart(2, "0")]),
-  );
-  const countries = new Set(projects.map((p) => p.country).filter(Boolean)).size;
-  const clients = new Set(projects.map((p) => p.zoo).filter(Boolean)).size;
+  const num = (p) => String(projects.indexOf(p) + 1).padStart(2, "0");
 
   return (
     <section className={styles.section} aria-labelledby="auswahl">
@@ -30,31 +24,33 @@ export default function Selected() {
         <h2 id="auswahl" className={styles.title}>
           <Reveal>Ausgewählte Projekte</Reveal>
         </h2>
-        <TLink href="/projekte?ansicht=index" className="tlink">
+        <TLink href="/projekte" className="tlink">
           Alle {projects.length} Projekte <span className="arrow" aria-hidden="true">→</span>
         </TLink>
       </div>
 
-      <IndexList items={list.map(toCard)} numbers={numbers} />
-
-      <dl className={styles.figures}>
-        <div>
-          <dt>Projekte</dt>
-          <dd>{projects.length}</dd>
-        </div>
-        <div>
-          <dt>Länder</dt>
-          <dd>{countries}</dd>
-        </div>
-        <div>
-          <dt>Zoologische Einrichtungen</dt>
-          <dd>{clients}</dd>
-        </div>
-        <div>
-          <dt>Leistungsphasen</dt>
-          <dd>1–9</dd>
-        </div>
-      </dl>
+      <ul className={styles.grid}>
+        {list.map((p) => (
+          <li key={p.slug} className={styles.item}>
+            <TLink href={`/projekte/${p.slug}`} className={styles.card}>
+              <div className={`${styles.media} img-reveal`}>
+                <Image
+                  src={p.cover.image}
+                  alt={p.cover.alt}
+                  fill
+                  sizes="(max-width: 760px) 100vw, 46vw"
+                  className={styles.img}
+                />
+              </div>
+              <div className={styles.meta}>
+                <span className={styles.num}>{num(p)}</span>
+                <span className={styles.name}>{p.title}</span>
+                <span className={styles.place}>{placeOf(p)}</span>
+              </div>
+            </TLink>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
