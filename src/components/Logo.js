@@ -3,8 +3,10 @@ import styles from "./Logo.module.css";
 // Kombiniertes ZQD-Logo (G00). Zwei Farbvarianten liegen übereinander und
 // werden über die Klasse `onDark` am Elternelement überblendet.
 export default function Logo({ variant = "full", className = "", priority }) {
-  const base = variant === "mark" ? "zqd-mark" : "zqd-logo";
-  const ratio = variant === "mark" ? 352 / 360 : 1864 / 360;
+  const files = { mark: "zqd-mark", wordmark: "zqd-wordmark", full: "zqd-logo" };
+  const ratios = { mark: 352 / 360, wordmark: 1412 / 118, full: 1864 / 360 };
+  const base = files[variant] || files.full;
+  const ratio = ratios[variant] || ratios.full;
   return (
     <span
       className={`${styles.logo} ${className}`}
@@ -15,7 +17,7 @@ export default function Logo({ variant = "full", className = "", priority }) {
       <img
         className={styles.dark}
         src={`/brand/${base}.svg`}
-        alt="ZQD – Zooquariumdesign, Architekturgarage"
+        alt="Zooquariumdesign – ZQD GmbH"
         fetchPriority={priority ? "high" : undefined}
         decoding="async"
       />

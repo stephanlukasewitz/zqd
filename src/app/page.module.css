@@ -1,15 +1,19 @@
-.section {
+/* Jeder Abschnitt: links ein ruhiges Stichwort, rechts der Inhalt. */
+.block {
   padding: clamp(110px, 14vw, 240px) var(--margin) 0;
 }
 
-.h2 {
-  font-size: clamp(2rem, 1rem + 3vw, 4rem);
-  letter-spacing: -0.04em;
-  line-height: 1;
+.head {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: start;
+  margin-bottom: clamp(40px, 5vw, 80px);
 }
 
-/* Linke Spalte: ein ruhiges Stichwort wie in einer Planlegende */
 .key {
+  grid-column: 1 / span 3;
+  padding-top: 0.5em;
   font-size: var(--fs-sm);
   letter-spacing: 0;
   line-height: 1.4;
@@ -17,112 +21,20 @@
   color: var(--mute);
 }
 
-/* H02 */
-.philosophy {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--gutter);
-}
-
-.philosophy .key {
-  grid-column: 1 / span 3;
-  padding-top: 0.7em;
-}
-
 .statement {
   grid-column: 4 / -1;
-  letter-spacing: -0.025em;
   font-size: clamp(1.5rem, 1rem + 1.6vw, 2.75rem);
-  letter-spacing: -0.02em;
-  line-height: 1.12;
-  text-wrap: pretty;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  max-width: 34ch;
 }
 
-.statement span {
-  color: var(--soft);
-}
-
-.words {
+.title {
   grid-column: 4 / -1;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  column-gap: var(--gutter);
-  margin-top: clamp(56px, 7vw, 120px);
-  padding-top: 14px;
-  border-top: 1px solid var(--ink);
-  font-size: var(--fs-sm);
-}
-
-@media (max-width: 560px) {
-  .words {
-    grid-template-columns: 1fr;
-    row-gap: 4px;
-  }
-}
-
-
-
-/* H03 – asymmetrische Komposition */
-.compTile {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: var(--gutter);
-  align-items: end;
-}
-
-.compMedia {
-  position: relative;
-  grid-column: 1 / span 8;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: #e6e6e6;
-}
-
-.compImg {
-  object-fit: cover;
-  transition: transform 1.6s var(--ease);
-}
-
-.compTile:hover .compImg {
-  transform: scale(1.04);
-}
-
-.compText {
-  grid-column: 9 / -1;
-  display: grid;
-  gap: 24px;
-  justify-items: start;
-  padding-bottom: 4px;
-  font-size: var(--fs-base);
-  color: #2b2b2b;
-}
-
-.compText .h2 {
-  color: var(--ink);
-  margin-bottom: 8px;
-}
-
-.compText .tlink {
-  font-size: var(--fs-sm);
-  color: var(--ink);
-}
-
-/* H04 */
-.phasesTitle {
-  max-width: 12ch;
-  margin-bottom: clamp(48px, 6vw, 96px);
-}
-
-/* H05 */
-.general {
-  padding-bottom: 0;
-}
-
-.statementLarge {
-  font-size: clamp(2.3rem, 0.6rem + 5.4vw, 8.5rem);
-  letter-spacing: -0.05em;
+  font-size: clamp(2.2rem, 0.8rem + 4vw, 6rem);
+  letter-spacing: -0.055em;
   line-height: 0.95;
-  max-width: 14ch;
+  max-width: 16ch;
 }
 
 .soft,
@@ -130,52 +42,35 @@
   color: var(--soft);
 }
 
-.generalBody {
+.after {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--gutter);
-  row-gap: 48px;
-  margin-top: clamp(56px, 7vw, 120px);
-  align-items: end;
+  margin-top: clamp(40px, 5vw, 72px);
 }
 
-.generalBody > :first-child {
-  grid-column: 1 / span 7;
-}
-
-.generalText {
-  grid-column: 9 / -1;
-  display: grid;
-  gap: 24px;
-  justify-items: start;
+.after p {
+  grid-column: 4 / span 6;
   color: #2b2b2b;
 }
 
-.generalText a {
+.after a {
+  grid-column: 4 / span 6;
+  justify-self: start;
+  margin-top: 24px;
   font-size: var(--fs-sm);
-  color: var(--ink);
 }
 
 @media (max-width: 900px) {
-  .philosophy .key,
+  .key,
   .statement,
-  .words,
-  .compMedia,
-  .compText,
-  .generalBody > :first-child,
-  .generalText {
+  .title,
+  .after p,
+  .after a {
     grid-column: 1 / -1;
   }
 
-  .philosophy .key {
-    margin-bottom: 20px;
-  }
-
-  .compText {
-    margin-top: 28px;
-  }
-
-  .compMedia {
-    aspect-ratio: 4 / 3.4;
+  .key {
+    margin-bottom: 16px;
   }
 }

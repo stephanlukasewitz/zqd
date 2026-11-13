@@ -36,7 +36,7 @@ export default function Header() {
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hover, setHover] = useState(null);
-  const [onDark, setOnDark] = useState(pathname === "/");
+  const [onDark, setOnDark] = useState(false);
 
   // Liegt der Header über einer dunklen Fläche (z. B. dem Hero)?
   useEffect(() => {
@@ -80,7 +80,7 @@ export default function Header() {
     setLastPath(pathname);
     setOpen(false);
     setHidden(false);
-    setOnDark(pathname === "/");
+    setOnDark(false);
   }
 
   const toggle = () => {
@@ -119,7 +119,7 @@ export default function Header() {
     >
       <div className={styles.bar}>
         <TLink href="/" className={styles.brand} aria-label="ZQD – zur Startseite">
-          <Logo variant="mark" priority />
+          <Logo variant="wordmark" priority />
         </TLink>
 
 

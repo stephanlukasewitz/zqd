@@ -41,7 +41,7 @@
 }
 
 .brand {
-  --logo-h: 40px;
+  --logo-h: 15px;
   display: block;
 }
 
@@ -320,7 +320,7 @@
   }
 
   .brand {
-    --logo-h: 36px;
+    --logo-h: 12px;
   }
 
   .panelLabel {

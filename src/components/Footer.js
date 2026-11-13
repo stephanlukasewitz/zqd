@@ -10,7 +10,7 @@ export default function Footer() {
     <footer id="site-footer" className={styles.footer}>
       <div className={styles.grid}>
         <TLink href="/" className={styles.brand} aria-label="ZQD – zur Startseite">
-          <Logo variant="mark" />
+          <Logo variant="wordmark" />
         </TLink>
 
         <div className={styles.col}>
@@ -41,8 +41,11 @@ export default function Footer() {
       </div>
 
       <div className={styles.base}>
-        <p>
-          © <Year /> {site.legalName} · Zooquariumdesign · Architekturgarage
+        <p className={styles.copy}>
+          <Logo variant="mark" className={styles.mark} />
+          <span>
+            © <Year /> {site.legalName} · Zooquariumdesign · Architekturgarage
+          </span>
         </p>
         <ul>
           {legalNav.map((item) => (

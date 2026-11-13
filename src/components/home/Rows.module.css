@@ -1,0 +1,153 @@
+.rows {
+  border-bottom: 1px solid var(--line);
+}
+
+.row {
+  border-top: 1px solid var(--line);
+  transition: opacity 0.45s var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row[data-dim] {
+    opacity: 0.3;
+  }
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr) minmax(0, 0.9fr) 1.4rem;
+  align-items: baseline;
+  column-gap: var(--gutter);
+  padding: clamp(10px, 1.2vw, 18px) 0 clamp(8px, 1vw, 14px);
+  list-style: none;
+  cursor: default;
+}
+
+.details summary {
+  cursor: pointer;
+}
+
+.details summary::-webkit-details-marker {
+  display: none;
+}
+
+.num {
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.label {
+  font-size: clamp(2.2rem, 0.8rem + 4.4vw, 6.4rem);
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+  transition: transform 0.7s var(--ease);
+}
+
+.rows[data-size="m"] .label {
+  font-size: clamp(1.8rem, 0.8rem + 2.8vw, 4.2rem);
+}
+
+@media (hover: hover) {
+  .row:hover .label {
+    transform: translateX(12px);
+  }
+}
+
+.note {
+  font-size: var(--fs-sm);
+  color: var(--mute);
+  max-width: 36ch;
+}
+
+.plus {
+  position: relative;
+  align-self: center;
+  width: 14px;
+  height: 14px;
+  justify-self: end;
+}
+
+.plus::before,
+.plus::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.5s var(--ease);
+}
+
+.plus::after {
+  transform: rotate(90deg);
+}
+
+.details[open] .plus::after {
+  transform: rotate(0deg);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr) minmax(0, 0.9fr) 1.4rem;
+  column-gap: var(--gutter);
+  padding: 4px 0 clamp(20px, 2.4vw, 36px);
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.body p {
+  grid-column: 2;
+  max-width: 40ch;
+}
+
+.body ul {
+  grid-column: 3;
+  display: grid;
+  gap: 2px;
+}
+
+@supports (interpolate-size: allow-keywords) {
+  .details {
+    interpolate-size: allow-keywords;
+  }
+
+  .details::details-content {
+    height: 0;
+    overflow: clip;
+    transition:
+      height 0.5s var(--ease),
+      content-visibility 0.5s allow-discrete;
+  }
+
+  .details[open]::details-content {
+    height: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .head,
+  .body {
+    grid-template-columns: 2.4rem minmax(0, 1fr) 1.2rem;
+  }
+
+  .note {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 6px;
+  }
+
+  .plus {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .body p,
+  .body ul {
+    grid-column: 2;
+  }
+
+  .body ul {
+    margin-top: 12px;
+  }
+}

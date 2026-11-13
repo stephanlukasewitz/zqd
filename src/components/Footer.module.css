@@ -15,9 +15,26 @@
 
 .brand {
   grid-column: 1 / span 6;
-  --logo-h: 56px;
+  --logo-h: clamp(16px, 1.7vw, 26px);
   align-self: start;
   width: max-content;
+  max-width: 100%;
+}
+
+.brand > span {
+  max-width: 100%;
+  height: auto;
+  width: calc(var(--logo-h) * var(--ratio));
+}
+
+.copy {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mark {
+  --logo-h: 22px;
 }
 
 .col {
