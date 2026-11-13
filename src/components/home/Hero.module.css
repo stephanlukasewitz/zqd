@@ -64,70 +64,21 @@
   font-size: var(--fs-sm);
 }
 
-/* Bühne: das Bild startet eingerückt und wächst beim Scrollen zum Vollbild. */
+/* Bildband über die volle Breite – das Wasser bewegt sich, die Seite nicht. */
 .stage {
-  position: relative;
-  height: 165vh;
   margin-top: clamp(40px, 6vw, 96px);
 }
 
 .sticky {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
+  position: relative;
 }
 
 .frame {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  height: min(92vh, 60vw);
+  min-height: 360px;
   color: var(--paper);
-  clip-path: inset(0 var(--margin) 22% var(--margin));
-}
-
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .stage {
-      view-timeline: --stage block;
-    }
-
-    .frame {
-      animation: grow linear both;
-      animation-timeline: --stage;
-      animation-range: entry 35% entry 100%;
-    }
-
-    .img,
-    .canvas {
-      animation: settle linear both;
-      animation-timeline: --stage;
-      animation-range: entry 35% exit 100%;
-    }
-  }
-}
-
-@supports not (animation-timeline: view()) {
-  .frame {
-    clip-path: none;
-  }
-}
-
-@keyframes grow {
-  from {
-    clip-path: inset(0 var(--margin) 22% var(--margin));
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-@keyframes settle {
-  from {
-    transform: scale(1.14) translate3d(0, -3%, 0);
-  }
-  to {
-    transform: scale(1.02) translate3d(0, 3%, 0);
-  }
+  overflow: hidden;
 }
 
 .media {
@@ -266,17 +217,7 @@
     justify-content: flex-start;
   }
 
-  .stage {
-    height: auto;
-  }
-
-  .sticky {
-    position: relative;
-    height: 78svh;
-  }
-
   .frame {
-    clip-path: none !important;
-    animation: none !important;
+    height: 72svh;
   }
 }

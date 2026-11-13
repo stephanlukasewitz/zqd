@@ -50,9 +50,12 @@ export default function TransitionProvider({ children }) {
     clearTimeout(timer.current);
     const anchor = window.location.hash && document.querySelector(window.location.hash);
     const lenis = window.__lenis;
-    if (lenis) lenis.scrollTo(anchor || 0, { immediate: true, force: true });
+    const restore = window.__restoreScroll;
+    delete window.__restoreScroll;
+    const target = anchor || restore || 0;
+    if (lenis) lenis.scrollTo(target, { immediate: true, force: true });
     else if (anchor) anchor.scrollIntoView();
-    else window.scrollTo(0, 0);
+    else window.scrollTo(0, restore || 0);
     const t = setTimeout(() => setPhase("idle"), IN);
     return () => clearTimeout(t);
   }, [phase]);

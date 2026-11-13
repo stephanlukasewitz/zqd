@@ -2,62 +2,45 @@
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--gutter);
-  row-gap: 56px;
+  row-gap: clamp(48px, 6vw, 96px);
   margin-top: clamp(56px, 7vw, 120px);
 }
 
-.side {
-  grid-column: 1 / span 4;
-  display: grid;
-  align-content: space-between;
-  gap: 56px;
-}
-
 .list {
+  grid-column: 1 / -1;
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--gutter);
 }
 
-.item {
+.list li {
   display: grid;
-  gap: 6px;
-  width: 100%;
-  padding: 16px 0 18px;
-  border-top: 1px solid var(--line);
-  text-align: left;
+  gap: 10px;
+  align-content: start;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink);
 }
 
-.list li:last-child .item {
-  border-bottom: 1px solid var(--line);
+.num {
+  font-size: var(--fs-sm);
+  color: var(--mute);
 }
 
 .label {
-  font-size: clamp(1.4rem, 1rem + 1vw, 2rem);
-  letter-spacing: -0.03em;
-  color: var(--soft);
-  transition: color 0.4s var(--ease);
-}
-
-.item[aria-pressed="true"] .label {
-  color: var(--ink);
+  font-size: clamp(1.8rem, 1rem + 2vw, 3.2rem);
+  letter-spacing: -0.045em;
+  line-height: 1;
+  margin-bottom: 12px;
 }
 
 .text {
-  display: grid;
-  grid-template-rows: 0fr;
+  max-width: 32ch;
   font-size: var(--fs-sm);
   color: var(--mute);
-  max-width: 34ch;
-  transition: grid-template-rows 0.5s var(--ease), opacity 0.4s var(--ease);
-  opacity: 0;
-  overflow: hidden;
-}
-
-.item[aria-pressed="true"] .text {
-  grid-template-rows: 1fr;
-  opacity: 1;
 }
 
 .copy {
+  grid-column: 7 / -1;
   display: grid;
   gap: 24px;
   justify-items: start;
@@ -69,142 +52,13 @@
   color: var(--ink);
 }
 
-.figure {
-  grid-column: 6 / -1;
-  align-self: start;
-}
-
-.svg {
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-
-.svg path,
-.svg rect,
-.svg circle,
-.svg ellipse {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1;
-  vector-effect: non-scaling-stroke;
-  transition:
-    stroke 0.5s var(--ease),
-    opacity 0.5s var(--ease);
-}
-
-.thick {
-  stroke-width: 1.6 !important;
-}
-
-.glass {
-  stroke: var(--soft) !important;
-}
-
-.ground {
-  stroke: var(--soft) !important;
-}
-
-.rib,
-.duct {
-  stroke-dasharray: 3 5;
-}
-
-.pipe {
-  stroke-width: 1.4 !important;
-}
-
-.svg .water {
-  fill: #f3f3f3;
-  stroke: none;
-  transition: fill 0.5s var(--ease);
-}
-
-/* Hervorhebung: gewählte Disziplin rot, der Rest tritt zurück */
-.wrap[data-active] .zoo,
-.wrap[data-active] .arch,
-.wrap[data-active] .tech {
-  opacity: 0.25;
-}
-
-.wrap[data-active="zoo"] .zoo,
-.wrap[data-active="zoo"] .zoo *,
-.wrap[data-active="arch"] .arch,
-.wrap[data-active="arch"] .arch *,
-.wrap[data-active="tech"] .tech,
-.wrap[data-active="tech"] .tech * {
-  opacity: 1;
-  stroke: var(--red) !important;
-}
-
-.wrap[data-active="zoo"] .water {
-  fill: #fbeeee;
-}
-
-/* Leben im Becken – sehr langsam, nur transform */
-.wave {
-  animation: wave 6s linear infinite;
-}
-
-@keyframes wave {
-  to {
-    transform: translateX(-100px);
+@media (max-width: 860px) {
+  .list {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
   }
-}
 
-.fishMove {
-  animation: swim 14s ease-in-out infinite alternate;
-  animation-delay: var(--d);
-}
-
-@keyframes swim {
-  from {
-    transform: translateX(-40px);
-  }
-  to {
-    transform: translateX(60px);
-  }
-}
-
-.kelp {
-  transform-box: fill-box;
-  transform-origin: bottom;
-  animation: sway 5s ease-in-out infinite alternate;
-}
-
-@keyframes sway {
-  from {
-    transform: skewX(-4deg);
-  }
-  to {
-    transform: skewX(4deg);
-  }
-}
-
-.caption {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 16px;
-  font-size: var(--fs-xs);
-  color: var(--mute);
-}
-
-@media (max-width: 900px) {
-  .side,
-  .figure {
+  .copy {
     grid-column: 1 / -1;
-  }
-
-  .figure {
-    order: -1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wave,
-  .fishMove,
-  .kelp {
-    animation: none;
   }
 }

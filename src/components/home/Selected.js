@@ -1,53 +1,60 @@
-import Image from "next/image";
+import IndexList from "../projects/IndexList";
 import TLink from "../transition/TLink";
-import { projects } from "@/content/projects";
-import Reveal from "@/components/fx/Reveal";
+import Reveal from "../fx/Reveal";
+import { projects, toCard } from "@/content/projects";
 import styles from "./Selected.module.css";
 
 const PICK = [
-  "elefanten-badeteich-hagenbeck",
+  "eismeer-hagenbeck",
+  "tropen-aquarium-hagenbeck",
   "artenschutz-aquarium-schoenbrunn",
+  "polarium-rostock",
+  "orang-utan-dome-hagenbeck",
   "haus-der-giganten-verona",
-  "elefantenfreilaufhalle-hagenbeck",
-  "kaenguruhaus-hagenbeck",
+  "masterplan-2030-koeln",
   "dickhaeuterhaus-tierpark-berlin",
 ];
 
-// Ausgewählte Projekte als ruhige Vorschau – zwei versetzte Spalten.
+// Ausgewählte Projekte als Index – dasselbe Muster wie die Projektübersicht.
 export default function Selected() {
   const list = PICK.map((s) => projects.find((p) => p.slug === s)).filter(Boolean);
+  const numbers = Object.fromEntries(
+    projects.map((p, i) => [p.slug, String(i + 1).padStart(2, "0")]),
+  );
+  const countries = new Set(projects.map((p) => p.country).filter(Boolean)).size;
+  const clients = new Set(projects.map((p) => p.zoo).filter(Boolean)).size;
+
   return (
     <section className={styles.section} aria-labelledby="auswahl">
       <div className={styles.head}>
         <h2 id="auswahl" className={styles.title}>
           <Reveal>Ausgewählte Projekte</Reveal>
-          <sup>({projects.length})</sup>
         </h2>
-        <TLink href="/projekte" className="tlink">
-          Alle Projekte <span className="arrow" aria-hidden="true">→</span>
+        <TLink href="/projekte?ansicht=index" className="tlink">
+          Alle {projects.length} Projekte <span className="arrow" aria-hidden="true">→</span>
         </TLink>
       </div>
-      <ul className={styles.grid}>
-        {list.map((p, i) => (
-          <li key={p.slug} className={styles.item}>
-            <TLink href={`/projekte/${p.slug}`} className={styles.card}>
-              <div className={`${styles.media} img-reveal`} data-shape={i % 3 === 1 ? "tall" : undefined}>
-                <Image
-                  src={p.cover.image}
-                  alt={p.cover.alt}
-                  fill
-                  sizes="(max-width: 760px) 100vw, 46vw"
-                  className={styles.img}
-                />
-              </div>
-              <div className={styles.meta}>
-                <span>{p.title}</span>
-                <span className={styles.place}>{[p.zoo, p.city].filter(Boolean).join(", ")}</span>
-              </div>
-            </TLink>
-          </li>
-        ))}
-      </ul>
+
+      <IndexList items={list.map(toCard)} numbers={numbers} />
+
+      <dl className={styles.figures}>
+        <div>
+          <dt>Projekte</dt>
+          <dd>{projects.length}</dd>
+        </div>
+        <div>
+          <dt>Länder</dt>
+          <dd>{countries}</dd>
+        </div>
+        <div>
+          <dt>Zoologische Einrichtungen</dt>
+          <dd>{clients}</dd>
+        </div>
+        <div>
+          <dt>Leistungsphasen</dt>
+          <dd>1–9</dd>
+        </div>
+      </dl>
     </section>
   );
 }

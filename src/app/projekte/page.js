@@ -1,5 +1,7 @@
 import PageTransition from "@/components/PageTransition";
+import { Suspense } from "react";
 import Gallery from "@/components/projects/Gallery";
+import GalleryFromUrl from "@/components/projects/GalleryFromUrl";
 import { filterOptions, projects, toCard } from "@/content/projects";
 import Reveal from "@/components/fx/Reveal";
 import styles from "./page.module.css";
@@ -22,7 +24,9 @@ export default function ProjektePage() {
           <p className={styles.sub}>Ausgewählte Aufgaben, Ansätze und Ergebnisse.</p>
         </div>
       </section>
-      <Gallery items={projects.map(toCard)} options={filterOptions()} />
+      <Suspense fallback={<Gallery items={projects.map(toCard)} options={filterOptions()} />}>
+        <GalleryFromUrl items={projects.map(toCard)} options={filterOptions()} />
+      </Suspense>
     </PageTransition>
   );
 }

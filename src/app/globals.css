@@ -210,17 +210,19 @@ button {
     .img-reveal {
       animation: img-reveal linear both;
       animation-timeline: view();
-      animation-range: entry 0% cover 40%;
+      animation-range: entry 0% entry 70%;
     }
   }
 }
 
 @keyframes img-reveal {
   from {
-    clip-path: inset(12% 6% 0 6%);
+    opacity: 0;
+    transform: translate3d(0, 48px, 0);
   }
   to {
-    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: none;
   }
 }
 

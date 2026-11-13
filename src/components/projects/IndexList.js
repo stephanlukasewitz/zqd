@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import TLink from "../transition/TLink";
 import { useEffect, useRef, useState } from "react";
 import styles from "./IndexList.module.css";
 
@@ -53,10 +53,14 @@ export default function IndexList({ items, numbers }) {
       <ul>
         {items.map((p) => (
           <li key={p.slug}>
-            <Link
+            <TLink
               href={`/projekte/${p.slug}`}
-              scroll={false}
               data-slug={p.slug}
+              onClick={() => {
+                try {
+                  sessionStorage.setItem("zqd:projekte-y", String(window.scrollY));
+                } catch {}
+              }}
               className={styles.row}
               data-dim={(hover && hover !== p.slug) || undefined}
               onPointerEnter={() => setHover(p.slug)}
@@ -67,7 +71,7 @@ export default function IndexList({ items, numbers }) {
               <span>{p.zoo || "–"}</span>
               <span>{[p.city, p.country].filter(Boolean).join(", ")}</span>
               <span>{p.type}</span>
-            </Link>
+            </TLink>
           </li>
         ))}
       </ul>

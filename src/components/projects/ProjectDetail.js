@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { placeOf, projects } from "@/content/projects";
 import Reveal from "../fx/Reveal";
 import TLink from "../transition/TLink";
@@ -8,13 +7,11 @@ import styles from "./ProjectDetail.module.css";
 // Wiederkehrende Komposition für die Bildstrecke – wie ein gelayoutetes Magazin.
 const LAYOUT = ["full", "left", "right", "offset", "wide-left"];
 
-export default function ProjectDetail({ project: p, headingLevel = 1, inModal = false }) {
+export default function ProjectDetail({ project: p }) {
   const idx = projects.findIndex((x) => x.slug === p.slug);
   const next = projects[(idx + 1) % projects.length];
   const num = String(idx + 1).padStart(2, "0");
   const total = String(projects.length).padStart(2, "0");
-  const H = `h${headingLevel}`;
-  const NextLink = inModal ? Link : TLink;
 
   const facts = [
     p.zoo && ["Auftraggeber", p.zoo],
@@ -27,7 +24,7 @@ export default function ProjectDetail({ project: p, headingLevel = 1, inModal = 
   const [lead, ...rest] = p.text?.length ? p.text : ["Projektbeschreibung folgt."];
 
   return (
-    <article className={styles.detail} data-modal={inModal || undefined}>
+    <article className={styles.detail}>
       <header className={styles.intro}>
         <p className={styles.meta}>
           <span className={styles.num}>
@@ -38,9 +35,9 @@ export default function ProjectDetail({ project: p, headingLevel = 1, inModal = 
           <span>{p.type}</span>
           <span>{placeOf(p)}</span>
         </p>
-        <H id={`title-${p.slug}`} className={styles.title}>
+        <h1 id={`title-${p.slug}`} className={styles.title}>
           <Reveal>{p.title}</Reveal>
-        </H>
+        </h1>
       </header>
 
       <figure className={`${styles.hero} img-reveal`}>
@@ -110,18 +107,14 @@ export default function ProjectDetail({ project: p, headingLevel = 1, inModal = 
       )}
 
       <nav className={styles.next} aria-label="Nächstes Projekt">
-        <NextLink
-          href={`/projekte/${next.slug}`}
-          className={styles.nextLink}
-          scroll={inModal ? false : undefined}
-        >
+        <TLink href={`/projekte/${next.slug}`} className={styles.nextLink}>
           <span className={styles.nextLabel}>Nächstes Projekt</span>
           <span className={styles.nextTitle}>{next.title}</span>
           <span className={styles.nextPlace}>{placeOf(next)}</span>
           <span className={styles.nextMedia}>
             <Image src={next.cover.image} alt="" fill sizes="30vw" className={styles.shotImg} />
           </span>
-        </NextLink>
+        </TLink>
       </nav>
     </article>
   );

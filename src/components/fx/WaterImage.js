@@ -157,7 +157,7 @@ export default function WaterImage({ sources, index, onReady, className }) {
     const start = performance.now();
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.25);
       const w = Math.max(1, Math.round(el.clientWidth * dpr));
       const h = Math.max(1, Math.round(el.clientHeight * dpr));
       if (el.width !== w || el.height !== h) {

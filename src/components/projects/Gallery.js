@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useDeferredValue, useMemo, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import TLink from "../transition/TLink";
 import IndexList from "./IndexList";
 import styles from "./Gallery.module.css";
 
@@ -16,13 +16,33 @@ function normalize(s) {
     .replace(/ß/g, "ss");
 }
 
-export default function Gallery({ items, options }) {
-  const [query, setQuery] = useState("");
-  const [type, setType] = useState("");
-  const [service, setService] = useState("");
-  const [country, setCountry] = useState("");
-  const [limit, setLimit] = useState(PAGE);
-  const [view, setView] = useState("grid");
+// Filter liegen in der URL (?q=…&art=…&leistung=…&standort=…&ansicht=index),
+// damit sie teilbar sind und beim Zurückkehren erhalten bleiben.
+export default function Gallery({ items, options, initial = {} }) {
+  const [query, setQuery] = useState(initial.q || "");
+  const [type, setType] = useState(initial.art || "");
+  const [service, setService] = useState(initial.leistung || "");
+  const [country, setCountry] = useState(initial.standort || "");
+  const [limit, setLimit] = useState(Math.max(PAGE, Number(initial.n) || PAGE));
+  const [view, setView] = useState(initial.ansicht === "index" ? "list" : "grid");
+
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (query) params.set("q", query);
+    if (type) params.set("art", type);
+    if (service) params.set("leistung", service);
+    if (country) params.set("standort", country);
+    if (view === "list") params.set("ansicht", "index");
+    if (limit > PAGE) params.set("n", String(limit));
+    const qs = params.toString();
+    const url = qs ? `/projekte?${qs}` : "/projekte";
+    if (url !== window.location.pathname + window.location.search) {
+      window.history.replaceState(window.history.state, "", url);
+    }
+    try {
+      sessionStorage.setItem("zqd:projekte", url);
+    } catch {}
+  }, [query, type, service, country, view, limit]);
   const numbers = useMemo(
     () => Object.fromEntries(items.map((p, i) => [p.slug, String(i + 1).padStart(2, "0")])),
     [items],
@@ -191,12 +211,7 @@ function Select({ label, value, onChange, options }) {
 
 function Card({ project: p, eager, num }) {
   return (
-    <Link
-      href={`/projekte/${p.slug}`}
-      className={styles.card}
-      data-slug={p.slug}
-      scroll={false}
-    >
+    <TLink href={`/projekte/${p.slug}`} className={styles.card} data-slug={p.slug} onClick={rememberScroll}>
         <div className={styles.media}>
           <Image
             src={p.cover.image}
@@ -217,6 +232,12 @@ function Card({ project: p, eager, num }) {
         </p>
         <p className={styles.cardType}>{p.type}</p>
       </div>
-    </Link>
+    </TLink>
   );
+}
+
+function rememberScroll() {
+  try {
+    sessionStorage.setItem("zqd:projekte-y", String(window.scrollY));
+  } catch {}
 }

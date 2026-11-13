@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import TLink from "@/components/transition/TLink";
+import BackLink from "@/components/projects/BackLink";
 import PageTransition from "@/components/PageTransition";
 import ProjectDetail from "@/components/projects/ProjectDetail";
 import { getProject, placeOf, projects } from "@/content/projects";
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-// Direkte Projekt-URL: die Karte als eigene Seite, ohne Öffnungsanimation (D06).
+// Projektseite – eigene URL, erreichbar aus Galerie, Index und Startseite.
 export default function ProjectPage({ params }) {
   return (
     <Suspense fallback={<div style={{ minHeight: "100vh" }} />}>
@@ -38,9 +38,9 @@ async function Content({ params }) {
     <PageTransition>
       <div className={styles.page}>
         <nav className={`${styles.back} wrap`} aria-label="Zurück">
-          <TLink href="/projekte" className="tlink">
+          <BackLink className="tlink">
             <span className="arrow" aria-hidden="true">←</span> Alle Projekte
-          </TLink>
+          </BackLink>
         </nav>
         <ProjectDetail project={p} />
       </div>

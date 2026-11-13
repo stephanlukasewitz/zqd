@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import TLink from "./transition/TLink";
-import { nav } from "@/content/site";
+import { nav, site } from "@/content/site";
+import { homeMedia, teamPhotos } from "@/content/media";
 import styles from "./Header.module.css";
 
 function isActive(pathname, href) {
@@ -12,11 +14,28 @@ function isActive(pathname, href) {
   return pathname === href || pathname.startsWith(href + "/");
 }
 
+// Ein Bild je Menüpunkt – die Vorschau zeigt, was einen dort erwartet.
+const PREVIEW = {
+  "/": homeMedia.hero[0].image,
+  "/projekte": homeMedia.hero[1].image,
+  "/team": teamPhotos[0]?.image,
+  "/kontakt": homeMedia.competence.image,
+};
+
+const NOTE = {
+  "/": "Startseite",
+  "/projekte": "Referenzen und Index",
+  "/team": "Menschen und Partner",
+  "/kontakt": "Anfrage und Anfahrt",
+};
+
 export default function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [opened, setOpened] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hover, setHover] = useState(null);
   const menuButton = useRef(null);
   const panel = useRef(null);
 
@@ -46,6 +65,11 @@ export default function Header() {
     setHidden(false);
   }
 
+  const toggle = () => {
+    setOpened(true);
+    setOpen((v) => !v);
+  };
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => {
@@ -65,9 +89,11 @@ export default function Header() {
     };
   }, [open]);
 
+  const shown = hover || nav.find((n) => isActive(pathname, n.href))?.href || "/projekte";
+
   return (
     <header
-      className={`${styles.header} ${open ? "on-dark" : ""}`}
+      className={styles.header}
       data-hidden={(hidden && !open) || undefined}
       data-scrolled={scrolled || undefined}
       data-open={open || undefined}
@@ -77,46 +103,32 @@ export default function Header() {
           <Logo variant="mark" priority />
         </TLink>
 
-        <nav className={styles.nav} aria-label="Hauptnavigation">
-          <ul>
-            {nav.map((item, i) => (
-              <li key={item.href}>
-                <TLink
-                  href={item.href}
-                  className={styles.link}
-                  aria-current={isActive(pathname, item.href) ? "page" : undefined}
-                >
-                  {item.label}
-                </TLink>
-                {i < nav.length - 1 && <span aria-hidden="true">,</span>}
-              </li>
-            ))}
-          </ul>
-        </nav>
 
         <button
           ref={menuButton}
           type="button"
           className={styles.menuButton}
           aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen((v) => !v)}
+          aria-controls="site-menu"
+          onClick={toggle}
         >
           <span className={styles.menuLabel} data-open={open || undefined}>
             <span>Menü</span>
             <span aria-hidden="true">Schließen</span>
           </span>
+          <span className={styles.menuIcon} aria-hidden="true" />
         </button>
       </div>
 
       <div
-        id="mobile-menu"
+        id="site-menu"
         ref={panel}
         className={styles.panel}
         data-open={open || undefined}
         inert={!open}
+        onPointerLeave={() => setHover(null)}
       >
-        <nav aria-label="Menü">
+        <nav className={styles.panelNav} aria-label="Menü">
           <ol className={styles.panelList}>
             {nav.map((item, i) => (
               <li key={item.href} style={{ "--i": i }}>
@@ -124,14 +136,42 @@ export default function Header() {
                   href={item.href}
                   className={styles.panelLink}
                   aria-current={isActive(pathname, item.href) ? "page" : undefined}
+                  data-dim={(hover && hover !== item.href) || undefined}
+                  onPointerEnter={() => setHover(item.href)}
+                  onFocus={() => setHover(item.href)}
                   onClick={() => setOpen(false)}
                 >
-                  {item.label}
+                  <span className={styles.panelNum}>0{i + 1}</span>
+                  <span className={styles.panelLabel}>{item.label}</span>
+                  <span className={styles.panelNote}>{NOTE[item.href]}</span>
                 </TLink>
               </li>
             ))}
           </ol>
         </nav>
+
+        <div className={styles.panelMedia} aria-hidden="true">
+          {opened &&
+            nav.map((item) =>
+              PREVIEW[item.href] ? (
+                <div
+                  key={item.href}
+                  className={styles.panelImg}
+                  data-on={shown === item.href || undefined}
+                >
+                  <Image src={PREVIEW[item.href]} alt="" fill sizes="40vw" />
+                </div>
+              ) : null,
+            )}
+        </div>
+
+        <div className={styles.panelFoot}>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>{site.phone}</a>
+          <span>
+            {site.city}, {site.country}
+          </span>
+        </div>
       </div>
     </header>
   );

@@ -26,7 +26,7 @@
 
 .bar {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,48 +39,13 @@
   display: block;
 }
 
-.nav ul {
-  display: flex;
-  font-size: var(--fs-sm);
-}
-
-.nav li {
-  display: flex;
-}
-
-.nav li > span {
-  margin-right: 0.32em;
-}
-
-.link {
-  position: relative;
-  transition: color 0.3s var(--ease);
-}
-
-.link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.5s var(--ease);
-}
-
-.link:hover::after,
-.link[aria-current="page"]::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
 .menuButton {
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
   height: 44px;
-  margin-right: -4px;
-  padding-inline: 4px;
+  margin-right: -6px;
+  padding-inline: 6px;
   font-size: var(--fs-sm);
 }
 
@@ -88,11 +53,12 @@
   display: grid;
   overflow: hidden;
   height: 1.5em;
+  text-align: right;
 }
 
 .menuLabel > span {
   grid-area: 1 / 1;
-  transition: transform 0.5s var(--ease);
+  transition: transform 0.6s var(--ease);
 }
 
 .menuLabel > span:last-child {
@@ -107,8 +73,194 @@
   transform: none;
 }
 
+/* Kleines Quadrat – das gerahmte ZQD-Zeichen im Kleinen. Gefüllt, wenn offen. */
+.menuIcon {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  border: 1px solid currentColor;
+  transition: transform 0.6s var(--ease);
+}
+
+.menuIcon::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--red);
+  transform: scale(0);
+  transition: transform 0.5s var(--ease);
+}
+
+.header[data-open] .menuIcon::after,
+.menuButton:hover .menuIcon::after {
+  transform: scale(1);
+}
+
+/* Menü-Fläche */
 .panel {
-  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: 1fr auto;
+  column-gap: var(--gutter);
+  padding: calc(var(--header-h) + 4vh) var(--margin) clamp(24px, 3vw, 40px);
+  background: var(--paper);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.45s var(--ease),
+    visibility 0s linear 0.6s;
+}
+
+.panel[data-open] {
+  visibility: visible;
+  opacity: 1;
+  transition:
+    opacity 0.45s var(--ease),
+    visibility 0s;
+}
+
+.panelNav {
+  grid-column: 1 / span 7;
+  align-self: end;
+}
+
+.panelList li {
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.panelList li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.panelLink {
+  display: grid;
+  grid-template-columns: 3.4rem minmax(0, 1fr) auto;
+  align-items: baseline;
+  column-gap: var(--gutter);
+  padding: clamp(6px, 1vw, 14px) 0 clamp(4px, 0.8vw, 10px);
+  transform: translate3d(0, 105%, 0);
+  transition:
+    transform 0.9s var(--ease),
+    opacity 0.4s var(--ease);
+}
+
+.panel[data-open] .panelLink {
+  transform: none;
+  transition-delay: calc(0.08s + var(--i) * 0.055s), 0s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .panelLink[data-dim] {
+    opacity: 0.28;
+  }
+}
+
+.panelNum {
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.panelLabel {
+  font-size: clamp(3rem, 1rem + 6.2vw, 9rem);
+  letter-spacing: -0.058em;
+  line-height: 0.95;
+  transition: transform 0.7s var(--ease);
+}
+
+@media (hover: hover) {
+  .panelLink:hover .panelLabel {
+    transform: translateX(14px);
+  }
+}
+
+.panelLink[aria-current="page"] .panelNum {
+  color: var(--red);
+}
+
+.panelNote {
+  font-size: var(--fs-sm);
+  color: var(--mute);
+  text-align: right;
+}
+
+.panelMedia {
+  grid-column: 9 / -1;
+  align-self: end;
+  position: relative;
+  aspect-ratio: 4 / 5;
+  max-height: 64vh;
+  width: 100%;
+  justify-self: end;
+}
+
+.panelImg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  clip-path: inset(100% 0 0 0);
+  transition:
+    clip-path 0.8s var(--ease),
+    opacity 0.4s var(--ease);
+}
+
+.panelImg img {
+  object-fit: cover;
+  transform: scale(1.12);
+  transition: transform 1.2s var(--ease);
+}
+
+.panel[data-open] .panelImg[data-on] {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transition-delay: 0.15s;
+}
+
+.panel[data-open] .panelImg[data-on] img {
+  transform: none;
+}
+
+.panelFoot {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  padding-top: clamp(24px, 3vw, 40px);
+  font-size: var(--fs-sm);
+  color: var(--mute);
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+
+.panel[data-open] .panelFoot {
+  opacity: 1;
+  transition-delay: 0.35s;
+}
+
+.panelFoot a:hover {
+  color: var(--ink);
+}
+
+@media (max-width: 900px) {
+  .panelNav {
+    grid-column: 1 / -1;
+  }
+
+  .panelMedia {
+    display: none;
+  }
+
+  .panelNote {
+    display: none;
+  }
+
+  .panelLink {
+    grid-template-columns: 2.6rem minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 760px) {
@@ -120,70 +272,11 @@
     --logo-h: 36px;
   }
 
-  .nav {
-    display: none;
+  .panelLabel {
+    font-size: clamp(2.8rem, 14vw, 4.5rem);
   }
 
-  .menuButton {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .header[data-open] {
-    color: var(--paper);
-  }
-
-  .header[data-open]::before {
-    opacity: 0;
-  }
-
-  .panel {
-    display: flex;
-    align-items: flex-end;
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    background: var(--night);
-    color: var(--paper);
-    clip-path: inset(0 0 100% 0);
-    transition: clip-path 0.7s cubic-bezier(0.76, 0, 0.24, 1);
-    padding: var(--header-h) var(--margin) 48px;
-    overscroll-behavior: contain;
-  }
-
-  .panel[data-open] {
-    clip-path: inset(0 0 0 0);
-  }
-
-  .panel nav {
-    width: 100%;
-  }
-
-  .panelList {
-    display: grid;
-  }
-
-  .panelList li {
-    overflow: hidden;
-    border-top: 1px solid rgb(255 255 255 / 0.14);
-  }
-
-  .panelLink {
-    display: block;
-    padding: 6px 0 2px;
-    font-size: clamp(3rem, 15vw, 4.75rem);
-    letter-spacing: -0.045em;
-    line-height: 1.05;
-    transform: translateY(105%);
-    transition: transform 0.8s var(--ease);
-  }
-
-  .panel[data-open] .panelLink {
-    transform: none;
-    transition-delay: calc(0.22s + var(--i) * 0.06s);
-  }
-
-  .panelLink[aria-current="page"] {
-    color: var(--soft);
+  .panelFoot {
+    flex-direction: column;
   }
 }
