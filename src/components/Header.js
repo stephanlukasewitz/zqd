@@ -121,6 +121,13 @@ export default function Header() {
       </div>
 
       <div
+        className={styles.scrim}
+        data-open={open || undefined}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
+
+      <div
         id="site-menu"
         ref={panel}
         className={styles.panel}
