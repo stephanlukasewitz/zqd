@@ -3,6 +3,7 @@
   inset: 0;
   z-index: 80;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   justify-items: center;
   align-items: start;
   padding: clamp(16px, 3vw, 40px);
@@ -32,19 +33,6 @@
   from {
     opacity: 0;
     transform: translate3d(0, 24px, 0) scale(0.98);
-  }
-}
-
-/* Wo View Transitions laufen, übernimmt das Morphing des Bildes die Bewegung. */
-@supports (view-transition-name: none) {
-  .card {
-    animation-name: fade;
-  }
-
-  @keyframes fade {
-    from {
-      opacity: 0;
-    }
   }
 }
 

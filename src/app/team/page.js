@@ -1,6 +1,4 @@
 import Image from "next/image";
-import PageTransition from "@/components/PageTransition";
-import FloorPlan from "@/components/team/FloorPlan";
 import { partners, team } from "@/content/team";
 import styles from "./page.module.css";
 
@@ -11,10 +9,9 @@ export const metadata = {
 
 export default function TeamPage() {
   return (
-    <PageTransition>
+    <>
       {/* T01 */}
       <section className={`${styles.intro} wrap`}>
-        <FloorPlan className={styles.plan} />
         <div className={styles.introText}>
           <h1 className={styles.title}>
             Erfahrung verbindet. <span>Neue Perspektiven bewegen.</span>
@@ -106,7 +103,8 @@ export default function TeamPage() {
                   <Image
                     src={p.image}
                     alt={`Logo ${p.name}`}
-                    sizes="240px"
+                    fill
+                    sizes="200px"
                     className={styles.logo}
                   />
                 </span>
@@ -137,6 +135,6 @@ export default function TeamPage() {
           })}
         </ul>
       </section>
-    </PageTransition>
+    </>
   );
 }

@@ -1,6 +1,5 @@
 import PageTransition from "@/components/PageTransition";
 import ContactForm from "@/components/contact/ContactForm";
-import SitePlan from "@/components/contact/SitePlan";
 import { site } from "@/content/site";
 import styles from "./page.module.css";
 
@@ -60,13 +59,10 @@ export default function KontaktPage() {
       {/* C04 */}
       <section id="anfahrt" className={`${styles.location} wrap`} aria-labelledby="standort">
         <div className="grid">
-          <div className={styles.map}>
-            <SitePlan />
-          </div>
+          <h2 id="standort" className={styles.key}>
+            Büro &amp; Anfahrt
+          </h2>
           <div className={styles.address}>
-            <h2 id="standort" className={styles.h2}>
-              Büro &amp; Anfahrt
-            </h2>
             <address>
               {site.legalName}
               <br />

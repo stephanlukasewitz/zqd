@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useDeferredValue, useMemo, useState, ViewTransition } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 import styles from "./Gallery.module.css";
 
 const PAGE = 8;
@@ -73,8 +73,7 @@ export default function Gallery({ items, options }) {
         </label>
 
         <div className={styles.filters}>
-          <fieldset className={styles.types}>
-            <legend className="sr-only">Projektart</legend>
+          <div className={styles.types} role="group" aria-label="Projektart">
             <button
               type="button"
               aria-pressed={!type}
@@ -92,7 +91,7 @@ export default function Gallery({ items, options }) {
                 {t}
               </button>
             ))}
-          </fieldset>
+          </div>
 
           <div className={styles.selects}>
             <Select
@@ -178,10 +177,8 @@ function Card({ project: p, eager }) {
       href={`/projekte/${p.slug}`}
       className={styles.card}
       data-slug={p.slug}
-      data-cursor="Ansehen"
       scroll={false}
     >
-      <ViewTransition name={`project-${p.slug}`} share="morph" default="none">
         <div className={styles.media}>
           <Image
             src={p.cover.image}
@@ -192,7 +189,6 @@ function Card({ project: p, eager }) {
             className={styles.img}
           />
         </div>
-      </ViewTransition>
       <div className={styles.meta}>
         <h2 className={styles.cardTitle}>{p.title}</h2>
         <p className={styles.cardPlace}>

@@ -81,7 +81,6 @@ export default function Hero({ slides }) {
         <TLink
           href={`/projekte/${current.slug}`}
           className={styles.media}
-          data-cursor="Ansehen"
           aria-label={`Projekt ansehen: ${current.title}`}
         >
           {slides.map((s, i) => (

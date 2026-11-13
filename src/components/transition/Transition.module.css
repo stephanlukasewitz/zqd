@@ -1,53 +1,25 @@
-.curtain {
+/* Weißer Schleier mit Unschärfe – blendet ein, Seite wechselt, blendet aus. */
+.veil {
   position: fixed;
   inset: 0;
   z-index: 150;
   pointer-events: none;
-  background: var(--night);
-  transform: translate3d(0, 100%, 0);
-  will-change: transform;
-}
-
-.line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 2px;
-  background: var(--red);
-  transform-origin: left;
-}
-
-.curtain[data-phase="cover"] {
-  pointer-events: auto;
-  transform: translate3d(0, 0, 0);
-  transition: transform 0.52s cubic-bezier(0.76, 0, 0.24, 1);
-}
-
-.curtain[data-phase="cover"] .line {
-  animation: line 0.52s cubic-bezier(0.76, 0, 0.24, 1) both;
-}
-
-.curtain[data-phase="reveal"] {
-  transform: translate3d(0, -100%, 0);
-  transition: transform 0.7s cubic-bezier(0.76, 0, 0.24, 1) 0.06s;
-}
-
-.curtain[data-phase="reveal"] .line {
-  top: auto;
-  bottom: 0;
-}
-
-.curtain[data-phase="idle"] {
+  background: rgb(255 255 255 / 0.55);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  opacity: 0;
   visibility: hidden;
-  transition: none;
 }
 
-@keyframes line {
-  from {
-    transform: scaleX(0);
-  }
-  to {
-    transform: scaleX(1);
-  }
+.veil[data-phase="cover"] {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  transition: opacity 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.veil[data-phase="reveal"] {
+  visibility: visible;
+  opacity: 0;
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.05s;
 }

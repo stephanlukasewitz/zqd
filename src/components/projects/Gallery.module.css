@@ -6,6 +6,7 @@
 .controls {
   position: relative;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
   padding-bottom: clamp(36px, 5vw, 72px);
 }
@@ -62,6 +63,8 @@
 }
 
 .types {
+  min-width: 0;
+  min-inline-size: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 4px 22px;
@@ -119,6 +122,11 @@
   color: var(--soft);
 }
 
+.select {
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
 .select select {
   -webkit-appearance: none;
   appearance: none;
@@ -127,6 +135,8 @@
   background: transparent;
   padding: 8px 18px 8px 0;
   cursor: pointer;
+  min-width: 0;
+  width: 100%;
   max-width: 14rem;
 }
 
@@ -326,6 +336,7 @@
 
   .filters {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .types {

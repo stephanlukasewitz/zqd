@@ -2,6 +2,7 @@
    Schwarz, Weiß, das Grau aus dem Logo und ein sparsam eingesetztes Rot. */
 
 :root {
+  --serif: var(--font-serif), Georgia, serif;
   --paper: #ffffff;
   --ink: #0f0f0f;
   --mute: #6b6b6b;
@@ -45,7 +46,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
   font-size: var(--fs-base);
   line-height: 1.5;
   font-feature-settings: "kern", "liga", "calt";
@@ -155,17 +156,6 @@ button {
   transform: none;
 }
 
-/* Eigener Cursor (nur Desktop mit Maus) */
-html.has-cursor,
-html.has-cursor * {
-  cursor: none;
-}
-
-html.has-cursor input,
-html.has-cursor textarea {
-  cursor: text;
-}
-
 /* Layout */
 
 .wrap {
@@ -211,7 +201,7 @@ html.has-cursor textarea {
     .reveal {
       animation: reveal-up linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 55%;
+      animation-range: entry 10% entry 60%;
     }
   }
 }
@@ -238,7 +228,7 @@ html.has-cursor textarea {
 @keyframes reveal-up {
   from {
     opacity: 0;
-    transform: translate3d(0, 28px, 0);
+    transform: translate3d(0, 14px, 0);
   }
   to {
     opacity: 1;

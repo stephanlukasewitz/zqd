@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import TLink from "@/components/transition/TLink";
 import PageTransition from "@/components/PageTransition";
@@ -21,7 +22,15 @@ export async function generateMetadata({ params }) {
 }
 
 // Direkte Projekt-URL: die Karte als eigene Seite, ohne Öffnungsanimation (D06).
-export default async function ProjectPage({ params }) {
+export default function ProjectPage({ params }) {
+  return (
+    <Suspense fallback={<div style={{ minHeight: "100vh" }} />}>
+      <Content params={params} />
+    </Suspense>
+  );
+}
+
+async function Content({ params }) {
   const { slug } = await params;
   const p = getProject(slug);
   if (!p) notFound();

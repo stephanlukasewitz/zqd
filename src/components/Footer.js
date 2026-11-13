@@ -4,74 +4,53 @@ import { legalNav, nav, site } from "@/content/site";
 import Year from "./Year";
 import styles from "./Footer.module.css";
 
-// Bottom Bar: großer Abschluss mit Kontakt-Einladung, kompakter Navigation und
-// dem vollständigen ZQD-Logo im großen Maßstab.
+// Bottom Bar: ruhiger Abschluss im selben Raster wie der Header.
 export default function Footer() {
   return (
-    <footer id="site-footer" className={`${styles.footer} on-dark`}>
-      <TLink href="/kontakt" className={styles.cta}>
-        <span className={styles.ctaText}>
-          Sprechen wir über <span>Ihr Projekt.</span>
-        </span>
-        <span className={styles.ctaArrow} aria-hidden="true">
-          <svg viewBox="0 0 100 100">
-            <path d="M8 50 H88 M56 18 L88 50 L56 82" />
-          </svg>
-        </span>
-      </TLink>
+    <footer id="site-footer" className={styles.footer}>
+      <div className={styles.grid}>
+        <TLink href="/" className={styles.brand} aria-label="ZQD – zur Startseite">
+          <Logo variant="mark" />
+        </TLink>
 
-      <div className={styles.cols}>
         <div className={styles.col}>
           <p className={styles.key}>Kontakt</p>
-          <a href={`mailto:${site.email}`} className={styles.link}>
-            {site.email}
-          </a>
-          <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`} className={styles.link}>
-            {site.phone}
-          </a>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>{site.phone}</a>
         </div>
+
         <div className={styles.col}>
-          <p className={styles.key}>Standort</p>
+          <p className={styles.key}>Büro</p>
+          <p>{site.street}</p>
           <p>
-            {site.city}, {site.country}
+            {site.zip} {site.city}
           </p>
-          <TLink href="/kontakt#anfahrt" className={styles.link}>
+          <TLink href="/kontakt#anfahrt" className={styles.more}>
             Anfahrt
           </TLink>
         </div>
+
         <nav className={styles.col} aria-label="Footer-Navigation">
           <p className={styles.key}>Index</p>
-          <ul>
-            {nav.map((item) => (
-              <li key={item.href}>
-                <TLink href={item.href} className={styles.link}>
-                  {item.label}
-                </TLink>
-              </li>
-            ))}
-          </ul>
+          {nav.map((item) => (
+            <TLink key={item.href} href={item.href}>
+              {item.label}
+            </TLink>
+          ))}
         </nav>
-        <div className={styles.col}>
-          <p className={styles.key}>Rechtliches</p>
-          <ul>
-            {legalNav.map((item) => (
-              <li key={item.href}>
-                <TLink href={item.href} className={styles.link}>
-                  {item.label}
-                </TLink>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
 
       <div className={styles.base}>
-        <TLink href="/" className={styles.brand} aria-label="ZQD – zur Startseite">
-          <Logo />
-        </TLink>
-        <p className={styles.copy}>
-          © <Year /> {site.legalName}
+        <p>
+          © <Year /> {site.legalName} · Zooquariumdesign · Architekturgarage
         </p>
+        <ul>
+          {legalNav.map((item) => (
+            <li key={item.href}>
+              <TLink href={item.href}>{item.label}</TLink>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );

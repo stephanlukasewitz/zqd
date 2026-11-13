@@ -37,11 +37,6 @@
 .brand {
   --logo-h: 40px;
   display: block;
-  transition: transform 0.5s var(--ease);
-}
-
-.brand:hover {
-  transform: rotate(-90deg);
 }
 
 .nav ul {

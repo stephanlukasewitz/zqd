@@ -1,10 +1,14 @@
 .h2 {
-  font-size: var(--fs-h2);
+  font-size: var(--fs-sm);
+  letter-spacing: 0;
+  line-height: 1.4;
+  color: var(--mute);
 }
 
 .lead {
-  font-size: var(--fs-lead);
-  line-height: 1.38;
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 1rem + 1.5vw, 2.6rem);
+  line-height: 1.15;
   letter-spacing: -0.015em;
 }
 
@@ -22,18 +26,18 @@
 .plan {
   grid-column: 8 / -1;
   grid-row: 1;
-  opacity: 0.9;
+  opacity: 0.35;
 }
 
 .introText {
-  grid-column: 1 / span 7;
+  grid-column: 1 / -1;
   grid-row: 1;
   position: relative;
   z-index: 1;
 }
 
 .title {
-  font-size: clamp(2.6rem, 0.9rem + 4.6vw, 6.25rem);
+  font-size: clamp(2.6rem, 0.6rem + 5.6vw, 8.5rem);
   letter-spacing: -0.045em;
   line-height: 0.96;
 }
@@ -56,11 +60,12 @@
 }
 
 .culture .h2 {
-  grid-column: 1 / span 5;
+  grid-column: 1 / span 3;
+  padding-top: 0.6em;
 }
 
 .culture .lead {
-  grid-column: 7 / -1;
+  grid-column: 4 / -1;
 }
 
 /* T03 */
@@ -195,51 +200,46 @@
 }
 
 .partners .h2 {
-  grid-column: 1 / span 6;
+  grid-column: 1 / span 3;
+  padding-top: 0.6em;
 }
 
 .partners .lead {
-  grid-column: 7 / -1;
-  align-self: end;
+  grid-column: 4 / -1;
 }
 
 .logoGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: clamp(40px, 5vw, 72px);
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-}
-
-.logoGrid li {
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  column-gap: var(--gutter);
+  row-gap: clamp(40px, 5vw, 72px);
+  margin-top: clamp(48px, 6vw, 96px);
 }
 
 .partner {
   display: grid;
-  gap: 4px;
-  height: 100%;
-  padding: clamp(20px, 2.4vw, 32px);
+  gap: 2px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
   font-size: var(--fs-sm);
 }
 
+/* Alle Logos stehen in einem gleich hohen Feld, mittig links ausgerichtet */
 .logoBox {
-  display: grid;
-  place-items: center;
-  height: clamp(110px, 12vw, 160px);
-  margin-bottom: 16px;
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  height: 64px;
+  margin: 18px 0 28px;
 }
 
 .logo {
-  width: auto;
-  height: auto;
-  max-width: 70%;
-  max-height: 100%;
   object-fit: contain;
-  filter: grayscale(1);
+  object-position: left center;
+  filter: grayscale(1) contrast(1.05);
   mix-blend-mode: multiply;
-  opacity: 0.85;
+  opacity: 0.8;
   transition:
     filter 0.5s var(--ease),
     opacity 0.5s var(--ease);

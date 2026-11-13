@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ViewTransition } from "react";
 import { placeOf } from "@/content/projects";
 import Slides from "./Slides";
 import ShareButton from "./ShareButton";
@@ -21,7 +20,6 @@ export default function ProjectDetail({ project: p, headingLevel = 1, closeSlot 
 
   return (
     <article className={styles.detail}>
-      <ViewTransition name={`project-${p.slug}`} share="morph" default="none">
         <div className={styles.hero}>
           <Image
             src={p.cover.image}
@@ -33,7 +31,6 @@ export default function ProjectDetail({ project: p, headingLevel = 1, closeSlot 
             className={styles.heroImg}
           />
         </div>
-      </ViewTransition>
 
       <div className={styles.body}>
         <header className={styles.head}>

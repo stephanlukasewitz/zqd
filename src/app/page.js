@@ -2,6 +2,7 @@ import Image from "next/image";
 import Hero from "@/components/home/Hero";
 import Phases from "@/components/home/Phases";
 import Section from "@/components/home/Section";
+import Selected from "@/components/home/Selected";
 import TLink from "@/components/transition/TLink";
 import { homeMedia } from "@/content/media";
 import styles from "./page.module.css";
@@ -10,6 +11,8 @@ export default function HomePage() {
   return (
     <>
       <Hero slides={homeMedia.hero} />
+
+      <Selected />
 
       {/* H02 Planungsphilosophie */}
       <section className={`${styles.section} ${styles.philosophy}`} aria-labelledby="philosophie">
@@ -41,7 +44,7 @@ export default function HomePage() {
         className={`${styles.section} ${styles.competence}`}
         aria-labelledby="kompetenz-titel"
       >
-        <TLink href="/projekte" className={styles.compTile} data-cursor="Projekte">
+        <TLink href="/projekte" className={styles.compTile}>
           <div className={`${styles.compMedia} img-reveal`}>
             <Image
               src={homeMedia.competence.image}
