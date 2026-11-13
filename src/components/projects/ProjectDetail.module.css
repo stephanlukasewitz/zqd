@@ -30,7 +30,7 @@
 }
 
 .num {
-  font-family: var(--serif);
+  letter-spacing: -0.025em;
   font-size: 1.1rem;
   color: var(--ink);
 }
@@ -100,7 +100,7 @@
 }
 
 .figures li {
-  font-family: var(--serif);
+  letter-spacing: -0.025em;
   font-size: 1.15rem;
   line-height: 1.3;
 }
@@ -116,7 +116,7 @@
 }
 
 .lead {
-  font-family: var(--serif);
+  letter-spacing: -0.025em;
   font-size: clamp(1.45rem, 1rem + 1.25vw, 2.35rem);
   line-height: 1.18;
   letter-spacing: -0.012em;

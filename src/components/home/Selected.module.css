@@ -18,7 +18,7 @@
 }
 
 .title sup {
-  font-family: var(--serif);
+  letter-spacing: -0.025em;
   font-size: 0.32em;
   letter-spacing: 0;
   vertical-align: top;

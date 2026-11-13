@@ -255,7 +255,7 @@
 .cardNum {
   display: inline-block;
   min-width: 2.4em;
-  font-family: var(--serif);
+  letter-spacing: -0.025em;
   font-size: 1.05em;
 }
 

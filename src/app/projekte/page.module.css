@@ -11,7 +11,7 @@
 }
 
 .count {
-  font-family: var(--serif);
+  letter-spacing: -0.025em;
   font-size: 0.24em;
   letter-spacing: 0;
   vertical-align: top;
@@ -24,7 +24,7 @@
 .sub {
   grid-column: 10 / -1;
   align-self: end;
-  font-family: var(--serif);
+  letter-spacing: -0.025em;
   font-size: clamp(1.2rem, 1rem + 0.6vw, 1.6rem);
   line-height: 1.25;
 }

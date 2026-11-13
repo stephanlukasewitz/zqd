@@ -2,20 +2,21 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
-import styles from "./Transition.module.css";
 
-// Seitenübergang: Die aktuelle Seite verschwimmt ins Weiße, die neue Seite
-// wird darunter geladen und klart aus der Unschärfe auf.
+// Seitenübergang: Der Inhalt (nicht der Header) wird weich, leicht unscharf und
+// gleitet nach oben weg; die neue Seite klart von unten auf. Gesteuert über ein
+// Attribut am <html>, animiert per CSS (opacity/transform/filter auf einer Ebene).
 
 const Ctx = createContext({ navigate: () => {} });
 export const useTransitionNav = () => useContext(Ctx);
 
-const IN = 380;
+const OUT = 420;
+const IN = 900;
 
 export default function TransitionProvider({ children }) {
   const router = useRouter();
   const pathname = usePathname();
-  const [phase, setPhase] = useState("idle"); // idle | cover | reveal
+  const [phase, setPhase] = useState("idle"); // idle | out | in
   const timer = useRef(null);
 
   const navigate = useCallback(
@@ -26,15 +27,13 @@ export default function TransitionProvider({ children }) {
         return;
       }
       router.prefetch(href);
-      setPhase("cover");
+      setPhase("out");
       clearTimeout(timer.current);
       timer.current = setTimeout(() => {
-        router.push(href);
-        timer.current = setTimeout(
-          () => setPhase((p) => (p === "cover" ? "reveal" : p)),
-          2500,
-        );
-      }, IN);
+        router.push(href, { scroll: false });
+        // Sicherheitsnetz, falls die Navigation ausbleibt
+        timer.current = setTimeout(() => setPhase((p) => (p === "out" ? "in" : p)), 2500);
+      }, OUT);
     },
     [router],
   );
@@ -42,25 +41,21 @@ export default function TransitionProvider({ children }) {
   const [lastPath, setLastPath] = useState(pathname);
   if (lastPath !== pathname) {
     setLastPath(pathname);
-    if (phase === "cover") setPhase("reveal");
+    if (phase === "out") setPhase("in");
   }
 
   useEffect(() => {
-    if (phase !== "reveal") return;
+    document.documentElement.dataset.transition = phase;
+    if (phase !== "in") return;
     clearTimeout(timer.current);
     const anchor = window.location.hash && document.querySelector(window.location.hash);
     const lenis = window.__lenis;
     if (lenis) lenis.scrollTo(anchor || 0, { immediate: true, force: true });
     else if (anchor) anchor.scrollIntoView();
     else window.scrollTo(0, 0);
-    const t = setTimeout(() => setPhase("idle"), 800);
+    const t = setTimeout(() => setPhase("idle"), IN);
     return () => clearTimeout(t);
   }, [phase]);
 
-  return (
-    <Ctx.Provider value={{ navigate }}>
-      {children}
-      <div className={styles.veil} data-phase={phase} aria-hidden="true" />
-    </Ctx.Provider>
-  );
+  return <Ctx.Provider value={{ navigate }}>{children}</Ctx.Provider>;
 }

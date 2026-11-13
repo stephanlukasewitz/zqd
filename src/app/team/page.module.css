@@ -6,7 +6,7 @@
 }
 
 .lead {
-  font-family: var(--serif);
+  letter-spacing: -0.025em;
   font-size: clamp(1.5rem, 1rem + 1.5vw, 2.6rem);
   line-height: 1.15;
   letter-spacing: -0.015em;

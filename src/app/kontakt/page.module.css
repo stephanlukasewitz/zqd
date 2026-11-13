@@ -21,7 +21,7 @@
 .sub {
   grid-column: 4 / span 6;
   margin-top: clamp(28px, 4vw, 64px);
-  font-family: var(--serif);
+  letter-spacing: -0.025em;
   font-size: clamp(1.4rem, 1rem + 1.2vw, 2.2rem);
   line-height: 1.2;
   letter-spacing: -0.015em;

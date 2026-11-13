@@ -25,7 +25,7 @@ ul li:last-child .row {
 }
 
 .num {
-  font-family: var(--serif);
+  letter-spacing: -0.025em;
   font-size: 1.05rem;
   color: var(--ink);
 }

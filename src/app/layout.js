@@ -1,4 +1,4 @@
-import { Archivo, Newsreader } from "next/font/google";
+import { Archivo } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TransitionProvider from "@/components/transition/TransitionProvider";
@@ -12,13 +12,6 @@ const sans = Archivo({
   display: "swap",
 });
 
-const serif = Newsreader({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  style: ["normal"],
-  axes: ["opsz"],
-  display: "swap",
-});
 
 export const metadata = {
   metadataBase: new URL(site.url),
@@ -40,7 +33,7 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="de" className={`${sans.variable} ${serif.variable}`}>
+    <html lang="de" className={sans.variable}>
       <body>
         <a href="#inhalt" className="skip-link">
           Zum Inhalt springen
