@@ -7,18 +7,17 @@ export const site = {
   brand: "Zooquariumdesign · Architekturgarage",
   description:
     "Architektur und Generalplanung für zoologische Einrichtungen – von der Masterplanung bis zur einzelnen Tieranlage.",
-  url: "https://zqd.de",
-  email: "[info@zqd.de]",
-  phone: "[+49 000 000000]",
-  street: "[Straße Hausnummer]",
-  zip: "[PLZ]",
-  city: "[Stadt]",
+  url: "https://zqd-gmbh.com",
+  email: "info@zqd-gmbh.com",
+  phone: "+49 40 81 95 13 86",
+  street: "Große Elbstraße 131",
+  zip: "22767",
+  city: "Hamburg",
   country: "Deutschland",
   // Wird für den Routenlink genutzt, sobald die Adresse feststeht.
-  mapsQuery: "",
-  // Koordinaten für die Karte auf der Kontaktseite.
-  // PLATZHALTER (Hamburg-Zentrum) – durch die echte Büroadresse ersetzen.
-  geo: { lat: 53.5511, lng: 9.9937, placeholder: true },
+  mapsQuery: "ZQD GmbH, Große Elbstraße 131, 22767 Hamburg",
+  // Koordinaten für die Karte (Näherung für Große Elbstraße 131 – bitte prüfen).
+  geo: { lat: 53.5451, lng: 9.9332 },
 };
 
 export const nav = [

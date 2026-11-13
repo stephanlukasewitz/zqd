@@ -4,9 +4,9 @@ import { partnerLogos, teamPhotos } from "./media";
 // durch freigegebene, verifizierte Angaben zu ersetzen (T03).
 const people = {
   "1dsc-9540-ca": {
-    name: "Dipl.-Ing. Sezai I. Candan",
-    role: "[Funktion]",
-    degree: "Dipl.-Ing. [Fachrichtung]",
+    name: "Sezai I. Candan",
+    role: "Architekt, Managing Partner",
+    degree: "Dipl.-Ing. Architekt",
     focus: "[Aufgabenbereich]",
     experience: "[Berufserfahrung]",
     email: "",

@@ -15,9 +15,21 @@
 }
 
 .body h2 {
-  margin-top: 1.4em;
+  margin-top: 2em;
   font-size: var(--fs-lead);
   letter-spacing: -0.015em;
+}
+
+.body h3 {
+  margin-top: 1.2em;
+  font-size: var(--fs-base);
+  font-weight: 500;
+}
+
+.body a {
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px;
 }
 
 .note {

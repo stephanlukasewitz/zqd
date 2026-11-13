@@ -2,7 +2,7 @@
 
 // Versand über die Resend-API (https://resend.com). Benötigte Umgebungsvariablen auf Vercel:
 //   RESEND_API_KEY     – API-Schlüssel
-//   CONTACT_TO         – Empfängeradresse, z. B. info@zqd.de
+//   CONTACT_TO         – Empfängeradresse, z. B. info@zqd-gmbh.com
 //   CONTACT_FROM       – verifizierte Absenderadresse, z. B. "ZQD Website <web@zqd.de>"
 // Erfolg wird nur gemeldet, wenn der Dienst den Versand bestätigt (C03).
 
