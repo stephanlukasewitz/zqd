@@ -75,26 +75,3 @@
   white-space: nowrap;
 }
 
-.gate {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  align-content: end;
-  justify-items: start;
-  gap: 16px;
-  padding: clamp(20px, 3vw, 40px);
-  font-size: var(--fs-sm);
-  color: #bdbdbd;
-  background:
-    repeating-linear-gradient(0deg, transparent 0 39px, rgb(255 255 255 / 0.05) 39px 40px),
-    repeating-linear-gradient(90deg, transparent 0 39px, rgb(255 255 255 / 0.05) 39px 40px),
-    #111;
-}
-
-.gate p {
-  max-width: 44ch;
-}
-
-.gate button {
-  color: var(--paper);
-}

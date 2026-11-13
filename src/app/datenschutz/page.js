@@ -18,6 +18,12 @@ export default function Datenschutz() {
         [Angaben zur Verarbeitung der Formulardaten, Rechtsgrundlage, Speicherdauer und zum
         eingesetzten E-Mail-Dienst]
       </p>
+      <h2>Karte</h2>
+      <p>
+        Die Karte auf der Kontaktseite basiert auf OpenStreetMap. Die Kartenkacheln werden über
+        unseren eigenen Server ausgeliefert; dabei werden keine Daten Ihres Browsers an
+        OpenStreetMap übermittelt.
+      </p>
       <h2>Schriftarten</h2>
       <p>Die verwendete Schrift wird lokal von unserem Server ausgeliefert; es werden keine Daten an Dritte übertragen.</p>
       <h2>Ihre Rechte</h2>
