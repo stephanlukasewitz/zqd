@@ -36,6 +36,23 @@ export default function Header() {
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hover, setHover] = useState(null);
+  const [onDark, setOnDark] = useState(pathname === "/");
+
+  // Liegt der Header über einer dunklen Fläche (z. B. dem Hero)?
+  useEffect(() => {
+    const zones = document.querySelectorAll("[data-dark-zone]");
+    if (!zones.length) return;
+    const seen = new Set();
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) e.isIntersecting ? seen.add(e.target) : seen.delete(e.target);
+        setOnDark(seen.size > 0);
+      },
+      { rootMargin: "0px 0px -94% 0px" },
+    );
+    zones.forEach((z) => io.observe(z));
+    return () => io.disconnect();
+  }, [pathname]);
   const menuButton = useRef(null);
   const panel = useRef(null);
 
@@ -63,6 +80,7 @@ export default function Header() {
     setLastPath(pathname);
     setOpen(false);
     setHidden(false);
+    setOnDark(pathname === "/");
   }
 
   const toggle = () => {
@@ -93,7 +111,8 @@ export default function Header() {
 
   return (
     <header
-      className={styles.header}
+      className={`${styles.header} ${onDark && !scrolled && !open ? "on-dark" : ""}`}
+      data-on-dark={(onDark && !scrolled && !open) || undefined}
       data-hidden={(hidden && !open) || undefined}
       data-scrolled={scrolled || undefined}
       data-open={open || undefined}

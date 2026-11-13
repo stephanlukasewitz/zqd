@@ -3,7 +3,13 @@
   inset: 0 0 auto;
   z-index: 50;
   color: var(--ink);
-  transition: transform 0.7s var(--ease);
+  transition:
+    transform 0.7s var(--ease),
+    color 0.4s var(--ease);
+}
+
+.header[data-on-dark] {
+  color: var(--paper);
 }
 
 .header[data-hidden] {
