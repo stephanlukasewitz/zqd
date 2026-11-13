@@ -71,6 +71,11 @@
   grid-column: 1 / span 3;
 }
 
+.mapCol {
+  grid-column: 4 / -1;
+  margin-bottom: clamp(32px, 4vw, 56px);
+}
+
 .address {
   grid-column: 4 / -1;
   display: grid;
@@ -105,6 +110,7 @@
   .formCol,
   .direct,
   .location .key,
+  .mapCol,
   .address {
     grid-column: 1 / -1;
   }

@@ -237,17 +237,7 @@
 .logo {
   object-fit: contain;
   object-position: left center;
-  filter: grayscale(1) contrast(1.05);
   mix-blend-mode: multiply;
-  opacity: 0.8;
-  transition:
-    filter 0.5s var(--ease),
-    opacity 0.5s var(--ease);
-}
-
-.partner:hover .logo {
-  filter: none;
-  opacity: 1;
 }
 
 a.partner .pName {

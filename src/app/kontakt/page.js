@@ -1,5 +1,6 @@
 import PageTransition from "@/components/PageTransition";
 import ContactForm from "@/components/contact/ContactForm";
+import OfficeMap from "@/components/contact/OfficeMap";
 import { site } from "@/content/site";
 import Reveal from "@/components/fx/Reveal";
 import styles from "./page.module.css";
@@ -65,6 +66,9 @@ export default function KontaktPage() {
           <h2 id="standort" className={styles.key}>
             Büro &amp; Anfahrt
           </h2>
+          <div className={styles.mapCol}>
+            <OfficeMap lat={site.geo.lat} lng={site.geo.lng} label={site.legalName} />
+          </div>
           <div className={styles.address}>
             <address>
               {site.legalName}

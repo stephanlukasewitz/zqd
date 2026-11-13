@@ -16,6 +16,9 @@ export const site = {
   country: "Deutschland",
   // Wird für den Routenlink genutzt, sobald die Adresse feststeht.
   mapsQuery: "",
+  // Koordinaten für die Karte auf der Kontaktseite.
+  // PLATZHALTER (Hamburg-Zentrum) – durch die echte Büroadresse ersetzen.
+  geo: { lat: 53.5511, lng: 9.9937, placeholder: true },
 };
 
 export const nav = [
