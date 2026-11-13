@@ -11,7 +11,7 @@ import styles from "./page.module.css";
 export default function HomePage() {
   return (
     <>
-      <Hero slides={homeMedia.hero} />
+      <Hero slide={homeMedia.hero[1]} />
 
       <Selected />
 

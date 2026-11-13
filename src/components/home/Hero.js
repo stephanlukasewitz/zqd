@@ -1,122 +1,72 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import TLink from "../transition/TLink";
 import Reveal from "../fx/Reveal";
 import WaterImage from "../fx/WaterImage";
-import Frame, { Dot } from "../fx/Frame";
+import { Dot } from "../fx/Frame";
 import styles from "./Hero.module.css";
 
-const INTERVAL = 7000;
-
-export default function Hero({ slides }) {
-  const [index, setIndex] = useState(0);
-  const [inView, setInView] = useState(true);
+// Hero als Planausschnitt: die Panoramascheibe des Tiefseebeckens im
+// Tropen-Aquarium (15,00 × 7,50 m) – im exakten Seitenverhältnis, mit Maßketten.
+export default function Hero({ slide }) {
   const [gl, setGl] = useState(false);
-  const stage = useRef(null);
-  const count = slides.length;
-
-  const go = useCallback((dir) => setIndex((i) => (i + dir + count) % count), [count]);
-
-  useEffect(() => {
-    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), {
-      threshold: 0.1,
-    });
-    io.observe(stage.current);
-    return () => io.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!inView || reduce || count < 2) return;
-    const t = setTimeout(() => go(1), INTERVAL);
-    return () => clearTimeout(t);
-  }, [index, inView, go, count]);
-
-  const touch = useRef(null);
-  const current = slides[index];
 
   return (
     <section className={styles.hero} aria-label="Einstieg">
-      <div className={styles.top}>
-        <h1 className={styles.claim}>
-          <Reveal className={styles.l1}>
-            Erfahrung als <Frame delay={700}>Fundament</Frame>
-            <Dot />
-          </Reveal>
-          <Reveal className={styles.l2} delay={120}>
-            Entwicklung als Anspruch.
-          </Reveal>
-        </h1>
-      </div>
+      <h1 className={styles.claim}>
+        <Reveal className={styles.l1}>
+          Erfahrung als Fundament
+          <Dot />
+        </Reveal>
+        <Reveal className={styles.l2} delay={120}>
+          Entwicklung als Anspruch.
+        </Reveal>
+      </h1>
 
-      <div ref={stage} className={styles.stage}>
-        <div className={styles.sticky}>
-          <div
-            className={styles.frame}
-            aria-roledescription="Karussell"
-            aria-label="Ausgewählte Referenzen"
-            onTouchStart={(e) => (touch.current = e.touches[0].clientX)}
-            onTouchEnd={(e) => {
-              if (touch.current == null) return;
-              const dx = e.changedTouches[0].clientX - touch.current;
-              if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
-              touch.current = null;
-            }}
-          >
-            <div className={styles.media} data-gl={gl || undefined}>
-              {slides.map((s, i) => (
-                <div
-                  key={s.image.src}
-                  className={styles.slide}
-                  data-active={i === index || undefined}
-                  aria-hidden={i !== index}
-                >
-                  <Image
-                    src={s.image}
-                    alt={s.alt}
-                    fill
-                    sizes="100vw"
-                    quality={75}
-                    preload={i === 0}
-                    loading={i === 0 ? "eager" : "lazy"}
-                    className={styles.img}
-                  />
-                </div>
-              ))}
-              <WaterImage
-                className={styles.canvas}
-                sources={slides.map((s) => s.image.src)}
-                index={index}
-                onReady={() => setGl(true)}
-              />
-            </div>
-
-          </div>
-            <div className={styles.caption}>
-            <TLink href={`/projekte/${current.slug}`} className={styles.title}>
-              <span key={current.title} className={styles.titleText}>
-                {current.title}
-              </span>
-              <span className={styles.view}>Projekt ansehen →</span>
-            </TLink>
-            <div className={styles.controls}>
-              <button type="button" onClick={() => go(-1)} aria-label="Vorheriges Bild">
-                ←
-              </button>
-              <span className={styles.count}>
-                {String(index + 1).padStart(2, "0")}
-                <i>/</i>
-                {String(count).padStart(2, "0")}
-              </span>
-              <button type="button" onClick={() => go(1)} aria-label="Nächstes Bild">
-                →
-              </button>
-            </div>
-          </div>
+      <figure className={styles.plan}>
+        {/* Maßkette oben: Breite der Scheibe */}
+        <div className={styles.dimX} aria-hidden="true">
+          <span>15,00 m</span>
         </div>
-      </div>
+
+        <TLink
+          href={`/projekte/${slide.slug}`}
+          className={styles.window}
+          aria-label={`Projekt ansehen: ${slide.title}`}
+        >
+          <div className={styles.media} data-gl={gl || undefined}>
+            <Image
+              src={slide.image}
+              alt={slide.alt}
+              fill
+              sizes="(max-width: 760px) 100vw, 86vw"
+              preload
+              loading="eager"
+              className={styles.img}
+            />
+            <WaterImage
+              className={styles.canvas}
+              sources={[slide.image.src]}
+              index={0}
+              onReady={() => setGl(true)}
+            />
+          </div>
+        </TLink>
+
+        {/* Maßkette seitlich: Höhe der Scheibe */}
+        <div className={styles.dimY} aria-hidden="true">
+          <span>7,50 m</span>
+        </div>
+
+        <figcaption className={styles.caption}>
+          <span>Panoramascheibe Tiefseebecken, {slide.title}</span>
+          <TLink href={`/projekte/${slide.slug}`} className="tlink">
+            Projekt ansehen <span className="arrow" aria-hidden="true">→</span>
+          </TLink>
+        </figcaption>
+      </figure>
     </section>
   );
 }
