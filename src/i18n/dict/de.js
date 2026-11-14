@@ -106,7 +106,7 @@ const de = {
     philosophy: {
       title: "Was unsere Planung prägt",
       lead: "Gute Planung beginnt mit dem genauen Verständnis der Aufgabe, ihrer Anforderungen und ihres Umfelds.",
-      body: "Wir verbinden Funktion und Gestaltung zu schlüssigen Lösungen, die im Alltag überzeugen und langfristig Bestand haben. Dabei hinterfragen wir Gewohntes, denken vorausschauend und lassen Raum für neue Entwicklungen.",
+      body: "Zooarchitektur heißt für uns, Lebensräume zu bauen statt Gehege. Wir übersetzen die Bedürfnisse der Tiere in Raum, Licht, Wasser und Material – und verbinden sie mit Wegen und Einblicken für Besucher und klaren Abläufen für den Betrieb. So entstehen Anlagen, die im Zooalltag funktionieren, architektonisch überzeugen und über Jahrzehnte Bestand haben.",
       words: ["Klarheit", "Verantwortung", "Weitblick"],
     },
     principles: {

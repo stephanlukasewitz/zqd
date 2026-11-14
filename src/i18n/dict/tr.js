@@ -115,7 +115,7 @@ const tr = {
     philosophy: {
       title: "Planlamamızı şekillendiren",
       lead: "İyi planlama; görevi, gereksinimlerini ve çevresini doğru anlamakla başlar.",
-      body: "İşlev ile tasarımı, günlük kullanımda karşılığını bulan ve uzun yıllar kalıcı olan bütüncül çözümlerde birleştiriyoruz. Alışılmışı sorguluyor, ileriyi düşünüyor ve yeni gelişmelere alan bırakıyoruz.",
+      body: "Bizim için hayvanat bahçesi mimarisi, kafes değil yaşam alanı inşa etmek demektir. Hayvanların ihtiyaçlarını mekâna, ışığa, suya ve malzemeye dönüştürüyor; bunları ziyaretçiler için yollar ve bakış noktalarıyla, işletme için ise net süreçlerle birleştiriyoruz. Böylece hayvanat bahçesinin gündelik işleyişinde karşılığını bulan, mimari olarak ikna eden ve on yıllar boyunca kalıcı olan tesisler ortaya çıkıyor.",
       words: ["Netlik", "Sorumluluk", "Öngörü"],
     },
     principles: {

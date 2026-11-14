@@ -115,7 +115,7 @@ const en = {
     philosophy: {
       title: "What shapes our planning",
       lead: "Good planning begins with a precise understanding of the task, its requirements and its context.",
-      body: "We combine function and design into coherent solutions that work in everyday use and stand the test of time. We question the familiar, think ahead and leave room for future development.",
+      body: "For us, zoo architecture means building habitats rather than enclosures. We translate the animals’ needs into space, light, water and materials – and combine them with routes and views for visitors and clear processes for daily operations. The result is facilities that work in everyday zoo life, convince architecturally and endure for decades.",
       words: ["Clarity", "Responsibility", "Foresight"],
     },
     principles: {
