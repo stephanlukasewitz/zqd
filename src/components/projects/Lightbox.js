@@ -42,8 +42,11 @@ export function LightboxProvider({ images, title, children }) {
     dialog.current?.focus({ preventScroll: true });
     const onKey = (e) => {
       if (e.key === "Escape") close();
-      if (e.key === "ArrowRight") go(1);
-      if (e.key === "ArrowLeft") go(-1);
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      e.preventDefault();
+      // Blättern per Taste: Fokus zurück aufs Overlay, damit kein Button einen Rahmen bekommt.
+      dialog.current?.focus({ preventScroll: true });
+      go(e.key === "ArrowRight" ? 1 : -1);
     };
     document.addEventListener("keydown", onKey);
     return () => {
