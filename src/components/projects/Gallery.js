@@ -18,31 +18,64 @@ function normalize(s) {
 
 // Filter liegen in der URL (?q=…&art=…&leistung=…&standort=…&ansicht=index),
 // damit sie teilbar sind und beim Zurückkehren erhalten bleiben.
-export default function Gallery({ items, options, initial = {} }) {
-  const [query, setQuery] = useState(initial.q || "");
-  const [type, setType] = useState(initial.art || "");
-  const [service, setService] = useState(initial.leistung || "");
-  const [country, setCountry] = useState(initial.standort || "");
-  const [limit, setLimit] = useState(Math.max(PAGE, Number(initial.n) || PAGE));
-  const [view, setView] = useState(initial.ansicht === "index" ? "list" : "grid");
+function fromSearch(search = "") {
+  const sp = new URLSearchParams(search);
+  return {
+    query: sp.get("q") || "",
+    type: sp.get("art") || "",
+    service: sp.get("leistung") || "",
+    country: sp.get("standort") || "",
+    limit: Math.max(PAGE, Number(sp.get("n")) || PAGE),
+    view: sp.get("ansicht") === "index" ? "list" : "grid",
+  };
+}
+
+function toSearch({ query, type, service, country, view, limit }) {
+  const params = new URLSearchParams();
+  if (query) params.set("q", query);
+  if (type) params.set("art", type);
+  if (service) params.set("leistung", service);
+  if (country) params.set("standort", country);
+  if (view === "list") params.set("ansicht", "index");
+  if (limit > PAGE) params.set("n", String(limit));
+  return params.toString();
+}
+
+export default function Gallery({ items, options, search }) {
+  const [init] = useState(() => fromSearch(search));
+  const [query, setQuery] = useState(init.query);
+  const [type, setType] = useState(init.type);
+  const [service, setService] = useState(init.service);
+  const [country, setCountry] = useState(init.country);
+  const [limit, setLimit] = useState(init.limit);
+  const [view, setView] = useState(init.view);
+  const current = toSearch({ query, type, service, country, view, limit });
+
+  // Next.js hält die Seite beim Wegnavigieren im Hintergrund samt Zustand bereit.
+  // Wird sie wieder angezeigt, gilt die Adresse: über „Projekte“ im Menü kommt man
+  // ohne Filter zurück (zurückgesetzt), über Zurück/„Alle Projekte“ mit Filtern.
+  useEffect(() => {
+    const next = fromSearch(window.location.search);
+    if (toSearch(next) === toSearch(fromSearch(`?${current}`))) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- Abgleich mit der Adresse beim erneuten Anzeigen
+    setQuery(next.query);
+    setType(next.type);
+    setService(next.service);
+    setCountry(next.country);
+    setLimit(next.limit);
+    setView(next.view);
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- nur beim (erneuten) Anzeigen
+  }, []);
 
   useEffect(() => {
-    const params = new URLSearchParams();
-    if (query) params.set("q", query);
-    if (type) params.set("art", type);
-    if (service) params.set("leistung", service);
-    if (country) params.set("standort", country);
-    if (view === "list") params.set("ansicht", "index");
-    if (limit > PAGE) params.set("n", String(limit));
-    const qs = params.toString();
-    const url = qs ? `/projekte?${qs}` : "/projekte";
+    const url = current ? `/projekte?${current}` : "/projekte";
     if (url !== window.location.pathname + window.location.search) {
       window.history.replaceState(window.history.state, "", url);
     }
     try {
       sessionStorage.setItem("zqd:projekte", url);
     } catch {}
-  }, [query, type, service, country, view, limit]);
+  }, [current]);
   const numbers = useMemo(
     () => Object.fromEntries(items.map((p, i) => [p.slug, String(i + 1).padStart(2, "0")])),
     [items],
