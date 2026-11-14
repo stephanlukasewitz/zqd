@@ -1,19 +1,23 @@
+import Logo from "./Logo";
 import TLink from "./transition/TLink";
 import ToTop from "./ToTop";
 import Year from "./Year";
-import { withDot } from "./fx/Dot";
-import { subclaim } from "@/content/home";
+import { service } from "@/content/home";
 import { legalNav, nav, site } from "@/content/site";
 import styles from "./Footer.module.css";
 
-// Bottom Bar: schwarzer Abschluss als Gegenstück zum dunklen Einstieg –
-// Leitbotschaft, Kontakt und Index, darunter der Schriftzug über die volle Breite.
+// Bottom Bar: ruhiger Abschluss im selben Raster wie der Header.
 export default function Footer() {
   return (
-    <footer id="site-footer" className={styles.footer} data-dark-zone>
-      <p className={styles.statement}>{withDot(subclaim)}</p>
-
+    <footer id="site-footer" className={styles.footer}>
       <div className={styles.grid}>
+        <div className={styles.brandCol}>
+          <TLink href="/" className={styles.brand} aria-label="Zooquariumdesign – zur Startseite">
+            <Logo variant="wordmark" />
+          </TLink>
+          <p className={styles.service}>{service}</p>
+        </div>
+
         <div className={styles.col}>
           <p className={styles.key}>Kontakt</p>
           <a href={`mailto:${site.email}`}>{site.email}</a>
@@ -39,27 +43,22 @@ export default function Footer() {
             </TLink>
           ))}
         </nav>
-
-        <div className={styles.col}>
-          <p className={styles.key}>Rechtliches</p>
-          {legalNav.map((item) => (
-            <TLink key={item.href} href={item.href}>
-              {item.label}
-            </TLink>
-          ))}
-        </div>
       </div>
-
-      <TLink href="/" className={styles.brand} aria-label="Zooquariumdesign – zur Startseite" data-brand-zone>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/brand/zqd-wordmark-footer.svg" alt="" width="1408" height="114" decoding="async" />
-      </TLink>
 
       <div className={styles.base}>
         <p>
           © <Year /> {site.legalName} · Architekturgarage
         </p>
-        <ToTop className={styles.top} />
+        <ul>
+          {legalNav.map((item) => (
+            <li key={item.href}>
+              <TLink href={item.href}>{item.label}</TLink>
+            </li>
+          ))}
+          <li>
+            <ToTop className={styles.top} />
+          </li>
+        </ul>
       </div>
     </footer>
   );
