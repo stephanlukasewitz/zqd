@@ -24,7 +24,9 @@ export default function ProjectDetail({ project: p }) {
 
   const [lead, ...rest] = p.text?.length ? p.text : ["Projektbeschreibung folgt."];
 
-  const shots = [p.cover, ...(p.gallery || [])].map((g) => ({ image: g.image, alt: g.alt }));
+  // Nur die kleineren Bilder lassen sich vergrößern – vollbreite Bilder bleiben ohne Klick.
+  const gallery = (p.gallery || []).map((g, i) => ({ ...g, kind: LAYOUT[i % LAYOUT.length] }));
+  const shots = gallery.filter((g) => g.kind !== "full");
 
   return (
     <LightboxProvider images={shots} title={p.title}>
@@ -45,17 +47,15 @@ export default function ProjectDetail({ project: p }) {
       </header>
 
       <figure className={`${styles.hero} img-reveal`}>
-        <Zoom index={0} label={p.cover.alt}>
-          <Image
-            src={p.cover.image}
-            alt={p.cover.alt}
-            fill
-            sizes="100vw"
-            preload
-            quality={85}
-            className={styles.heroImg}
-          />
-        </Zoom>
+        <Image
+          src={p.cover.image}
+          alt={p.cover.alt}
+          fill
+          sizes="100vw"
+          preload
+          quality={85}
+          className={styles.heroImg}
+        />
       </figure>
 
       <div className={styles.body}>
@@ -85,10 +85,19 @@ export default function ProjectDetail({ project: p }) {
         </div>
       </div>
 
-      {p.gallery?.length > 0 && (
+      {gallery.length > 0 && (
         <div className={styles.sequence}>
-          {p.gallery.map((g, i) => {
-            const kind = LAYOUT[i % LAYOUT.length];
+          {gallery.map((g, i) => {
+            const kind = g.kind;
+            const img = (
+              <Image
+                src={g.image}
+                alt={g.alt}
+                fill
+                sizes={kind === "full" ? "100vw" : "(max-width: 760px) 100vw, 60vw"}
+                className={styles.shotImg}
+              />
+            );
             return (
               <figure key={i} className={`${styles.shot} img-reveal`} data-kind={kind}>
                 <div
@@ -98,15 +107,13 @@ export default function ProjectDetail({ project: p }) {
                       kind === "full" ? "16 / 9" : `${g.image.width} / ${g.image.height}`,
                   }}
                 >
-                  <Zoom index={i + 1} label={g.alt}>
-                    <Image
-                      src={g.image}
-                      alt={g.alt}
-                      fill
-                      sizes={kind === "full" ? "100vw" : "(max-width: 760px) 100vw, 60vw"}
-                      className={styles.shotImg}
-                    />
-                  </Zoom>
+                  {kind === "full" ? (
+                    img
+                  ) : (
+                    <Zoom index={shots.indexOf(g)} label={g.alt}>
+                      {img}
+                    </Zoom>
+                  )}
                 </div>
               </figure>
             );
