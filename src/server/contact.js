@@ -6,6 +6,8 @@
 //   CONTACT_FROM       – verifizierte Absenderadresse, z. B. "ZQD Website <web@zqd.de>"
 // Erfolg wird nur gemeldet, wenn der Dienst den Versand bestätigt (C03).
 
+import { dictFor } from "@/i18n/dict";
+
 const TYPES = ["Masterplanung", "Tieranlage", "Aquarium", "Sonstiges"];
 
 function clean(v, max = 2000) {
@@ -17,6 +19,8 @@ function clean(v, max = 2000) {
 export async function sendInquiry(_prev, formData) {
   // Honeypot gegen Spam-Bots
   if (clean(formData.get("website"))) return { ok: true };
+  const lang = clean(formData.get("lang"), 5);
+  const m = dictFor(lang).formErrors;
 
   const data = {
     name: clean(formData.get("name"), 200),
@@ -30,13 +34,13 @@ export async function sendInquiry(_prev, formData) {
   };
 
   const errors = {};
-  if (!data.name) errors.name = "Bitte geben Sie Ihren Namen an.";
-  if (!data.org) errors.org = "Bitte geben Sie Ihre Einrichtung oder Ihr Unternehmen an.";
+  if (!data.name) errors.name = m.name;
+  if (!data.org) errors.org = m.org;
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email))
-    errors.email = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
-  if (!data.message) errors.message = "Bitte beschreiben Sie kurz Ihr Anliegen.";
+    errors.email = m.email;
+  if (!data.message) errors.message = m.message;
   if (data.type && !TYPES.includes(data.type)) data.type = "";
-  if (!data.consent) errors.consent = "Bitte bestätigen Sie die Datenschutzhinweise.";
+  if (!data.consent) errors.consent = m.consent;
 
   if (Object.keys(errors).length) {
     return { ok: false, errors, values: { ...data, consent: undefined } };
@@ -48,8 +52,7 @@ export async function sendInquiry(_prev, formData) {
   if (!key || !to || !from) {
     return {
       ok: false,
-      error:
-        "Das Formular ist noch nicht mit einem Postfach verbunden. Bitte schreiben Sie uns direkt per E-Mail.",
+      error: m.notConfigured,
       values: data,
     };
   }
@@ -61,6 +64,7 @@ export async function sendInquiry(_prev, formData) {
     data.phone && `Telefon: ${data.phone}`,
     data.country && `Land: ${data.country}`,
     data.type && `Projektart: ${data.type}`,
+    lang && lang !== "de" && `Sprache: ${lang.toUpperCase()}`,
     "",
     data.message,
   ]
@@ -88,8 +92,7 @@ export async function sendInquiry(_prev, formData) {
   } catch {
     return {
       ok: false,
-      error:
-        "Ihre Anfrage konnte gerade nicht übermittelt werden. Bitte versuchen Sie es erneut oder schreiben Sie uns per E-Mail.",
+      error: m.failed,
       values: data,
     };
   }

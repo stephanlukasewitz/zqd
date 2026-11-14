@@ -3,10 +3,12 @@
 import Image from "next/image";
 import TLink from "../transition/TLink";
 import { useEffect, useRef, useState } from "react";
+import { useLang } from "@/i18n/LangProvider";
 import styles from "./IndexList.module.css";
 
 // Projekte als Index – beim Überfahren einer Zeile schwebt das Bild neben dem Zeiger.
 export default function IndexList({ items, numbers }) {
+  const t = useLang().ui.index;
   const preview = useRef(null);
   const [hover, setHover] = useState(null);
 
@@ -44,11 +46,11 @@ export default function IndexList({ items, numbers }) {
   return (
     <div className={styles.wrap} onPointerLeave={() => setHover(null)}>
       <div className={`${styles.row} ${styles.headRow}`} aria-hidden="true">
-        <span>Nr.</span>
-        <span>Projekt</span>
-        <span>Auftraggeber</span>
-        <span>Ort</span>
-        <span>Aufgabe</span>
+        <span>{t.no}</span>
+        <span>{t.project}</span>
+        <span>{t.client}</span>
+        <span>{t.place}</span>
+        <span>{t.task}</span>
       </div>
       <ul>
         {items.map((p) => (
@@ -69,8 +71,8 @@ export default function IndexList({ items, numbers }) {
               <span className={styles.num}>{numbers[p.slug]}</span>
               <span className={styles.title}>{p.title}</span>
               <span>{p.zoo || "–"}</span>
-              <span>{[p.city, p.country].filter(Boolean).join(", ")}</span>
-              <span>{p.type}</span>
+              <span>{[p.city, p.countryLabel || p.country].filter(Boolean).join(", ")}</span>
+              <span>{p.typeLabel || p.type}</span>
             </TLink>
           </li>
         ))}

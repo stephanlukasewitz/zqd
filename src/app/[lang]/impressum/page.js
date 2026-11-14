@@ -1,12 +1,17 @@
 import LegalPage from "@/components/legal/LegalPage";
 import { site } from "@/content/site";
+import { getDict } from "@/i18n/server";
 
-export const metadata = { title: "Impressum" };
+export async function generateMetadata() {
+  const d = await getDict();
+  return { title: d.meta.imprint.title };
+}
 
-export default function Impressum() {
+export default async function Impressum() {
+  const d = await getDict();
   const tel = site.phone.replace(/[^\d+]/g, "");
   return (
-    <LegalPage title="Impressum">
+    <LegalPage title={d.meta.imprint.title} legal>
       <p>
         {site.legalName}
         <br />

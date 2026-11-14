@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import TLink from "../transition/TLink";
 import IndexList from "./IndexList";
+import { fmt } from "@/i18n/config";
+import { useHref, useLang } from "@/i18n/LangProvider";
 import styles from "./Gallery.module.css";
 
 const PAGE = 8;
@@ -42,6 +44,9 @@ function toSearch({ query, type, service, country, view, limit }) {
 }
 
 export default function Gallery({ items, options, search }) {
+  const { ui } = useLang();
+  const t = ui.gallery;
+  const href = useHref();
   const [init] = useState(() => fromSearch(search));
   const [query, setQuery] = useState(init.query);
   const [type, setType] = useState(init.type);
@@ -68,14 +73,14 @@ export default function Gallery({ items, options, search }) {
   }, []);
 
   useEffect(() => {
-    const url = current ? `/projekte?${current}` : "/projekte";
+    const url = href(current ? `/projekte?${current}` : "/projekte");
     if (url !== window.location.pathname + window.location.search) {
       window.history.replaceState(window.history.state, "", url);
     }
     try {
       sessionStorage.setItem("zqd:projekte", url);
     } catch {}
-  }, [current]);
+  }, [current, href]);
   const numbers = useMemo(
     () => Object.fromEntries(items.map((p, i) => [p.slug, String(i + 1).padStart(2, "0")])),
     [items],
@@ -107,7 +112,7 @@ export default function Gallery({ items, options, search }) {
       if (country && p.country !== country) return false;
       if (nq) {
         const hay = normalize(
-          [p.title, p.zoo, p.city, p.country, p.type].filter(Boolean).join(" "),
+          [p.title, p.zoo, p.city, p.country, p.countryLabel, p.type, p.typeLabel].filter(Boolean).join(" "),
         );
         if (!nq.split(/\s+/).every((t) => hay.includes(t))) return false;
       }
@@ -130,10 +135,10 @@ export default function Gallery({ items, options, search }) {
   };
 
   return (
-    <section className={styles.section} aria-label="Projektgalerie">
+    <section className={styles.section} aria-label={t.label}>
       <div className={`${styles.controls} wrap`}>
         <label className={styles.search}>
-          <span className="sr-only">Projekte durchsuchen</span>
+          <span className="sr-only">{t.search}</span>
           <svg viewBox="0 0 20 20" aria-hidden="true" className={styles.searchIcon}>
             <circle cx="8.5" cy="8.5" r="6" />
             <line x1="13" y1="13" x2="18" y2="18" />
@@ -142,42 +147,44 @@ export default function Gallery({ items, options, search }) {
             type="search"
             value={query}
             onChange={(e) => resetLimit(setQuery)(e.target.value)}
-            placeholder="Projekt, Zoo oder Ort suchen …"
+            placeholder={t.placeholder}
             autoComplete="off"
             enterKeyHint="search"
           />
         </label>
 
         <div className={styles.filters}>
-          <div className={styles.types} role="group" aria-label="Projektart">
+          <div className={styles.types} role="group" aria-label={t.typeGroup}>
             <button
               type="button"
               aria-pressed={!type}
               onClick={() => resetLimit(setType)("")}
             >
-              Alle
+              {t.all}
             </button>
-            {options.types.map((t) => (
+            {options.types.map(([value, label]) => (
               <button
-                key={t}
+                key={value}
                 type="button"
-                aria-pressed={type === t}
-                onClick={() => resetLimit(setType)(type === t ? "" : t)}
+                aria-pressed={type === value}
+                onClick={() => resetLimit(setType)(type === value ? "" : value)}
               >
-                {t}
+                {label}
               </button>
             ))}
           </div>
 
           <div className={styles.selects}>
             <Select
-              label="Leistung"
+              label={t.service}
+              all={t.all}
               value={service}
               onChange={resetLimit(setService)}
               options={options.services}
             />
             <Select
-              label="Standort"
+              label={t.location}
+              all={t.all}
               value={country}
               onChange={resetLimit(setCountry)}
               options={options.countries}
@@ -187,19 +194,19 @@ export default function Gallery({ items, options, search }) {
 
         <div className={styles.status}>
           <p aria-live="polite">
-            {filtered.length === 1 ? "1 Projekt" : `${filtered.length} Projekte`}
+            {filtered.length === 1 ? t.one : fmt(t.many, { n: filtered.length })}
           </p>
           {active && (
             <button type="button" className={styles.reset} onClick={reset}>
-              Zurücksetzen
+              {t.reset}
             </button>
           )}
-          <div className={styles.view} role="group" aria-label="Ansicht">
+          <div className={styles.view} role="group" aria-label={t.view}>
             <button type="button" aria-pressed={view === "grid"} onClick={() => setView("grid")}>
-              Raster
+              {t.grid}
             </button>
             <button type="button" aria-pressed={view === "list"} onClick={() => setView("list")}>
-              Index
+              {t.list}
             </button>
           </div>
         </div>
@@ -219,9 +226,9 @@ export default function Gallery({ items, options, search }) {
         </ul>
       ) : (
         <div className={`${styles.empty} wrap`}>
-          <p>Keine Projekte für diese Auswahl.</p>
+          <p>{t.empty}</p>
           <button type="button" className="tlink" onClick={reset}>
-            Filter zurücksetzen
+            {t.emptyReset}
           </button>
         </div>
       )}
@@ -235,10 +242,8 @@ export default function Gallery({ items, options, search }) {
               setLimit(limit + PAGE);
             }}
           >
-            Weitere Projekte anzeigen
-            <span>
-              {Math.min(PAGE, filtered.length - limit)} von {filtered.length - limit}
-            </span>
+            {t.more}
+            <span>{fmt(t.moreOf, { a: Math.min(PAGE, filtered.length - limit), b: filtered.length - limit })}</span>
           </button>
         </div>
       )}
@@ -248,14 +253,15 @@ export default function Gallery({ items, options, search }) {
 
 // Auswahlfeld, das genau so breit ist wie der gewählte Wert (unsichtbarer
 // Platzhalter in derselben Rasterzelle), damit der Pfeil direkt dahinter sitzt.
-function Select({ label, value, onChange, options }) {
+function Select({ label, all, value, onChange, options }) {
+  const shown = options.find(([v]) => v === value)?.[1];
   const byPointer = useRef(false);
   return (
     <label className={styles.select} data-set={value ? "" : undefined}>
       <span className={styles.selectLabel}>{label}</span>
       <span className={styles.field}>
         <span className={styles.sizer} aria-hidden="true">
-          {value || "Alle"}
+          {shown || all}
         </span>
         <select
           value={value}
@@ -267,10 +273,10 @@ function Select({ label, value, onChange, options }) {
             if (byPointer.current) e.target.blur();
           }}
         >
-          <option value="">Alle</option>
-          {options.map((o) => (
-            <option key={o} value={o}>
-              {o}
+          <option value="">{all}</option>
+          {options.map(([v, l]) => (
+            <option key={v} value={v}>
+              {l}
             </option>
           ))}
         </select>
@@ -303,7 +309,7 @@ function Card({ project: p, eager, num }) {
         <p className={styles.cardPlace}>
           {[p.zoo, p.city].filter((x, i, a) => x && a.indexOf(x) === i).join(", ")}
         </p>
-        <p className={styles.cardType}>{p.type}</p>
+        <p className={styles.cardType}>{p.typeLabel || p.type}</p>
       </div>
     </TLink>
   );

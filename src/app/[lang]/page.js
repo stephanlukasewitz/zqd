@@ -6,43 +6,18 @@ import PhaseCards from "@/components/home/PhaseCards";
 import TLink from "@/components/transition/TLink";
 import Reveal from "@/components/fx/Reveal";
 import { withDot } from "@/components/fx/Dot";
-import {
-  claim,
-  competence,
-  general,
-  heroImages,
-  phases,
-  phasesIntro,
-  philosophy,
-  pic,
-  principles,
-} from "@/content/home";
-import { projects } from "@/content/projects";
+import { heroImage, phaseImages, pic } from "@/content/home";
+import { getProjects } from "@/content/projects";
+import { fmt } from "@/i18n/config";
+import { getDict, getLang } from "@/i18n/server";
 import styles from "./page.module.css";
 
-const count = (type) => projects.filter((p) => p.type === type).length;
-
-// Die drei Aufgabenfelder – jeweils mit echter Projektzahl und Filterlink.
-const fields = [
-  {
-    type: "Masterplanung",
-    word: "Masterplanung",
-    line: "Ganze Zoos weiterentwickeln – Schritt für Schritt und im laufenden Betrieb.",
-    image: pic("masterplan-erweiterung-sued-schoenbrunn", 2).image,
-  },
-  {
-    type: "Tieranlage",
-    word: "Tieranlagen",
-    line: "Häuser und Gehege, die Tieren Raum geben und Besuchern Nähe.",
-    image: pic("orang-utan-dome-hagenbeck").image,
-  },
-  {
-    type: "Aquarium",
-    word: "Aquarien",
-    line: "Unterwasserwelten mit Einblicken, die Mensch und Tier zusammenbringen.",
-    image: pic("tropen-aquarium-hagenbeck").image,
-  },
-].map((f) => ({ ...f, count: count(f.type) }));
+// Bilder der drei Aufgabenfelder (Texte im Wörterbuch)
+const FIELD_IMAGES = [
+  ["Masterplanung", "masterplan-erweiterung-sued-schoenbrunn", 2],
+  ["Tieranlage", "orang-utan-dome-hagenbeck", 0],
+  ["Aquarium", "tropen-aquarium-hagenbeck", 0],
+];
 
 // Abschnittskopf: Titel links, ergänzender Text rechts unten – überall gleich.
 function Head({ id, title, children }) {
@@ -56,7 +31,7 @@ function Head({ id, title, children }) {
   );
 }
 
-function Caption({ shot, link = true }) {
+function Caption({ shot, view, link = true }) {
   return (
     <figcaption className={styles.caption}>
       <span>
@@ -64,30 +39,45 @@ function Caption({ shot, link = true }) {
       </span>
       {link && (
         <TLink href={`/projekte/${shot.slug}`} className={styles.capLink}>
-          Projekt ansehen <span aria-hidden="true">→</span>
+          {view} <span aria-hidden="true">→</span>
         </TLink>
       )}
     </figcaption>
   );
 }
 
-export default function HomePage() {
-  const robbe = pic("eismeer-hagenbeck", 1);
-  const elefant = pic("elefanten-badeteich-hagenbeck", 1);
-  const band = pic("elefantenwelt-wilhelma", 1);
+export default async function HomePage() {
+  const lang = await getLang();
+  const d = await getDict();
+  const h = d.home;
+  const { philosophy, principles, competence, general } = h;
+  const projects = getProjects(lang);
+  const count = (type) => projects.filter((p) => p.type === type).length;
 
-  const cards = phases().map((p) => ({
-    label: p.label,
-    note: p.text,
-    details: p.details,
-    image: p.image,
-    alt: p.alt,
-    credit: `${p.title}, ${p.zoo}`,
+  const robbe = pic("eismeer-hagenbeck", 1, lang);
+  const elefant = pic("elefanten-badeteich-hagenbeck", 1, lang);
+  const band = pic("elefantenwelt-wilhelma", 1, lang);
+
+  const fields = FIELD_IMAGES.map(([type, slug, i]) => ({
+    type,
+    word: h.fields[type][0],
+    line: h.fields[type][1],
+    image: pic(slug, i, lang).image,
+    count: fmt(h.count, { n: count(type) }),
+  }));
+
+  const cards = phaseImages(lang).map((img, i) => ({
+    label: h.phases[i].label,
+    note: h.phases[i].text,
+    details: h.phases[i].details,
+    image: img.image,
+    alt: img.alt,
+    credit: `${img.title}, ${img.zoo}`,
   }));
 
   return (
     <>
-      <Hero slide={heroImages()[1]} claim={claim} />
+      <Hero slide={heroImage(lang)} claim={h.claim} />
 
       {/* Warum */}
       {/* Haltung */}
@@ -128,18 +118,18 @@ export default function HomePage() {
 
       {/* Was */}
       {/* Bildpaar */}
-      <section className={`${styles.pair} ${styles.chapter}`} aria-label="Einblicke">
+      <section className={`${styles.pair} ${styles.chapter}`} aria-label={h.insights}>
         <figure className={styles.pairLarge}>
           <div className={`${styles.media} img-reveal`} style={{ aspectRatio: "3 / 2" }}>
             <Image src={robbe.image} alt={robbe.alt} fill sizes="(max-width: 760px) 100vw, 64vw" className={styles.img} />
           </div>
-          <Caption shot={robbe} />
+          <Caption shot={robbe} view={h.viewProject} />
         </figure>
         <figure className={styles.pairSmall}>
           <div className={`${styles.media} img-reveal`} style={{ aspectRatio: "4 / 5" }}>
             <Image src={elefant.image} alt={elefant.alt} fill sizes="(max-width: 760px) 60vw, 24vw" className={styles.img} />
           </div>
-          <Caption shot={elefant} />
+          <Caption shot={elefant} view={h.viewProject} />
         </figure>
       </section>
 
@@ -154,8 +144,8 @@ export default function HomePage() {
       {/* Wie */}
       {/* Planungsweg */}
       <section className={`${styles.section} ${styles.chapter}`} aria-labelledby="planungsweg">
-        <Head id="planungsweg" title="Von der Idee bis zur Realisierung.">
-          <p>{phasesIntro}</p>
+        <Head id="planungsweg" title={h.phasesTitle}>
+          <p>{h.phasesIntro}</p>
         </Head>
         <PhaseCards phases={cards} />
       </section>
@@ -165,7 +155,7 @@ export default function HomePage() {
         <div className={`${styles.bandMedia} img-reveal`}>
           <Image src={band.image} alt={band.alt} fill sizes="100vw" className={styles.img} />
         </div>
-        <Caption shot={band} />
+        <Caption shot={band} view={h.viewProject} />
       </figure>
 
       {/* Generalplanung */}
@@ -173,7 +163,7 @@ export default function HomePage() {
         <Head id="generalplanung" title={general.title}>
           <p>{general.text}</p>
           <TLink href="/team" className="tlink">
-            Das Team kennenlernen <span className="arrow" aria-hidden="true">→</span>
+            {general.teamLink} <span className="arrow" aria-hidden="true">→</span>
           </TLink>
         </Head>
         <ol className={styles.disciplines}>

@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import { useTransitionNav } from "./TransitionProvider";
+import { useHref } from "@/i18n/LangProvider";
 
 // Link mit Seitenübergang. Neue Tabs, Modifier-Klicks und Anker bleiben unverändert.
-export default function TLink({ href, onClick, ...props }) {
+// Interne (deutsche) Pfade werden automatisch in die aktuelle Sprache übersetzt.
+export default function TLink({ href: raw, onClick, ...props }) {
   const { navigate } = useTransitionNav();
+  const href = useHref()(raw);
   return (
     <Link
       href={href}

@@ -1,11 +1,16 @@
 import LegalPage from "@/components/legal/LegalPage";
 import { site } from "@/content/site";
+import { getDict } from "@/i18n/server";
 
-export const metadata = { title: "Datenschutz", robots: { index: false } };
+export async function generateMetadata() {
+  const d = await getDict();
+  return { title: d.meta.privacy.title, robots: { index: false } };
+}
 
-export default function Datenschutz() {
+export default async function Datenschutz() {
+  const d = await getDict();
   return (
-    <LegalPage title="Datenschutzerklärung">
+    <LegalPage title={d.meta.privacy.heading} legal>
       <h2>Verantwortliche Stelle</h2>
       <p>
         Verantwortliche Stelle im Sinne der Datenschutzgesetze, insbesondere der

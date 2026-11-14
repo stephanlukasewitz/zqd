@@ -1,13 +1,14 @@
 "use client";
 
-import Link from "next/link";
+import TLink from "@/components/transition/TLink";
+import { useLang } from "@/i18n/LangProvider";
 import { useActionState } from "react";
-import { sendInquiry } from "@/app/kontakt/actions";
+import { sendInquiry } from "@/server/contact";
 import styles from "./ContactForm.module.css";
 
-const TYPES = ["Masterplanung", "Tieranlage", "Aquarium", "Sonstiges"];
 
-export default function ContactForm({ email }) {
+export default function ContactForm({ email, lang }) {
+  const t = useLang().ui.form;
   const [state, action, pending] = useActionState(sendInquiry, null);
   const v = state?.values || {};
   const e = state?.errors || {};
@@ -20,14 +21,15 @@ export default function ContactForm({ email }) {
           <span>Q</span>
           <span>D</span>
         </span>
-        <p className={styles.successTitle}>Vielen Dank.</p>
-        <p>Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns bei Ihnen.</p>
+        <p className={styles.successTitle}>{t.thanks}</p>
+        <p>{t.thanksText}</p>
       </div>
     );
   }
 
   return (
     <form action={action} className={styles.form} noValidate>
+      <input type="hidden" name="lang" value={lang} />
       {state?.error && (
         <p className={styles.formError} role="alert">
           {state.error}{" "}
@@ -39,9 +41,9 @@ export default function ContactForm({ email }) {
         </p>
       )}
 
-      <Field label="Name" name="name" required error={e.name} defaultValue={v.name} autoComplete="name" />
+      <Field label={t.name} name="name" required error={e.name} defaultValue={v.name} autoComplete="name" />
       <Field
-        label="Einrichtung / Unternehmen"
+        label={t.org}
         name="org"
         required
         error={e.org}
@@ -49,7 +51,7 @@ export default function ContactForm({ email }) {
         autoComplete="organization"
       />
       <Field
-        label="E-Mail"
+        label={t.email}
         name="email"
         type="email"
         required
@@ -58,23 +60,23 @@ export default function ContactForm({ email }) {
         autoComplete="email"
         inputMode="email"
       />
-      <Field label="Telefon" name="phone" type="tel" defaultValue={v.phone} autoComplete="tel" half />
-      <Field label="Land" name="country" defaultValue={v.country} autoComplete="country-name" half />
+      <Field label={t.phone} name="phone" type="tel" defaultValue={v.phone} autoComplete="tel" half />
+      <Field label={t.country} name="country" defaultValue={v.country} autoComplete="country-name" half />
 
       <fieldset className={styles.types}>
-        <legend>Projektart</legend>
+        <legend>{t.type}</legend>
         <div>
-          {TYPES.map((t) => (
-            <label key={t} className={styles.chip}>
-              <input type="radio" name="type" value={t} defaultChecked={v.type === t} />
-              <span>{t}</span>
+          {Object.entries(t.types).map(([value, label]) => (
+            <label key={value} className={styles.chip}>
+              <input type="radio" name="type" value={value} defaultChecked={v.type === value} />
+              <span>{label}</span>
             </label>
           ))}
         </div>
       </fieldset>
 
       <Field
-        label="Nachricht"
+        label={t.message}
         name="message"
         required
         error={e.message}
@@ -94,12 +96,11 @@ export default function ContactForm({ email }) {
         <input type="checkbox" name="consent" aria-describedby={e.consent ? "err-consent" : undefined} />
         <span className={styles.box} aria-hidden="true" />
         <span>
-          Ich habe die{" "}
-          <Link href="/datenschutz" className={styles.inlineLink}>
-            Datenschutzhinweise
-          </Link>{" "}
-          gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung der
-          Anfrage einverstanden. *
+          {t.consentA && `${t.consentA} `}
+          <TLink href="/datenschutz" className={styles.inlineLink}>
+            {t.consentLink}
+          </TLink>{" "}
+          {t.consentB} *
         </span>
       </label>
       {e.consent && (
@@ -109,9 +110,9 @@ export default function ContactForm({ email }) {
       )}
 
       <div className={styles.submitRow}>
-        <p className={styles.req}>* Pflichtfeld</p>
+        <p className={styles.req}>{t.required}</p>
         <button type="submit" className={styles.submit} disabled={pending}>
-          {pending ? "Wird gesendet …" : "Anfrage senden"}
+          {pending ? t.sending : t.send}
           <span aria-hidden="true">→</span>
         </button>
       </div>

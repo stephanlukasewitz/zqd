@@ -4,12 +4,14 @@ import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 import TLink from "../transition/TLink";
 import RippleWater from "../fx/RippleWater";
+import { useLang } from "@/i18n/LangProvider";
 import styles from "./Hero.module.css";
 
 // Einstieg: oben der Claim auf Weiß, darunter das Tiefseebecken über die volle
 // Breite. Beim Scrollen zieht sich das Bild auf die Seitenränder zusammen;
 // die Wasseroberfläche reagiert auf Maus und Finger.
 export default function Hero({ slide, claim }) {
+  const { ui } = useLang();
   const stage = useRef(null);
   const [state, setState] = useState("dom"); // dom | gl
 
@@ -39,7 +41,7 @@ export default function Hero({ slide, claim }) {
   );
 
   return (
-    <section className={styles.hero} aria-label="Einstieg">
+    <section className={styles.hero} aria-label={ui.hero.label}>
       <h1 className={styles.claim}>
         <span className={styles.l1}>{claim[0]}</span>
         <span className={styles.l2}>
@@ -70,10 +72,10 @@ export default function Hero({ slide, claim }) {
         </div>
         <figcaption className={styles.caption}>
           <TLink href={`/projekte/${slide.slug}`} className={styles.capLink}>
-            Tiefseebecken, {slide.title} <span aria-hidden="true">→</span>
+            {ui.hero.tank}, {slide.title} <span aria-hidden="true">→</span>
           </TLink>
           <span className={styles.hint} data-on={state === "gl" || undefined} aria-hidden="true">
-            Bewegen Sie das Wasser
+            {ui.hero.hint}
           </span>
         </figcaption>
       </figure>

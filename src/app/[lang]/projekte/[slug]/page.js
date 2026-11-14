@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import BackLink from "@/components/projects/BackLink";
 import PageTransition from "@/components/PageTransition";
 import ProjectDetail from "@/components/projects/ProjectDetail";
-import { getProject, placeOf, projects } from "@/content/projects";
+import { getProject, getProjects, placeOf, projects } from "@/content/projects";
+import { getDict, getLang } from "@/i18n/server";
 import styles from "./page.module.css";
 
 export function generateStaticParams() {
@@ -12,7 +13,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const p = getProject(slug);
+  const p = getProject(slug, await getLang());
   if (!p) return {};
   return {
     title: p.title,
@@ -32,17 +33,19 @@ export default function ProjectPage({ params }) {
 
 async function Content({ params }) {
   const { slug } = await params;
-  const p = getProject(slug);
+  const lang = await getLang();
+  const d = await getDict();
+  const p = getProject(slug, lang);
   if (!p) notFound();
   return (
     <PageTransition>
       <div className={styles.page}>
-        <nav className={`${styles.back} wrap`} aria-label="Zurück">
+        <nav className={`${styles.back} wrap`} aria-label={d.ui.backLabel}>
           <BackLink className="tlink">
-            <span className="arrow" aria-hidden="true">←</span> Alle Projekte
+            <span className="arrow" aria-hidden="true">←</span> {d.ui.back}
           </BackLink>
         </nav>
-        <ProjectDetail project={p} />
+        <ProjectDetail project={p} projects={getProjects(lang)} t={d.projects} />
       </div>
     </PageTransition>
   );

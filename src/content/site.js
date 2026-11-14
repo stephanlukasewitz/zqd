@@ -20,14 +20,4 @@ export const site = {
   geo: { lat: 53.5451, lng: 9.9332 },
 };
 
-export const nav = [
-  { href: "/", label: "Home" },
-  { href: "/projekte", label: "Projekte" },
-  { href: "/team", label: "Team" },
-  { href: "/kontakt", label: "Kontakt" },
-];
-
-export const legalNav = [
-  { href: "/impressum", label: "Impressum" },
-  { href: "/datenschutz", label: "Datenschutz" },
-];
+// Navigation und Beschriftungen stehen in den Wörterbüchern (src/i18n/dict).

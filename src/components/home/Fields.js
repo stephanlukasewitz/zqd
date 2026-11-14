@@ -58,7 +58,7 @@ export default function Fields({ fields }) {
               <span className={styles.word}>{f.word}</span>
               <span className={styles.line}>{f.line}</span>
               <span className={styles.count}>
-                {f.count} Projekte <span aria-hidden="true">→</span>
+                {f.count} <span aria-hidden="true">→</span>
               </span>
             </TLink>
           </li>
