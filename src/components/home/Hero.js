@@ -41,11 +41,11 @@ export default function Hero({ slide, claim }) {
   return (
     <section className={styles.hero} aria-label="Einstieg">
       <h1 className={styles.claim}>
-        <span className={styles.l1}>
-          {claim[0].replace(/\.$/, "")}
+        <span className={styles.l1}>{claim[0]}</span>
+        <span className={styles.l2}>
+          {claim[1].replace(/\.$/, "")}
           <span className={styles.dot}>.</span>
         </span>
-        <span className={styles.l2}>{claim[1]}</span>
       </h1>
 
       <figure className={styles.figure}>
