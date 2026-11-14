@@ -16,7 +16,7 @@ export default function Hero({ slide, claim }) {
       <h1 className={styles.claim}>
         <Reveal className={styles.l1}>{withDot(claim[0])}</Reveal>
         <Reveal className={styles.l2} delay={120}>
-          {withDot(claim[1])}
+          {claim[1]}
         </Reveal>
       </h1>
 
