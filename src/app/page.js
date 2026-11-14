@@ -5,7 +5,7 @@ import PhaseCards from "@/components/home/PhaseCards";
 import TLink from "@/components/transition/TLink";
 import Reveal from "@/components/fx/Reveal";
 import { withDot } from "@/components/fx/Dot";
-import { claim, competence, general, heroImages, phases, philosophy, pic } from "@/content/home";
+import { claim, competence, general, heroImages, phases, philosophy, pic, principles } from "@/content/home";
 import { projects } from "@/content/projects";
 import styles from "./page.module.css";
 
@@ -100,6 +100,29 @@ export default function HomePage() {
 
       <div className={styles.splitGap} />
       <Split sections={story} />
+
+      {/* Grundsätze */}
+      <section className={styles.block} aria-labelledby="grundsaetze">
+        <div className={styles.row}>
+          <h2 id="grundsaetze" className={styles.key}>
+            Grundsätze
+          </h2>
+          <p className={`${styles.main} ${styles.title}`}>
+            <Reveal>{withDot(principles.title)}</Reveal>
+          </p>
+        </div>
+        <ol className={styles.principles}>
+          {principles.items.map(([head, text], i) => (
+            <li key={head} className="reveal">
+              <span className={styles.pNum}>{String(i + 1).padStart(2, "0")}</span>
+              <p className={styles.pText}>
+                {head}
+                <span>{text}</span>
+              </p>
+            </li>
+          ))}
+        </ol>
+      </section>
 
       {/* H04 Planungsweg */}
       <section className={styles.block} aria-labelledby="planungsweg">

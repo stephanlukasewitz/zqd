@@ -104,6 +104,53 @@
   font-size: var(--fs-sm);
 }
 
+/* Grundsätze: nummerierte Leitsätze auf Linie */
+.principles {
+  display: grid;
+}
+
+.principles li {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: baseline;
+  padding: clamp(20px, 2.4vw, 34px) 0 clamp(28px, 3.4vw, 52px);
+  border-top: 1px solid var(--line);
+}
+
+.principles li:first-child {
+  border-top-color: var(--ink);
+}
+
+.pNum {
+  grid-column: 1 / span 3;
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.pText {
+  grid-column: 4 / -1;
+  max-width: 34ch;
+  font-size: clamp(1.4rem, 0.9rem + 1.5vw, 2.6rem);
+  letter-spacing: -0.035em;
+  line-height: 1.14;
+}
+
+.pText span {
+  display: block;
+  color: var(--soft);
+}
+
+@media (max-width: 900px) {
+  .pNum {
+    grid-column: 1 / span 2;
+  }
+
+  .pText {
+    grid-column: 3 / -1;
+  }
+}
+
 @media (max-width: 900px) {
   .key,
   .main {

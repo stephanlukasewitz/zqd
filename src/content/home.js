@@ -12,6 +12,29 @@ export const philosophy = {
   words: ["Klarheit", "Verantwortung", "Weitblick"],
 };
 
+// Grundsätze – jeweils ein Kernsatz und seine Begründung.
+export const principles = {
+  title: "Wofür wir planen.",
+  items: [
+    [
+      "Das Wohlbefinden der Tiere hat Priorität.",
+      "Grundlage sind neueste Erkenntnisse, Erfahrungen und Beobachtungen aus ihrem natürlichen Lebensraum.",
+    ],
+    [
+      "Besucher erleben Tiere nah und unverstellt.",
+      "Einblicke, die Verständnis wecken und Respekt vor dem Lebensraum der Tiere vermitteln.",
+    ],
+    [
+      "Pflege und Betrieb sind Teil des Entwurfs.",
+      "Wege, Abläufe und Technik hinter den Kulissen planen wir so sorgfältig wie das, was man sieht.",
+    ],
+    [
+      "Anlagen bleiben entwicklungsfähig.",
+      "Robust im Betrieb, wirtschaftlich im Unterhalt und offen für das, was Zoos morgen brauchen.",
+    ],
+  ],
+};
+
 export const competence = {
   title: "Zoologische Lebensräume ganzheitlich planen.",
   text: "Von der Entwicklung eines gesamten Zoos und seiner Masterplanung bis zur Planung einzelner Tieranlagen, Gebäude und Aquarien: ZQD verbindet unterschiedliche Maßstäbe innerhalb einer umfassenden planerischen Kompetenz.",
