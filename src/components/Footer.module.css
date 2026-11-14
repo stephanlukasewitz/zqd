@@ -1,27 +1,22 @@
 .footer {
   margin-top: clamp(110px, 14vw, 240px);
-  padding: 0 var(--margin) 28px;
-  font-size: var(--fs-sm);
+  padding: 0 var(--margin) 36px;
+  font-size: var(--fs-base);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--gutter);
-  row-gap: 40px;
-  padding-top: 24px;
-  border-top: 1px solid var(--ink);
-}
-
-.brandCol {
-  grid-column: 1 / span 6;
-  display: grid;
-  align-content: start;
-  gap: 14px;
+  row-gap: 48px;
+  padding-top: clamp(32px, 3.2vw, 48px);
+  border-top: 1px solid var(--line-strong);
 }
 
 .brand {
-  --logo-h: clamp(15px, 1.4vw, 20px);
+  grid-column: 1 / span 6;
+  --logo-h: clamp(17px, 1.8vw, 28px);
+  align-self: start;
   width: max-content;
   max-width: 100%;
 }
@@ -32,9 +27,14 @@
   width: calc(var(--logo-h) * var(--ratio));
 }
 
-.service {
-  max-width: 30ch;
-  color: var(--mute);
+.copy {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mark {
+  --logo-h: 22px;
 }
 
 .col {
@@ -42,7 +42,7 @@
   display: grid;
   align-content: start;
   justify-items: start;
-  gap: 3px;
+  gap: 6px;
 }
 
 .col a {
@@ -54,7 +54,7 @@
 }
 
 .key {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   color: var(--mute);
 }
 
@@ -69,33 +69,23 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: baseline;
   gap: 8px 24px;
-  margin-top: clamp(64px, 8vw, 120px);
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
-  font-size: var(--fs-xs);
+  margin-top: clamp(88px, 10vw, 160px);
+  font-size: var(--fs-sm);
   color: var(--mute);
 }
 
 .base ul {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px 20px;
+  gap: 24px;
 }
 
-.base a,
-.top {
-  transition: color 0.3s var(--ease);
-}
-
-.base a:hover,
-.top:hover {
+.base a:hover {
   color: var(--ink);
 }
 
 @media (max-width: 900px) {
-  .brandCol {
+  .brand {
     grid-column: 1 / -1;
   }
 
