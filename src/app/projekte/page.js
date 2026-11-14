@@ -19,7 +19,7 @@ export default function ProjektePage() {
         <div className="grid">
           <h1 className={styles.title}>
             <Reveal>Unsere Projekte</Reveal>
-            <sup className={styles.count}>({projects.length})</sup>
+            {/* <sup className={styles.count}>({projects.length})</sup> */}
           </h1>
           <p className={styles.sub}>Ausgewählte Aufgaben, Ansätze und Ergebnisse.</p>
         </div>
