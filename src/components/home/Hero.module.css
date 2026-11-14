@@ -1,5 +1,5 @@
 .hero {
-  --top: calc(var(--header-h) + clamp(28px, 6vh, 72px));
+  --top: calc(var(--header-h) + clamp(48px, 11vh, 130px));
   padding-top: var(--top);
 }
 
@@ -27,7 +27,7 @@
 
 /* Bild über die volle Breite; startet etwa auf halber Höhe des Bildschirms */
 .figure {
-  margin-top: clamp(32px, 6vh, 72px);
+  margin-top: clamp(56px, 12vh, 140px);
 }
 
 .stage {
