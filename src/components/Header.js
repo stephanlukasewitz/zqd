@@ -1,19 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import TLink from "./transition/TLink";
-import { nav, site } from "@/content/site";
+import { site } from "@/content/site";
+import { langNames, locales, parsePath, switchLocale } from "@/i18n/config";
+import { useLang } from "@/i18n/LangProvider";
 import { homeMedia, teamPhotos } from "@/content/media";
 import styles from "./Header.module.css";
-
-const LANGS = [
-  ["DE", "Deutsch"],
-  ["EN", "English"],
-  ["TR", "Türkçe"],
-];
 
 function isActive(pathname, href) {
   if (href === "/") return pathname === "/";
@@ -28,15 +25,12 @@ const PREVIEW = {
   "/kontakt": homeMedia.competence.image,
 };
 
-const NOTE = {
-  "/": "Startseite",
-  "/projekte": "Referenzen und Index",
-  "/team": "Menschen und Partner",
-  "/kontakt": "Anfrage und Anfahrt",
-};
-
-export default function Header() {
-  const pathname = usePathname();
+export default function Header({ nav: labels }) {
+  const publicPath = usePathname();
+  const pathname = parsePath(publicPath).path;
+  const { ui, values } = useLang();
+  const nav = Object.entries(labels).map(([href, label]) => ({ href, label }));
+  const NOTE = ui.navNote;
   const [open, setOpen] = useState(false);
   const [opened, setOpened] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -57,7 +51,7 @@ export default function Header() {
       io.disconnect();
       setBrandHidden(false);
     };
-  }, [pathname]);
+  }, [publicPath]);
 
   // Liegt der Header über einer dunklen Fläche (z. B. dem Hero)?
   useEffect(() => {
@@ -73,7 +67,7 @@ export default function Header() {
     );
     zones.forEach((z) => io.observe(z));
     return () => io.disconnect();
-  }, [pathname]);
+  }, [publicPath]);
   const menuButton = useRef(null);
   const panel = useRef(null);
 
@@ -96,9 +90,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const [lastPath, setLastPath] = useState(pathname);
-  if (lastPath !== pathname) {
-    setLastPath(pathname);
+  const [lastPath, setLastPath] = useState(publicPath);
+  if (lastPath !== publicPath) {
+    setLastPath(publicPath);
     setOpen(false);
     setHidden(false);
     setOnDark(false);
@@ -143,13 +137,13 @@ export default function Header() {
           href="/"
           className={styles.brand}
           data-hidden={brandHidden || undefined}
-          aria-label="ZQD – zur Startseite"
+          aria-label={ui.home}
         >
           <Logo variant="wordmark" priority />
         </TLink>
 
         <div className={styles.actions}>
-          <Lang className={styles.lang} />
+          <Lang className={styles.lang} path={publicPath} />
 
         <button
           ref={menuButton}
@@ -160,8 +154,8 @@ export default function Header() {
           onClick={toggle}
         >
           <span className={styles.menuLabel} data-open={open || undefined}>
-            <span>Menü</span>
-            <span aria-hidden="true">Schließen</span>
+            <span>{ui.menu}</span>
+            <span aria-hidden="true">{ui.close}</span>
           </span>
           <span className={styles.menuIcon} aria-hidden="true" />
         </button>
@@ -183,7 +177,7 @@ export default function Header() {
         inert={!open}
         onPointerLeave={() => setHover(null)}
       >
-        <nav className={styles.panelNav} aria-label="Menü">
+        <nav className={styles.panelNav} aria-label={ui.menuLabel}>
           <ol className={styles.panelList}>
             {nav.map((item, i) => (
               <li key={item.href} style={{ "--i": i }}>
@@ -224,23 +218,39 @@ export default function Header() {
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <a href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}>{site.phone}</a>
           <span>
-            {site.city}, {site.country}
+            {site.city}, {values.countries[site.country] || site.country}
           </span>
-          <Lang className={styles.panelLang} />
+          <Lang className={styles.panelLang} path={publicPath} />
         </div>
       </div>
     </header>
   );
 }
 
-// Sprachwahl – vorerst nur Darstellung, Deutsch ist aktiv.
-function Lang({ className }) {
+// Sprachwahl: dieselbe Seite in der anderen Sprache (Filter in der Adresse bleiben erhalten).
+function Lang({ className, path }) {
+  const { lang, ui } = useLang();
+  const router = useRouter();
   return (
-    <div className={className} role="group" aria-label="Sprache">
-      {LANGS.map(([code, name]) => (
-        <button key={code} type="button" lang={code.toLowerCase()} aria-label={name} aria-pressed={code === "DE"}>
-          {code}
-        </button>
+    <div className={className} role="group" aria-label={ui.language}>
+      {locales.map((code) => (
+        <Link
+          key={code}
+          href={switchLocale(path, "", code)}
+          hrefLang={code}
+          lang={code}
+          aria-label={langNames[code]}
+          aria-current={code === lang ? "true" : undefined}
+          onClick={(e) => {
+            if (code === lang) return e.preventDefault();
+            const search = window.location.search;
+            if (!search || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+            e.preventDefault();
+            router.push(switchLocale(path, search, code));
+          }}
+        >
+          {code.toUpperCase()}
+        </Link>
       ))}
     </div>
   );

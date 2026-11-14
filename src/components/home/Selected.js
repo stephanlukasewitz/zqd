@@ -1,7 +1,9 @@
 import Image from "next/image";
 import TLink from "../transition/TLink";
 import Reveal from "../fx/Reveal";
-import { placeOf, projects } from "@/content/projects";
+import { getProjects, placeOf } from "@/content/projects";
+import { fmt } from "@/i18n/config";
+import { getDict, getLang } from "@/i18n/server";
 import styles from "./Selected.module.css";
 
 const PICK = [
@@ -12,7 +14,10 @@ const PICK = [
 ];
 
 // Ausgewählte Projekte – vier Projekte in zwei versetzten Spalten, wie Blätter auf dem Tisch.
-export default function Selected({ space }) {
+export default async function Selected({ space }) {
+  const lang = await getLang();
+  const d = await getDict();
+  const projects = getProjects(lang);
   const list = PICK.map((s) => projects.find((p) => p.slug === s)).filter(Boolean);
   const num = (p) => String(projects.indexOf(p) + 1).padStart(2, "0");
 
@@ -20,10 +25,10 @@ export default function Selected({ space }) {
     <section className={styles.section} style={space ? { paddingTop: space } : undefined} aria-labelledby="auswahl">
       <div className={styles.head}>
         <h2 id="auswahl" className={styles.title}>
-          <Reveal>Ausgewählte Projekte</Reveal>
+          <Reveal>{d.home.selected}</Reveal>
         </h2>
         <TLink href="/projekte" className="tlink">
-          Alle {projects.length} Projekte <span className="arrow" aria-hidden="true">→</span>
+          {fmt(d.home.allProjects, { n: projects.length })} <span className="arrow" aria-hidden="true">→</span>
         </TLink>
       </div>
 

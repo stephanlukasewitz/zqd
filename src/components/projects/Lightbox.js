@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+import { useLang } from "@/i18n/LangProvider";
 import styles from "./Lightbox.module.css";
 
 // Bilder einer Projektseite groß ansehen: Klick öffnet, Pfeile/Tasten/Wischen
@@ -9,6 +10,7 @@ import styles from "./Lightbox.module.css";
 const Ctx = createContext(() => {});
 
 export function LightboxProvider({ images, title, children }) {
+  const t = useLang().ui.lightbox;
   const [index, setIndex] = useState(-1);
   const [closing, setClosing] = useState(false);
   const opener = useRef(null);
@@ -69,7 +71,7 @@ export function LightboxProvider({ images, title, children }) {
           data-closing={closing || undefined}
           role="dialog"
           aria-modal="true"
-          aria-label={`Bilder: ${title}`}
+          aria-label={`${t.images}: ${title}`}
           onClick={(e) => e.target === e.currentTarget && close()}
           onTouchStart={(e) => (touch.current = e.touches[0].clientX)}
           onTouchEnd={(e) => {
@@ -84,7 +86,7 @@ export function LightboxProvider({ images, title, children }) {
               {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
             </span>
             <button type="button" className={styles.close} onClick={close}>
-              Schließen <span aria-hidden="true" />
+              {t.close} <span aria-hidden="true" />
             </button>
           </div>
 
@@ -96,11 +98,11 @@ export function LightboxProvider({ images, title, children }) {
 
           {count > 1 && (
             <div className={styles.bottom}>
-              <button type="button" onClick={() => go(-1)} aria-label="Vorheriges Bild">
+              <button type="button" onClick={() => go(-1)} aria-label={t.prev}>
                 ←
               </button>
               <span className={styles.caption}>{current.alt}</span>
-              <button type="button" onClick={() => go(1)} aria-label="Nächstes Bild">
+              <button type="button" onClick={() => go(1)} aria-label={t.next}>
                 →
               </button>
             </div>
@@ -113,13 +115,14 @@ export function LightboxProvider({ images, title, children }) {
 
 // Macht ein Bild anklickbar.
 export function Zoom({ index, label, className, children }) {
+  const t = useLang().ui.lightbox;
   const show = useContext(Ctx);
   return (
     <button
       type="button"
       className={`${styles.zoom} ${className || ""}`}
       onClick={(e) => show(index, e.currentTarget)}
-      aria-label={`Bild vergrößern: ${label}`}
+      aria-label={`${t.enlarge}: ${label}`}
     >
       {children}
     </button>

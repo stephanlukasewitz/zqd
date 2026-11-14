@@ -4,15 +4,20 @@ import ContactForm from "@/components/contact/ContactForm";
 import OfficeMap from "@/components/contact/OfficeMap";
 import { site } from "@/content/site";
 import Reveal from "@/components/fx/Reveal";
+import { getDict, getLang } from "@/i18n/server";
 import styles from "./page.module.css";
 
-export const metadata = {
-  title: "Kontakt",
-  description: "Sprechen wir über Ihr Projekt – Anfrage, Kontaktdaten und Anfahrt.",
-};
+export async function generateMetadata() {
+  const d = await getDict();
+  return { title: d.meta.contact.title, description: d.meta.contact.description };
+}
 
-export default function KontaktPage() {
-  const address = [site.street, `${site.zip} ${site.city}`, site.country];
+export default async function KontaktPage() {
+  const lang = await getLang();
+  const d = await getDict();
+  const t = d.contact;
+  const country = d.values.countries[site.country] || site.country;
+  const address = [site.street, `${site.zip} ${site.city}`, country];
   const routeQuery = site.mapsQuery || address.join(", ");
   const routeUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(routeQuery)}`;
   const tel = site.phone.replace(/[^\d+]/g, "");
@@ -23,25 +28,22 @@ export default function KontaktPage() {
       <section className={`${styles.intro} wrap`}>
         <div className="grid">
           <h1 className={styles.title}>
-            <Reveal>{withDot("Sprechen wir über Ihr Projekt.")}</Reveal>
+            <Reveal>{withDot(t.title)}</Reveal>
           </h1>
-          <p className={styles.sub}>
-            Ob Masterplanung, neue Tieranlage oder Modernisierung – wir freuen
-            uns auf Ihre Anfrage.
-          </p>
+          <p className={styles.sub}>{t.sub}</p>
         </div>
       </section>
 
       {/* C02 / C03 */}
-      <section className={`${styles.contact} wrap`} aria-label="Anfrage">
+      <section className={`${styles.contact} wrap`} aria-label={t.inquiry}>
         <div className="grid">
           <div className={styles.formCol}>
-            <ContactForm email={site.email} />
+            <ContactForm email={site.email} lang={lang} />
           </div>
-          <aside className={styles.direct} aria-label="Direkter Kontakt">
+          <aside className={styles.direct} aria-label={t.direct}>
             <dl>
               <div>
-                <dt>E-Mail</dt>
+                <dt>{t.email}</dt>
                 <dd>
                   <a href={`mailto:${site.email}`} className="tlink">
                     {site.email}
@@ -49,7 +51,7 @@ export default function KontaktPage() {
                 </dd>
               </div>
               <div>
-                <dt>Telefon</dt>
+                <dt>{t.phone}</dt>
                 <dd>
                   <a href={`tel:${tel}`} className="tlink">
                     {site.phone}
@@ -65,7 +67,7 @@ export default function KontaktPage() {
       <section id="anfahrt" className={`${styles.location} wrap`} aria-labelledby="standort">
         <div className="grid">
           <h2 id="standort" className={styles.key}>
-            Büro &amp; Anfahrt
+            {t.officeTitle}
           </h2>
           <div className={styles.mapCol}>
             <OfficeMap lat={site.geo.lat} lng={site.geo.lng} label={site.legalName} />
@@ -87,8 +89,8 @@ export default function KontaktPage() {
               rel="noopener noreferrer"
               className={styles.route}
             >
-              Route planen <span aria-hidden="true">↗</span>
-              <span className="sr-only">(öffnet Google Maps)</span>
+              {t.route} <span aria-hidden="true">↗</span>
+              <span className="sr-only">{t.routeNote}</span>
             </a>
           </div>
         </div>

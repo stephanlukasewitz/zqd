@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { placeOf, projects } from "@/content/projects";
+import { placeOf } from "@/content/projects";
 import Reveal from "../fx/Reveal";
 import TLink from "../transition/TLink";
 import { LightboxProvider, Zoom } from "./Lightbox";
@@ -8,21 +8,21 @@ import styles from "./ProjectDetail.module.css";
 // Wiederkehrende Komposition für die Bildstrecke – wie ein gelayoutetes Magazin.
 const LAYOUT = ["full", "left", "right", "offset", "wide-left"];
 
-export default function ProjectDetail({ project: p }) {
+export default function ProjectDetail({ project: p, projects, t }) {
   const idx = projects.findIndex((x) => x.slug === p.slug);
   const next = projects[(idx + 1) % projects.length];
   const num = String(idx + 1).padStart(2, "0");
   const total = String(projects.length).padStart(2, "0");
 
   const facts = [
-    p.zoo && ["Auftraggeber", p.zoo],
-    ["Standort", placeOf(p)],
-    ["Aufgabe", p.type],
-    p.year && ["Jahr", p.year],
-    p.scope && ["Leistungen", p.scope],
+    p.zoo && [t.facts.client, p.zoo],
+    [t.facts.location, placeOf(p)],
+    [t.facts.task, p.typeLabel || p.type],
+    p.year && [t.facts.year, p.year],
+    p.scope && [t.facts.services, p.scope],
   ].filter(Boolean);
 
-  const [lead, ...rest] = p.text?.length ? p.text : ["Projektbeschreibung folgt."];
+  const [lead, ...rest] = p.text?.length ? p.text : [t.pending];
 
   // Im Overlay sind alle Bilder erreichbar; geöffnet wird es nur über die kleineren
   // Bilder – vollbreite Bilder bleiben ohne Klick.
@@ -39,7 +39,7 @@ export default function ProjectDetail({ project: p }) {
             <i>/</i>
             {total}
           </span>
-          <span>{p.type}</span>
+          <span>{p.typeLabel || p.type}</span>
           <span>{placeOf(p)}</span>
         </p>
         <h1 id={`title-${p.slug}`} className={styles.title}>
@@ -60,7 +60,7 @@ export default function ProjectDetail({ project: p }) {
       </figure>
 
       <div className={styles.body}>
-        <aside className={styles.facts} aria-label="Projektdaten">
+        <aside className={styles.facts} aria-label={t.facts.label}>
           <dl>
             {facts.map(([k, v]) => (
               <div key={k}>
@@ -122,9 +122,9 @@ export default function ProjectDetail({ project: p }) {
         </div>
       )}
 
-      <nav className={styles.next} aria-label="Nächstes Projekt">
+      <nav className={styles.next} aria-label={t.next}>
         <TLink href={`/projekte/${next.slug}`} className={styles.nextLink}>
-          <span className={styles.nextLabel}>Nächstes Projekt</span>
+          <span className={styles.nextLabel}>{t.next}</span>
           <span className={styles.nextTitle}>{next.title}</span>
           <span className={styles.nextPlace}>{placeOf(next)}</span>
           <span className={styles.nextMedia}>

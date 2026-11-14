@@ -2,10 +2,15 @@
 
 import { useSyncExternalStore } from "react";
 import TLink from "../transition/TLink";
+import { parsePath } from "@/i18n/config";
 
+// Gespeicherte Übersicht (ggf. in anderer Sprache) → interner Pfad samt Filtern;
+// TLink übersetzt ihn in die aktuelle Sprache.
 const read = () => {
   try {
-    return sessionStorage.getItem("zqd:projekte") || "/projekte";
+    const url = sessionStorage.getItem("zqd:projekte") || "/projekte";
+    const [path, search = ""] = url.split("?");
+    return parsePath(path).path + (search ? `?${search}` : "");
   } catch {
     return "/projekte";
   }
