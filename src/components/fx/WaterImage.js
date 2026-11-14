@@ -153,6 +153,7 @@ export default function WaterImage({ sources, index, onReady, className }) {
     let visible = false;
     let raf = 0;
     let disposed = false;
+    let pending = -1;
     const mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5, s: 0, ts: 0 };
     const start = performance.now();
 
@@ -179,7 +180,8 @@ export default function WaterImage({ sources, index, onReady, className }) {
       if (disposed) return;
       const t = (now - start) / 1000;
       if (transition > 0) {
-        const p = Math.min(1, (now - transStart) / 1700);
+        // rAF-Zeitstempel kann minimal vor transStart liegen – nie negativ werden lassen
+        const p = Math.max(0.0001, Math.min(1, (now - transStart) / 1700));
         transition = p === 1 ? 0 : p;
         if (p === 1) cur = next;
       }
@@ -228,7 +230,11 @@ export default function WaterImage({ sources, index, onReady, className }) {
     api.current = {
       show(i) {
         if (i === cur && transition === 0) return;
-        if (!textures[i]) return;
+        if (!textures[i]) {
+          pending = i; // nachholen, sobald das Bild geladen ist
+          return;
+        }
+        pending = -1;
         if (reduce) {
           cur = next = i;
           kick();
@@ -252,7 +258,9 @@ export default function WaterImage({ sources, index, onReady, className }) {
         onReady?.();
         sources.slice(1).forEach((src, k) =>
           loadTexture(gl, src).then((tt) => {
-            if (!disposed) textures[k + 1] = tt;
+            if (disposed) return;
+            textures[k + 1] = tt;
+            if (pending === k + 1) api.current?.show(k + 1);
           }),
         );
       })

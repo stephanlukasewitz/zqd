@@ -4,7 +4,7 @@ import Reveal from "../fx/Reveal";
 import { placeOf, projects } from "@/content/projects";
 import styles from "./Selected.module.css";
 
-const PICK = ["artenschutz-aquarium-schoenbrunn", "elefantenfreilaufhalle-hagenbeck"];
+const PICK = ["elefantenfreilaufhalle-hagenbeck", "dickhaeuterhaus-tierpark-berlin"];
 
 // Ausgewählte Projekte – zwei versetzte Spalten, wie Blätter auf dem Tisch.
 export default function Selected() {

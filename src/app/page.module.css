@@ -239,3 +239,8 @@
   letter-spacing: 0;
   color: var(--mute);
 }
+
+.fieldNum {
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}

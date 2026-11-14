@@ -1,29 +1,59 @@
 import Hero from "@/components/home/Hero";
-import { withDot } from "@/components/fx/Dot";
 import Split from "@/components/home/Split";
 import Selected from "@/components/home/Selected";
 import PhaseCards from "@/components/home/PhaseCards";
 import TLink from "@/components/transition/TLink";
 import Reveal from "@/components/fx/Reveal";
-import { claim, competence, general, heroImages, phases, philosophy, pic, scales } from "@/content/home";
+import { withDot } from "@/components/fx/Dot";
+import { claim, competence, general, heroImages, phases, philosophy, pic } from "@/content/home";
+import { projects } from "@/content/projects";
 import styles from "./page.module.css";
+
+const count = (type) => projects.filter((p) => p.type === type).length;
+
+// Die vier Aufgabenfelder – jeweils mit echter Projektzahl und Filterlink.
+const fields = [
+  {
+    type: "Masterplanung",
+    word: "Masterplanung",
+    line: "Ganze Zoos weiterentwickeln – Schritt für Schritt und im laufenden Betrieb.",
+    image: pic("inselzoo-altenburg"),
+  },
+  {
+    type: "Tieranlage",
+    word: "Tieranlagen",
+    line: "Häuser und Gehege, die Tieren Raum geben und Besuchern Nähe.",
+    image: pic("orang-utan-dome-hagenbeck"),
+  },
+  {
+    type: "Aquarium",
+    word: "Aquarien",
+    line: "Unterwasserwelten mit Einblicken, die Mensch und Tier zusammenbringen.",
+    image: { ...heroImages()[1], title: "Tropen-Aquarium", zoo: "Tierpark Hagenbeck" },
+  },
+  {
+    type: "Gebäude",
+    word: "Gebäude",
+    line: "Eingänge, Gastronomie, Bildung und Betrieb – Bauten, die den Zoo im Alltag tragen.",
+    image: pic("direktorenvilla-koeln"),
+  },
+];
 
 export default function HomePage() {
   const heroSlides = [
-    heroImages()[0],
-    ...["tropen-aquarium-hagenbeck", "elefanten-badeteich-hagenbeck"].map((slug) => {
-      const p = pic(slug);
-      return { ...p, title: `${p.title}, ${p.zoo}` };
-    }),
+    { ...heroImages()[0], slug: "eismeer-hagenbeck", name: "Eismeer", place: "Hamburg" },
+    { ...pic("artenschutz-aquarium-schoenbrunn"), name: "Artenschutz-Aquarium", place: "Wien" },
+    { ...pic("polarium-rostock"), name: "Polarium", place: "Rostock" },
+    { ...pic("haus-der-giganten-verona"), name: "Haus der Giganten", place: "Verona" },
   ];
-  const polarium = pic("polarium-rostock");
+  const badeteich = pic("elefanten-badeteich-hagenbeck");
 
-  // Geteilter Einstieg: links der Text, rechts das Bild zum jeweiligen Abschnitt.
+  // Geteilter Abschnitt: links der Text, rechts das Bild zum jeweiligen Abschnitt.
   const story = [
     {
-      image: polarium.image,
-      alt: polarium.alt,
-      caption: `${polarium.title}, ${polarium.zoo}`,
+      image: badeteich.image,
+      alt: badeteich.alt,
+      caption: `${badeteich.title}, ${badeteich.zoo}`,
       content: (
         <div className={styles.philo}>
           <h2 className={styles.h2}>
@@ -41,11 +71,11 @@ export default function HomePage() {
         </div>
       ),
     },
-    ...scales().map((s, i) => ({
+    ...fields.map((f, i) => ({
       kind: "step",
-      image: s.image,
-      alt: s.alt,
-      caption: `${s.scale} · ${s.title}${s.zoo ? ", " + s.zoo : ""}`,
+      image: f.image.image,
+      alt: f.image.alt,
+      caption: `${f.image.title}, ${f.image.zoo}`,
       content: (
         <div>
           {i === 0 && (
@@ -53,15 +83,14 @@ export default function HomePage() {
               <h2 className={styles.h2}>
                 <Reveal>{withDot(competence.title)}</Reveal>
               </h2>
-              <p className={styles.text}>{competence.text}</p>
+              <p className={styles.body}>{competence.text}</p>
             </div>
           )}
-          <p className={styles.scale}>{s.scale}</p>
-          <p className={styles.word}>{s.word}</p>
-          <p className={styles.line}>{s.line}</p>
-          <TLink href={`/projekte/${s.slug}`} className="tlink">
-            {s.title}
-            {s.zoo ? `, ${s.zoo}` : ""} <span className="arrow" aria-hidden="true">→</span>
+          <p className={styles.fieldNum}>{String(i + 1).padStart(2, "0")}</p>
+          <p className={styles.word}>{f.word}</p>
+          <p className={styles.line}>{f.line}</p>
+          <TLink href={`/projekte?art=${encodeURIComponent(f.type)}`} className="tlink">
+            {count(f.type)} Projekte ansehen <span className="arrow" aria-hidden="true">→</span>
           </TLink>
         </div>
       ),
