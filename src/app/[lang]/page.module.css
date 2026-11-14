@@ -265,7 +265,7 @@
   }
 
   .pairSmall {
-    grid-column: 5 / -1;
+    grid-column: 1 / -1;
     margin-top: 48px;
   }
 
