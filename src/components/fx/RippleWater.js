@@ -59,14 +59,14 @@ void main(){
   vec4 info = texture(water, uv);
   vec2 n = info.ba;
   // Lichtbrechung: die Szene wird entlang der Wellennormalen verschoben
-  vec3 col = texture(scene, uv + n * 0.055).rgb;
+  vec3 col = texture(scene, uv + n * 0.045).rgb;
   // Glanzlicht auf den Wellenkämmen
   vec3 N = normalize(vec3(n.x, sqrt(max(0.0, 1.0 - dot(n, n))), n.y));
   vec3 L = normalize(vec3(-0.35, 1.0, 0.55));
   float spec = pow(max(0.0, dot(reflect(-L, N), vec3(0.0, 1.0, 0.0))), 80.0);
   col += spec * 0.55;
   // Ein Hauch Kaustik: dort wo sich die Oberfläche krümmt, wird es heller
-  col += max(0.0, -info.r) * 0.0 + abs(info.g) * 0.9;
+  col += abs(info.g) * 0.6;
   o = vec4(col, 1.0);
 }`;
 

@@ -34,12 +34,6 @@ const fields = [
 ];
 
 export default function HomePage() {
-  const heroSlides = [
-    { ...heroImages()[0], slug: "eismeer-hagenbeck", name: "Eismeer", place: "Hamburg" },
-    { ...pic("artenschutz-aquarium-schoenbrunn"), name: "Artenschutz-Aquarium", place: "Wien" },
-    { ...pic("polarium-rostock"), name: "Polarium", place: "Rostock" },
-    { ...pic("haus-der-giganten-verona"), name: "Haus der Giganten", place: "Verona" },
-  ];
   const badeteich = pic("elefanten-badeteich-hagenbeck");
 
   // Geteilter Abschnitt: links der Text, rechts das Bild zum jeweiligen Abschnitt.
@@ -102,7 +96,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Hero slides={heroSlides} claim={claim} />
+      <Hero slide={heroImages()[1]} claim={claim} />
 
       <div className={styles.splitGap} />
       <Split sections={story} />
