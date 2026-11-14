@@ -89,6 +89,7 @@ export default function HomePage() {
     <>
       <Hero slide={heroImages()[1]} claim={claim} />
 
+      {/* Warum */}
       {/* Haltung */}
       <section className={`${styles.section} ${styles.intro}`} aria-labelledby="haltung">
         <h2 id="haltung" className="sr-only">
@@ -107,32 +108,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Bildpaar */}
-      <section className={styles.pair} aria-label="Einblicke">
-        <figure className={styles.pairLarge}>
-          <div className={`${styles.media} img-reveal`} style={{ aspectRatio: "3 / 2" }}>
-            <Image src={robbe.image} alt={robbe.alt} fill sizes="(max-width: 760px) 100vw, 64vw" className={styles.img} />
-          </div>
-          <Caption shot={robbe} />
-        </figure>
-        <figure className={styles.pairSmall}>
-          <div className={`${styles.media} img-reveal`} style={{ aspectRatio: "4 / 5" }}>
-            <Image src={elefant.image} alt={elefant.alt} fill sizes="(max-width: 760px) 60vw, 24vw" className={styles.img} />
-          </div>
-          <Caption shot={elefant} />
-        </figure>
-      </section>
-
-      {/* Aufgabenfelder */}
-      <section className={styles.section} aria-labelledby="felder">
-        <Head id="felder" title={competence.title}>
-          <p>{competence.text}</p>
-        </Head>
-        <Fields fields={fields} />
-      </section>
-
       {/* Grundsätze */}
-      <section className={`${styles.section} ${styles.principles}`} aria-labelledby="grundsaetze">
+      <section className={`${styles.section} ${styles.tight} ${styles.principles}`} aria-labelledby="grundsaetze">
         <div className={styles.stick}>
           <h2 id="grundsaetze" className={styles.h2}>
             <Reveal>{withDot(principles.title)}</Reveal>
@@ -149,6 +126,40 @@ export default function HomePage() {
         </ol>
       </section>
 
+      {/* Was */}
+      {/* Bildpaar */}
+      <section className={`${styles.pair} ${styles.chapter}`} aria-label="Einblicke">
+        <figure className={styles.pairLarge}>
+          <div className={`${styles.media} img-reveal`} style={{ aspectRatio: "3 / 2" }}>
+            <Image src={robbe.image} alt={robbe.alt} fill sizes="(max-width: 760px) 100vw, 64vw" className={styles.img} />
+          </div>
+          <Caption shot={robbe} />
+        </figure>
+        <figure className={styles.pairSmall}>
+          <div className={`${styles.media} img-reveal`} style={{ aspectRatio: "4 / 5" }}>
+            <Image src={elefant.image} alt={elefant.alt} fill sizes="(max-width: 760px) 60vw, 24vw" className={styles.img} />
+          </div>
+          <Caption shot={elefant} />
+        </figure>
+      </section>
+
+      {/* Aufgabenfelder */}
+      <section className={`${styles.section} ${styles.tight}`} aria-labelledby="felder">
+        <Head id="felder" title={competence.title}>
+          <p>{competence.text}</p>
+        </Head>
+        <Fields fields={fields} />
+      </section>
+
+      {/* Wie */}
+      {/* Planungsweg */}
+      <section className={`${styles.section} ${styles.chapter}`} aria-labelledby="planungsweg">
+        <Head id="planungsweg" title="Von der Idee bis zur Realisierung.">
+          <p>{phasesIntro}</p>
+        </Head>
+        <PhaseCards phases={cards} />
+      </section>
+
       {/* Bildband */}
       <figure className={styles.band}>
         <div className={`${styles.bandMedia} img-reveal`}>
@@ -157,16 +168,8 @@ export default function HomePage() {
         <Caption shot={band} />
       </figure>
 
-      {/* Planungsweg */}
-      <section className={styles.section} aria-labelledby="planungsweg">
-        <Head id="planungsweg" title="Von der Idee bis zur Realisierung.">
-          <p>{phasesIntro}</p>
-        </Head>
-        <PhaseCards phases={cards} />
-      </section>
-
       {/* Generalplanung */}
-      <section className={styles.section} aria-labelledby="generalplanung">
+      <section className={`${styles.section} ${styles.tight}`} aria-labelledby="generalplanung">
         <Head id="generalplanung" title={general.title}>
           <p>{general.text}</p>
           <TLink href="/team" className="tlink">
@@ -184,7 +187,8 @@ export default function HomePage() {
         </ol>
       </section>
 
-      <Selected />
+      {/* Beweis */}
+      <Selected space="var(--space-chapter)" />
     </>
   );
 }

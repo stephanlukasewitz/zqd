@@ -1,8 +1,19 @@
 /* Startseite – ein Raster (12 Spalten), zwei Ausrichtungslinien (Spalte 1 und 7),
-   eine Typo-Skala und gleiche Abstände zwischen allen Abschnitten. */
+   eine Typo-Skala und drei Abstandsstufen (eng, normal, Kapitelwechsel). */
 
 .section {
   padding: var(--space-section) var(--margin) 0;
+}
+
+/* Abstandsstufen: eng zwischen Zusammengehörigem, groß beim Kapitelwechsel */
+.section.tight,
+.pair.tight {
+  padding-top: var(--space-tight);
+}
+
+.section.chapter,
+.pair.chapter {
+  padding-top: var(--space-chapter);
 }
 
 /* Abschnittskopf */

@@ -26,6 +26,8 @@
   --fs-h2: clamp(2rem, 1.2rem + 3.2vw, 4.25rem);
   --fs-section: clamp(2.2rem, 1rem + 3.3vw, 4.75rem);
   --space-section: clamp(120px, 13vw, 220px);
+  --space-tight: clamp(80px, 8vw, 140px);
+  --space-chapter: clamp(170px, 19vw, 320px);
   --fs-h1: clamp(2.6rem, 1rem + 6.4vw, 8.5rem);
 
   color-scheme: light;
