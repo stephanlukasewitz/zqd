@@ -9,7 +9,13 @@ import { claim, competence, general, heroImages, phases, philosophy, pic, scales
 import styles from "./page.module.css";
 
 export default function HomePage() {
-  const hero = heroImages()[0];
+  const heroSlides = [
+    heroImages()[0],
+    ...["tropen-aquarium-hagenbeck", "elefanten-badeteich-hagenbeck"].map((slug) => {
+      const p = pic(slug);
+      return { ...p, title: `${p.title}, ${p.zoo}` };
+    }),
+  ];
   const polarium = pic("polarium-rostock");
 
   // Geteilter Einstieg: links der Text, rechts das Bild zum jeweiligen Abschnitt.
@@ -73,7 +79,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Hero slide={hero} claim={claim} />
+      <Hero slides={heroSlides} claim={claim} />
 
       <div className={styles.splitGap} />
       <Split sections={story} />

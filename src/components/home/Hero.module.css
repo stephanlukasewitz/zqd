@@ -1,36 +1,30 @@
-.hero {
-  padding-top: calc(var(--header-h) + clamp(48px, 8vw, 150px));
-}
-
-.claim {
-  padding-inline: var(--margin);
-  font-size: clamp(2.4rem, 0.4rem + 6.6vw, 10.5rem);
-  letter-spacing: -0.055em;
-  line-height: 0.95;
-  font-weight: 400;
-}
-
-.l1,
-.l2 {
-  display: block;
-}
-
-.l2,
-.l2 span {
-  color: var(--soft);
-}
-
-.band {
-  display: block;
-  margin-top: clamp(48px, 7vw, 120px);
+.stage {
+  position: relative;
+  height: 100svh;
+  min-height: 520px;
+  overflow: hidden;
+  background: #0b141b;
+  color: var(--paper);
 }
 
 .media {
-  position: relative;
-  height: min(86vh, 58vw);
-  min-height: 380px;
-  overflow: hidden;
-  background: #0d1a24;
+  position: absolute;
+  inset: 0;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-in-out);
+}
+
+.slide[data-active] {
+  opacity: 1;
+}
+
+.media[data-gl] .slide {
+  transition: none;
 }
 
 .img {
@@ -50,22 +44,86 @@
   opacity: 1;
 }
 
-.caption {
+/* Oben und unten eine sehr leichte, flache Abdunklung, damit Schrift lesbar bleibt */
+.stage::before,
+.stage::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: rgb(0 0 0 / 0.18);
+  pointer-events: none;
+}
+
+.stage::before {
+  top: 0;
+}
+
+.stage::after {
+  bottom: 0;
+}
+
+.bar {
+  position: absolute;
+  z-index: 1;
+  left: var(--margin);
+  right: var(--margin);
+  bottom: clamp(18px, 2.6vw, 32px);
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 16px;
-  padding: 14px var(--margin) 0;
   font-size: var(--fs-sm);
-  color: var(--mute);
 }
 
-.caption a {
-  color: var(--ink);
+.title span {
+  display: inline-block;
+  animation: fade 0.8s var(--ease) both;
 }
 
-@media (max-width: 760px) {
-  .media {
-    height: 62svh;
+@keyframes fade {
+  from {
+    opacity: 0;
   }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: -10px;
+}
+
+.controls button {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.3s var(--ease);
+}
+
+.controls button:hover {
+  opacity: 0.6;
+}
+
+.intro {
+  padding: clamp(80px, 11vw, 200px) var(--margin) 0;
+}
+
+.claim {
+  font-size: clamp(2.4rem, 0.4rem + 6.6vw, 10.5rem);
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  font-weight: 400;
+}
+
+.l1,
+.l2 {
+  display: block;
+}
+
+.l2,
+.l2 span {
+  color: var(--soft);
 }
