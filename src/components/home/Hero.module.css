@@ -1,23 +1,41 @@
 .hero {
+  --top: calc(var(--header-h) + clamp(28px, 6vh, 72px));
+  padding-top: var(--top);
+}
+
+/* Claim oben auf Weiß – zwei Zeilen, so bemessen, dass sie die obere Hälfte füllen */
+.claim {
+  padding: 0 var(--margin);
+  font-size: min(clamp(2.6rem, 0.6rem + 7vw, 10.5rem), 13.5vh);
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  font-weight: 400;
+}
+
+.l1,
+.l2 {
+  display: block;
+}
+
+.l2 {
+  color: var(--soft);
+}
+
+.dot {
+  color: var(--red);
+}
+
+/* Bild über die volle Breite; startet etwa auf halber Höhe des Bildschirms */
+.figure {
+  margin-top: clamp(32px, 6vh, 72px);
+}
+
+.stage {
   position: relative;
-  height: 100svh;
-  min-height: 600px;
+  height: max(420px, calc(100svh - var(--header-h) - 120px));
   overflow: hidden;
   background: #05090d;
-  color: var(--paper);
   touch-action: pan-y;
-}
-
-.fallback {
-  position: absolute;
-  inset: 0;
-}
-
-.fallback::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgb(0 0 0 / 0.22);
 }
 
 .img {
@@ -33,100 +51,65 @@
   transition: opacity 1.2s var(--ease);
 }
 
-.hero[data-state="gl"] .canvas {
-  opacity: 1;
-}
-
-/* Die Schrift bleibt im DOM (Barrierefreiheit, SEO); sichtbar ist im GL-Modus
-   ihre Abbildung unter der Wasseroberfläche. */
-.claim {
-  position: absolute;
-  left: var(--margin);
-  right: var(--margin);
-  bottom: clamp(96px, 14vh, 180px);
-  font-size: clamp(2.6rem, 0.4rem + 7vw, 11rem);
-  letter-spacing: -0.055em;
-  line-height: 0.95;
-  font-weight: 400;
-  transition: opacity 0.6s var(--ease);
-}
-
-.hero[data-state="gl"] .claim {
-  opacity: 0;
-  transition-delay: 1.1s;
-}
-
-.l1,
-.l2 {
-  display: block;
-  width: max-content;
-  max-width: 100%;
-}
-
-.l2 {
-  color: rgb(255 255 255 / 0.55);
-}
-
-.dot {
-  color: #e0222f;
-}
-
-.foot {
-  position: absolute;
-  left: var(--margin);
-  right: var(--margin);
-  bottom: clamp(24px, 3.4vw, 44px);
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 24px;
-  font-size: var(--fs-sm);
-}
-
-.hint {
-  color: rgb(255 255 255 / 0.6);
-  opacity: 0;
-  transition: opacity 0.8s var(--ease) 1.6s;
-}
-
-.hero[data-state="gl"] .hint {
+.stage[data-state="gl"] .canvas {
   opacity: 1;
 }
 
 .caption {
   display: flex;
-  gap: 18px;
-  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 12px;
+  padding: 0 var(--margin);
+  font-size: var(--fs-xs);
+  color: var(--mute);
 }
 
-.view {
-  color: rgb(255 255 255 / 0.65);
+.capLink {
+  color: var(--ink);
   transition: color 0.3s var(--ease);
 }
 
-.caption:hover .view {
-  color: var(--paper);
+.capLink:hover {
+  color: var(--mute);
+}
+
+.hint {
+  opacity: 0;
+  transition: opacity 0.8s var(--ease) 0.6s;
+}
+
+.hint[data-on] {
+  opacity: 1;
+}
+
+/* Beim Scrollen: das Bild zieht sich von voller Breite auf die Seitenränder zusammen */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .stage {
+      animation: narrow linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 70vh;
+    }
+  }
+}
+
+@keyframes narrow {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 var(--margin) 0 var(--margin));
+  }
 }
 
 @media (max-width: 760px) {
   .claim {
-    font-size: clamp(2.4rem, 11vw, 4rem);
-    bottom: 176px;
+    font-size: clamp(2.5rem, 12vw, 4.2rem);
   }
 
-  .l1,
-  .l2 {
-    width: auto;
-  }
-
-  .foot {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  .caption {
-    flex-direction: column;
-    gap: 2px;
+  .stage {
+    height: 62svh;
+    min-height: 360px;
   }
 }
