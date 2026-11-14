@@ -4,9 +4,14 @@ import Reveal from "../fx/Reveal";
 import { placeOf, projects } from "@/content/projects";
 import styles from "./Selected.module.css";
 
-const PICK = ["elefantenfreilaufhalle-hagenbeck", "dickhaeuterhaus-tierpark-berlin"];
+const PICK = [
+  "elefantenfreilaufhalle-hagenbeck",
+  "dickhaeuterhaus-tierpark-berlin",
+  "artenschutz-aquarium-schoenbrunn",
+  "polarium-rostock",
+];
 
-// Ausgewählte Projekte – zwei versetzte Spalten, wie Blätter auf dem Tisch.
+// Ausgewählte Projekte – vier Projekte in zwei versetzten Spalten, wie Blätter auf dem Tisch.
 export default function Selected() {
   const list = PICK.map((s) => projects.find((p) => p.slug === s)).filter(Boolean);
   const num = (p) => String(projects.indexOf(p) + 1).padStart(2, "0");
