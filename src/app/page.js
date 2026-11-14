@@ -31,12 +31,6 @@ const fields = [
     line: "Unterwasserwelten mit Einblicken, die Mensch und Tier zusammenbringen.",
     image: { ...heroImages()[1], title: "Tropen-Aquarium", zoo: "Tierpark Hagenbeck" },
   },
-  {
-    type: "Gebäude",
-    word: "Gebäude",
-    line: "Eingänge, Gastronomie, Bildung und Betrieb – Bauten, die den Zoo im Alltag tragen.",
-    image: pic("direktorenvilla-koeln"),
-  },
 ];
 
 export default function HomePage() {
