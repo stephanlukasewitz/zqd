@@ -5,7 +5,7 @@ import { placeOf, projects } from "@/content/projects";
 import styles from "./Selected.module.css";
 
 const PICK = [
-  "polarium-rostock",
+  "tropen-aquarium-hagenbeck",
   "artenschutz-aquarium-schoenbrunn",
   "dickhaeuterhaus-tierpark-berlin",
   "haus-der-giganten-verona",

@@ -55,12 +55,28 @@ export const phases = () => [
 ];
 
 export const scales = () => [
-  { scale: "M 1:5000", word: "Masterplan", ...pic("inselzoo-altenburg") },
-  { scale: "M 1:500", word: "Anlage", ...pic("orang-utan-dome-hagenbeck") },
-  { scale: "M 1:50", word: "Einblick", ...pic("eismeer-hagenbeck") },
+  {
+    scale: "M 1:5000",
+    word: "Masterplan",
+    line: "Ganze Zoos weiterentwickeln – Schritt für Schritt und im laufenden Betrieb.",
+    ...pic("inselzoo-altenburg"),
+  },
+  {
+    scale: "M 1:500",
+    word: "Anlage",
+    line: "Häuser und Gehege, die Tieren Raum geben und Besuchern Nähe.",
+    ...pic("orang-utan-dome-hagenbeck"),
+  },
+  {
+    scale: "M 1:50",
+    word: "Einblick",
+    line: "Wo Mensch und Tier sich begegnen – geplant bis zur Scheibe.",
+    ...pic("eismeer-hagenbeck"),
+  },
   {
     scale: "M 1:1",
     word: "Lebensraum",
+    line: "Und mittendrin: Wasser, Licht und Leben.",
     slug: homeMedia.hero[1].slug,
     image: homeMedia.hero[1].image,
     alt: homeMedia.hero[1].alt,
