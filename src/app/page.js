@@ -19,14 +19,19 @@ export default function HomePage() {
       alt: polarium.alt,
       caption: `${polarium.title}, ${polarium.zoo}`,
       content: (
-        <div>
-          <h2 className={styles.small}>{philosophy.title}</h2>
-          <p className={styles.lead}>{philosophy.text}</p>
-          <p className={styles.words}>
-            {philosophy.words.map((w) => (
-              <span key={w}>{w}</span>
+        <div className={styles.philo}>
+          <h2 className={styles.h2}>
+            <Reveal>{withDot(philosophy.title + ".")}</Reveal>
+          </h2>
+          <p className={styles.body}>{philosophy.text}</p>
+          <ol className={styles.values}>
+            {philosophy.words.map((w, i) => (
+              <li key={w}>
+                <span>{String(i + 1).padStart(2, "0")}</span>
+                {w}
+              </li>
             ))}
-          </p>
+          </ol>
         </div>
       ),
     },
