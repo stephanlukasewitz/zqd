@@ -111,7 +111,7 @@
 @media (max-width: 760px) {
   .claim {
     font-size: clamp(2.4rem, 11vw, 4rem);
-    bottom: 120px;
+    bottom: 176px;
   }
 
   .l1,

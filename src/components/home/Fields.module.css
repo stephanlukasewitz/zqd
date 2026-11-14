@@ -1,0 +1,143 @@
+.wrap {
+  position: relative;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: baseline;
+  padding: clamp(22px, 2.4vw, 36px) 0 clamp(26px, 2.8vw, 42px);
+  border-top: 1px solid var(--line);
+  transition: opacity 0.45s var(--ease);
+}
+
+.list li:first-child .row {
+  border-top-color: var(--ink);
+}
+
+.list li:last-child .row {
+  border-bottom: 1px solid var(--line);
+}
+
+.row[data-dim] {
+  opacity: 0.3;
+}
+
+.num {
+  grid-column: 1;
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.word {
+  grid-column: 2 / span 6;
+  font-size: clamp(2.4rem, 1rem + 4.2vw, 5.75rem);
+  letter-spacing: -0.055em;
+  line-height: 1;
+  transition: transform 0.7s var(--ease);
+}
+
+.line {
+  grid-column: 8 / span 3;
+  max-width: 30ch;
+  color: var(--mute);
+}
+
+.count {
+  grid-column: 11 / -1;
+  justify-self: end;
+  white-space: nowrap;
+  font-size: var(--fs-sm);
+}
+
+.count span {
+  display: inline-block;
+  transition: transform 0.4s var(--ease);
+}
+
+@media (hover: hover) {
+  .row:hover .word {
+    transform: translateX(14px);
+  }
+
+  .row:hover .count span {
+    transform: translateX(4px);
+  }
+}
+
+.preview {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 40;
+  width: clamp(220px, 21vw, 340px);
+  aspect-ratio: 4 / 5;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.pv {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  clip-path: inset(100% 0 0 0);
+  transition:
+    clip-path 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s var(--ease);
+}
+
+.pv img {
+  object-fit: cover;
+  transform: scale(1.15);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pv[data-on] {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+}
+
+.pv[data-on] img {
+  transform: none;
+}
+
+@media (hover: none), (max-width: 900px) {
+  .preview {
+    display: none;
+  }
+
+  .row {
+    grid-template-columns: 2.4rem minmax(0, 1fr) auto;
+    row-gap: 10px;
+  }
+
+  .num {
+    grid-column: 1;
+  }
+
+  .word {
+    grid-column: 2 / -1;
+  }
+
+  .line {
+    grid-column: 2;
+  }
+
+  .count {
+    grid-column: 3;
+    align-self: end;
+  }
+}
+
+@media (max-width: 560px) {
+  .line {
+    grid-column: 2 / -1;
+  }
+
+  .count {
+    grid-column: 2 / -1;
+    justify-self: start;
+  }
+}

@@ -8,6 +8,8 @@ export const service = "Architektur und Generalplanung für zoologische Einricht
 
 export const philosophy = {
   title: "Was unsere Planung prägt",
+  lead: "Gute Planung beginnt mit dem genauen Verständnis der Aufgabe, ihrer Anforderungen und ihres Umfelds.",
+  body: "Wir verbinden Funktion und Gestaltung zu schlüssigen Lösungen, die im Alltag überzeugen und langfristig Bestand haben. Dabei hinterfragen wir Gewohntes, denken vorausschauend und lassen Raum für neue Entwicklungen.",
   text: "Gute Planung beginnt mit dem genauen Verständnis der Aufgabe, ihrer Anforderungen und ihres Umfelds. Wir verbinden Funktion und Gestaltung zu schlüssigen Lösungen, die im Alltag überzeugen und langfristig Bestand haben. Dabei hinterfragen wir Gewohntes, denken vorausschauend und lassen Raum für neue Entwicklungen.",
   words: ["Klarheit", "Verantwortung", "Weitblick"],
 };
@@ -56,6 +58,9 @@ const pic = (slug, i = 0) => {
   return { slug, image: g.image, alt: g.alt, title: p.title, zoo: p.zoo, city: p.city, country: p.country, type: p.type };
 };
 
+export const phasesIntro =
+  "Wir begleiten Projekte durch alle Leistungsphasen der HOAI – vollständig oder genau in den Phasen, in denen Sie uns brauchen.";
+
 export const phases = () => [
   {
     label: "Beratung & Konzeption",
@@ -67,7 +72,7 @@ export const phases = () => [
     label: "Entwurf & Planung",
     text: "HOAI LPH 1–5 von den Grundlagen bis zur Ausführungsplanung.",
     details: ["LPH 1 Grundlagenermittlung", "LPH 2 Vorplanung", "LPH 3 Entwurfsplanung", "LPH 4 Genehmigungsplanung", "LPH 5 Ausführungsplanung"],
-    ...pic("elefantenwelt-wilhelma", 1),
+    ...pic("haus-der-giganten-verona", 1),
   },
   {
     label: "Umsetzung & Betreuung",

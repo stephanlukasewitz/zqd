@@ -24,6 +24,8 @@
   --fs-lead: clamp(1.25rem, 1rem + 0.9vw, 1.75rem);
   --fs-h3: clamp(1.5rem, 1.1rem + 1.4vw, 2.25rem);
   --fs-h2: clamp(2rem, 1.2rem + 3.2vw, 4.25rem);
+  --fs-section: clamp(2.2rem, 1rem + 3.3vw, 4.75rem);
+  --space-section: clamp(120px, 13vw, 220px);
   --fs-h1: clamp(2.6rem, 1rem + 6.4vw, 8.5rem);
 
   color-scheme: light;
