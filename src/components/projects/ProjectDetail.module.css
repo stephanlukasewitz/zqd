@@ -110,7 +110,7 @@
   display: grid;
   gap: 1.1em;
   max-width: 62ch;
-  color: #2a2a2a;
+  color: #555555;
   font-size: var(--fs-base);
   line-height: 1.6;
 }
