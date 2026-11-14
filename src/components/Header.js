@@ -9,6 +9,12 @@ import { nav, site } from "@/content/site";
 import { homeMedia, teamPhotos } from "@/content/media";
 import styles from "./Header.module.css";
 
+const LANGS = [
+  ["DE", "Deutsch"],
+  ["EN", "English"],
+  ["TR", "Türkçe"],
+];
+
 function isActive(pathname, href) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(href + "/");
@@ -142,6 +148,8 @@ export default function Header() {
           <Logo variant="wordmark" priority />
         </TLink>
 
+        <div className={styles.actions}>
+          <Lang className={styles.lang} />
 
         <button
           ref={menuButton}
@@ -157,6 +165,7 @@ export default function Header() {
           </span>
           <span className={styles.menuIcon} aria-hidden="true" />
         </button>
+        </div>
       </div>
 
       <div
@@ -217,8 +226,22 @@ export default function Header() {
           <span>
             {site.city}, {site.country}
           </span>
+          <Lang className={styles.panelLang} />
         </div>
       </div>
     </header>
+  );
+}
+
+// Sprachwahl – vorerst nur Darstellung, Deutsch ist aktiv.
+function Lang({ className }) {
+  return (
+    <div className={className} role="group" aria-label="Sprache">
+      {LANGS.map(([code, name]) => (
+        <button key={code} type="button" lang={code.toLowerCase()} aria-label={name} aria-pressed={code === "DE"}>
+          {code}
+        </button>
+      ))}
+    </div>
   );
 }
