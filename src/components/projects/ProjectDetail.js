@@ -2,6 +2,7 @@ import Image from "next/image";
 import { placeOf, projects } from "@/content/projects";
 import Reveal from "../fx/Reveal";
 import TLink from "../transition/TLink";
+import { LightboxProvider, Zoom } from "./Lightbox";
 import styles from "./ProjectDetail.module.css";
 
 // Wiederkehrende Komposition für die Bildstrecke – wie ein gelayoutetes Magazin.
@@ -23,7 +24,10 @@ export default function ProjectDetail({ project: p }) {
 
   const [lead, ...rest] = p.text?.length ? p.text : ["Projektbeschreibung folgt."];
 
+  const shots = [p.cover, ...(p.gallery || [])].map((g) => ({ image: g.image, alt: g.alt }));
+
   return (
+    <LightboxProvider images={shots} title={p.title}>
     <article className={styles.detail}>
       <header className={styles.intro}>
         <p className={styles.meta}>
@@ -41,15 +45,17 @@ export default function ProjectDetail({ project: p }) {
       </header>
 
       <figure className={`${styles.hero} img-reveal`}>
-        <Image
-          src={p.cover.image}
-          alt={p.cover.alt}
-          fill
-          sizes="100vw"
-          preload
-          quality={85}
-          className={styles.heroImg}
-        />
+        <Zoom index={0} label={p.cover.alt}>
+          <Image
+            src={p.cover.image}
+            alt={p.cover.alt}
+            fill
+            sizes="100vw"
+            preload
+            quality={85}
+            className={styles.heroImg}
+          />
+        </Zoom>
       </figure>
 
       <div className={styles.body}>
@@ -92,13 +98,15 @@ export default function ProjectDetail({ project: p }) {
                       kind === "full" ? "16 / 9" : `${g.image.width} / ${g.image.height}`,
                   }}
                 >
-                  <Image
-                    src={g.image}
-                    alt={g.alt}
-                    fill
-                    sizes={kind === "full" ? "100vw" : "(max-width: 760px) 100vw, 60vw"}
-                    className={styles.shotImg}
-                  />
+                  <Zoom index={i + 1} label={g.alt}>
+                    <Image
+                      src={g.image}
+                      alt={g.alt}
+                      fill
+                      sizes={kind === "full" ? "100vw" : "(max-width: 760px) 100vw, 60vw"}
+                      className={styles.shotImg}
+                    />
+                  </Zoom>
                 </div>
               </figure>
             );
@@ -117,5 +125,6 @@ export default function ProjectDetail({ project: p }) {
         </TLink>
       </nav>
     </article>
+    </LightboxProvider>
   );
 }
