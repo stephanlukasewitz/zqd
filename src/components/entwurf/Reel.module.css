@@ -1,0 +1,130 @@
+.reel {
+  padding-top: clamp(110px, 14vw, 240px);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  padding: 0 var(--margin);
+  margin-bottom: clamp(28px, 3vw, 48px);
+}
+
+.title {
+  font-size: clamp(2.4rem, 1rem + 4.6vw, 6.5rem);
+  letter-spacing: -0.055em;
+  line-height: 0.92;
+  font-weight: 400;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--fs-sm);
+}
+
+.nav button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  display: grid;
+  place-items: center;
+  transition:
+    background-color 0.3s var(--ease),
+    color 0.3s var(--ease);
+}
+
+.nav button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.nav :global(.tlink) {
+  margin-left: 16px;
+}
+
+.track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--margin);
+  padding-inline: var(--margin);
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.track li {
+  flex: none;
+  width: min(46vw, 820px);
+  scroll-snap-align: start;
+}
+
+.track li:nth-child(3n + 2) {
+  width: min(34vw, 600px);
+}
+
+.card {
+  display: block;
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #ececec;
+}
+
+.track li:nth-child(3n + 2) .media {
+  aspect-ratio: 4 / 5;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 1.4s var(--ease);
+}
+
+.card:hover .img {
+  transform: scale(1.03);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  padding-top: 14px;
+  font-size: var(--fs-sm);
+}
+
+.num {
+  color: var(--mute);
+  grid-row: span 2;
+}
+
+.name {
+  font-size: var(--fs-base);
+}
+
+.place {
+  color: var(--mute);
+}
+
+@media (max-width: 760px) {
+  .track li,
+  .track li:nth-child(3n + 2) {
+    width: 84vw;
+  }
+
+  .track li:nth-child(3n + 2) .media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .nav button {
+    display: none;
+  }
+}

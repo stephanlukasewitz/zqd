@@ -37,6 +37,21 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [hover, setHover] = useState(null);
   const [onDark, setOnDark] = useState(false);
+  const [brandHidden, setBrandHidden] = useState(false);
+
+  // Steht der große Schriftzug im Bild, tritt der kleine im Header zurück.
+  useEffect(() => {
+    const zone = document.querySelector("[data-brand-zone]");
+    if (!zone) return;
+    const io = new IntersectionObserver(([e]) => setBrandHidden(e.isIntersecting), {
+      rootMargin: "-20% 0px 0px 0px",
+    });
+    io.observe(zone);
+    return () => {
+      io.disconnect();
+      setBrandHidden(false);
+    };
+  }, [pathname]);
 
   // Liegt der Header über einer dunklen Fläche (z. B. dem Hero)?
   useEffect(() => {
@@ -118,7 +133,12 @@ export default function Header() {
       data-open={open || undefined}
     >
       <div className={styles.bar}>
-        <TLink href="/" className={styles.brand} aria-label="ZQD – zur Startseite">
+        <TLink
+          href="/"
+          className={styles.brand}
+          data-hidden={brandHidden || undefined}
+          aria-label="ZQD – zur Startseite"
+        >
           <Logo variant="wordmark" priority />
         </TLink>
 

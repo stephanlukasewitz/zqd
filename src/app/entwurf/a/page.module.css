@@ -1,0 +1,251 @@
+.hero {
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: calc(var(--header-h) + 16px) var(--margin) clamp(20px, 3vw, 40px);
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.wordmark {
+  grid-row: 3;
+  margin: 0;
+}
+
+.wordmark img {
+  width: 100%;
+  height: auto;
+  animation: rise 1.4s var(--ease) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 6%, 0);
+  }
+}
+
+.full {
+  margin: 0;
+}
+
+.fullMedia {
+  position: relative;
+  height: 100svh;
+  overflow: hidden;
+  background: #0d1a24;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px var(--margin) 0;
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.caption a {
+  color: var(--ink);
+}
+
+.statement {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  padding: clamp(110px, 14vw, 240px) var(--margin) 0;
+}
+
+.claim {
+  grid-column: 1 / span 8;
+  font-size: clamp(2.4rem, 0.6rem + 5.2vw, 8rem);
+  letter-spacing: -0.055em;
+  line-height: 0.93;
+}
+
+.claim > span {
+  display: block;
+}
+
+.soft,
+.soft span {
+  color: var(--soft);
+}
+
+.side {
+  grid-column: 9 / -1;
+  align-self: end;
+  display: grid;
+  gap: 20px;
+  font-size: var(--fs-sm);
+  color: #2b2b2b;
+}
+
+.words {
+  color: var(--ink);
+}
+
+.h2 {
+  font-size: clamp(2.2rem, 0.8rem + 4vw, 6rem);
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+  font-weight: 400;
+  max-width: 15ch;
+}
+
+.text {
+  max-width: 54ch;
+  margin-top: clamp(24px, 3vw, 40px);
+  color: #2b2b2b;
+}
+
+.scales,
+.phases,
+.general {
+  padding: clamp(110px, 14vw, 240px) var(--margin) 0;
+}
+
+.scaleRow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin-top: clamp(48px, 6vw, 96px);
+}
+
+.scaleRow a {
+  display: grid;
+  gap: 6px;
+}
+
+.scaleMedia {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: #ececec;
+  margin-bottom: 10px;
+}
+
+.scaleRow li:nth-child(1) .scaleMedia {
+  transform: scale(1);
+}
+
+.scaleNum {
+  font-size: var(--fs-xs);
+  color: var(--red);
+}
+
+.scaleWord {
+  font-size: clamp(1.3rem, 1rem + 0.8vw, 2rem);
+  letter-spacing: -0.04em;
+}
+
+.phaseList {
+  margin-top: clamp(48px, 6vw, 96px);
+  border-bottom: 1px solid var(--line);
+}
+
+.phaseList li {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 5fr) minmax(0, 4fr);
+  column-gap: var(--gutter);
+  align-items: start;
+  padding: clamp(20px, 2.4vw, 36px) 0;
+  border-top: 1px solid var(--line);
+}
+
+.big {
+  font-size: clamp(4rem, 2rem + 6vw, 10rem);
+  letter-spacing: -0.07em;
+  line-height: 0.8;
+}
+
+.phaseList h3 {
+  font-size: clamp(1.4rem, 1rem + 1vw, 2.2rem);
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+
+.phaseList p {
+  margin-top: 10px;
+  max-width: 36ch;
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.phaseMedia {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #ececec;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin-top: clamp(48px, 6vw, 96px);
+}
+
+.cols > div {
+  padding-top: 12px;
+  border-top: 1px solid var(--ink);
+}
+
+.cols h3 {
+  font-size: clamp(1.4rem, 1rem + 1vw, 2.2rem);
+  letter-spacing: -0.04em;
+  font-weight: 400;
+}
+
+.cols p {
+  margin-top: 8px;
+  max-width: 30ch;
+  font-size: var(--fs-sm);
+  color: var(--mute);
+}
+
+.general :global(.tlink) {
+  margin-top: 24px;
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 900px) {
+  .claim,
+  .side {
+    grid-column: 1 / -1;
+  }
+
+  .side {
+    margin-top: 32px;
+  }
+
+  .scaleRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 28px;
+  }
+
+  .phaseList li {
+    grid-template-columns: 1fr;
+    row-gap: 16px;
+  }
+
+  .cols {
+    grid-template-columns: 1fr;
+    row-gap: 28px;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

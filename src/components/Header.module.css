@@ -43,6 +43,11 @@
 .brand {
   --logo-h: 15px;
   display: block;
+  transition: opacity 0.5s var(--ease);
+}
+
+.brand[data-hidden] {
+  opacity: 0;
 }
 
 .menuButton {
