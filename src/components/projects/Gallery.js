@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useDeferredValue, useEffect, useMemo, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import TLink from "../transition/TLink";
 import IndexList from "./IndexList";
 import styles from "./Gallery.module.css";
@@ -48,6 +48,23 @@ export default function Gallery({ items, options, initial = {} }) {
     [items],
   );
   const q = useDeferredValue(query);
+  const grid = useRef(null);
+  const firstNew = useRef(-1);
+
+  // Nach „Weitere Projekte“: Liegt das erste neue Projekt unterhalb des Bildschirms
+  // (z. B. wenn man ganz unten geklickt hat), sanft dorthin scrollen.
+  useEffect(() => {
+    const i = firstNew.current;
+    if (i < 0) return;
+    firstNew.current = -1;
+    const el = grid.current?.children[i];
+    if (!el) return;
+    const top = el.getBoundingClientRect().top;
+    if (top >= 0 && top < window.innerHeight * 0.75) return;
+    const offset = -Math.round(window.innerHeight * 0.15);
+    if (window.__lenis) window.__lenis.scrollTo(el, { offset, duration: 1.2 });
+    else window.scrollTo({ top: window.scrollY + top + offset, behavior: "smooth" });
+  }, [limit]);
 
   const filtered = useMemo(() => {
     const nq = normalize(q.trim());
@@ -160,7 +177,7 @@ export default function Gallery({ items, options, initial = {} }) {
           <IndexList items={filtered} numbers={numbers} />
         </div>
       ) : filtered.length ? (
-        <ul className={`${styles.grid} wrap`}>
+        <ul ref={grid} className={`${styles.grid} wrap`}>
           {visible.map((p, i) => (
             <li key={p.slug} className={styles.item} style={{ "--d": `${(i % PAGE) * 40}ms` }}>
               <Card project={p} eager={i < 2} num={numbers[p.slug]} />
@@ -178,7 +195,13 @@ export default function Gallery({ items, options, initial = {} }) {
 
       {view === "grid" && filtered.length > limit && (
         <div className={`${styles.more} wrap`}>
-          <button type="button" onClick={() => setLimit((l) => l + PAGE)}>
+          <button
+            type="button"
+            onClick={() => {
+              firstNew.current = limit;
+              setLimit(limit + PAGE);
+            }}
+          >
             Weitere Projekte anzeigen
             <span>
               {Math.min(PAGE, filtered.length - limit)} von {filtered.length - limit}
@@ -190,21 +213,38 @@ export default function Gallery({ items, options, initial = {} }) {
   );
 }
 
+// Auswahlfeld, das genau so breit ist wie der gewählte Wert (unsichtbarer
+// Platzhalter in derselben Rasterzelle), damit der Pfeil direkt dahinter sitzt.
 function Select({ label, value, onChange, options }) {
+  const byPointer = useRef(false);
   return (
     <label className={styles.select} data-set={value ? "" : undefined}>
       <span className={styles.selectLabel}>{label}</span>
-      <select value={value} onChange={(e) => onChange(e.target.value)}>
-        <option value="">Alle</option>
-        {options.map((o) => (
-          <option key={o} value={o}>
-            {o}
-          </option>
-        ))}
-      </select>
-      <svg viewBox="0 0 10 6" aria-hidden="true">
-        <path d="M1 1l4 4 4-4" />
-      </svg>
+      <span className={styles.field}>
+        <span className={styles.sizer} aria-hidden="true">
+          {value || "Alle"}
+        </span>
+        <select
+          value={value}
+          onPointerDown={() => (byPointer.current = true)}
+          onKeyDown={() => (byPointer.current = false)}
+          onChange={(e) => {
+            onChange(e.target.value);
+            // Mit der Maus gewählt: Fokus lösen, damit kein Rahmen stehen bleibt.
+            if (byPointer.current) e.target.blur();
+          }}
+        >
+          <option value="">Alle</option>
+          {options.map((o) => (
+            <option key={o} value={o}>
+              {o}
+            </option>
+          ))}
+        </select>
+        <svg viewBox="0 0 10 6" aria-hidden="true">
+          <path d="M1 1l4 4 4-4" />
+        </svg>
+      </span>
     </label>
   );
 }

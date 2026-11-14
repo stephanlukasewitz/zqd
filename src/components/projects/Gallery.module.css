@@ -2,6 +2,11 @@
   padding-bottom: clamp(96px, 12vw, 180px);
 }
 
+/* Beim Nachladen nicht am unteren Rand „kleben“ bleiben */
+.more {
+  overflow-anchor: none;
+}
+
 /* Suche & Filter (P02) */
 .controls {
   position: relative;
@@ -107,7 +112,7 @@
 
 .selects {
   display: flex;
-  gap: 24px;
+  gap: 32px;
 }
 
 .select {
@@ -127,26 +132,50 @@
   flex: 0 1 auto;
 }
 
-.select select {
+.field {
+  position: relative;
+  display: inline-block;
+  min-width: 0;
+}
+
+.sizer,
+.field select {
+  padding: 8px 18px 8px 0;
+  font: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+}
+
+.sizer {
+  display: block;
+  visibility: hidden;
+  overflow: hidden;
+  max-width: 14rem;
+}
+
+.field select {
   -webkit-appearance: none;
   appearance: none;
   border: 0;
   border-radius: 0;
   background: transparent;
-  padding: 8px 18px 8px 0;
+  color: inherit;
   cursor: pointer;
-  min-width: 0;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-width: 14rem;
+  text-overflow: ellipsis;
 }
 
 .select[data-set] select {
   color: var(--ink);
 }
 
-.select svg {
+.field svg {
   position: absolute;
   right: 0;
+  top: 50%;
+  margin-top: -3px;
   width: 10px;
   height: 6px;
   fill: none;
