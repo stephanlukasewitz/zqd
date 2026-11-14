@@ -1,7 +1,7 @@
 .map {
   position: relative;
   aspect-ratio: 16 / 10;
-  background: #111;
+  background: #2b2b2b;
   color: var(--paper);
   overflow: hidden;
 }
@@ -9,7 +9,7 @@
 .canvas {
   position: absolute;
   inset: 0;
-  background: #111;
+  background: #2b2b2b;
   opacity: 0;
   transition: opacity 0.8s var(--ease);
 }
@@ -20,7 +20,7 @@
 
 /* OSM-Standardkarte, monochrom und dunkel umgefärbt */
 .canvas :global(.leaflet-tile-pane) {
-  filter: grayscale(1) invert(1) brightness(0.82) contrast(1.15);
+  filter: grayscale(1) invert(0.9) brightness(1.1) contrast(0.95);
 }
 
 .canvas :global(.leaflet-control-attribution) {
