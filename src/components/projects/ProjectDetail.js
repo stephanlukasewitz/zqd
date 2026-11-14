@@ -24,9 +24,10 @@ export default function ProjectDetail({ project: p }) {
 
   const [lead, ...rest] = p.text?.length ? p.text : ["Projektbeschreibung folgt."];
 
-  // Nur die kleineren Bilder lassen sich vergrößern – vollbreite Bilder bleiben ohne Klick.
+  // Im Overlay sind alle Bilder erreichbar; geöffnet wird es nur über die kleineren
+  // Bilder – vollbreite Bilder bleiben ohne Klick.
   const gallery = (p.gallery || []).map((g, i) => ({ ...g, kind: LAYOUT[i % LAYOUT.length] }));
-  const shots = gallery.filter((g) => g.kind !== "full");
+  const shots = [p.cover, ...gallery];
 
   return (
     <LightboxProvider images={shots} title={p.title}>
@@ -110,7 +111,7 @@ export default function ProjectDetail({ project: p }) {
                   {kind === "full" ? (
                     img
                   ) : (
-                    <Zoom index={shots.indexOf(g)} label={g.alt}>
+                    <Zoom index={i + 1} label={g.alt}>
                       {img}
                     </Zoom>
                   )}

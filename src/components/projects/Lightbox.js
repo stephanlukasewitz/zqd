@@ -12,7 +12,7 @@ export function LightboxProvider({ images, title, children }) {
   const [index, setIndex] = useState(-1);
   const [closing, setClosing] = useState(false);
   const opener = useRef(null);
-  const closeBtn = useRef(null);
+  const dialog = useRef(null);
   const touch = useRef(null);
   const open = index >= 0;
   const count = images.length;
@@ -39,7 +39,7 @@ export function LightboxProvider({ images, title, children }) {
     const html = document.documentElement;
     html.style.overflow = "hidden";
     window.__lenis?.stop();
-    closeBtn.current?.focus({ preventScroll: true });
+    dialog.current?.focus({ preventScroll: true });
     const onKey = (e) => {
       if (e.key === "Escape") close();
       if (e.key === "ArrowRight") go(1);
@@ -60,6 +60,8 @@ export function LightboxProvider({ images, title, children }) {
       {children}
       {open && (
         <div
+          ref={dialog}
+          tabIndex={-1}
           className={styles.overlay}
           data-closing={closing || undefined}
           role="dialog"
@@ -78,7 +80,7 @@ export function LightboxProvider({ images, title, children }) {
             <span>
               {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
             </span>
-            <button ref={closeBtn} type="button" className={styles.close} onClick={close}>
+            <button type="button" className={styles.close} onClick={close}>
               Schließen <span aria-hidden="true" />
             </button>
           </div>

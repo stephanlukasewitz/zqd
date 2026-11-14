@@ -29,6 +29,7 @@
   -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   animation: in 0.4s var(--ease) both;
+  outline: none;
 }
 
 .overlay[data-closing] {
