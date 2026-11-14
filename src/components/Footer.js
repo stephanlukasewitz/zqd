@@ -49,7 +49,10 @@ export default async function Footer() {
         <p className={styles.copy}>
           <Logo variant="mark" className={styles.mark} />
           <span>
-            © <Year /> {site.legalName} · Zooquariumdesign · Architekturgarage
+            © <Year /> {site.legalName} · Zooquariumdesign ·{" "}
+            <a href="https://www.architekturgarage.com/" target="_blank" rel="noopener">
+              Architekturgarage
+            </a>
           </span>
         </p>
         <ul>
