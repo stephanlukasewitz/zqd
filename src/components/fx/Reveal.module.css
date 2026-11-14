@@ -2,8 +2,9 @@
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
-  padding-bottom: 0.12em;
-  margin-bottom: -0.12em;
+  /* Luft für Unterlängen (g, p, j) und überstehende Glyphen */
+  padding: 0.04em 0.06em 0.24em;
+  margin: -0.04em -0.06em -0.24em;
 }
 
 .w > span {

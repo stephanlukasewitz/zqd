@@ -4,14 +4,7 @@ import Reveal from "../fx/Reveal";
 import { placeOf, projects } from "@/content/projects";
 import styles from "./Selected.module.css";
 
-const PICK = [
-  "tropen-aquarium-hagenbeck",
-  "artenschutz-aquarium-schoenbrunn",
-  "dickhaeuterhaus-tierpark-berlin",
-  "haus-der-giganten-verona",
-  "elefantenfreilaufhalle-hagenbeck",
-  "masterplan-2030-koeln",
-];
+const PICK = ["artenschutz-aquarium-schoenbrunn", "elefantenfreilaufhalle-hagenbeck"];
 
 // Ausgewählte Projekte – zwei versetzte Spalten, wie Blätter auf dem Tisch.
 export default function Selected() {

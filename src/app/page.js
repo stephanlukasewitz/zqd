@@ -1,9 +1,10 @@
+import Hero from "@/components/home/Hero";
 import Split from "@/components/home/Split";
 import Selected from "@/components/home/Selected";
 import PhaseCards from "@/components/home/PhaseCards";
 import TLink from "@/components/transition/TLink";
 import Reveal from "@/components/fx/Reveal";
-import { claim, competence, general, heroImages, phases, philosophy, pic, scales, service } from "@/content/home";
+import { claim, competence, general, heroImages, phases, philosophy, pic, scales } from "@/content/home";
 import styles from "./page.module.css";
 
 export default function HomePage() {
@@ -12,23 +13,6 @@ export default function HomePage() {
 
   // Geteilter Einstieg: links der Text, rechts das Bild zum jeweiligen Abschnitt.
   const story = [
-    {
-      kind: "hero",
-      image: hero.image,
-      alt: hero.alt,
-      caption: hero.title,
-      content: (
-        <div className={styles.intro}>
-          <p className={styles.small}>{service}</p>
-          <h1 className={styles.claim}>
-            <Reveal>{claim[0]}</Reveal>
-            <Reveal className={styles.soft} delay={120}>
-              {claim[1]}
-            </Reveal>
-          </h1>
-        </div>
-      ),
-    },
     {
       image: polarium.image,
       alt: polarium.alt,
@@ -83,9 +67,10 @@ export default function HomePage() {
 
   return (
     <>
-      <Split sections={story} />
+      <Hero slide={hero} claim={claim} />
 
-      <Selected />
+      <div className={styles.splitGap} />
+      <Split sections={story} />
 
       {/* H04 Planungsweg */}
       <section className={styles.block} aria-labelledby="planungsweg">
@@ -127,6 +112,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Selected />
     </>
   );
 }
