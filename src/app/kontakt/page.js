@@ -1,4 +1,5 @@
 import PageTransition from "@/components/PageTransition";
+import { withDot } from "@/components/fx/Dot";
 import ContactForm from "@/components/contact/ContactForm";
 import OfficeMap from "@/components/contact/OfficeMap";
 import { site } from "@/content/site";
@@ -22,7 +23,7 @@ export default function KontaktPage() {
       <section className={`${styles.intro} wrap`}>
         <div className="grid">
           <h1 className={styles.title}>
-            <Reveal>Sprechen wir über Ihr Projekt.</Reveal>
+            <Reveal>{withDot("Sprechen wir über Ihr Projekt.")}</Reveal>
           </h1>
           <p className={styles.sub}>
             Ob Masterplanung, neue Tieranlage oder Modernisierung – wir freuen

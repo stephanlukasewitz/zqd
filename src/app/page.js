@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import { withDot } from "@/components/fx/Dot";
 import Split from "@/components/home/Split";
 import Selected from "@/components/home/Selected";
 import PhaseCards from "@/components/home/PhaseCards";
@@ -39,7 +40,7 @@ export default function HomePage() {
           {i === 0 && (
             <div className={styles.compHead}>
               <h2 className={styles.h2}>
-                <Reveal>{competence.title}</Reveal>
+                <Reveal>{withDot(competence.title)}</Reveal>
               </h2>
               <p className={styles.text}>{competence.text}</p>
             </div>
@@ -79,7 +80,7 @@ export default function HomePage() {
             Planungsweg
           </h2>
           <p className={`${styles.main} ${styles.title}`}>
-            <Reveal>Von der Idee bis zur Realisierung.</Reveal>
+            <Reveal>{withDot("Von der Idee bis zur Realisierung.")}</Reveal>
           </p>
         </div>
         <PhaseCards phases={cards} />
@@ -93,7 +94,7 @@ export default function HomePage() {
           </h2>
           <div className={styles.main}>
             <p className={styles.title}>
-              <Reveal>{general.title}</Reveal>
+              <Reveal>{withDot(general.title)}</Reveal>
             </p>
             <ol className={styles.disciplines}>
               {general.disciplines.map(([k, v], i) => (

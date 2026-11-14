@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withDot } from "@/components/fx/Dot";
 import { partners, team } from "@/content/team";
 import Reveal from "@/components/fx/Reveal";
 import styles from "./page.module.css";
@@ -16,7 +17,7 @@ export default function TeamPage() {
         <div className={styles.introText}>
           <h1 className={styles.title}>
             <Reveal>
-              Erfahrung verbindet. <span className={styles.hl}>Neue Perspektiven bewegen.</span>
+              Erfahrung verbindet. <span className={styles.hl}>{withDot("Neue Perspektiven bewegen.")}</span>
             </Reveal>
           </h1>
           <p className={styles.sub}>Das Team hinter ZQD.</p>

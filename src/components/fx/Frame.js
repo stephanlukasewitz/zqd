@@ -33,7 +33,4 @@ export default function Frame({ children, delay = 500 }) {
   );
 }
 
-// Roter Schlusspunkt – der Akzent aus dem „Z“ des Logos.
-export function Dot() {
-  return <span className={styles.dot}>.</span>;
-}
+export { Dot, withDot } from "./Dot";

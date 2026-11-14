@@ -28,9 +28,9 @@
   stroke-dashoffset: 0;
 }
 
-.dot {
-  color: var(--red);
-  margin-left: 0.04em;
+.dot,
+.dot span {
+  color: var(--red) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

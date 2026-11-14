@@ -1,11 +1,12 @@
 import PageTransition from "@/components/PageTransition";
+import { withDot } from "../fx/Dot";
 import styles from "./LegalPage.module.css";
 
 export default function LegalPage({ title, children }) {
   return (
     <PageTransition>
       <article className={styles.page}>
-        <h1 className={styles.title}>{title}</h1>
+        <h1 className={styles.title}>{withDot(title)}</h1>
         <div className={styles.body}>{children}</div>
       </article>
     </PageTransition>

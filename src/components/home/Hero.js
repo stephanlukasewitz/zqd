@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { withDot } from "../fx/Dot";
 import { useState } from "react";
 import TLink from "../transition/TLink";
 import Reveal from "../fx/Reveal";
@@ -13,9 +14,9 @@ export default function Hero({ slide, claim }) {
   return (
     <section className={styles.hero} aria-label="Einstieg">
       <h1 className={styles.claim}>
-        <Reveal className={styles.l1}>{claim[0]}</Reveal>
+        <Reveal className={styles.l1}>{withDot(claim[0])}</Reveal>
         <Reveal className={styles.l2} delay={120}>
-          {claim[1]}
+          {withDot(claim[1])}
         </Reveal>
       </h1>
 
