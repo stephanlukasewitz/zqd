@@ -9,8 +9,13 @@ import { withDot } from "@/components/fx/Dot";
 import { heroImage, phaseImages, pic } from "@/content/home";
 import { getProjects } from "@/content/projects";
 import { fmt } from "@/i18n/config";
+import { pageMeta } from "@/i18n/meta";
 import { getDict, getLang } from "@/i18n/server";
 import styles from "./page.module.css";
+
+export async function generateMetadata() {
+  return pageMeta(await getLang(), "/");
+}
 
 // Bilder der drei Aufgabenfelder (Texte im Wörterbuch)
 const FIELD_IMAGES = [

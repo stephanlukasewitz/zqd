@@ -19,7 +19,12 @@ const canonical = Object.entries(SEGMENTS).flatMap(([lang, map]) =>
     .filter(([intern, pub]) => intern !== pub)
     .flatMap(([intern, pub]) => [
       { source: `/${lang}/${intern}`, destination: `/${lang}/${pub}`, permanent: true },
-      { source: `/${lang}/${intern}/:rest*`, destination: `/${lang}/${pub}/:rest*`, permanent: true },
+      // Vorschaubilder (…/opengraph-image) liegen unter dem internen Pfad und werden nicht umgeleitet
+      {
+        source: `/${lang}/${intern}/:rest((?!(?:.*/)?opengraph-image).*)`,
+        destination: `/${lang}/${pub}/:rest`,
+        permanent: true,
+      },
     ]),
 );
 
@@ -43,7 +48,11 @@ const nextConfig = {
     return [
       // Deutsch hat kein Präfix
       { source: `/${defaultLocale}`, destination: "/", permanent: true },
-      { source: `/${defaultLocale}/:path*`, destination: "/:path*", permanent: true },
+      {
+        source: `/${defaultLocale}/:path((?!(?:.*/)?opengraph-image).*)`,
+        destination: "/:path",
+        permanent: true,
+      },
       ...canonical,
     ];
   },
@@ -54,7 +63,7 @@ const nextConfig = {
         // Alles ohne Sprachpräfix ist Deutsch
         { source: "/", destination: `/${defaultLocale}` },
         {
-          source: "/:path((?!en(?:/|$)|tr(?:/|$)|de(?:/|$)|api/|_next/|brand/|icon\\.svg).*)",
+          source: "/:path((?!en(?:/|$)|tr(?:/|$)|de(?:/|$)|api/|_next/|brand/|icon\\.svg|apple-icon\\.png|sitemap\\.xml|robots\\.txt|llms\\.txt).*)",
           destination: `/${defaultLocale}/:path`,
         },
       ],

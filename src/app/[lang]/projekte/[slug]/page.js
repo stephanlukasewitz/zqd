@@ -4,6 +4,7 @@ import BackLink from "@/components/projects/BackLink";
 import PageTransition from "@/components/PageTransition";
 import ProjectDetail from "@/components/projects/ProjectDetail";
 import { getProject, getProjects, placeOf, projects } from "@/content/projects";
+import { pageMeta } from "@/i18n/meta";
 import { getDict, getLang } from "@/i18n/server";
 import styles from "./page.module.css";
 
@@ -11,15 +12,22 @@ export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
+// Beschreibung: erster Absatz, an einer Wortgrenze auf ~155 Zeichen gekürzt
+function summary(text = "", max = 155) {
+  if (text.length <= max) return text;
+  return text.slice(0, text.lastIndexOf(" ", max)).replace(/[,;:–-]$/, "") + " …";
+}
+
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const p = getProject(slug, await getLang());
+  const lang = await getLang();
+  const p = getProject(slug, lang);
   if (!p) return {};
-  return {
+  return pageMeta(lang, `/projekte/${slug}`, {
     title: p.title,
-    description: p.text?.[0]?.slice(0, 160) || `${p.title} – ${placeOf(p)}`,
-    openGraph: { images: [{ url: p.cover.image.src }] },
-  };
+    description: summary(p.text?.[0]) || `${p.title} – ${placeOf(p)}`,
+    type: "article",
+  });
 }
 
 // Projektseite – eigene URL, erreichbar aus Galerie, Index und Startseite.

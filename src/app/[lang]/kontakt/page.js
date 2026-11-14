@@ -4,12 +4,13 @@ import ContactForm from "@/components/contact/ContactForm";
 import OfficeMap from "@/components/contact/OfficeMap";
 import { site } from "@/content/site";
 import Reveal from "@/components/fx/Reveal";
+import { pageMeta } from "@/i18n/meta";
 import { getDict, getLang } from "@/i18n/server";
 import styles from "./page.module.css";
 
 export async function generateMetadata() {
   const d = await getDict();
-  return { title: d.meta.contact.title, description: d.meta.contact.description };
+  return pageMeta(await getLang(), "/kontakt", { title: d.meta.contact.title, description: d.meta.contact.description });
 }
 
 export default async function KontaktPage() {

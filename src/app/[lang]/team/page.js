@@ -3,12 +3,13 @@ import { withDot } from "@/components/fx/Dot";
 import { partners, team } from "@/content/team";
 import Reveal from "@/components/fx/Reveal";
 import { fmt } from "@/i18n/config";
-import { getDict } from "@/i18n/server";
+import { pageMeta } from "@/i18n/meta";
+import { getDict, getLang } from "@/i18n/server";
 import styles from "./page.module.css";
 
 export async function generateMetadata() {
   const d = await getDict();
-  return { title: d.meta.team.title, description: d.meta.team.description };
+  return pageMeta(await getLang(), "/team", { title: d.meta.team.title, description: d.meta.team.description });
 }
 
 export default async function TeamPage() {

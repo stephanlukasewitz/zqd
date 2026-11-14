@@ -1,10 +1,11 @@
 import LegalPage from "@/components/legal/LegalPage";
 import { site } from "@/content/site";
-import { getDict } from "@/i18n/server";
+import { pageMeta } from "@/i18n/meta";
+import { getDict, getLang } from "@/i18n/server";
 
 export async function generateMetadata() {
   const d = await getDict();
-  return { title: d.meta.privacy.title, robots: { index: false } };
+  return { ...pageMeta(await getLang(), "/datenschutz", { title: d.meta.privacy.title }), robots: { index: false } };
 }
 
 export default async function Datenschutz() {

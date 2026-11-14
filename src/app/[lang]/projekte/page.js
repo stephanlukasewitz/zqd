@@ -4,12 +4,13 @@ import Gallery from "@/components/projects/Gallery";
 import GalleryFromUrl from "@/components/projects/GalleryFromUrl";
 import { filterOptions, getProjects, toCard } from "@/content/projects";
 import Reveal from "@/components/fx/Reveal";
+import { pageMeta } from "@/i18n/meta";
 import { getDict, getLang } from "@/i18n/server";
 import styles from "./page.module.css";
 
 export async function generateMetadata() {
   const d = await getDict();
-  return { title: d.meta.projects.title, description: d.meta.projects.description };
+  return pageMeta(await getLang(), "/projekte", { title: d.meta.projects.title, description: d.meta.projects.description });
 }
 
 export default async function ProjektePage() {

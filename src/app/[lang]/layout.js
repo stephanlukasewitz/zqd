@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import TransitionProvider from "@/components/transition/TransitionProvider";
 import SmoothScroll from "@/components/fx/SmoothScroll";
 import { LangProvider } from "@/i18n/LangProvider";
-import { isLocale, locales, ogLocales } from "@/i18n/config";
+import { isLocale, localize, locales, ogLocales } from "@/i18n/config";
 import { dictFor } from "@/i18n/dict";
 import { getLang } from "@/i18n/server";
 import { site } from "@/content/site";
@@ -36,6 +36,34 @@ export const viewport = {
   themeColor: "#ffffff",
 };
 
+// Strukturierte Firmendaten (Schema.org) für Suchmaschinen
+function orgData(lang, d) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": `${site.url}/#organization`,
+    name: site.legalName,
+    alternateName: ["ZQD", "Zooquariumdesign", "Architekturgarage"],
+    description: d.meta.description,
+    url: new URL(localize("/", lang), site.url).toString(),
+    logo: new URL("/brand/zqd-logo.svg", site.url).toString(),
+    image: new URL("/apple-icon.png", site.url).toString(),
+    email: site.email,
+    telephone: site.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.street,
+      postalCode: site.zip,
+      addressLocality: site.city,
+      addressCountry: "DE",
+    },
+    geo: { "@type": "GeoCoordinates", latitude: site.geo.lat, longitude: site.geo.lng },
+    areaServed: "Worldwide",
+    knowsAbout: ["Zoo architecture", "Zoo masterplanning", "Animal enclosures", "Aquariums", "General planning"],
+    inLanguage: lang,
+  };
+}
+
 export default async function RootLayout({ children }) {
   const lang = await getLang();
   if (!isLocale(lang)) notFound();
@@ -54,6 +82,10 @@ export default async function RootLayout({ children }) {
           </TransitionProvider>
           <SmoothScroll />
         </LangProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgData(lang, d)).replace(/</g, "\\u003c") }}
+        />
       </body>
     </html>
   );
