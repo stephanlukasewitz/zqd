@@ -34,6 +34,8 @@
 
 .field textarea {
   min-height: 140px;
+  /* Vergrößerbar, aber nicht über den Bildschirm hinaus – längerer Text scrollt */
+  max-height: min(480px, 60vh);
 }
 
 .field input:focus,
