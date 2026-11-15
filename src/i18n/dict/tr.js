@@ -56,7 +56,7 @@ const tr = {
       "/team": "İnsanlar ve iş ortakları",
       "/kontakt": "Talep ve ulaşım",
     },
-    footer: { contact: "İletişim", office: "Ofis", route: "Ulaşım", index: "Dizin", nav: "Alt bilgi menüsü" },
+    footer: { contact: "İletişim", office: "Konum", route: "Ulaşım", index: "Dizin", nav: "Alt bilgi menüsü" },
     hero: { label: "Giriş", tank: "Derin deniz havuzu", hint: "Suyu hareket ettirin" },
     gallery: {
       label: "Proje galerisi",

@@ -47,7 +47,7 @@ const de = {
       "/team": "Menschen und Partner",
       "/kontakt": "Anfrage und Anfahrt",
     },
-    footer: { contact: "Kontakt", office: "Büro", route: "Anfahrt", index: "Index", nav: "Footer-Navigation" },
+    footer: { contact: "Kontakt", office: "Standort", route: "Anfahrt", index: "Index", nav: "Footer-Navigation" },
     hero: { label: "Einstieg", tank: "Tiefseebecken", hint: "Bewegen Sie das Wasser" },
     gallery: {
       label: "Projektgalerie",

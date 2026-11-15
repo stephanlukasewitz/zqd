@@ -56,7 +56,7 @@ const en = {
       "/team": "People and partners",
       "/kontakt": "Enquiry and directions",
     },
-    footer: { contact: "Contact", office: "Office", route: "Directions", index: "Index", nav: "Footer navigation" },
+    footer: { contact: "Contact", office: "Location", route: "Directions", index: "Index", nav: "Footer navigation" },
     hero: { label: "Introduction", tank: "Deep-sea tank", hint: "Move the water" },
     gallery: {
       label: "Project gallery",
