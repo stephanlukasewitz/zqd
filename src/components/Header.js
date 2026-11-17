@@ -137,6 +137,7 @@ export default function Header({ nav: labels }) {
           href="/"
           className={styles.brand}
           data-hidden={brandHidden || undefined}
+          data-intro-logo
           aria-label={ui.home}
         >
           <Logo variant="wordmark" priority />

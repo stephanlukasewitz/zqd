@@ -1,0 +1,43 @@
+/* Sichtbar nur, solange html[data-intro] gesetzt ist (Skript im <head>). */
+.intro {
+  display: none;
+}
+
+:global(html[data-intro]) .intro {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #ffffff;
+  cursor: default;
+}
+
+.shot {
+  position: fixed;
+  overflow: hidden;
+  background: #05090d;
+  clip-path: inset(0 50% 100% 50%);
+}
+
+.img {
+  object-fit: cover;
+}
+
+.mark {
+  position: fixed;
+  display: block;
+  opacity: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.count {
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  opacity: 0;
+}

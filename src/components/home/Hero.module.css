@@ -113,3 +113,33 @@
     min-height: 360px;
   }
 }
+
+/* Intro (siehe Intro.js): Claim, Bild und Bildunterschrift warten, bis das Intro übergibt */
+:global(html[data-intro]) .stage {
+  visibility: hidden;
+}
+
+:global(html[data-intro]) .l1,
+:global(html[data-intro]) .l2,
+:global(html[data-intro]) .caption {
+  opacity: 0;
+  transform: translate3d(0, 0.4em, 0);
+}
+
+:global(html[data-intro="reveal"]) .l1,
+:global(html[data-intro="reveal"]) .l2,
+:global(html[data-intro="reveal"]) .caption {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.9s var(--ease),
+    transform 1.1s var(--ease);
+}
+
+:global(html[data-intro="reveal"]) .l2 {
+  transition-delay: 0.12s;
+}
+
+:global(html[data-intro="reveal"]) .caption {
+  transition-delay: 0.4s;
+}

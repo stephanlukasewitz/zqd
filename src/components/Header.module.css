@@ -391,3 +391,17 @@
     display: flex;
   }
 }
+
+/* Intro auf der Startseite: Menü und Sprachwahl blenden erst danach ein, das Logo übernimmt der Schriftzug */
+:global(html[data-intro]) .actions {
+  opacity: 0;
+}
+
+:global(html[data-intro="reveal"]) .actions {
+  opacity: 1;
+  transition: opacity 0.8s var(--ease) 0.3s;
+}
+
+:global(html[data-intro]) .brand {
+  visibility: hidden;
+}

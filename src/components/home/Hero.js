@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 import TLink from "../transition/TLink";
 import RippleWater from "../fx/RippleWater";
+import Intro from "./Intro";
 import { useLang } from "@/i18n/LangProvider";
 import styles from "./Hero.module.css";
 
@@ -51,7 +52,7 @@ export default function Hero({ slide, claim }) {
       </h1>
 
       <figure className={styles.figure}>
-        <div ref={stage} className={styles.stage} data-state={state} data-dark-zone>
+        <div ref={stage} className={styles.stage} data-state={state} data-dark-zone data-intro-stage>
           <Image
             src={slide.image}
             alt={slide.alt}
@@ -79,6 +80,7 @@ export default function Hero({ slide, claim }) {
           </span>
         </figcaption>
       </figure>
+      <Intro slide={slide} />
     </section>
   );
 }
