@@ -260,8 +260,10 @@
 }
 
 @media (hover: hover) {
+  /* Kurze Verzögerung: wer nur schnell über das Raster fährt, löst kein Zoomen aus */
   .card:hover .img {
     transform: scale(1.035);
+    transition-delay: 0.15s;
   }
 }
 
