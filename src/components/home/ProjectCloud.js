@@ -54,13 +54,14 @@ export default function ProjectCloud({ items, title, allLabel }) {
         if (!t) return;
         const slot = SLOTS[i % SLOTS.length];
         const h = t.offsetHeight;
-        const at = 0.06 + (i / Math.max(1, n - 1)) * 0.86;
+        // verteilt bis an beide Enden: schon beim Hereinscrollen und bis zum Schluss Bilder im Bild
+        const at = -0.06 + (i / Math.max(1, n - 1)) * 1.06;
         const speed = vh * (1.8 + slot.d * 1.4);
         const y = reduce ? vh / 2 - h / 2 : vh / 2 - h / 2 + (at - p) * speed;
         t.style.transform = `translate3d(0, ${Math.round(y * 10) / 10}px, 0)`;
       });
       if (text.current) {
-        const o = Math.min(1, Math.min(p, 1 - p) * 8);
+        const o = Math.min(1, Math.min(p + 0.12, 1 - p) * 8);
         text.current.style.opacity = reduce ? 1 : o.toFixed(3);
       }
     };

@@ -1,7 +1,9 @@
 .cloud {
   position: relative;
-  height: 340vh;
-  margin-top: var(--space-chapter);
+  height: 300vh;
+  margin-top: var(--space-tight);
+  /* Bilder laufen bis zum Ende – der Footer darf näher heran */
+  margin-bottom: calc(clamp(110px, 14vw, 240px) * -0.6);
 }
 
 .sticky {
@@ -103,7 +105,7 @@
 
 @media (max-width: 760px) {
   .cloud {
-    height: 300vh;
+    height: 260vh;
   }
 
   /* Auf schmalen Bildschirmen größer, sonst wären ferne Bilder winzig */
