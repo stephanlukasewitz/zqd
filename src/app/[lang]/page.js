@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Hero from "@/components/home/Hero";
 import Fields from "@/components/home/Fields";
-import { Suspense } from "react";
-import Selected from "@/components/home/Selected";
-import SelectedVariant from "@/components/home/SelectedVariant";
 import ProjectCloud from "@/components/home/ProjectCloud";
 import PhaseCards from "@/components/home/PhaseCards";
 import TLink from "@/components/transition/TLink";
@@ -20,7 +17,7 @@ export async function generateMetadata() {
   return pageMeta(await getLang(), "/");
 }
 
-// Projekte der Bilderwolke (Variante ?v=2)
+// Projekte der Bilderwolke „Ausgewählte Projekte“
 const CLOUD = [
   "eismeer-hagenbeck",
   "polarium-rostock",
@@ -204,18 +201,11 @@ export default async function HomePage() {
       </section>
 
       {/* Beweis */}
-      <Suspense fallback={<Selected space="var(--space-chapter)" />}>
-        <SelectedVariant
-          v1={<Selected space="var(--space-chapter)" />}
-          v2={
-            <ProjectCloud
-              items={CLOUD.map((slug) => pic(slug, 0, lang))}
-              title={h.selected}
-              allLabel={fmt(h.allProjects, { n: projects.length })}
-            />
-          }
-        />
-      </Suspense>
+      <ProjectCloud
+        items={CLOUD.map((slug) => pic(slug, 0, lang))}
+        title={h.selected}
+        allLabel={fmt(h.allProjects, { n: projects.length })}
+      />
     </>
   );
 }
