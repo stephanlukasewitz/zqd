@@ -3,7 +3,7 @@
   height: 300vh;
   margin-top: calc(var(--space-tight) * 1.35);
   /* Bilder laufen bis zum Ende – der Footer darf näher heran */
-  margin-bottom: calc(clamp(110px, 14vw, 240px) * -0.6);
+  margin-bottom: calc(clamp(110px, 14vw, 240px) * -0.85);
 }
 
 .sticky {

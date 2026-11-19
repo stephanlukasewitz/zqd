@@ -6,7 +6,6 @@ import { useEffect, useRef } from "react";
 //   speed  > 0: das Bild zieht schneller als die Seite (näher), < 0: langsamer (ferner)
 //   window: nur der Inhalt bewegt sich im feststehenden Rahmen (Fenster-Effekt)
 //   blur:   an den Bildschirmrändern leicht weich, scharf in der Mitte
-// Vorerst nur aktiv mit ?v=2 auf der Startseite.
 
 const items = new Set();
 let raf = 0;
@@ -46,9 +45,8 @@ export default function Depth({ speed = 0.08, window: win = false, blur = 6, cla
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const active = new URLSearchParams(window.location.search).get("v") === "2";
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (!active || reduce) return;
+    if (reduce) return;
     // gemessen wird die äußere Ebene, bewegt die innere – so misst sich nichts selbst mit
     const target = inner.current;
     if (!target) return;
