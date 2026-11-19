@@ -1,0 +1,123 @@
+.cloud {
+  position: relative;
+  height: 340vh;
+  margin-top: var(--space-chapter);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+/* Titel in der Mitte; ferne Bilder laufen dahinter, nahe davor */
+.text {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 22px;
+  padding: 0 var(--margin);
+  text-align: center;
+  pointer-events: none;
+}
+
+.text :global(.tlink) {
+  pointer-events: auto;
+  font-size: var(--fs-sm);
+}
+
+.title {
+  font-size: var(--fs-section);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.tiles {
+  position: absolute;
+  inset: 0;
+}
+
+.tile {
+  --k: 1.15;
+  position: absolute;
+  top: 0;
+  width: calc(var(--w) * var(--k) * 1vw);
+  z-index: 1;
+  will-change: transform;
+  transform: translate3d(0, 110vh, 0);
+}
+
+.tile[data-near] {
+  z-index: 3;
+}
+
+.link {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  background: #ececec;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 1.2s var(--ease);
+}
+
+@media (hover: hover) {
+  .link:hover .img {
+    transform: scale(1.04);
+    transition-delay: 0.15s;
+  }
+}
+
+/* Weichzeichnung an den Rändern: zwei feste Bänder statt Unschärfe pro Bild */
+.haze {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  height: 18%;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.top {
+  top: 0;
+  -webkit-mask-image: linear-gradient(to bottom, #000, transparent);
+  mask-image: linear-gradient(to bottom, #000, transparent);
+}
+
+.bottom {
+  bottom: 0;
+  -webkit-mask-image: linear-gradient(to top, #000, transparent);
+  mask-image: linear-gradient(to top, #000, transparent);
+}
+
+@media (max-width: 760px) {
+  .cloud {
+    height: 300vh;
+  }
+
+  /* Auf schmalen Bildschirmen größer, sonst wären ferne Bilder winzig */
+  .tile {
+    --k: 2.1;
+  }
+
+  /* Titel bleibt auf dem Handy lesbar vor allen Bildern */
+  .text {
+    z-index: 5;
+  }
+
+  .title {
+    padding: 0.15em 0.3em;
+    background: rgb(255 255 255 / 0.82);
+  }
+}

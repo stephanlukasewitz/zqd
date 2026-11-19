@@ -1,7 +1,10 @@
 import Image from "next/image";
 import Hero from "@/components/home/Hero";
 import Fields from "@/components/home/Fields";
+import { Suspense } from "react";
 import Selected from "@/components/home/Selected";
+import SelectedVariant from "@/components/home/SelectedVariant";
+import ProjectCloud from "@/components/home/ProjectCloud";
 import PhaseCards from "@/components/home/PhaseCards";
 import TLink from "@/components/transition/TLink";
 import Reveal from "@/components/fx/Reveal";
@@ -16,6 +19,24 @@ import styles from "./page.module.css";
 export async function generateMetadata() {
   return pageMeta(await getLang(), "/");
 }
+
+// Projekte der Bilderwolke (Variante ?v=2)
+const CLOUD = [
+  "eismeer-hagenbeck",
+  "polarium-rostock",
+  "orang-utan-dome-hagenbeck",
+  "artenschutz-aquarium-schoenbrunn",
+  "haus-der-giganten-verona",
+  "elefantenfreilaufhalle-hagenbeck",
+  "dickhaeuterhaus-tierpark-berlin",
+  "kaenguruhaus-hagenbeck",
+  "robbenanlage-rostock",
+  "elefantenwelt-wilhelma",
+  "asien-anlage-opel-zoo",
+  "elefanten-badeteich-hagenbeck",
+  "baerengehege-hagenbeck",
+  "karawanserei-al-wabra",
+];
 
 // Bilder der drei Aufgabenfelder (Texte im Wörterbuch)
 const FIELD_IMAGES = [
@@ -183,7 +204,18 @@ export default async function HomePage() {
       </section>
 
       {/* Beweis */}
-      <Selected space="var(--space-chapter)" />
+      <Suspense fallback={<Selected space="var(--space-chapter)" />}>
+        <SelectedVariant
+          v1={<Selected space="var(--space-chapter)" />}
+          v2={
+            <ProjectCloud
+              items={CLOUD.map((slug) => pic(slug, 0, lang))}
+              title={h.selected}
+              allLabel={fmt(h.allProjects, { n: projects.length })}
+            />
+          }
+        />
+      </Suspense>
     </>
   );
 }
