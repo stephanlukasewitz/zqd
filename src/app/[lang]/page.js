@@ -5,6 +5,7 @@ import ProjectCloud from "@/components/home/ProjectCloud";
 import PhaseCards from "@/components/home/PhaseCards";
 import TLink from "@/components/transition/TLink";
 import Reveal from "@/components/fx/Reveal";
+import Depth from "@/components/fx/Depth";
 import { withDot } from "@/components/fx/Dot";
 import { heroImage, phaseImages, pic } from "@/content/home";
 import { getProjects } from "@/content/projects";
@@ -143,16 +144,20 @@ export default async function HomePage() {
       {/* Bildpaar */}
       <section className={`${styles.pair} ${styles.chapter}`} aria-label={h.insights}>
         <figure className={styles.pairLarge}>
-          <div className={`${styles.media} img-reveal`} style={{ aspectRatio: "3 / 2" }}>
-            <Image src={robbe.image} alt={robbe.alt} fill sizes="(max-width: 760px) 100vw, 64vw" className={styles.img} />
-          </div>
-          <Caption shot={robbe} view={h.viewProject} />
+          <Depth speed={0.02}>
+            <div className={`${styles.media} img-reveal`} style={{ aspectRatio: "3 / 2" }}>
+              <Image src={robbe.image} alt={robbe.alt} fill sizes="(max-width: 760px) 100vw, 64vw" className={styles.img} />
+            </div>
+            <Caption shot={robbe} view={h.viewProject} />
+          </Depth>
         </figure>
         <figure className={styles.pairSmall}>
-          <div className={`${styles.media} img-reveal`} style={{ aspectRatio: "4 / 5" }}>
-            <Image src={elefant.image} alt={elefant.alt} fill sizes="(max-width: 760px) 60vw, 24vw" className={styles.img} />
-          </div>
-          <Caption shot={elefant} view={h.viewProject} />
+          <Depth speed={0.14}>
+            <div className={`${styles.media} img-reveal`} style={{ aspectRatio: "4 / 5" }}>
+              <Image src={elefant.image} alt={elefant.alt} fill sizes="(max-width: 760px) 60vw, 24vw" className={styles.img} />
+            </div>
+            <Caption shot={elefant} view={h.viewProject} />
+          </Depth>
         </figure>
       </section>
 
@@ -176,7 +181,9 @@ export default async function HomePage() {
       {/* Bildband */}
       <figure className={styles.band}>
         <div className={`${styles.bandMedia} img-reveal`}>
-          <Image src={band.image} alt={band.alt} fill sizes="100vw" className={styles.img} />
+          <Depth window speed={-0.1} className={styles.fill} innerClassName={styles.fill}>
+            <Image src={band.image} alt={band.alt} fill sizes="100vw" className={styles.img} />
+          </Depth>
         </div>
         <Caption shot={band} view={h.viewProject} />
       </figure>

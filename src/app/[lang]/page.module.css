@@ -120,6 +120,11 @@
   object-fit: cover;
 }
 
+.fill {
+  position: absolute;
+  inset: 0;
+}
+
 .caption {
   display: flex;
   flex-wrap: wrap;
