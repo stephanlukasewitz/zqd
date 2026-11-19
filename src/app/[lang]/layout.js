@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TransitionProvider from "@/components/transition/TransitionProvider";
 import SmoothScroll from "@/components/fx/SmoothScroll";
+import PerfGuard from "@/components/fx/PerfGuard";
 import { LangProvider } from "@/i18n/LangProvider";
 import { isLocale, localize, locales, ogLocales } from "@/i18n/config";
 import { dictFor } from "@/i18n/dict";
@@ -87,6 +88,7 @@ export default async function RootLayout({ children }) {
             <Footer />
           </TransitionProvider>
           <SmoothScroll />
+          <PerfGuard />
         </LangProvider>
         <script
           type="application/ld+json"

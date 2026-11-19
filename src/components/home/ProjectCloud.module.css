@@ -91,6 +91,11 @@
   backdrop-filter: blur(6px);
 }
 
+/* Sparmodus (PerfGuard): keine Weichzeichner */
+:global(html[data-lite]) .haze {
+  display: none;
+}
+
 .top {
   top: 0;
   -webkit-mask-image: linear-gradient(to bottom, #000, transparent);

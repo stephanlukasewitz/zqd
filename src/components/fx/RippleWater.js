@@ -121,7 +121,8 @@ export default function RippleWater({ drawScene, onReady, onFail, className, int
     const el = canvas.current;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const gl = el.getContext("webgl2", { antialias: false, alpha: false, premultipliedAlpha: false });
-    if (reduce || !gl || !gl.getExtension("EXT_color_buffer_float")) {
+    const lite = document.documentElement.hasAttribute("data-lite");
+    if (reduce || lite || !gl || !gl.getExtension("EXT_color_buffer_float")) {
       onFail?.();
       return;
     }
@@ -289,6 +290,14 @@ export default function RippleWater({ drawScene, onReady, onFail, className, int
       if (!raf && visible && sceneReady) raf = requestAnimationFrame(frame);
     };
 
+    // Sparmodus (PerfGuard): Wasser anhalten, der Hero zeigt das ruhige Foto
+    const onLite = () => {
+      disposed = true;
+      cancelAnimationFrame(raf);
+      onFail?.();
+    };
+    window.addEventListener("zqd:lite", onLite);
+
     const io = new IntersectionObserver(([e]) => {
       visible = e.isIntersecting;
       kick();
@@ -312,6 +321,7 @@ export default function RippleWater({ drawScene, onReady, onFail, className, int
       ro.disconnect();
       clearTimeout(resizeTimer);
       document.removeEventListener("visibilitychange", onVis);
+      window.removeEventListener("zqd:lite", onLite);
       target.removeEventListener("pointermove", onMove);
       target.removeEventListener("pointerdown", onDown);
       gl.getExtension("WEBGL_lose_context")?.loseContext();

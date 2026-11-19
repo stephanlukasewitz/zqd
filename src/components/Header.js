@@ -238,6 +238,7 @@ function Lang({ className, path }) {
         <Link
           key={code}
           href={switchLocale(path, "", code)}
+          prefetch={false}
           hrefLang={code}
           lang={code}
           aria-label={langNames[code]}

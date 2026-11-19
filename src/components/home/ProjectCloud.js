@@ -42,23 +42,36 @@ export default function ProjectCloud({ items, title, allLabel }) {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let raf = 0;
     let visible = false;
+    // Maße nur beim Laden und bei Größenänderungen lesen – im Frame wird nur geschrieben
+    const m = { top: 0, span: 1, vh: 0, heights: [] };
+    const measure = () => {
+      const r = el.getBoundingClientRect();
+      m.vh = window.innerHeight;
+      m.top = r.top + window.scrollY;
+      m.span = Math.max(1, r.height - m.vh);
+      m.heights = tiles.current.map((t) => (t ? t.offsetHeight : 0));
+    };
 
     const frame = () => {
       raf = 0;
-      const vh = window.innerHeight;
-      const rect = el.getBoundingClientRect();
-      const span = rect.height - vh;
-      const p = Math.min(1, Math.max(0, -rect.top / span));
+      const { vh, heights } = m;
+      const p = Math.min(1, Math.max(0, (window.scrollY - m.top) / m.span));
       const n = tiles.current.length;
       tiles.current.forEach((t, i) => {
         if (!t) return;
         const slot = SLOTS[i % SLOTS.length];
-        const h = t.offsetHeight;
+        const h = heights[i];
         // verteilt bis an beide Enden: schon beim Hereinscrollen und bis zum Schluss Bilder im Bild
         const at = -0.06 + (i / Math.max(1, n - 1)) * 1.06;
         const speed = vh * (1.8 + slot.d * 1.4);
         const y = reduce ? vh / 2 - h / 2 : vh / 2 - h / 2 + (at - p) * speed;
-        t.style.transform = `translate3d(0, ${Math.round(y * 10) / 10}px, 0)`;
+        // außerhalb des Bildschirms gar nicht zeichnen lassen
+        const out = y > vh + 40 || y < -h - 40;
+        if (out !== t._out) {
+          t.style.visibility = out ? "hidden" : "";
+          t._out = out;
+        }
+        if (!out) t.style.transform = `translate3d(0, ${Math.round(y * 10) / 10}px, 0)`;
       });
       if (text.current) {
         const o = Math.min(1, Math.min(p + 0.12, 1 - p) * 8);
@@ -74,14 +87,22 @@ export default function ProjectCloud({ items, title, allLabel }) {
       request();
     });
     io.observe(el);
+    const onResize = () => {
+      measure();
+      request();
+    };
+    const ro = new ResizeObserver(onResize);
+    ro.observe(el);
     window.addEventListener("scroll", request, { passive: true });
-    window.addEventListener("resize", request);
+    window.addEventListener("resize", onResize);
+    measure();
     frame();
     return () => {
       io.disconnect();
+      ro.disconnect();
       cancelAnimationFrame(raf);
       window.removeEventListener("scroll", request);
-      window.removeEventListener("resize", request);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
