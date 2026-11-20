@@ -58,6 +58,8 @@ export default function Depth({ speed = 0.08, window: win = false, className, in
     const target = inner.current;
     if (!el || !target) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    // ?v=2: Vergleichsvariante ohne Tiefen-Effekte
+    if (document.documentElement.hasAttribute("data-static")) return;
     // gemessen wird die äußere Ebene, bewegt die innere – so misst sich nichts selbst mit
     const it = { el, target, speed, window: win, top: 0, height: 0 };
     target.style.willChange = "transform";

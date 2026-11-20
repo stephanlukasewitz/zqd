@@ -116,3 +116,8 @@
     animation-range: entry 0% entry 70%;
   }
 }
+
+/* ?v=2: Vergleichsvariante ohne Staffelung */
+:global(html[data-static]) .card {
+  animation: none;
+}
