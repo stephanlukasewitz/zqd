@@ -140,6 +140,10 @@ export default function ProjectCloud({ items, title, allLabel }) {
                 <TLink href={`/projekte/${p.slug}`} aria-label={p.title} className={styles.link}>
                   <Image src={p.image} alt={p.alt} fill sizes={`${Math.ceil(slot.w * 1.6)}vw`} className={styles.img} />
                 </TLink>
+                {/* Projektname erscheint beim Überfahren unter dem Bild */}
+                <span className={styles.name} aria-hidden="true">
+                  {p.title}
+                </span>
               </li>
             );
           })}

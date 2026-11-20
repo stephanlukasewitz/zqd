@@ -72,9 +72,34 @@
   transition: transform 1.2s var(--ease);
 }
 
+/* Projektname unter dem Bild – nur beim Überfahren (gleiche kurze Verzögerung wie der Zoom) */
+.name {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: -40%;
+  padding-top: 10px;
+  font-size: var(--fs-sm);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  opacity: 0;
+  transform: translate3d(0, -4px, 0);
+  transition:
+    opacity 0.35s var(--ease),
+    transform 0.5s var(--ease);
+  pointer-events: none;
+}
+
 @media (hover: hover) {
   .link:hover .img {
     transform: scale(1.04);
+    transition-delay: 0.15s;
+  }
+
+  .tile:has(.link:hover) .name {
+    opacity: 1;
+    transform: none;
     transition-delay: 0.15s;
   }
 }
