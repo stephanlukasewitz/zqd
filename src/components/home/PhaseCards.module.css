@@ -72,52 +72,25 @@
   }
 }
 
-/* Gestaffelt von links nach rechts – scroll-gebunden, läuft im Browser abseits des Hauptthreads */
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .cards {
-      view-timeline-name: --phases;
-    }
-
-    .card {
-      animation: phase-rise linear both;
-      animation-timeline: --phases;
-    }
-
-    .card:nth-child(1) {
-      animation-range: entry 0% entry 65%;
-    }
-
-    .card:nth-child(2) {
-      animation-range: entry 15% entry 82%;
-    }
-
-    .card:nth-child(3) {
-      animation-range: entry 30% entry 100%;
-    }
-  }
+/* Ankommen (Arrive): gestaffelt von links nach rechts, mit fester Dauer und weichem
+   Auslaufen – auch bei schnellem Scrollen kein Einrasten */
+.cards[data-armed] .card {
+  opacity: 0;
+  transform: translate3d(0, 56px, 0);
 }
 
-@keyframes phase-rise {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 90px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+.cards[data-armed][data-in] .card {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 1s cubic-bezier(0.25, 0.1, 0.25, 1),
+    transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (max-width: 860px) {
-  /* untereinander: jede Karte mit eigener Zeitachse */
-  .card:nth-child(n) {
-    animation-timeline: view();
-    animation-range: entry 0% entry 70%;
-  }
+.cards[data-armed][data-in] .card:nth-child(2) {
+  transition-delay: 0.16s;
 }
 
-/* ?v=2: Vergleichsvariante ohne Staffelung */
-:global(html[data-static]) .card {
-  animation: none;
+.cards[data-armed][data-in] .card:nth-child(3) {
+  transition-delay: 0.32s;
 }

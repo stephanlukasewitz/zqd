@@ -10,6 +10,18 @@ import styles from "./Fields.module.css";
 export default function Fields({ fields }) {
   const preview = useRef(null);
   const [hover, setHover] = useState(null);
+  // Vorschau erst nach kurzem Verweilen – beim Scrollen rauschen die Zeilen sonst
+  // unter dem Zeiger durch und drei Bilder blitzen nacheinander auf
+  const wait = useRef(0);
+  const intend = (i) => {
+    clearTimeout(wait.current);
+    wait.current = setTimeout(() => setHover(i), 160);
+  };
+  const leave = () => {
+    clearTimeout(wait.current);
+    setHover(null);
+  };
+  useEffect(() => () => clearTimeout(wait.current), []);
 
   useEffect(() => {
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -43,7 +55,7 @@ export default function Fields({ fields }) {
   }, []);
 
   return (
-    <div className={styles.wrap} onPointerLeave={() => setHover(null)}>
+    <div className={styles.wrap} onPointerLeave={leave}>
       <ul className={styles.list}>
         {fields.map((f, i) => (
           <li key={f.type}>
@@ -51,7 +63,7 @@ export default function Fields({ fields }) {
               href={`/projekte?art=${encodeURIComponent(f.type)}`}
               className={styles.row}
               data-dim={(hover !== null && hover !== i) || undefined}
-              onPointerEnter={() => setHover(i)}
+              onPointerEnter={() => intend(i)}
               onFocus={() => setHover(i)}
             >
               <span className={styles.num}>{String(i + 1).padStart(2, "0")}</span>

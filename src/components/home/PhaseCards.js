@@ -1,13 +1,13 @@
 import Image from "next/image";
+import Arrive from "../fx/Arrive";
 import styles from "./PhaseCards.module.css";
 
-
 // Planungsweg in drei Schritten – jeder mit einem Bild aus einem echten Projekt,
-// die Leistungen direkt sichtbar. Beim Hereinscrollen steigen die Karten gestaffelt
-// von links nach rechts auf und stehen danach exakt auf einer Linie.
+// die Leistungen direkt sichtbar. Kommt der Abschnitt ins Bild, gleiten die Karten
+// gestaffelt von links nach rechts in ihre Position (feste Dauer, unabhängig vom Scrolltempo).
 export default function PhaseCards({ phases }) {
   return (
-    <ol className={styles.cards}>
+    <Arrive as="ol" className={styles.cards}>
       {phases.map((p, i) => (
         <li key={p.label} className={styles.card}>
           <div className={styles.media}>
@@ -26,6 +26,6 @@ export default function PhaseCards({ phases }) {
           </ul>
         </li>
       ))}
-    </ol>
+    </Arrive>
   );
 }

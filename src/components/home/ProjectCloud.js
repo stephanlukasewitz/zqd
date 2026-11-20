@@ -55,7 +55,10 @@ export default function ProjectCloud({ items, title, allLabel }) {
     const frame = () => {
       raf = 0;
       const { vh, heights } = m;
-      const p = Math.min(1, Math.max(0, (window.scrollY - m.top) / m.span));
+      // Bilder: schon ab dem Moment, in dem die Sektion von unten hereinkommt
+      const p = Math.min(1, Math.max(0, (window.scrollY - m.top + vh) / (m.span + vh)));
+      // Titel: folgt dem angedockten Teil
+      const pin = Math.min(1, Math.max(0, (window.scrollY - m.top) / m.span));
       const n = tiles.current.length;
       tiles.current.forEach((t, i) => {
         if (!t) return;
@@ -74,7 +77,7 @@ export default function ProjectCloud({ items, title, allLabel }) {
         if (!out) t.style.transform = `translate3d(0, ${Math.round(y * 10) / 10}px, 0)`;
       });
       if (text.current) {
-        const o = Math.min(1, Math.min(p + 0.12, 1 - p) * 8);
+        const o = Math.min(1, Math.min(pin + 0.12, 1 - pin) * 8);
         text.current.style.opacity = reduce ? 1 : o.toFixed(3);
       }
     };
