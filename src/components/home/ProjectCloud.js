@@ -55,8 +55,12 @@ export default function ProjectCloud({ items, title, allLabel }) {
     const frame = () => {
       raf = 0;
       const { vh, heights } = m;
-      // Bilder: schon ab dem Moment, in dem die Sektion von unten hereinkommt
-      const p = Math.min(1, Math.max(0, (window.scrollY - m.top + vh) / (m.span + vh)));
+      // Bilder: bewegen sich schon beim Hereinscrollen – und zwar so, als wäre die
+      // Sektion bereits angedockt. Die Bewegung der Seite wird herausgerechnet
+      // (shift), so hat jedes Bild auf dem Bildschirm von Anfang an ein gleichmäßiges Tempo.
+      const y = window.scrollY - m.top;
+      const p = Math.min(1, Math.max(-vh / m.span, y / m.span));
+      const shift = Math.min(0, y);
       // Titel: folgt dem angedockten Teil
       const pin = Math.min(1, Math.max(0, (window.scrollY - m.top) / m.span));
       const n = tiles.current.length;
@@ -67,14 +71,15 @@ export default function ProjectCloud({ items, title, allLabel }) {
         // verteilt bis an beide Enden: schon beim Hereinscrollen und bis zum Schluss Bilder im Bild
         const at = -0.06 + (i / Math.max(1, n - 1)) * 1.06;
         const speed = vh * (1.8 + slot.d * 1.4);
-        const y = reduce ? vh / 2 - h / 2 : vh / 2 - h / 2 + (at - p) * speed;
+        const ty = reduce ? vh / 2 - h / 2 : vh / 2 - h / 2 + (at - p) * speed + shift;
         // außerhalb des Bildschirms gar nicht zeichnen lassen
-        const out = y > vh + 40 || y < -h - 40;
+        const sy = ty - shift; // Position auf dem Bildschirm
+        const out = sy > vh + 40 || sy < -h - 40;
         if (out !== t._out) {
           t.style.visibility = out ? "hidden" : "";
           t._out = out;
         }
-        if (!out) t.style.transform = `translate3d(0, ${Math.round(y * 10) / 10}px, 0)`;
+        if (!out) t.style.transform = `translate3d(0, ${Math.round(ty * 10) / 10}px, 0)`;
       });
       if (text.current) {
         const o = Math.min(1, Math.min(pin + 0.12, 1 - pin) * 8);
