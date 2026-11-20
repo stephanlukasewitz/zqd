@@ -75,7 +75,10 @@ export default async function RootLayout({ children }) {
     <html lang={lang} className={sans.variable} suppressHydrationWarning>
       <head>
         {/* Intro nur beim ersten Aufruf der Startseite pro Besuch, nicht bei „Bewegung reduzieren“.
-            ?v=2: Vergleichsvariante ohne Tiefen-Effekte (data-static). */}
+            ?v=2: Vergleichsvariante ohne Tiefen-Effekte (data-static).
+            Muss vor dem ersten Bild laufen – daher als echtes Inline-Skript im <head>.
+            Der Sprachwechsel lädt die Seite neu (siehe Header), so wird dieses Layout
+            nie im Browser neu gerendert. */}
         <script dangerouslySetInnerHTML={{ __html: INTRO_SCRIPT }} />
       </head>
       <body>

@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import TLink from "./transition/TLink";
@@ -229,16 +228,16 @@ export default function Header({ nav: labels }) {
 }
 
 // Sprachwahl: dieselbe Seite in der anderen Sprache (Filter in der Adresse bleiben erhalten).
+// Bewusst ein normaler Link mit vollem Neuladen: Jede Sprache hat ihr eigenes Wurzel-Layout
+// (<html lang>, <head>) – das soll der Server frisch liefern, nicht der Browser umbauen.
 function Lang({ className, path }) {
   const { lang, ui } = useLang();
-  const router = useRouter();
   return (
     <div className={className} role="group" aria-label={ui.language}>
       {locales.map((code) => (
-        <Link
+        <a
           key={code}
           href={switchLocale(path, "", code)}
-          prefetch={false}
           hrefLang={code}
           lang={code}
           aria-label={langNames[code]}
@@ -246,13 +245,11 @@ function Lang({ className, path }) {
           onClick={(e) => {
             if (code === lang) return e.preventDefault();
             const search = window.location.search;
-            if (!search || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-            e.preventDefault();
-            router.push(switchLocale(path, search, code));
+            if (search) e.currentTarget.href = switchLocale(path, search, code);
           }}
         >
           {code.toUpperCase()}
-        </Link>
+        </a>
       ))}
     </div>
   );
