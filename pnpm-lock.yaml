@@ -164,7 +164,9 @@ settings:
 
 importers:
 
-  .:
+  .: {}
+
+  apps/zooquariumdesign:
     dependencies:
       leaflet:
         specifier: 1.9.4
