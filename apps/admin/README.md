@@ -48,3 +48,5 @@ Statt `ADMIN_PASSWORD` kann auch nur ein Hash hinterlegt werden: `pnpm --filter 
 ```bash
 pnpm --filter admin dev
 ```
+
+Vercel-Projekt: `zqd-admin`.
