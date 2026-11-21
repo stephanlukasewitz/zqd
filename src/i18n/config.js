@@ -41,6 +41,8 @@ export function localize(href, lang = defaultLocale) {
 // Öffentliche Adresse → { lang, path } mit internem (deutschem) Pfad.
 export function parsePath(pathname = "/") {
   const parts = String(pathname).split("/").filter(Boolean);
+  // intern kann die deutsche Fassung als /de/… gemeldet werden (Rewrite) – Präfix ignorieren
+  if (parts[0] === defaultLocale) parts.shift();
   if (prefixed.includes(parts[0])) {
     const lang = parts.shift();
     if (parts[0]) {

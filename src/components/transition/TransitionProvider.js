@@ -10,6 +10,9 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState } f
 const Ctx = createContext({ navigate: () => {} });
 export const useTransitionNav = () => useContext(Ctx);
 
+// Browser-Zurück/Vor: dort stellt der Browser die Position selbst wieder her
+let popped = false;
+
 const OUT = 420;
 const IN = 900;
 
@@ -38,26 +41,58 @@ export default function TransitionProvider({ children }) {
     [router],
   );
 
+  useEffect(() => {
+    const onPop = () => (popped = true);
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
   const [lastPath, setLastPath] = useState(pathname);
   if (lastPath !== pathname) {
     setLastPath(pathname);
-    if (phase === "out") setPhase("in");
+    // Jeder Seitenwechsel (auch ohne Überblendung) startet oben – außer Zurück/Vor
+    if (phase === "out" || !popped) setPhase("in");
   }
+  // Markierung nach dem Seitenwechsel zurücksetzen (nicht während des Renderns)
+  useEffect(() => {
+    popped = false;
+  }, [pathname]);
 
   useEffect(() => {
     document.documentElement.dataset.transition = phase;
     if (phase !== "in") return;
     clearTimeout(timer.current);
     const anchor = window.location.hash && document.querySelector(window.location.hash);
-    const lenis = window.__lenis;
     const restore = window.__restoreScroll;
     delete window.__restoreScroll;
-    const target = anchor || restore || 0;
-    if (lenis) lenis.scrollTo(target, { immediate: true, force: true });
-    else if (anchor) anchor.scrollIntoView();
-    else window.scrollTo(0, restore || 0);
+    const targetY = () => (anchor ? anchor.getBoundingClientRect().top + window.scrollY : restore || 0);
+    const apply = () => {
+      const lenis = window.__lenis;
+      if (lenis) lenis.scrollTo(anchor || targetY(), { immediate: true, force: true });
+      else window.scrollTo(0, targetY());
+    };
+    apply();
+
+    // Nachprüfen: Auslaufendes weiches Scrollen, ein gerade geschlossenes Menü oder
+    // nachladende Inhalte können die Position noch verschieben. Solange man nicht selbst
+    // scrollt, wird sie in den ersten Momenten erneut gesetzt.
+    let user = false;
+    const mark = () => (user = true);
+    const events = ["wheel", "touchstart", "keydown", "pointerdown"];
+    events.forEach((e) => window.addEventListener(e, mark, { passive: true, once: true }));
+    const check = () => {
+      if (!user && Math.abs(window.scrollY - targetY()) > 4) apply();
+    };
+    let raf = requestAnimationFrame(() => (raf = requestAnimationFrame(check)));
+    const checks = [120, 350, 800].map((ms) => setTimeout(check, ms));
+
     const t = setTimeout(() => setPhase("idle"), IN);
-    return () => clearTimeout(t);
+    return () => {
+      clearTimeout(t);
+      cancelAnimationFrame(raf);
+      checks.forEach(clearTimeout);
+      events.forEach((e) => window.removeEventListener(e, mark));
+    };
   }, [phase]);
 
   return <Ctx.Provider value={{ navigate }}>{children}</Ctx.Provider>;
