@@ -175,7 +175,7 @@ export function createGitHubRepo() {
       const cmp = await gh(`/compare/${encodeURIComponent(base)}...${encodeURIComponent(draft)}`);
       const files = (cmp.files || []).map((f) => f.filename);
       let preview = null;
-      if (site?.vercelProject) preview = await previewOf(d, draft, site.vercelProject);
+      if (site?.vercelProject) preview = await previewOf(d, draft, site.vercelProject).catch(() => ({ state: "unknown", url: null }));
       return { mode: "github", draft: true, sha: d, ahead: cmp.ahead_by, files, preview };
     },
 

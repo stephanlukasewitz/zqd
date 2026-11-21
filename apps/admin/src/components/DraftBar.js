@@ -33,7 +33,7 @@ export default function DraftBar({ site }) {
   }, [load]);
 
   // Solange die Vorschau gebaut wird, regelmäßig nachsehen
-  const waiting = s?.draft && s.preview && !["success", "error", "failure", "inactive"].includes(s.preview.state);
+  const waiting = s?.draft && s.preview && !["success", "error", "failure", "inactive", "unknown"].includes(s.preview.state);
   useEffect(() => {
     if (!waiting) return;
     const t = setInterval(load, 6000);
@@ -68,10 +68,12 @@ export default function DraftBar({ site }) {
       <span className="state">
         <span className="pulse on" /> Entwurf mit {n} {n === 1 ? "Änderung" : "Änderungen"}
       </span>
-      <span className="state muted">
-        <span className={`pulse ${ready ? "ok" : failed ? "on" : "wait"}`} />
-        {ready ? "Vorschau bereit" : failed ? "Vorschau fehlgeschlagen" : "Vorschau wird erstellt …"}
-      </span>
+      {p.state !== "unknown" && (
+        <span className="state muted">
+          <span className={`pulse ${ready ? "ok" : failed ? "on" : "wait"}`} />
+          {ready ? "Vorschau bereit" : failed ? "Vorschau fehlgeschlagen" : "Vorschau wird erstellt …"}
+        </span>
+      )}
       <span className="spacer" />
       {p.details && (
         <a className="muted small" href={p.details} target="_blank" rel="noreferrer" title="Build bei Vercel" style={{ textDecoration: "none" }}>
