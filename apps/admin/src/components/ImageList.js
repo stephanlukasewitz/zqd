@@ -1,13 +1,16 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { thumbUrl, uploadImage } from "./media";
 
 // Bilder eines Projekts: Reihenfolge per Ziehen oder Pfeilen, erstes Bild = Titelbild
-export default function ImageList({ site, images, onChange }) {
+export default function ImageList({ site, images, onChange, onUploading }) {
   const input = useRef(null);
   const [drag, setDrag] = useState(null);
   const [over, setOver] = useState(null);
   const [uploading, setUploading] = useState(0);
+  useEffect(() => {
+    onUploading?.(uploading);
+  }, [uploading, onUploading]);
   const [err, setErr] = useState(null);
   const [dropOver, setDropOver] = useState(false);
 

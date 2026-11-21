@@ -17,12 +17,22 @@ const sign = (data) => createHmac("sha256", secret()).update(data).digest("base6
 
 export function checkCredentials(email, password) {
   const wantEmail = (process.env.ADMIN_EMAIL || "").trim().toLowerCase();
+  if (!wantEmail) return false;
   const stored = process.env.ADMIN_PASSWORD_HASH || "";
-  const [algo, salt, hash] = stored.split(":");
-  if (!wantEmail || algo !== "scrypt" || !salt || !hash) return false;
-  const got = scryptSync(String(password || ""), salt, 64);
-  const want = Buffer.from(hash, "hex");
-  const pwOk = want.length === got.length && timingSafeEqual(got, want);
+  let pwOk = false;
+  if (stored) {
+    // Empfohlen: nur der Hash (pnpm --filter admin passwort)
+    const [algo, salt, hash] = stored.split(":");
+    if (algo !== "scrypt" || !salt || !hash) return false;
+    const got = scryptSync(String(password || ""), salt, 64);
+    const want = Buffer.from(hash, "hex");
+    pwOk = want.length === got.length && timingSafeEqual(got, want);
+  } else if (process.env.ADMIN_PASSWORD) {
+    // Einfachere Variante: Passwort direkt als (geheime) Umgebungsvariable bei Vercel
+    const a = createHmac("sha256", "pw").update(String(password || "")).digest();
+    const b = createHmac("sha256", "pw").update(process.env.ADMIN_PASSWORD).digest();
+    pwOk = timingSafeEqual(a, b);
+  }
   return pwOk && String(email || "").trim().toLowerCase() === wantEmail;
 }
 

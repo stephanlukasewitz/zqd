@@ -52,6 +52,7 @@ export default function ProjectForm({ site, isNew, initial, types, services, cou
   const [labels, setLabels] = useState({ en: "", tr: "" });
   const [err, setErr] = useState(null);
   const [saved, setSaved] = useState(false);
+  const [uploading, setUploading] = useState(0);
   const [saving, start] = useTransition();
   const router = useRouter();
   // Nach dem Speichern kommen neue Daten vom Server → Formular übernehmen
@@ -236,12 +237,13 @@ export default function ProjectForm({ site, isNew, initial, types, services, cou
         <p className="muted small" style={{ margin: "4px 0 14px" }}>
           Das erste Bild ist das Titelbild. Reihenfolge per Ziehen oder mit den Pfeilen ändern. Große Fotos werden automatisch verkleinert.
         </p>
-        <ImageList site={site} images={images} onChange={setImages} />
+        <ImageList site={site} images={images} onChange={setImages} onUploading={setUploading} />
       </div>
 
       <SaveBar
         dirty={dirty && !slugTaken}
-        saving={saving}
+        saving={saving || uploading > 0}
+        note={uploading ? "Bilder werden hochgeladen …" : undefined}
         error={err}
         onSave={save}
         onReset={
