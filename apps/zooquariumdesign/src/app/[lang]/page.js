@@ -2,7 +2,6 @@ import Image from "next/image";
 import Hero from "@/components/home/Hero";
 import Fields from "@/components/home/Fields";
 import ProjectCloud from "@/components/home/ProjectCloud";
-import Selected from "@/components/home/Selected";
 import PhaseCards from "@/components/home/PhaseCards";
 import TLink from "@/components/transition/TLink";
 import Reveal from "@/components/fx/Reveal";
@@ -183,15 +182,11 @@ export default async function HomePage() {
       </section>
 
       {/* Beweis */}
-      <div className="only-default">
-        <ProjectCloud
-          items={home.cloud.map((slug) => pic(slug, 0, lang))}
-          title={h.selected}
-          allLabel={fmt(h.allProjects, { n: projects.length })}
-        />
-      </div>
-      {/* ?v=2: Vergleichsvariante mit den vier Projektkarten */}
-      <Selected space="var(--space-chapter)" id="auswahl-karten" className="only-static" />
+      <ProjectCloud
+        items={home.cloud.map((slug) => pic(slug, 0, lang))}
+        title={h.selected}
+        allLabel={fmt(h.allProjects, { n: projects.length })}
+      />
     </>
   );
 }

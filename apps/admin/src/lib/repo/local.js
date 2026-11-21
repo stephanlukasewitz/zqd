@@ -72,7 +72,7 @@ export function createLocalRepo() {
       const dirs = site ? [`${site.dir}/content`, `${site.dir}/public/media`] : ["."];
       const out = await git(["status", "--porcelain", "--untracked-files=all", "--", ...dirs]);
       const files = out.split("\n").filter(Boolean).map((l) => l.slice(3));
-      return { mode: "local", draft: files.length > 0, files, preview: { state: "success", url: "http://localhost:3000" } };
+      return { mode: "local", draft: files.length > 0, files, preview: { state: "success", url: "http://localhost:3000" }, live: { state: "success" } };
     },
     async publish() {
       return true;

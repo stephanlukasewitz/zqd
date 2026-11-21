@@ -7,6 +7,7 @@ import LangTabs from "@/components/LangTabs";
 import ImageList from "@/components/ImageList";
 import SaveBar, { notifySaved } from "@/components/SaveBar";
 import { forSave } from "@/components/media";
+import { toast } from "@/components/ui";
 
 // Absätze: durch Leerzeile getrennt. Kennzahlen: eine pro Zeile.
 const toParas = (arr) => (arr || []).join("\n\n");
@@ -101,6 +102,7 @@ export default function ProjectForm({ site, isNew, initial, types, services, cou
       if (r.error) return setErr(r.error);
       notifySaved();
       setSaved(true);
+      toast(isNew ? "Projekt im Entwurf angelegt." : "Im Entwurf gespeichert.");
       if (isNew) router.replace(`/${site}/projekte/${r.slug}`);
       else router.refresh();
     });
@@ -129,7 +131,7 @@ export default function ProjectForm({ site, isNew, initial, types, services, cou
         )}
       </div>
 
-      {saved && !dirty && <p className="msg ok">Im Entwurf gespeichert. Die Vorschau wird oben aktualisiert.</p>}
+      {saved && !dirty && <p className="msg ok">Im Entwurf gespeichert. Oben siehst du, wann die Vorschau bereit ist.</p>}
 
       <div className="card">
         <div className="row">
@@ -243,7 +245,7 @@ export default function ProjectForm({ site, isNew, initial, types, services, cou
       <SaveBar
         dirty={dirty && !slugTaken}
         saving={saving || uploading > 0}
-        note={uploading ? "Bilder werden hochgeladen …" : undefined}
+        busyLabel={uploading ? "Bilder werden hochgeladen …" : undefined}
         error={err}
         onSave={save}
         onReset={

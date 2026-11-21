@@ -5,12 +5,14 @@ import { useRouter } from "next/navigation";
 import { reorderProjects, deleteProject } from "../actions";
 import { thumbUrl } from "@/components/media";
 import SaveBar, { notifySaved } from "@/components/SaveBar";
+import { Img, Spinner, confirmDialog, toast } from "@/components/ui";
 
 export default function ProjectList({ site, initial }) {
   const [rows, setRows] = useState(initial);
   const [q, setQ] = useState("");
   const [err, setErr] = useState(null);
   const [saving, start] = useTransition();
+  const [deleting, setDeleting] = useState(null);
   const router = useRouter();
   const dirty = rows.map((r) => r.slug).join() !== initial.map((r) => r.slug).join();
   const shown = useMemo(() => {
@@ -31,18 +33,28 @@ export default function ProjectList({ site, initial }) {
       const r = await reorderProjects(site, rows.map((x) => x.slug));
       if (r.error) return setErr(r.error);
       setErr(null);
+      toast("Reihenfolge im Entwurf gespeichert.");
       notifySaved();
       router.refresh();
     });
-  const remove = (row) => {
-    if (!confirm(`„${row.title}“ wirklich löschen? Das Projekt und seine Bilder werden im Entwurf entfernt.`)) return;
-    start(async () => {
-      const r = await deleteProject(site, row.slug);
-      if (r.error) return alert(r.error);
-      setRows((cur) => cur.filter((x) => x.slug !== row.slug));
-      notifySaved();
-      router.refresh();
+  const remove = async (row) => {
+    if (row.home.length)
+      return toast(`„${row.title}“ wird auf der Startseite verwendet (${row.home.join(", ")}). Ersetze es dort bitte zuerst.`, "err");
+    const ok = await confirmDialog({
+      title: `„${row.title}“ löschen?`,
+      text: "Das Projekt und seine Bilder werden im Entwurf entfernt. Live verschwindet es erst nach dem Veröffentlichen.",
+      confirm: "Löschen",
+      danger: true,
     });
+    if (!ok) return;
+    setDeleting(row.slug);
+    const r = await deleteProject(site, row.slug);
+    setDeleting(null);
+    if (r.error) return toast(r.error, "err");
+    setRows((cur) => cur.filter((x) => x.slug !== row.slug));
+    toast(`„${row.title}“ im Entwurf gelöscht.`);
+    notifySaved();
+    start(() => router.refresh());
   };
 
   return (
@@ -65,9 +77,8 @@ export default function ProjectList({ site, initial }) {
         {shown.map((r) => {
           const i = rows.indexOf(r);
           return (
-            <div className="item" key={r.slug}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              {r.cover ? <img src={thumbUrl(site, r.cover, 200)} alt="" loading="lazy" /> : <span className="thumb" />}
+            <div className="item" key={r.slug} style={deleting === r.slug ? { opacity: 0.5 } : undefined}>
+              {r.cover ? <Img src={thumbUrl(site, r.cover, 200)} loading="lazy" /> : <span className="thumb" />}
               <div className="t">
                 <Link href={`/${site}/projekte/${r.slug}`}>{r.title}</Link>
                 {r.missing.length > 0 && <span className="tag">Übersetzung fehlt: {r.missing.map((l) => l.toUpperCase()).join(", ")}</span>}
@@ -90,8 +101,8 @@ export default function ProjectList({ site, initial }) {
                 <Link className="btn ghost sm" href={`/${site}/projekte/${r.slug}`}>
                   Bearbeiten
                 </Link>
-                <button className="icon" aria-label="Löschen" title={r.home.length ? "Wird auf der Startseite verwendet" : "Löschen"} onClick={() => remove(r)} disabled={saving}>
-                  ✕
+                <button className="icon" aria-label="Löschen" title={r.home.length ? "Wird auf der Startseite verwendet" : "Löschen"} onClick={() => remove(r)} disabled={!!deleting}>
+                  {deleting === r.slug ? <Spinner size={12} /> : "✕"}
                 </button>
               </div>
             </div>

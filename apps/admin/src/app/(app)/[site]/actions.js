@@ -75,7 +75,7 @@ export const saveProject = action(async (site, input) => {
     };
   };
   const de = lang("de");
-  if (!de.title) throw new Error("Bitte einen deutschen Titel angeben.");
+  if (!de.title) throw new Error("Gib bitte einen deutschen Titel an.");
 
   // Bilder: vorhandene behalten, neue nummerieren, entfernte löschen
   const dir = `/media/projects/${slug}`;
@@ -83,7 +83,7 @@ export const saveProject = action(async (site, input) => {
   let next = Math.max(0, ...existing.map((p) => parseInt(p.split("/").pop(), 10) || 0)) + 1;
   const changes = [];
   const images = (input.images || []).map((img) => placeImage(img, () => `${dir}/${pad(next++)}.jpg`, changes)).filter(Boolean);
-  if (!images.length) throw new Error("Bitte mindestens ein Bild hinzufügen.");
+  if (!images.length) throw new Error("Füge bitte mindestens ein Bild hinzu.");
   const keep = new Set(images.map((i) => i.src));
   for (const img of old?.images || []) if (!keep.has(img.src)) changes.push({ path: mediaPath(site, img.src), delete: true });
 
@@ -129,7 +129,7 @@ export const saveProject = action(async (site, input) => {
 export const deleteProject = action(async (site, slug) => {
   const home = await readJSON(site, "home.json");
   const used = homeUsage(home, slug);
-  if (used.length) throw new Error(`Das Projekt wird auf der Startseite verwendet (${used.join(", ")}). Bitte dort zuerst ersetzen.`);
+  if (used.length) throw new Error(`Das Projekt wird auf der Startseite verwendet (${used.join(", ")}). Ersetze es dort bitte zuerst.`);
   const p = await readJSON(site, `projects/${slug}.json`);
   if (!p) throw new Error("Projekt nicht gefunden.");
   const index = await readJSON(site, "projects/index.json", []);
@@ -154,14 +154,14 @@ export const saveHome = action(async (site, input) => {
   const old = await readJSON(site, "home.json");
   const slugs = new Set((await getProjects(site)).map((p) => p.slug));
   const ref = (r) => {
-    if (!r || !slugs.has(r.project)) throw new Error("Bitte für jede Position ein Projekt wählen.");
+    if (!r || !slugs.has(r.project)) throw new Error("Wähle bitte für jede Position ein Projekt.");
     return { project: r.project, image: Math.max(0, Math.round(+r.image || 0)) };
   };
   const changes = [];
   const heroFiles = await repo.list(mediaPath(site, "/media/home"));
   let n = Math.max(0, ...heroFiles.map((p) => parseInt(p.match(/hero-(\d+)/)?.[1], 10) || 0)) + 1;
   const heroImage = placeImage(input.hero?.image, () => `/media/home/hero-${n++}.jpg`, changes) || old.hero.image;
-  if (!slugs.has(input.hero?.project)) throw new Error("Bitte zum Startbild ein Projekt wählen.");
+  if (!slugs.has(input.hero?.project)) throw new Error("Wähle bitte ein Projekt zum Startbild.");
   const home = {
     ...old,
     hero: { project: input.hero.project, image: heroImage },
@@ -170,11 +170,9 @@ export const saveHome = action(async (site, input) => {
     phases: (input.phases || []).slice(0, 3).map(ref),
     band: ref(input.band),
     cloud: (input.cloud || []).filter((s) => slugs.has(s)),
-    selected: (input.selected || []).filter((s) => slugs.has(s)).slice(0, 4),
   };
   if (home.pair.length !== 2 || home.phases.length !== 3 || home.fields.length !== 3) throw new Error("Auswahl unvollständig.");
   if (home.cloud.length < 6) throw new Error("Die Projektwolke braucht mindestens 6 Projekte.");
-  if (home.selected.length !== 4) throw new Error("Bitte genau 4 ausgewählte Projekte wählen.");
   changes.push(write(site, "home.json", home));
   await repo.commit(resolveMedia(site, changes), "Startseite bearbeitet");
 });
@@ -190,14 +188,14 @@ export const saveTeam = action(async (site, input) => {
     const id = SLUG.test(p.id || "") ? p.id : `person-${uid()}`;
     const image = placeImage(p.image, () => `/media/team/${id}-${uid()}.jpg`, changes);
     if (!str(p.name)) throw new Error("Jede Person braucht einen Namen.");
-    if (!image) throw new Error(`Bitte ein Foto für ${p.name} hinzufügen.`);
+    if (!image) throw new Error(`Füge bitte ein Foto für ${p.name} hinzu.`);
     return { id, name: str(p.name, 120), role: tri(p.role), degree: tri(p.degree), focus: tri(p.focus), experience: tri(p.experience), email: str(p.email, 120), image };
   });
   const partners = (input.partners || []).map((p) => {
     const id = SLUG.test(p.id || "") ? p.id : `partner-${uid()}`;
     const logo = placeImage(p.logo, () => `/media/partners/${id}-${uid()}.png`, changes);
     if (!str(p.name)) throw new Error("Jeder Partner braucht einen Namen.");
-    if (!logo) throw new Error(`Bitte ein Logo für ${p.name} hinzufügen.`);
+    if (!logo) throw new Error(`Füge bitte ein Logo für ${p.name} hinzu.`);
     const field = tri(p.field);
     return { id, name: str(p.name, 120), field: field.de ? field : null, url: str(p.url, 300), logo };
   });

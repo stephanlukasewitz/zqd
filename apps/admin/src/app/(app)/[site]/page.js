@@ -8,7 +8,7 @@ export default async function Overview({ params }) {
   const untranslated = projects.filter((p) => !p.en?.text?.length || !p.tr?.text?.length).length;
   const cards = [
     ["/projekte", "Projekte", `${projects.length} Projekte${untranslated ? ` · ${untranslated} ohne vollständige Übersetzung` : ""}`],
-    ["/startseite", "Startseite", "Startbild, Bildauswahl, Projektwolke, ausgewählte Projekte"],
+    ["/startseite", "Startseite", "Startbild, Bildauswahl, Projektwolke"],
     ["/team", "Team & Partner", `${team.people.length} Personen · ${team.partners.length} Partner`],
     ["/texte", "Texte", "Alle Texte der Seite in Deutsch, Englisch und Türkisch"],
     ["/kontakt", "Kontaktdaten", "Adresse, Telefon, E-Mail, Karte"],
@@ -33,9 +33,9 @@ export default async function Overview({ params }) {
       <div className="section card" style={{ background: "var(--soft)", border: 0 }}>
         <h3 style={{ marginBottom: 8 }}>So funktioniert es</h3>
         <ol className="muted" style={{ margin: 0, paddingLeft: 18 }}>
-          <li>Änderungen speichern – sie landen zuerst in einem Entwurf, die Live-Seite bleibt unverändert.</li>
-          <li>Nach etwa 2 Minuten ist oben die Vorschau bereit. Dort lässt sich alles in Ruhe ansehen.</li>
-          <li>Mit „Veröffentlichen“ geht der Entwurf live. „Verwerfen“ löscht alle Änderungen seit der letzten Veröffentlichung.</li>
+          <li>Speichere deine Änderungen – sie landen zuerst in einem Entwurf, die Live-Seite bleibt unverändert.</li>
+          <li>Nach etwa 2 Minuten ist oben die Vorschau bereit. Dort kannst du dir alles in Ruhe ansehen.</li>
+          <li>Mit „Veröffentlichen“ geht dein Entwurf live. „Verwerfen“ löscht alle Änderungen seit der letzten Veröffentlichung.</li>
         </ol>
       </div>
     </>

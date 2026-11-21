@@ -41,7 +41,6 @@ export function homeUsage(home, slug) {
   if (home.phases?.some((x) => x.project === slug)) where.push("Planungsphasen");
   if (home.band?.project === slug) where.push("Bildband");
   if (home.cloud?.includes(slug)) where.push("Projektwolke");
-  if (home.selected?.includes(slug)) where.push("Ausgewählte Projekte");
   return where;
 }
 

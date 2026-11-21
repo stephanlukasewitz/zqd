@@ -3,6 +3,7 @@ import { useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { saveTexts } from "../actions";
 import SaveBar, { notifySaved } from "@/components/SaveBar";
+import { toast } from "@/components/ui";
 
 const GROUPS = {
   home: "Startseite",
@@ -78,6 +79,7 @@ export default function TextsForm({ site, initial }) {
       const r = await saveTexts(site, t);
       if (r.error) return setErr(r.error);
       notifySaved();
+      toast("Texte im Entwurf gespeichert.");
       router.refresh();
     });
 

@@ -301,8 +301,3 @@ html[data-transition="in"] :is(main, #site-footer) {
   }
 }
 
-/* Vergleichsvariante ?v=2 (html[data-static], gesetzt im <head>) */
-html[data-static] .only-default,
-html:not([data-static]) .only-static {
-  display: none;
-}

@@ -6,6 +6,7 @@ import { forSave, thumbUrl } from "@/components/media";
 import ImagePicker from "@/components/ImagePicker";
 import LangTabs from "@/components/LangTabs";
 import SaveBar, { notifySaved } from "@/components/SaveBar";
+import { Img, confirmDialog, toast } from "@/components/ui";
 
 const tri = () => ({ de: "", en: "", tr: "" });
 
@@ -52,8 +53,14 @@ export default function TeamForm({ site, initial }) {
       [a[i], a[j]] = [a[j], a[i]];
       return { ...x, [k]: a };
     });
-  const remove = (k, i, name) => {
-    if (!confirm(`„${name || "Eintrag"}“ entfernen?`)) return;
+  const remove = async (k, i, name) => {
+    const ok = await confirmDialog({
+      title: `„${name || "Eintrag"}“ entfernen?`,
+      text: "Wird erst beim Speichern übernommen.",
+      confirm: "Entfernen",
+      danger: true,
+    });
+    if (!ok) return;
     setT((x) => ({ ...x, [k]: x[k].filter((_, j) => j !== i) }));
     setOpen(null);
   };
@@ -67,6 +74,7 @@ export default function TeamForm({ site, initial }) {
       });
       if (r.error) return setErr(r.error);
       notifySaved();
+      toast("Team & Partner im Entwurf gespeichert.");
       router.refresh();
     });
 
@@ -94,8 +102,7 @@ export default function TeamForm({ site, initial }) {
           {t.people.map((p, i) => (
             <div key={p.id || `new-${i}`} style={{ borderBottom: "1px solid var(--line)" }}>
               <div className="item" style={{ borderBottom: 0 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                {p.image ? <img src={thumbUrl(site, p.image, 200)} alt="" /> : <span className="thumb" />}
+                {p.image ? <Img src={thumbUrl(site, p.image, 200)} /> : <span className="thumb" />}
                 <button type="button" className="t" onClick={() => setOpen(open === `p${i}` ? null : `p${i}`)} style={{ all: "unset", cursor: "pointer" }}>
                   {p.name || <span className="muted">Neue Person</span>}
                   <div className="muted small">{p.role?.[lang] || p.role?.de}</div>
@@ -145,8 +152,7 @@ export default function TeamForm({ site, initial }) {
           {t.partners.map((p, i) => (
             <div key={p.id || `new-${i}`} style={{ borderBottom: "1px solid var(--line)" }}>
               <div className="item" style={{ borderBottom: 0 }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                {p.logo ? <img src={thumbUrl(site, p.logo, 200)} alt="" style={{ objectFit: "contain", background: "#fff", border: "1px solid var(--line)" }} /> : <span className="thumb" />}
+                {p.logo ? <Img src={thumbUrl(site, p.logo, 200)} style={{ objectFit: "contain", background: "#fff", border: "1px solid var(--line)" }} /> : <span className="thumb" />}
                 <button type="button" className="t" onClick={() => setOpen(open === `q${i}` ? null : `q${i}`)} style={{ all: "unset", cursor: "pointer" }}>
                   {p.name || <span className="muted">Neuer Partner</span>}
                   <div className="muted small">{p.field?.[lang] || p.field?.de}</div>

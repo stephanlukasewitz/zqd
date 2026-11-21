@@ -19,7 +19,7 @@ const sans = Archivo({
   display: "swap",
 });
 
-const INTRO_SCRIPT = `try{if(/[?&]v=2(&|$)/.test(location.search))document.documentElement.setAttribute("data-static","")}catch(e){}try{var p=location.pathname.replace(/\\/$/,"");if((p===""||p==="/en"||p==="/tr")&&!sessionStorage.getItem("zqd:intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){var h=document.documentElement;h.setAttribute("data-intro","");setTimeout(function(){if(!window.__introRunning)h.removeAttribute("data-intro")},4000)}}catch(e){}`;
+const INTRO_SCRIPT = `try{var p=location.pathname.replace(/\\/$/,"");if((p===""||p==="/en"||p==="/tr")&&!sessionStorage.getItem("zqd:intro")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){var h=document.documentElement;h.setAttribute("data-intro","");setTimeout(function(){if(!window.__introRunning)h.removeAttribute("data-intro")},4000)}}catch(e){}`;
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -76,7 +76,6 @@ export default async function RootLayout({ children }) {
     <html lang={lang} className={sans.variable} suppressHydrationWarning>
       <head>
         {/* Intro nur beim ersten Aufruf der Startseite pro Besuch, nicht bei „Bewegung reduzieren“.
-            ?v=2: Vergleichsvariante ohne Tiefen-Effekte (data-static).
             Muss vor dem ersten Bild laufen – daher als echtes Inline-Skript im <head>.
             Der Sprachwechsel lädt die Seite neu (siehe Header), so wird dieses Layout
             nie im Browser neu gerendert. */}

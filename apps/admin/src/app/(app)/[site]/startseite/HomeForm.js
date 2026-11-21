@@ -5,6 +5,7 @@ import { saveHome } from "../actions";
 import { thumbUrl, forSave } from "@/components/media";
 import ImagePicker from "@/components/ImagePicker";
 import SaveBar, { notifySaved } from "@/components/SaveBar";
+import { Img, toast } from "@/components/ui";
 
 // Ein Projektbild wählen: Projekt + eines seiner Bilder
 function PicSelect({ site, projects, value, onChange, label }) {
@@ -37,8 +38,7 @@ function PicSelect({ site, projects, value, onChange, label }) {
               flex: "0 0 auto",
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={thumbUrl(site, img, 200)} alt="" loading="lazy" style={{ width: 84, height: 56, objectFit: "cover", display: "block", borderRadius: 4 }} />
+            <Img src={thumbUrl(site, img, 200)} loading="lazy" style={{ width: 84, height: 56, objectFit: "cover", display: "block", borderRadius: 4 }} />
           </button>
         ))}
       </div>
@@ -110,6 +110,7 @@ export default function HomeForm({ site, initial, projects, phaseLabels = [] }) 
       const r = await saveHome(site, { ...h, hero: { ...h.hero, image: forSave(h.hero.image) } });
       if (r.error) return setErr(r.error);
       notifySaved();
+      toast("Startseite im Entwurf gespeichert.");
       router.refresh();
     });
 
@@ -176,11 +177,6 @@ export default function HomeForm({ site, initial, projects, phaseLabels = [] }) 
         <SlugList projects={projects} value={h.cloud} onChange={(v) => set("cloud", v)} />
       </div>
 
-      <div className="section">
-        <h2>Ausgewählte Projekte</h2>
-        <p className="muted small" style={{ margin: "4px 0 14px" }}>Genau 4 Projekte (für die Variante ohne Projektwolke).</p>
-        <SlugList projects={projects} value={h.selected} onChange={(v) => set("selected", v)} max={4} />
-      </div>
 
       <SaveBar dirty={dirty} saving={saving} error={err} onSave={save} onReset={() => setH(initial)} />
     </>

@@ -3,6 +3,7 @@ import { useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { saveSiteInfo } from "../actions";
 import SaveBar, { notifySaved } from "@/components/SaveBar";
+import { toast } from "@/components/ui";
 
 const FIELDS = [
   ["legalName", "Firmenname"],
@@ -36,6 +37,7 @@ export default function SiteForm({ site, initial }) {
       const r = await saveSiteInfo(site, f);
       if (r.error) return setErr(r.error);
       notifySaved();
+      toast("Kontaktdaten im Entwurf gespeichert.");
       router.refresh();
     });
   const input = (k, label) => (

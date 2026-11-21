@@ -1,6 +1,7 @@
 "use client";
 import { useActionState, useState } from "react";
 import { login } from "../actions";
+import { Spinner } from "@/components/ui";
 
 export default function LoginForm() {
   const [state, action, pending] = useActionState(login, null);
@@ -17,7 +18,13 @@ export default function LoginForm() {
         <input id="password" name="password" type="password" autoComplete="current-password" required autoFocus={!!state?.error} />
       </div>
       <button className="btn" disabled={pending} style={{ width: "100%" }}>
-        {pending ? "Anmelden …" : "Anmelden"}
+        {pending ? (
+          <>
+            <Spinner size={12} light /> Anmelden …
+          </>
+        ) : (
+          "Anmelden"
+        )}
       </button>
     </form>
   );

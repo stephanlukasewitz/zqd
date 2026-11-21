@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import { thumbUrl, uploadImage } from "./media";
+import { Img, Spinner } from "./ui";
 
 // Ein einzelnes Bild (Startbild, Teamfoto, Logo) – ersetzen per Klick oder Ziehen
 export default function ImagePicker({ site, value, onChange, kind = "photo", ratio = "3 / 2", contain = false, label = "Bild ersetzen" }) {
@@ -36,15 +37,25 @@ export default function ImagePicker({ site, value, onChange, kind = "photo", rat
           pick(e.dataTransfer.files?.[0]);
         }}
       >
+        {busy && (
+          <div className="progress">
+            <Spinner size={22} />
+          </div>
+        )}
         {url ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={url} alt="" style={{ aspectRatio: ratio, objectFit: contain ? "contain" : "cover", background: "#fff", padding: contain ? 12 : 0 }} />
+          <Img src={url} style={{ aspectRatio: ratio, objectFit: contain ? "contain" : "cover", background: "#fff", padding: contain ? 12 : 0, opacity: busy ? 0.45 : undefined }} />
         ) : (
           <div className="drop" style={{ aspectRatio: ratio, border: 0 }}>Kein Bild</div>
         )}
         <div className="bar">
           <button type="button" className="btn ghost sm" onClick={() => input.current.click()} disabled={busy}>
-            {busy ? "Lädt hoch …" : label}
+            {busy ? (
+              <>
+                <Spinner size={11} /> Wird hochgeladen …
+              </>
+            ) : (
+              label
+            )}
           </button>
         </div>
       </div>

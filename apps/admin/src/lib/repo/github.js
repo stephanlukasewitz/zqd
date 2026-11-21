@@ -74,9 +74,14 @@ async function blob(sha) {
 
 // Stand der Vercel-Vorschau aus dem Commit-Status („Vercel – <projekt>“).
 // Link: feste Branch-Adresse <projekt>-git-<branch>-<team>.vercel.app (zeigt immer auf den neuesten Stand).
+async function vercelStatus(sha, project) {
+  const list = await gh(`/commits/${sha}/statuses?per_page=100`);
+  // Neueste zuerst; Projekt anhand der Adresse vercel.com/<team>/<projekt>/… erkennen
+  return list.find((x) => x.context?.startsWith("Vercel") && x.target_url?.split("/")[4] === project) || null;
+}
+
 async function previewOf(sha, branch, project) {
-  const list = await gh(`/commits/${sha}/statuses?per_page=50`);
-  const st = list.find((x) => x.context === `Vercel – ${project}`);
+  const st = await vercelStatus(sha, project);
   if (!st) return { state: "queued", url: null };
   const team = st.target_url?.match(/vercel\.com\/([^/]+)\//)?.[1];
   const slug = branch.toLowerCase().replace(/[^a-z0-9]+/g, "-");
@@ -171,7 +176,16 @@ export function createGitHubRepo() {
 
     async status(site) {
       const d = await refSha(draft);
-      if (!d) return { mode: "github", draft: false, files: [] };
+      if (!d) {
+        // Kein Entwurf: Stand des Live-Builds nach dem letzten Veröffentlichen
+        let live = null;
+        if (site?.vercelProject) {
+          const b = await refSha(base);
+          const st = await vercelStatus(b, site.vercelProject).catch(() => null);
+          live = st ? { state: st.state, details: st.target_url } : null;
+        }
+        return { mode: "github", draft: false, files: [], live };
+      }
       const cmp = await gh(`/compare/${encodeURIComponent(base)}...${encodeURIComponent(draft)}`);
       const files = (cmp.files || []).map((f) => f.filename);
       let preview = null;
@@ -185,7 +199,7 @@ export function createGitHubRepo() {
       try {
         await gh(`/merges`, { method: "POST", body: { base, head: draft, commit_message: message } });
       } catch (e) {
-        if (e.status === 409) throw new Error("Konflikt beim Veröffentlichen – bitte melden.");
+        if (e.status === 409) throw new Error("Beim Veröffentlichen gab es einen Konflikt. Gib bitte Bescheid, dann wird es im Code gelöst.");
         throw e;
       }
       await gh(`/git/refs/heads/${encodeURIComponent(draft)}`, { method: "DELETE" });

@@ -1,13 +1,15 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { thumbUrl, uploadImage } from "./media";
+import { Img, Spinner, toast } from "./ui";
 
 // Bilder eines Projekts: Reihenfolge per Ziehen oder Pfeilen, erstes Bild = Titelbild
 export default function ImageList({ site, images, onChange, onUploading }) {
   const input = useRef(null);
   const [drag, setDrag] = useState(null);
   const [over, setOver] = useState(null);
-  const [uploading, setUploading] = useState(0);
+  const [pending, setPending] = useState([]); // { id, preview } – Bilder, die gerade hochladen
+  const uploading = pending.length;
   useEffect(() => {
     onUploading?.(uploading);
   }, [uploading, onUploading]);
@@ -27,19 +29,23 @@ export default function ImageList({ site, images, onChange, onUploading }) {
     const list = [...(files || [])].filter((f) => f.type.startsWith("image/"));
     if (!list.length) return;
     setErr(null);
-    setUploading((n) => n + list.length);
-    const added = [];
-    for (const f of list) {
+    const jobs = list.map((f) => ({ id: Math.random().toString(36).slice(2), file: f, preview: URL.createObjectURL(f) }));
+    setPending((p) => [...p, ...jobs]);
+    // Nacheinander hochladen, jedes fertige Bild sofort anzeigen
+    let failed = 0;
+    for (const j of jobs) {
       try {
-        added.push(await uploadImage(site, f, "photo"));
+        const img = await uploadImage(site, j.file, "photo");
+        onChange((cur) => [...cur, { ...img, preview: j.preview }]);
       } catch (e) {
-        setErr(`${f.name}: ${e.message}`);
+        failed++;
+        setErr(`${j.file.name}: ${e.message}`);
       } finally {
-        setUploading((n) => n - 1);
+        setPending((p) => p.filter((x) => x.id !== j.id));
       }
     }
-    // Neueste Liste verwenden (während des Hochladens kann umsortiert worden sein)
-    onChange((cur) => [...cur, ...added]);
+    const ok = jobs.length - failed;
+    if (ok) toast(ok === 1 ? "Bild hochgeladen – noch speichern nicht vergessen." : `${ok} Bilder hochgeladen – noch speichern nicht vergessen.`);
   };
 
   return (
@@ -72,8 +78,7 @@ export default function ImageList({ site, images, onChange, onUploading }) {
             }}
           >
             {i === 0 && <span className="badge">Titelbild</span>}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={thumbUrl(site, img, 400)} alt="" loading="lazy" draggable={false} />
+            <Img src={thumbUrl(site, img, 400)} loading="lazy" draggable={false} />
             <div className="bar">
               <span style={{ display: "flex", gap: 4 }}>
                 <button type="button" className="icon" aria-label="Nach vorne" onClick={() => move(i, i - 1)} disabled={i === 0}>
@@ -86,6 +91,17 @@ export default function ImageList({ site, images, onChange, onUploading }) {
               <button type="button" className="icon" aria-label="Bild entfernen" title="Entfernen" onClick={() => remove(i)}>
                 ✕
               </button>
+            </div>
+          </div>
+        ))}
+        {pending.map((j) => (
+          <div key={j.id} className="img uploading">
+            <Img src={j.preview} />
+            <div className="progress">
+              <Spinner size={22} />
+            </div>
+            <div className="bar">
+              <span className="muted small">Wird hochgeladen …</span>
             </div>
           </div>
         ))}
@@ -105,7 +121,7 @@ export default function ImageList({ site, images, onChange, onUploading }) {
             add(e.dataTransfer.files);
           }}
         >
-          {uploading ? `${uploading} ${uploading === 1 ? "Bild wird" : "Bilder werden"} hochgeladen …` : "+ Bilder hinzufügen\n(klicken oder hierher ziehen)"}
+          {"+ Bilder hinzufügen\n(klicken oder hierher ziehen)"}
         </div>
       </div>
       {err && <p className="msg err" style={{ marginTop: 10 }}>{err}</p>}

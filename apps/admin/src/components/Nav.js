@@ -1,6 +1,7 @@
 "use client";
-import Link from "next/link";
+import Link, { useLinkStatus } from "next/link";
 import { usePathname } from "next/navigation";
+import { Spinner } from "./ui";
 
 const ITEMS = [
   ["", "Übersicht"],
@@ -10,6 +11,11 @@ const ITEMS = [
   ["/texte", "Texte"],
   ["/kontakt", "Kontaktdaten"],
 ];
+
+function Pending() {
+  const { pending } = useLinkStatus();
+  return pending ? <Spinner size={11} /> : null;
+}
 
 export default function Nav({ site }) {
   const path = usePathname();
@@ -21,6 +27,7 @@ export default function Nav({ site }) {
         return (
           <Link key={p} href={href} aria-current={active ? "page" : undefined}>
             {label}
+            <Pending />
           </Link>
         );
       })}
