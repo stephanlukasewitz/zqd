@@ -19,7 +19,7 @@ github.com → Settings → Developer settings → Personal access tokens → **
 - Repository access: **Only select repositories** → `zqd`
 - Permissions → Repository permissions:
   - **Contents: Read and write**
-  - **Deployments: Read-only** (für den Link zur Vorschau)
+  - **Commit statuses: Read-only** (für den Stand der Vorschau)
 - Ablaufdatum nach Wunsch (danach einen neuen Schlüssel erzeugen und bei Vercel ersetzen)
 
 ### 2. Vercel-Projekt

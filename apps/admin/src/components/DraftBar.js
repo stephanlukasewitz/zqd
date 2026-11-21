@@ -73,6 +73,11 @@ export default function DraftBar({ site }) {
         {ready ? "Vorschau bereit" : failed ? "Vorschau fehlgeschlagen" : "Vorschau wird erstellt …"}
       </span>
       <span className="spacer" />
+      {p.details && (
+        <a className="muted small" href={p.details} target="_blank" rel="noreferrer" title="Build bei Vercel" style={{ textDecoration: "none" }}>
+          Details ↗
+        </a>
+      )}
       {ready && (
         <a className="btn ghost sm" href={p.url} target="_blank" rel="noreferrer">
           Vorschau ansehen ↗

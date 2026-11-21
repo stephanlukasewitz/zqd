@@ -72,6 +72,19 @@ async function blob(sha) {
   return gh(`/git/blobs/${sha}`, { raw: true, cache: sha ? "force-cache" : "no-store" });
 }
 
+// Stand der Vercel-Vorschau aus dem Commit-Status („Vercel – <projekt>“).
+// Link: feste Branch-Adresse <projekt>-git-<branch>-<team>.vercel.app (zeigt immer auf den neuesten Stand).
+async function previewOf(sha, branch, project) {
+  const list = await gh(`/commits/${sha}/statuses?per_page=50`);
+  const st = list.find((x) => x.context === `Vercel – ${project}`);
+  if (!st) return { state: "queued", url: null };
+  const team = st.target_url?.match(/vercel\.com\/([^/]+)\//)?.[1];
+  const slug = branch.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  const host = `${project}-git-${slug}-${team}`;
+  const url = process.env.PREVIEW_URL || (team && host.length <= 63 ? `https://${host}.vercel.app` : st.target_url);
+  return { state: st.state, url, details: st.target_url };
+}
+
 export function createGitHubRepo() {
   const { base, draft } = cfg();
   let headPromise = null;
@@ -162,15 +175,7 @@ export function createGitHubRepo() {
       const cmp = await gh(`/compare/${encodeURIComponent(base)}...${encodeURIComponent(draft)}`);
       const files = (cmp.files || []).map((f) => f.filename);
       let preview = null;
-      if (site?.vercelProject) {
-        const deps = await gh(`/deployments?sha=${d}&per_page=20`);
-        const dep = deps.find((x) => String(x.environment).endsWith(`– ${site.vercelProject}`)) || null;
-        if (dep) {
-          const st = await gh(`/deployments/${dep.id}/statuses?per_page=1`);
-          const s = st[0];
-          preview = { state: s?.state || "pending", url: s?.environment_url || s?.target_url || null };
-        } else preview = { state: "queued", url: null };
-      }
+      if (site?.vercelProject) preview = await previewOf(d, draft, site.vercelProject);
       return { mode: "github", draft: true, sha: d, ahead: cmp.ahead_by, files, preview };
     },
 
