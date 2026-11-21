@@ -113,7 +113,7 @@ export default async function TeamPage() {
                 </span>
                 <span className={styles.pName}>
                   {p.name}
-                  {p.url && <span aria-hidden="true"> ↗</span>}
+                  {p.url && <span aria-hidden="true">{" ↗\uFE0E"}</span>}
                 </span>
                 {p.field && <span className={styles.pField}>{p.field}</span>}
               </>

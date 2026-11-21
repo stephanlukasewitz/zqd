@@ -90,7 +90,7 @@ export default async function KontaktPage() {
               rel="noopener noreferrer"
               className={styles.route}
             >
-              {t.route} <span aria-hidden="true">↗</span>
+              {t.route} <span aria-hidden="true">{"↗\uFE0E"}</span>
               <span className="sr-only">{t.routeNote}</span>
             </a>
           </div>
