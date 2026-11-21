@@ -1,0 +1,56 @@
+{
+  "slug": "stadion-meeressaeuger-asien",
+  "type": "Tieranlage",
+  "services": [
+    "Konzept"
+  ],
+  "country": null,
+  "year": null,
+  "de": {
+    "title": "Stadion für Meeressäuger",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [
+      "Es wurde ein Entwurf für eine neuartige Präsentations- und Haltungseinrichtung für Meeressäuger entwickelt. Das Konzept definiert eine völlig neue Form der Tierhaltung, die eine artgerechte „Wanderung“ der Tiere durch einen großzügigen Infinity-Pool dauerhaft ermöglicht. Ergänzende Forschungs- und Bildungseinrichtungen, über und unter Wasser, vervollständigen das ganzheitliche Konzept und verbinden wissenschaftliche Erkenntnis mit einem nachhaltigen Erlebnisraum."
+    ],
+    "scope": "Masterplan- / Konzeptentwicklung"
+  },
+  "en": {
+    "title": "Marine Mammal Stadium",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [
+      "A design was developed for a novel presentation and husbandry facility for marine mammals. The concept defines an entirely new form of animal husbandry that permanently allows the animals a species-appropriate “migration” through a generous infinity pool. Complementary research and education facilities, above and below water, complete the holistic concept and combine scientific insight with a sustainable experience space."
+    ],
+    "scope": "Masterplan / concept development"
+  },
+  "tr": {
+    "title": "Deniz Memelileri Stadyumu",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [
+      "Deniz memelileri için yeni tür bir sergileme ve barınma tesisine yönelik bir tasarım geliştirildi. Konsept, hayvanların geniş bir sonsuzluk havuzunda türe uygun biçimde sürekli “göç etmesine” olanak tanıyan, tamamen yeni bir barındırma biçimi tanımlıyor. Su üstünde ve su altında yer alan tamamlayıcı araştırma ve eğitim tesisleri bütüncül konsepti tamamlıyor ve bilimsel bilgiyi sürdürülebilir bir deneyim mekânıyla buluşturuyor."
+    ],
+    "scope": "Master plan / konsept geliştirme"
+  },
+  "images": [
+    {
+      "src": "/media/projects/stadion-meeressaeuger-asien/01.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "/media/projects/stadion-meeressaeuger-asien/02.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "/media/projects/stadion-meeressaeuger-asien/03.jpg",
+      "width": 1920,
+      "height": 1080
+    }
+  ]
+}

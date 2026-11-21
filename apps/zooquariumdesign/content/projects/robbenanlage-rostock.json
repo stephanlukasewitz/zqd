@@ -1,0 +1,59 @@
+{
+  "slug": "robbenanlage-rostock",
+  "type": "Tieranlage",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Robbenanlage",
+    "zoo": "Zoologischer Garten Rostock",
+    "city": "Rostock",
+    "facts": [],
+    "text": [
+      "Aufgrund der in die Jahre gekommenen Robbenanlage, mit baulichen, funktionalen und insbesondere energetischen Defiziten wurde die bestehende Anlage durch eine moderne und nachhaltige Neuanlage ersetzt.",
+      "Ein modernes und artgerechtes Habitat, das zugleich ein besonderes Erlebnis für die Besucher bietet wurde geplant."
+    ],
+    "scope": "Generalplanung, LPH 1-7"
+  },
+  "en": {
+    "title": "Seal Enclosure",
+    "zoo": "Rostock Zoo",
+    "city": "Rostock",
+    "facts": [],
+    "text": [
+      "As the ageing seal enclosure had structural, functional and, above all, energy-related deficiencies, the existing facility was replaced by a modern and sustainable new one.",
+      "A modern habitat appropriate to the species, which at the same time offers visitors a special experience, was planned."
+    ],
+    "scope": "General planning, HOAI work stages 1–7"
+  },
+  "tr": {
+    "title": "Fok Alanı",
+    "zoo": "Rostock Hayvanat Bahçesi",
+    "city": "Rostock",
+    "facts": [],
+    "text": [
+      "Yapısal, işlevsel ve özellikle enerji verimliliği açısından eksiklikleri bulunan eskimiş fok alanı, modern ve sürdürülebilir yeni bir tesisle değiştirildi.",
+      "Hem çağdaş ve türe uygun bir habitat sunan hem de ziyaretçilere özel bir deneyim yaşatan bir alan planlandı."
+    ],
+    "scope": "Genel planlama, HOAI 1–7. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/robbenanlage-rostock/01.jpg",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/media/projects/robbenanlage-rostock/02.jpg",
+      "width": 1986,
+      "height": 1196
+    },
+    {
+      "src": "/media/projects/robbenanlage-rostock/03.jpg",
+      "width": 1920,
+      "height": 1080
+    }
+  ]
+}

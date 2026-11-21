@@ -1,0 +1,64 @@
+{
+  "slug": "biodome-budapest",
+  "type": "Tieranlage",
+  "services": [
+    "Beratung"
+  ],
+  "country": "Ungarn",
+  "year": null,
+  "de": {
+    "title": "Biodome",
+    "zoo": "Zoo Budapest",
+    "city": "Budapest",
+    "facts": [],
+    "text": [
+      "In Budapest entsteht mit dem sogenannten „Biodome“ ein einzigartiges Projekt: ein überdachter Zoo, der gemeinsam mit dem örtlichen Generalplanungsteam Mertek entwickelt wird. Ziel ist es, die einheimische und historische Artenvielfalt in einer wetterunabhängigen Umgebung zu präsentieren. Die spektakuläre Gebäudehülle aus freitragender, transparenter Konstruktion setzt dabei neue Maßstäbe für europäische Zooarchitektur.",
+      "Im Zuge der Entwurfsplanung wurden die planerischen und betrieblichen Anforderungen für Tierhaltung, Betrieb und Konstruktion in enger Abstimmung mit den Architekten und Ingenieuren definiert. So entstand ein Konzept, das funktionale, technische und zoologische Aspekte zu einem ganzheitlichen, zukunftsweisenden Ansatz vereint."
+    ],
+    "scope": "Beratung"
+  },
+  "en": {
+    "title": "Biodome",
+    "zoo": "Budapest Zoo",
+    "city": "Budapest",
+    "facts": [],
+    "text": [
+      "In Budapest, a unique project is taking shape with the so-called “Biodome”: a covered zoo being developed together with the local general planning team Mertek. The aim is to present native and historical biodiversity in a weather-independent environment. The spectacular building envelope, a self-supporting transparent structure, sets new standards for European zoo architecture.",
+      "In the course of the design planning, the planning and operational requirements for animal husbandry, operation and construction were defined in close coordination with the architects and engineers. The result is a concept that unites functional, technical and zoological aspects in a holistic, forward-looking approach."
+    ],
+    "scope": "Consulting"
+  },
+  "tr": {
+    "title": "Biodome",
+    "zoo": "Budapeşte Hayvanat Bahçesi",
+    "city": "Budapeşte",
+    "facts": [],
+    "text": [
+      "Budapeşte’de “Biodome” adıyla benzersiz bir proje hayata geçiyor: yerel genel planlama ekibi Mertek ile birlikte geliştirilen, üstü kapalı bir hayvanat bahçesi. Amaç, yerli ve tarihsel tür çeşitliliğini hava koşullarından bağımsız bir ortamda sergilemek. Kendi kendini taşıyan, şeffaf bir strüktürden oluşan etkileyici bina kabuğu, Avrupa hayvanat bahçesi mimarisi için yeni ölçütler belirliyor.",
+      "Tasarım planlaması sürecinde hayvan bakımı, işletme ve taşıyıcı sisteme ilişkin planlama ve işletme gereksinimleri, mimarlar ve mühendislerle yakın eşgüdüm içinde tanımlandı. Böylece işlevsel, teknik ve zoolojik boyutları bütüncül ve geleceğe yön veren bir yaklaşımda birleştiren bir konsept ortaya çıktı."
+    ],
+    "scope": "Danışmanlık"
+  },
+  "images": [
+    {
+      "src": "/media/projects/biodome-budapest/01.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/biodome-budapest/02.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/biodome-budapest/03.jpg",
+      "width": 1280,
+      "height": 670
+    },
+    {
+      "src": "/media/projects/biodome-budapest/04.jpg",
+      "width": 800,
+      "height": 418
+    }
+  ]
+}

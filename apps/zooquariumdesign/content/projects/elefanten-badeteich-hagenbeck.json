@@ -1,0 +1,70 @@
+{
+  "slug": "elefanten-badeteich-hagenbeck",
+  "type": "Tieranlage",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Elefanten-Badeteich",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "Sanierung des historischen Elefantengeheges von 1923"
+    ],
+    "text": [
+      "Im Zuge der Sanierung des historischen Elefantengeheges, das 1923 errichtet wurde, entstand im Tierpark Hagenbeck ein neu gestalteter Elefantenbadeteich. Das Ergebnis ist ein naturnah modelliertes Wasserbecken für Asiatische Elefanten, das die Tiere nicht nur zum Baden, sondern auch zum Tauchen anregt.",
+      "Flach auslaufende Uferbereiche ermöglichen ein sicheres Ein- und Aussteigen, insbesondere für Elefantenkälber. Das landschaftlich gestaltete und zum Besucher hin begrünte Umfeld bietet spektakuläre Einblicke in das Badeverhalten der Tiere. Ohne sichtbare Barrieren erleben Besucher die eindrucksvollen Szenen aus nächster Nähe – ein authentisches und faszinierendes Beispiel moderner Tieranlagen-Gestaltung."
+    ],
+    "scope": "Generalplanung, LPH 1-8"
+  },
+  "en": {
+    "title": "Elephant Bathing Pool",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "Refurbishment of the historic elephant enclosure from 1923"
+    ],
+    "text": [
+      "As part of the refurbishment of the historic elephant enclosure, built in 1923, a newly designed elephant bathing pool was created at Tierpark Hagenbeck. The result is a naturalistically modelled pool for Asian elephants that encourages the animals not only to bathe but also to dive.",
+      "Gently sloping banks allow safe entry and exit, especially for elephant calves. The landscaped surroundings, planted on the visitor side, offer spectacular views of the animals’ bathing behaviour. Without visible barriers, visitors experience these impressive scenes at close range – an authentic and fascinating example of modern animal enclosure design."
+    ],
+    "scope": "General planning, HOAI work stages 1–8"
+  },
+  "tr": {
+    "title": "Fil Yüzme Göleti",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "1923 tarihli tarihi fil alanının restorasyonu"
+    ],
+    "text": [
+      "1923’te inşa edilen tarihi fil alanının restorasyonu kapsamında Tierpark Hagenbeck’te yeniden tasarlanmış bir fil yüzme göleti oluşturuldu. Sonuç, Asya fillerini yalnızca yıkanmaya değil, dalmaya da teşvik eden, doğaya yakın biçimde modellenmiş bir su havuzudur.",
+      "Sığ biçimde sonlanan kıyı bölgeleri, özellikle yavru filler için güvenli bir giriş ve çıkış sağlıyor. Peyzajla biçimlendirilmiş ve ziyaretçi tarafına doğru yeşillendirilmiş çevre, hayvanların yıkanma davranışına etkileyici bakışlar sunuyor. Ziyaretçiler, görünür hiçbir engel olmadan bu etkileyici sahneleri en yakından deneyimliyor – çağdaş hayvan alanı tasarımının otantik ve büyüleyici bir örneği."
+    ],
+    "scope": "Genel planlama, HOAI 1–8. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/elefanten-badeteich-hagenbeck/01.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/elefanten-badeteich-hagenbeck/02.jpg",
+      "width": 2048,
+      "height": 1366
+    },
+    {
+      "src": "/media/projects/elefanten-badeteich-hagenbeck/03.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/elefanten-badeteich-hagenbeck/04.jpg",
+      "width": 2048,
+      "height": 844
+    }
+  ]
+}

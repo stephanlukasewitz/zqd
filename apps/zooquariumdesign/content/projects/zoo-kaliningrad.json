@@ -1,0 +1,64 @@
+{
+  "slug": "zoo-kaliningrad",
+  "type": "Masterplanung",
+  "services": [
+    "Konzept"
+  ],
+  "country": "Russland",
+  "year": null,
+  "de": {
+    "title": "Neugestaltung Zoo Kaliningrad",
+    "zoo": "Zoo Kaliningrad",
+    "city": "Kaliningrad",
+    "facts": [],
+    "text": [
+      "Im Zuge der angestrebten Mitgliedschaft in der EAZA (European Association of Zoos and Aquaria) soll der historische Zoo von Kaliningrad, ehemals Königsberger Zoo, umfassend reorganisiert, modernisiert und neu gestaltet werden. Mit der Erstellung und Umsetzung eines neuen Masterplans wurde ein lokales Architekturbüro beauftragt. Ergänzend wurde das Planungsteam durch fachliche Unterstützung und Erfahrung im Bereich moderner Zooarchitektur erweitert.",
+      "Eine besondere Herausforderung stellte die neu errichtete, noch nicht eröffnete Primatenanlage dar, die mit einer Investition von rund 12 Millionen Euro realisiert wurde. Nach Fertigstellung zeigten sich jedoch erhebliche funktionale und sicherheitsrelevante Mängel, die eine Nutzung für die geplante Tierhaltung ausschlossen. Daraufhin wurde ein Konzept entwickelt, das eine wirtschaftliche und technisch sinnvolle Anpassung des Gebäudes ermöglicht, um die Anlage für die vorgesehenen Primatenarten funktionsgerecht nutzbar zu machen."
+    ],
+    "scope": "Masterplanung / Konzept"
+  },
+  "en": {
+    "title": "Kaliningrad Zoo Redevelopment",
+    "zoo": "Kaliningrad Zoo",
+    "city": "Kaliningrad",
+    "facts": [],
+    "text": [
+      "In the course of its intended membership of EAZA (European Association of Zoos and Aquaria), the historic Kaliningrad Zoo, formerly the Königsberg Zoo, is to be comprehensively reorganised, modernised and redesigned. A local architecture practice was commissioned to draw up and implement a new masterplan. The planning team was additionally strengthened by specialist support and experience in the field of modern zoo architecture.",
+      "A particular challenge was the newly built but not yet opened primate facility, which had been realised with an investment of around 12 million euros. After completion, however, considerable functional and safety-related deficiencies became apparent that ruled out its use for the planned animal husbandry. A concept was therefore developed that allows an economically and technically sensible adaptation of the building, so that the facility can be used properly for the intended primate species."
+    ],
+    "scope": "Master planning / Concept"
+  },
+  "tr": {
+    "title": "Kaliningrad Hayvanat Bahçesi’nin Yeniden Düzenlenmesi",
+    "zoo": "Kaliningrad Hayvanat Bahçesi",
+    "city": "Kaliningrad",
+    "facts": [],
+    "text": [
+      "EAZA (European Association of Zoos and Aquaria) üyeliği hedefi doğrultusunda, eski adıyla Königsberg Hayvanat Bahçesi olan tarihi Kaliningrad Hayvanat Bahçesi’nin kapsamlı biçimde yeniden yapılandırılması, modernize edilmesi ve yeniden tasarlanması planlanıyor. Yeni bir master planın hazırlanması ve uygulanması için yerel bir mimarlık ofisi görevlendirildi. Planlama ekibi, çağdaş hayvanat bahçesi mimarisi alanındaki uzman desteği ve deneyimle güçlendirildi.",
+      "Özel bir zorluk, yaklaşık 12 milyon avroluk bir yatırımla hayata geçirilen, yeni inşa edilmiş ancak henüz açılmamış primat tesisiydi. Ne var ki tamamlandıktan sonra tesiste, planlanan hayvan barındırma işlevi için kullanımını olanaksız kılan ciddi işlevsel ve güvenlik eksiklikleri ortaya çıktı. Bunun üzerine, tesisi öngörülen primat türleri için işleve uygun biçimde kullanılabilir kılmak amacıyla yapının ekonomik ve teknik açıdan makul bir şekilde uyarlanmasını sağlayan bir konsept geliştirildi."
+    ],
+    "scope": "Master planlama / Konsept"
+  },
+  "images": [
+    {
+      "src": "/media/projects/zoo-kaliningrad/01.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/zoo-kaliningrad/02.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/zoo-kaliningrad/03.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/zoo-kaliningrad/04.jpg",
+      "width": 2048,
+      "height": 1536
+    }
+  ]
+}

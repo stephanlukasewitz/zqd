@@ -10,6 +10,7 @@ import { isLocale, localize, locales, ogLocales } from "@/i18n/config";
 import { dictFor } from "@/i18n/dict";
 import { getLang } from "@/i18n/server";
 import { site } from "@/content/site";
+import { home } from "@/content/home";
 import "../globals.css";
 
 const sans = Archivo({
@@ -87,7 +88,11 @@ export default async function RootLayout({ children }) {
             {d.ui.skip}
           </a>
           <TransitionProvider>
-            <Header nav={d.nav} />
+            <Header
+              nav={d.nav}
+              previews={home.menu}
+              contact={{ email: site.email, phone: site.phone, city: site.city, country: site.country }}
+            />
             <main id="inhalt">{children}</main>
             <Footer />
           </TransitionProvider>

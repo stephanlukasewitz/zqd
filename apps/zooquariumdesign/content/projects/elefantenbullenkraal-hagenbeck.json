@@ -1,0 +1,64 @@
+{
+  "slug": "elefantenbullenkraal-hagenbeck",
+  "type": "Tieranlage",
+  "services": [
+    "Architektur"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Elefantenbullenkraal mit PC-Wand",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [],
+    "text": [
+      "Gemäß den Richtlinien der EAZA und AZA werden Elefantenbullen im sogenannten „Protected Contact“ (PC) gehalten. Vor diesem Hintergrund wurde die Elefantenbullenanlage im Tierpark Hagenbeck modernisiert, um eine sichere, wetterunabhängige und zugleich tiergerechte Betreuung zu gewährleisten.",
+      "In enger Zusammenarbeit mit dem international anerkannten Elefantenexperten Alan Roocroft entstand eine innovative „PC-Wall“, die dem Bullen ausreichend Raum zur Kooperation bietet und den Tierpflegern zugleich einen geschützten Arbeitsbereich ermöglicht. Dieses System erlaubt es, alle notwendigen Pflege- und Gesundheitsmaßnahmen sicher durchzuführen und dem Tier dabei die volle Aufmerksamkeit und individuelle Betreuung zukommen zu lassen."
+    ],
+    "scope": "Architektur, LPH 1-7"
+  },
+  "en": {
+    "title": "Elephant Bull Kraal with PC Wall",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [],
+    "text": [
+      "In accordance with EAZA and AZA guidelines, elephant bulls are kept under so-called “Protected Contact” (PC). Against this background, the elephant bull facility at Tierpark Hagenbeck was modernised to ensure safe, weather-independent care that is at the same time suited to the animal.",
+      "In close collaboration with the internationally recognised elephant expert Alan Roocroft, an innovative “PC wall” was created that gives the bull sufficient space to cooperate while providing the keepers with a protected working area. This system allows all necessary care and health procedures to be carried out safely while giving the animal full attention and individual care."
+    ],
+    "scope": "Architecture, HOAI work stages 1–7"
+  },
+  "tr": {
+    "title": "PC Duvarlı Erkek Fil Ağılı",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [],
+    "text": [
+      "EAZA ve AZA yönergeleri uyarınca erkek filler “Protected Contact” (PC) adı verilen yöntemle barındırılıyor. Bu çerçevede Tierpark Hagenbeck’teki erkek fil tesisi, güvenli, hava koşullarından bağımsız ve aynı zamanda hayvana uygun bir bakımı güvence altına almak üzere modernize edildi.",
+      "Uluslararası alanda tanınan fil uzmanı Alan Roocroft ile yakın iş birliği içinde, erkek file iş birliği için yeterli alan sunan ve hayvan bakıcılarına da korunaklı bir çalışma alanı sağlayan yenilikçi bir “PC-Wall” geliştirildi. Bu sistem, gerekli tüm bakım ve sağlık uygulamalarının güvenle yürütülmesine ve bu sırada hayvana tam ilgi ve bireysel bakım gösterilmesine olanak tanıyor."
+    ],
+    "scope": "Mimarlık, HOAI 1–7. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/elefantenbullenkraal-hagenbeck/01.jpg",
+      "width": 2048,
+      "height": 1019
+    },
+    {
+      "src": "/media/projects/elefantenbullenkraal-hagenbeck/02.jpg",
+      "width": 2048,
+      "height": 1095
+    },
+    {
+      "src": "/media/projects/elefantenbullenkraal-hagenbeck/03.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/elefantenbullenkraal-hagenbeck/04.jpg",
+      "width": 2048,
+      "height": 1536
+    }
+  ]
+}

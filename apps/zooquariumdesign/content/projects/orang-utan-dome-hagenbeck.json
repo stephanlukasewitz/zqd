@@ -1,0 +1,90 @@
+{
+  "slug": "orang-utan-dome-hagenbeck",
+  "type": "Tieranlage",
+  "services": [
+    "Beratung",
+    "Konzept"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Orang-Utan-Dome",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "ca. 1.000 m²",
+      "Kuppel öffnet zu drei Vierteln in 7 Minuten",
+      "ETFE-Membran auf drehbarer Stahlrohrstruktur"
+    ],
+    "text": [
+      "Das Konzept des Gebäudes basiert auf der Idee einer wettergeschützten Outdoor-Ausstellung. Das rund 1.000 m² große Orang-Utan-Urwaldhaus im Tierpark Hagenbeck ermöglicht es, drei Viertel der Dachkuppel innerhalb von nur sieben Minuten zu öffnen. So können sowohl die Tiere als auch die Besucher das natürliche Klima im Freien erleben. Die ETFE-Membran ist auf einer drehbaren Stahlrohrstruktur gelagert, wodurch sich das Dach flexibel öffnen und schließen lässt. Im geschlossenen Zustand werden Temperatur und Luftfeuchtigkeit präzise reguliert, um optimale Bedingungen für Tiere und Pflanzen zu schaffen.",
+      "Ein Wassergraben dient als natürliche Barriere zwischen Tier und Besucher und ermöglicht gleichzeitig ungestörte Sichtbeziehungen. Individuell entwickelte, flexible Kletterelemente bieten den Sumatra-Orang-Utans (Pongo abelii) vielfältige Bewegungsmöglichkeiten. Ergänzt wird die Anlage durch innovative Spielgeräte und die Vergesellschaftung mit asiatischen Kurzkrallenottern (Aonyx cinerea), die zusätzliche Abwechslung und Beschäftigung schaffen.",
+      "Die moderne, funktionale Architektur fördert das Wohlbefinden der Tiere und schafft ein gleichermaßen faszinierendes wie naturnahes Besuchserlebnis."
+    ],
+    "scope": "Beratung / Konzept"
+  },
+  "en": {
+    "title": "Orang-Utan-Dome",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "approx. 1,000 m²",
+      "Three quarters of the dome opens in 7 minutes",
+      "ETFE membrane on a rotating tubular steel structure"
+    ],
+    "text": [
+      "The concept of the building is based on the idea of a weather-protected outdoor exhibit. The orangutan rainforest house at Tierpark Hagenbeck, measuring around 1,000 m², allows three quarters of the roof dome to be opened within just seven minutes. This enables both the animals and the visitors to experience the natural outdoor climate. The ETFE membrane is mounted on a rotating tubular steel structure, allowing the roof to be opened and closed flexibly. When closed, temperature and humidity are precisely regulated to create optimal conditions for animals and plants.",
+      "A water moat serves as a natural barrier between animals and visitors while allowing unobstructed sightlines. Individually developed, flexible climbing elements offer the Sumatran orangutans (Pongo abelii) a wide range of opportunities for movement. The facility is complemented by innovative enrichment devices and by mixed-species housing with Asian small-clawed otters (Aonyx cinerea), which provide additional variety and occupation.",
+      "The modern, functional architecture promotes the animals’ well-being and creates a visitor experience that is as fascinating as it is close to nature."
+    ],
+    "scope": "Consulting / Concept"
+  },
+  "tr": {
+    "title": "Orang-Utan-Dome",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "yaklaşık 1.000 m²",
+      "Kubbenin dörtte üçü 7 dakikada açılıyor",
+      "Döner çelik boru taşıyıcı sistem üzerinde ETFE membran"
+    ],
+    "text": [
+      "Yapının konsepti, hava koşullarından korunan bir açık hava sergisi fikrine dayanıyor. Tierpark Hagenbeck’teki yaklaşık 1.000 m²’lik orangutan yağmur ormanı evi, çatı kubbesinin dörtte üçünün yalnızca yedi dakika içinde açılmasına olanak tanıyor. Böylece hem hayvanlar hem de ziyaretçiler açık havanın doğal iklimini deneyimleyebiliyor. ETFE membran, döner bir çelik boru taşıyıcı sistem üzerine oturuyor; bu sayede çatı esnek biçimde açılıp kapanabiliyor. Kapalı konumda sıcaklık ve nem, hayvanlar ve bitkiler için en uygun koşulları sağlamak üzere hassas biçimde düzenleniyor.",
+      "Bir su hendeği, hayvan ile ziyaretçi arasında doğal bir bariyer görevi görürken kesintisiz görsel ilişkiler kurulmasını da sağlıyor. Özel olarak geliştirilen esnek tırmanma elemanları, Sumatra orangutanlarına (Pongo abelii) çok çeşitli hareket olanakları sunuyor. Tesis, yenilikçi oyun düzenekleri ve ek çeşitlilik ile uğraş sağlayan Asya küçük pençeli su samurlarıyla (Aonyx cinerea) birlikte barındırma uygulamasıyla tamamlanıyor.",
+      "Çağdaş ve işlevsel mimari, hayvanların iyi oluşunu destekliyor ve hem büyüleyici hem de doğaya yakın bir ziyaret deneyimi yaratıyor."
+    ],
+    "scope": "Danışmanlık / Konsept"
+  },
+  "images": [
+    {
+      "src": "/media/projects/orang-utan-dome-hagenbeck/01.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/orang-utan-dome-hagenbeck/02.jpg",
+      "width": 2048,
+      "height": 1543
+    },
+    {
+      "src": "/media/projects/orang-utan-dome-hagenbeck/03.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/orang-utan-dome-hagenbeck/04.jpg",
+      "width": 2016,
+      "height": 1512
+    },
+    {
+      "src": "/media/projects/orang-utan-dome-hagenbeck/05.jpg",
+      "width": 1280,
+      "height": 854
+    },
+    {
+      "src": "/media/projects/orang-utan-dome-hagenbeck/06.jpg",
+      "width": 1512,
+      "height": 2016
+    }
+  ]
+}

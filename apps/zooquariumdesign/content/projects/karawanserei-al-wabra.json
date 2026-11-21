@@ -1,0 +1,60 @@
+{
+  "slug": "karawanserei-al-wabra",
+  "type": "Gebäude",
+  "services": [
+    "Beratung",
+    "Konzept"
+  ],
+  "country": "Katar",
+  "year": null,
+  "de": {
+    "title": "Karawanserei Al Wabra",
+    "zoo": "Al Wabra Wildlife Preservation",
+    "city": null,
+    "facts": [],
+    "text": [
+      "Für eine private Zuchtanlage mit einer außergewöhnlichen Sammlung seltener Tierarten wurde ein neues Konzept für ein Bildungs- und Forschungszentrum entwickelt. Der Entwurf orientierte sich an der regionalen Kultur und führte zur Idee einer modernen Karawanserei – einem Ort der Begegnung und des Austauschs.",
+      "Das Ergebnis ist eine weltweit einzigartige Plattform, die Wissen, Forschung und Bildung in einem gastfreundlichen, inspirierenden und architektonisch anspruchsvollen Umfeld vereint."
+    ],
+    "scope": "Beratung / Konzept"
+  },
+  "en": {
+    "title": "Al Wabra Caravanserai",
+    "zoo": "Al Wabra Wildlife Preservation",
+    "city": null,
+    "facts": [],
+    "text": [
+      "A new concept for an education and research centre was developed for a private breeding facility with an exceptional collection of rare species. The design drew on the regional culture and led to the idea of a modern caravanserai – a place of encounter and exchange.",
+      "The result is a platform unique in the world that unites knowledge, research and education in a hospitable, inspiring and architecturally sophisticated setting."
+    ],
+    "scope": "Consulting / Concept"
+  },
+  "tr": {
+    "title": "Al Wabra Kervansarayı",
+    "zoo": "Al Wabra Wildlife Preservation",
+    "city": null,
+    "facts": [],
+    "text": [
+      "Nadir hayvan türlerinden oluşan olağanüstü bir koleksiyona sahip özel bir üretim tesisi için yeni bir eğitim ve araştırma merkezi konsepti geliştirildi. Tasarım bölgesel kültürü referans aldı ve buluşma ile paylaşımın mekânı olan modern bir kervansaray fikrine ulaştı.",
+      "Sonuç; bilgiyi, araştırmayı ve eğitimi misafirperver, ilham verici ve mimari açıdan nitelikli bir ortamda bir araya getiren, dünyada eşsiz bir platformdur."
+    ],
+    "scope": "Danışmanlık / Konsept"
+  },
+  "images": [
+    {
+      "src": "/media/projects/karawanserei-al-wabra/01.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/karawanserei-al-wabra/02.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/karawanserei-al-wabra/03.jpg",
+      "width": 2048,
+      "height": 1365
+    }
+  ]
+}

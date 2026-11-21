@@ -1,0 +1,246 @@
+{
+  "people": [
+    {
+      "id": "1dsc-9540-ca",
+      "name": "Sezai I. Candan",
+      "role": {
+        "de": "Architekt, Managing Partner",
+        "en": "Architect, Managing Partner",
+        "tr": "Mimar, Yönetici Ortak"
+      },
+      "degree": {
+        "de": "Dipl.-Ing. Architekt",
+        "en": "Dipl.-Ing. Architekt",
+        "tr": "Dipl.-Ing. Architekt"
+      },
+      "focus": {
+        "de": "[Aufgabenbereich]",
+        "en": "[Aufgabenbereich]",
+        "tr": "[Aufgabenbereich]"
+      },
+      "experience": {
+        "de": "[Berufserfahrung]",
+        "en": "[Berufserfahrung]",
+        "tr": "[Berufserfahrung]"
+      },
+      "email": "",
+      "image": {
+        "src": "/media/team/1dsc-9540-ca.jpg",
+        "width": 1600,
+        "height": 1068
+      }
+    },
+    {
+      "id": "christof2",
+      "name": "Christof [Nachname]",
+      "role": {
+        "de": "[Funktion]",
+        "en": "[Funktion]",
+        "tr": "[Funktion]"
+      },
+      "degree": {
+        "de": "[Abschluss / Qualifikation]",
+        "en": "[Abschluss / Qualifikation]",
+        "tr": "[Abschluss / Qualifikation]"
+      },
+      "focus": {
+        "de": "[Aufgabenbereich]",
+        "en": "[Aufgabenbereich]",
+        "tr": "[Aufgabenbereich]"
+      },
+      "experience": {
+        "de": "[Berufserfahrung]",
+        "en": "[Berufserfahrung]",
+        "tr": "[Berufserfahrung]"
+      },
+      "email": "",
+      "image": {
+        "src": "/media/team/christof2.jpg",
+        "width": 1200,
+        "height": 1600
+      }
+    },
+    {
+      "id": "irem-foto-raf",
+      "name": "İrem [Nachname]",
+      "role": {
+        "de": "[Funktion]",
+        "en": "[Funktion]",
+        "tr": "[Funktion]"
+      },
+      "degree": {
+        "de": "[Abschluss / Qualifikation]",
+        "en": "[Abschluss / Qualifikation]",
+        "tr": "[Abschluss / Qualifikation]"
+      },
+      "focus": {
+        "de": "[Aufgabenbereich]",
+        "en": "[Aufgabenbereich]",
+        "tr": "[Aufgabenbereich]"
+      },
+      "experience": {
+        "de": "[Berufserfahrung]",
+        "en": "[Berufserfahrung]",
+        "tr": "[Berufserfahrung]"
+      },
+      "email": "",
+      "image": {
+        "src": "/media/team/irem-foto-raf.jpg",
+        "width": 1200,
+        "height": 1600
+      }
+    },
+    {
+      "id": "sena-foto-raf",
+      "name": "Sena [Nachname]",
+      "role": {
+        "de": "[Funktion]",
+        "en": "[Funktion]",
+        "tr": "[Funktion]"
+      },
+      "degree": {
+        "de": "[Abschluss / Qualifikation]",
+        "en": "[Abschluss / Qualifikation]",
+        "tr": "[Abschluss / Qualifikation]"
+      },
+      "focus": {
+        "de": "[Aufgabenbereich]",
+        "en": "[Aufgabenbereich]",
+        "tr": "[Aufgabenbereich]"
+      },
+      "experience": {
+        "de": "[Berufserfahrung]",
+        "en": "[Berufserfahrung]",
+        "tr": "[Berufserfahrung]"
+      },
+      "email": "",
+      "image": {
+        "src": "/media/team/sena-foto-raf.jpg",
+        "width": 1200,
+        "height": 1600
+      }
+    },
+    {
+      "id": "tu-e-foto-raf",
+      "name": "Tuğçe [Nachname]",
+      "role": {
+        "de": "[Funktion]",
+        "en": "[Funktion]",
+        "tr": "[Funktion]"
+      },
+      "degree": {
+        "de": "[Abschluss / Qualifikation]",
+        "en": "[Abschluss / Qualifikation]",
+        "tr": "[Abschluss / Qualifikation]"
+      },
+      "focus": {
+        "de": "[Aufgabenbereich]",
+        "en": "[Aufgabenbereich]",
+        "tr": "[Aufgabenbereich]"
+      },
+      "experience": {
+        "de": "[Berufserfahrung]",
+        "en": "[Berufserfahrung]",
+        "tr": "[Berufserfahrung]"
+      },
+      "email": "",
+      "image": {
+        "src": "/media/team/tu-e-foto-raf.jpg",
+        "width": 1202,
+        "height": 1600
+      }
+    }
+  ],
+  "partners": [
+    {
+      "id": "vdz-logo-name-cmyk",
+      "name": "Verband der Zoologischen Gärten",
+      "field": {
+        "de": "Verband",
+        "en": "Association",
+        "tr": "Birlik"
+      },
+      "url": "",
+      "logo": {
+        "src": "/media/partners/vdz-logo-name-cmyk.png",
+        "width": 485,
+        "height": 700
+      }
+    },
+    {
+      "id": "logo-pinck",
+      "name": "Pinck Ingenieur Consulting",
+      "field": {
+        "de": "[Fachgebiet]",
+        "en": "[Fachgebiet]",
+        "tr": "[Fachgebiet]"
+      },
+      "url": "",
+      "logo": {
+        "src": "/media/partners/logo-pinck.png",
+        "width": 700,
+        "height": 256
+      }
+    },
+    {
+      "id": "logo-wetzel-von-seht",
+      "name": "Wetzel & von Seht",
+      "field": {
+        "de": "[Fachgebiet]",
+        "en": "[Fachgebiet]",
+        "tr": "[Fachgebiet]"
+      },
+      "url": "",
+      "logo": {
+        "src": "/media/partners/logo-wetzel-von-seht.png",
+        "width": 700,
+        "height": 97
+      }
+    },
+    {
+      "id": "logo-isc-arc",
+      "name": "isc.arc",
+      "field": {
+        "de": "Architektur",
+        "en": "Architecture",
+        "tr": "Mimarlık"
+      },
+      "url": "",
+      "logo": {
+        "src": "/media/partners/logo-isc-arc.png",
+        "width": 699,
+        "height": 700
+      }
+    },
+    {
+      "id": "logo-team-leisure",
+      "name": "Team Leisure",
+      "field": {
+        "de": "[Fachgebiet]",
+        "en": "[Fachgebiet]",
+        "tr": "[Fachgebiet]"
+      },
+      "url": "",
+      "logo": {
+        "src": "/media/partners/logo-team-leisure.png",
+        "width": 700,
+        "height": 279
+      }
+    },
+    {
+      "id": "global-supplies",
+      "name": "Global Supplies",
+      "field": {
+        "de": "[Fachgebiet]",
+        "en": "[Fachgebiet]",
+        "tr": "[Fachgebiet]"
+      },
+      "url": "",
+      "logo": {
+        "src": "/media/partners/global-supplies.png",
+        "width": 441,
+        "height": 197
+      }
+    }
+  ]
+}

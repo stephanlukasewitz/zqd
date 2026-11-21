@@ -1,0 +1,62 @@
+{
+  "slug": "aqua-park-vae",
+  "type": "Aquarium",
+  "services": [
+    "Konzept"
+  ],
+  "country": "Vereinigte Arabische Emirate",
+  "year": null,
+  "de": {
+    "title": "Masterplan Aqua-Park",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [
+      "Für einen Auftraggeber aus den Vereinigten Arabischen Emiraten wurde ein weltweit neuartiges Konzept eines „Swimming-Zoo“ mit angeschlossenem Naturschutzzentrum entwickelt. Neben einem hohen Freizeit- und Erholungswert durch die attraktive Gesamtgestaltung zeichnet sich das Konzept durch eine bisher einmalige Tierpräsentation aus, bei der die Grenzen der Gehege unter Wasser optisch verschwinden.",
+      "Bei der Tierauswahl und der Gestaltung der Anlagen wurden die besonderen klimatischen und kulturellen Bedingungen des Standorts berücksichtigt. Ziel war es, ein innovatives Konzept zu schaffen, das über die bestehenden europäischen und amerikanischen Standards in der Zootierhaltung hinausgeht und die Teilnahme an internationalen Erhaltungszuchtprogrammen ermöglicht.",
+      "Der scheinbar direkte Kontakt zwischen Mensch und Tier macht den „Swimming-Zoo“ zu einem einzigartigen Erlebnisraum und bildet ein herausragendes Alleinstellungsmerkmal für den zukünftigen Betreiber."
+    ],
+    "scope": "Masterplan- / Konzeptentwicklung"
+  },
+  "en": {
+    "title": "Aqua Park Masterplan",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [
+      "For a client from the United Arab Emirates, a concept for a “Swimming Zoo” with an affiliated nature conservation centre – the first of its kind worldwide – was developed. In addition to high leisure and recreational value thanks to its attractive overall design, the concept is distinguished by a hitherto unique form of animal presentation in which the boundaries of the enclosures visually disappear under water.",
+      "The particular climatic and cultural conditions of the site were taken into account in the selection of animals and the design of the enclosures. The aim was to create an innovative concept that goes beyond existing European and American standards in zoo animal husbandry and enables participation in international conservation breeding programmes.",
+      "The seemingly direct contact between people and animals makes the “Swimming Zoo” a unique experience space and an outstanding unique selling point for the future operator."
+    ],
+    "scope": "Masterplan / concept development"
+  },
+  "tr": {
+    "title": "Aqua-Park Master Planı",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [
+      "Birleşik Arap Emirlikleri’nden bir işveren için, bünyesinde bir doğa koruma merkezi bulunan, dünyada eşi olmayan bir “Swimming-Zoo” konsepti geliştirildi. Konsept, çekici bütünsel tasarımıyla sunduğu yüksek eğlence ve dinlenme değerinin yanı sıra, alan sınırlarının su altında görsel olarak kaybolduğu, bugüne dek benzeri görülmemiş bir hayvan sergileme biçimiyle öne çıkıyor.",
+      "Hayvan seçiminde ve alanların tasarımında, yerin kendine özgü iklimsel ve kültürel koşulları gözetildi. Amaç, hayvanat bahçelerinde hayvan bakımına ilişkin mevcut Avrupa ve Amerika standartlarının ötesine geçen ve uluslararası koruma amaçlı üretim programlarına katılımı mümkün kılan yenilikçi bir konsept oluşturmaktı.",
+      "İnsan ile hayvan arasındaki görünürde doğrudan temas, “Swimming-Zoo”yu benzersiz bir deneyim mekânına dönüştürüyor ve gelecekteki işletmeci için öne çıkan, ayırt edici bir özellik oluşturuyor."
+    ],
+    "scope": "Master plan / konsept geliştirme"
+  },
+  "images": [
+    {
+      "src": "/media/projects/aqua-park-vae/01.jpg",
+      "width": 2048,
+      "height": 1288
+    },
+    {
+      "src": "/media/projects/aqua-park-vae/02.jpg",
+      "width": 2048,
+      "height": 1537
+    },
+    {
+      "src": "/media/projects/aqua-park-vae/03.jpg",
+      "width": 1085,
+      "height": 765
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "slug": "eismeer-hagenbeck",
+  "type": "Tieranlage",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Eismeer",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "ca. 7.700 m² Grundfläche",
+      "ca. 27.700 m³ Volumen",
+      "5,5 Mio. l Wasser"
+    ],
+    "text": [
+      "Mit einer Grundfläche von rund 7.700 m² und einem Volumen von etwa 27.700 m³ bildet die Anlage aus massiven, künstlich modellierten Felsen und Buchten die polaren Küstenregionen der Antarktis, Arktis und Patagoniens nach. Sie präsentiert Eisbären (Ursus maritimus), Walrosse (Odobenus rosmarus), verschiedene Robbenarten, subtropische und antarktische Pinguine sowie arktische Seevögel.",
+      "Tradition und Innovation bilden die Grundpfeiler des Konzepts für den Wiederaufbau dieser historischen Anlage. Das denkmalgeschützte, baufällige Bauwerk wurde durch eine neue Konstruktion ersetzt, die sich am ursprünglichen Erscheinungsbild orientiert. Neben der Übererfüllung der strengen EU-Vorgaben und Best-Practice-Standards für Tierhaltung stand das Ziel im Mittelpunkt, den Besuchern ein tieferes Verständnis für die Faszination der Tiere und ihrer Lebensräume zu vermitteln.",
+      "Der Rundgang führt durch die unterschiedlichen Lebensräume der Arktis, Antarktis und Patagoniens. Großzügige Panoramascheiben eröffnen eindrucksvolle Einblicke in die Unterwasserwelten, während barrierefreie Besucherbereiche und ein innovatives Bildungskonzept zusätzliche Informationen zu ökologischen, biologischen und globalen Zusammenhängen vermitteln.",
+      "Ein besonderer Höhepunkt ist die antarktische Pinguinanlage innerhalb der „Eiskammer“, in der authentische Gesteinsstrukturen und dauerhaft niedrige Temperaturen von unter 7 °C ein natürliches Habitat schaffen. Hier lebt eine Kolonie von Königs- (Aptenodytes patagonicus) und Eselspinguinen (Pygoscelis papua), die durch die innovative Gestaltung der Anlage zu einem vielfältigen Aktivitätsverhalten wie Gehen, Klettern, Schwimmen und Rutschen angeregt werden.",
+      "Ein nachhaltiges Wasser- und Energiekonzept gewährleistet die Kühlung von 5,5 Millionen Litern Wasser auf konstant maximal 15 °C und ermöglicht einen nahezu CO₂-neutralen Betrieb der gesamten Anlage."
+    ],
+    "scope": "Generalplanung, LPH 1-8"
+  },
+  "en": {
+    "title": "Arctic Ocean",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "approx. 7,700 m² footprint",
+      "approx. 27,700 m³ volume",
+      "5.5 million litres of water"
+    ],
+    "text": [
+      "With a footprint of around 7,700 m² and a volume of approximately 27,700 m³, the facility recreates the polar coastal regions of the Antarctic, the Arctic and Patagonia through massive, artificially modelled rocks and bays. It is home to polar bears (Ursus maritimus), walruses (Odobenus rosmarus), various seal species, subtropical and Antarctic penguins, and Arctic seabirds.",
+      "Tradition and innovation form the cornerstones of the concept for the reconstruction of this historic facility. The listed, dilapidated structure was replaced by a new construction that takes its cue from the original appearance. Alongside exceeding the strict EU requirements and best-practice standards for animal husbandry, the central aim was to give visitors a deeper understanding of the fascination of the animals and their habitats.",
+      "The visitor route leads through the different habitats of the Arctic, the Antarctic and Patagonia. Generous panoramic windows open up striking views into the underwater worlds, while barrier-free visitor areas and an innovative educational concept provide additional information on ecological, biological and global interrelationships.",
+      "A particular highlight is the Antarctic penguin enclosure within the “Ice Chamber”, where authentic rock structures and permanently low temperatures of below 7 °C create a natural habitat. It is home to a colony of king penguins (Aptenodytes patagonicus) and gentoo penguins (Pygoscelis papua), which the innovative design of the enclosure encourages to engage in a wide range of activity such as walking, climbing, swimming and sliding.",
+      "A sustainable water and energy concept ensures that 5.5 million litres of water are cooled to a constant maximum of 15 °C and enables almost carbon-neutral operation of the entire facility."
+    ],
+    "scope": "General planning, HOAI work stages 1–8"
+  },
+  "tr": {
+    "title": "Buz Denizi",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "yaklaşık 7.700 m² taban alanı",
+      "yaklaşık 27.700 m³ hacim",
+      "5,5 milyon litre su"
+    ],
+    "text": [
+      "Yaklaşık 7.700 m² taban alanı ve 27.700 m³ civarındaki hacmiyle tesis, masif, yapay olarak modellenmiş kayalıklar ve koylarla Antarktika, Arktik ve Patagonya’nın kutup kıyı bölgelerini yeniden canlandırıyor. Tesiste kutup ayıları (Ursus maritimus), morslar (Odobenus rosmarus), çeşitli fok türleri, subtropikal ve Antarktik penguenler ile Arktik deniz kuşları sergileniyor.",
+      "Gelenek ve yenilik, bu tarihi tesisin yeniden inşasına yönelik konseptin temel dayanaklarını oluşturuyor. Koruma altındaki, yıkılmaya yüz tutmuş yapı, özgün görünümünü referans alan yeni bir yapıyla değiştirildi. Hayvan bakımına ilişkin katı AB düzenlemelerinin ve en iyi uygulama standartlarının ötesine geçmenin yanı sıra, ziyaretçilere hayvanların ve yaşam alanlarının büyüleyici dünyasını daha derinden kavratmak projenin odak noktasıydı.",
+      "Ziyaret rotası Arktik, Antarktika ve Patagonya’nın farklı yaşam alanlarından geçiyor. Geniş panoramik camlar su altı dünyalarına etkileyici bakışlar sunarken, engelsiz ziyaretçi alanları ve yenilikçi bir eğitim konsepti ekolojik, biyolojik ve küresel bağlantılar hakkında ek bilgiler aktarıyor.",
+      "Özel bir doruk noktası, otantik kaya dokuları ve sürekli olarak 7 °C’nin altında tutulan sıcaklıklarla doğal bir habitat oluşturan “Buz Odası” içindeki Antarktik penguen alanıdır. Burada kral penguenlerinden (Aptenodytes patagonicus) ve Papua penguenlerinden (Pygoscelis papua) oluşan bir koloni yaşıyor; tesisin yenilikçi tasarımı, hayvanları yürüme, tırmanma, yüzme ve kayma gibi çok yönlü etkinliklere teşvik ediyor.",
+      "Sürdürülebilir bir su ve enerji konsepti, 5,5 milyon litre suyun sabit olarak en fazla 15 °C’de soğutulmasını sağlıyor ve tesisin tamamının neredeyse CO₂ nötr biçimde işletilmesine olanak tanıyor."
+    ],
+    "scope": "Genel planlama, HOAI 1–8. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/eismeer-hagenbeck/01.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/eismeer-hagenbeck/02.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/eismeer-hagenbeck/03.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/eismeer-hagenbeck/04.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/eismeer-hagenbeck/05.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/eismeer-hagenbeck/06.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/eismeer-hagenbeck/07.jpg",
+      "width": 2048,
+      "height": 1365
+    }
+  ]
+}

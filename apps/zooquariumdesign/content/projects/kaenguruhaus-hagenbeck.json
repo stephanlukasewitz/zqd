@@ -1,0 +1,81 @@
+{
+  "slug": "kaenguruhaus-hagenbeck",
+  "type": "Tieranlage",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Deutschland",
+  "year": 2011,
+  "de": {
+    "title": "Känguruhaus und Außengehege",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "ca. 750 m²",
+      "Eröffnung 2011"
+    ],
+    "text": [
+      "Ziel des Projekts war die Neugestaltung des bestehenden Außengeheges für australische Säugetiere und Vögel nach dem historischen „Hagenbeck-Standard“ der offenen Grabenhaltung. Auf einer Fläche von rund 750 m² entstand eine moderne Anlage, die Tradition und zeitgemäße Tierhaltung miteinander verbindet. Ergänzend wurde ein neues Warmhaus errichtet, das sowohl den Tieren als auch den Besuchern an Regentagen einen geschützten und ansprechenden Aufenthaltsbereich bietet.",
+      "Das Außengehege ist in zwei voneinander trennbare Bereiche mit offener Grabenhaltung unterteilt, um eine flexible Haltung und ein variierendes Management unterschiedlicher Tierarten zu ermöglichen. Das neue Haus ist für Besucher begehbar und wird von frei fliegenden Vögeln sowie umherwandernden Wallabies (Macropus rufogriseus) bewohnt. Durch ein offenes Sichtfenster können die imposanten roten Riesenkängurus (Macropus rufus) scheinbar ohne Barrieren beobachtet werden.",
+      "Die Anlage wurde im Jahr 2011 eröffnet und bietet seither ein naturnahes und lebendiges Erlebnis australischer Tierwelt."
+    ],
+    "scope": "Generalplanung, LPH 1-8"
+  },
+  "en": {
+    "title": "Kangaroo House and Outdoor Enclosure",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "approx. 750 m²",
+      "Opened 2011"
+    ],
+    "text": [
+      "The aim of the project was to redesign the existing outdoor enclosure for Australian mammals and birds in accordance with the historic “Hagenbeck standard” of open moated enclosures. Covering an area of around 750 m², a modern facility was created that combines tradition with contemporary animal husbandry. In addition, a new heated house was built, offering both animals and visitors a sheltered and appealing place to spend time on rainy days.",
+      "The outdoor enclosure is divided into two separable areas with open moats, allowing flexible husbandry and varied management of different species. The new house is accessible to visitors and is inhabited by free-flying birds and roaming wallabies (Macropus rufogriseus). Through an open viewing window, the imposing red kangaroos (Macropus rufus) can be observed seemingly without barriers.",
+      "The facility opened in 2011 and has since offered a naturalistic and lively experience of Australian wildlife."
+    ],
+    "scope": "General planning, HOAI work stages 1–8"
+  },
+  "tr": {
+    "title": "Kanguru Evi ve Açık Hava Alanı",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "yaklaşık 750 m²",
+      "2011’de açılış"
+    ],
+    "text": [
+      "Projenin amacı, Avustralya memelileri ve kuşları için mevcut açık hava alanını, açık hendekli barındırmaya dayanan tarihi “Hagenbeck standardı”na göre yeniden tasarlamaktı. Yaklaşık 750 m²’lik bir alanda, gelenekle çağdaş hayvan bakımını buluşturan modern bir tesis oluşturuldu. Buna ek olarak, yağmurlu günlerde hem hayvanlara hem de ziyaretçilere korunaklı ve davetkâr bir alan sunan yeni bir ılıman ev inşa edildi.",
+      "Açık hava alanı, farklı hayvan türlerinin esnek biçimde barındırılmasına ve değişken bir yönetime olanak tanımak üzere açık hendekli, birbirinden ayrılabilen iki bölüme ayrılıyor. Yeni ev ziyaretçilerin içinde dolaşabileceği şekilde tasarlandı; evde serbestçe uçan kuşlar ve etrafta dolaşan valabiler (Macropus rufogriseus) yaşıyor. Açık bir görüş penceresinden heybetli kızıl dev kangurular (Macropus rufus) görünürde hiçbir engel olmadan izlenebiliyor.",
+      "Tesis 2011 yılında açıldı ve o günden bu yana Avustralya hayvan dünyasına ait doğaya yakın ve canlı bir deneyim sunuyor."
+    ],
+    "scope": "Genel planlama, HOAI 1–8. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/kaenguruhaus-hagenbeck/01.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/kaenguruhaus-hagenbeck/02.jpg",
+      "width": 2048,
+      "height": 1530
+    },
+    {
+      "src": "/media/projects/kaenguruhaus-hagenbeck/03.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/kaenguruhaus-hagenbeck/04.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/kaenguruhaus-hagenbeck/05.jpg",
+      "width": 2048,
+      "height": 1365
+    }
+  ]
+}

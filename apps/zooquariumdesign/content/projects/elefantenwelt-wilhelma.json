@@ -1,0 +1,72 @@
+{
+  "slug": "elefantenwelt-wilhelma",
+  "type": "Tieranlage",
+  "services": [
+    "Wettbewerb"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Elefantenwelt",
+    "zoo": "Wilhelma",
+    "city": "Stuttgart",
+    "facts": [],
+    "text": [
+      "Für die neue „Elefantenwelt“ der Wilhelma in Stuttgart wurde ein Wettbewerb ausgelobt. Ziel war es, im historischen Park mit seinen charakteristischen Wegeführungen und Sichtachsen einen zusätzlichen Eingang, eine neue Gastronomie sowie eine in ihrer Art einzigartige Elefantenanlage zu konzipieren.",
+      "Im Entwurf entstand ein innovatives Konzept für die Haltung einer „Mehrgenerationen“-Elefantenherde, das bestehende Best-Practice-Ansätze übertrifft und zugleich nachhaltig, sowie wirtschaftlich betreibbar ist. Städtebaulich wurde die Anlage sensibel in den Park eingebettet, ergänzt durch eine klare, schlichte Architektur, die durch ihre Konstruktion ebenso funktional wie stimmungsvoll und tiergerecht wirkt.",
+      "Das Ergebnis ist ein zukunftsweisendes Konzept, das sowohl in tiergärtnerischer Hinsicht als auch durch Wirtschaftlichkeit, Funktionalität und gestalterische Qualität überzeugt."
+    ],
+    "scope": "Wettbewerbsteilnahme"
+  },
+  "en": {
+    "title": "Elephant World",
+    "zoo": "Wilhelma",
+    "city": "Stuttgart",
+    "facts": [],
+    "text": [
+      "A competition was launched for the new “Elephant World” at the Wilhelma in Stuttgart. The aim was to design an additional entrance, a new restaurant and an elephant facility unique of its kind within the historic park with its characteristic paths and sightlines.",
+      "The design produced an innovative concept for keeping a “multi-generation” elephant herd that surpasses existing best-practice approaches while being sustainable and economically viable to operate. In urban design terms, the facility was sensitively embedded in the park and complemented by clear, understated architecture whose construction makes it as functional as it is atmospheric and suited to the animals.",
+      "The result is a forward-looking concept that is convincing in terms of zoological husbandry as well as economy, functionality and design quality."
+    ],
+    "scope": "Competition entry"
+  },
+  "tr": {
+    "title": "Fil Dünyası",
+    "zoo": "Wilhelma",
+    "city": "Stuttgart",
+    "facts": [],
+    "text": [
+      "Stuttgart’taki Wilhelma’nın yeni “Fil Dünyası” için bir yarışma açıldı. Amaç, kendine özgü yol kurgusu ve görüş akslarıyla tarihi parkta ek bir giriş, yeni bir yeme-içme mekânı ve türünün tek örneği bir fil tesisi tasarlamaktı.",
+      "Tasarımda, “çok kuşaklı” bir fil sürüsünün barındırılmasına yönelik, mevcut en iyi uygulama yaklaşımlarını aşan ve aynı zamanda sürdürülebilir ve ekonomik olarak işletilebilir yenilikçi bir konsept ortaya çıktı. Kentsel tasarım açısından tesis parka özenle yerleştirildi; taşıyıcı sistemi sayesinde hem işlevsel hem atmosferik hem de hayvanlara uygun bir etki yaratan yalın ve sade bir mimariyle tamamlandı.",
+      "Sonuç, hayvan bakımı açısından olduğu kadar ekonomiklik, işlevsellik ve tasarım kalitesiyle de ikna eden, geleceğe yön veren bir konsepttir."
+    ],
+    "scope": "Yarışma katılımı"
+  },
+  "images": [
+    {
+      "src": "/media/projects/elefantenwelt-wilhelma/01.jpg",
+      "width": 2048,
+      "height": 1150
+    },
+    {
+      "src": "/media/projects/elefantenwelt-wilhelma/02.jpg",
+      "width": 2048,
+      "height": 1150
+    },
+    {
+      "src": "/media/projects/elefantenwelt-wilhelma/03.jpg",
+      "width": 2048,
+      "height": 1150
+    },
+    {
+      "src": "/media/projects/elefantenwelt-wilhelma/04.jpg",
+      "width": 1964,
+      "height": 1309
+    },
+    {
+      "src": "/media/projects/elefantenwelt-wilhelma/05.jpg",
+      "width": 2048,
+      "height": 1451
+    }
+  ]
+}

@@ -5,10 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Logo from "./Logo";
 import TLink from "./transition/TLink";
-import { site } from "@/content/site";
 import { langNames, locales, parsePath, switchLocale } from "@/i18n/config";
 import { useLang } from "@/i18n/LangProvider";
-import { homeMedia, teamPhotos } from "@/content/media";
 import styles from "./Header.module.css";
 
 function isActive(pathname, href) {
@@ -16,15 +14,8 @@ function isActive(pathname, href) {
   return pathname === href || pathname.startsWith(href + "/");
 }
 
-// Ein Bild je Menüpunkt – die Vorschau zeigt, was einen dort erwartet.
-const PREVIEW = {
-  "/": homeMedia.hero[0].image,
-  "/projekte": homeMedia.hero[1].image,
-  "/team": teamPhotos[0]?.image,
-  "/kontakt": homeMedia.competence.image,
-};
-
-export default function Header({ nav: labels }) {
+// previews: ein Bild je Menüpunkt (content/home.json → menu), contact: Kontaktdaten (content/site.json)
+export default function Header({ nav: labels, previews: PREVIEW = {}, contact: site }) {
   const publicPath = usePathname();
   const pathname = parsePath(publicPath).path;
   const { ui, values } = useLang();

@@ -1,0 +1,73 @@
+{
+  "slug": "nebeneingang-koeln",
+  "type": "Gebäude",
+  "services": [
+    "Architektur"
+  ],
+  "country": "Deutschland",
+  "year": 2014,
+  "de": {
+    "title": "Nebeneingang mit Zoo-Shop",
+    "zoo": "Kölner Zoo",
+    "city": "Köln",
+    "facts": [
+      "ca. 250 m²",
+      "Fertigstellung Sommer 2014"
+    ],
+    "text": [
+      "Im Rahmen der Umsetzung des Masterplans 2020 des Kölner Zoos wurde die Neugestaltung des Nebeneingangs am Riehler Gürtel realisiert. In enger Zusammenarbeit mit dem Zoo entstand unter der Projektleitung von Dipl.-Ing. Sezai I. Candan ein neues, funktionales Konzept, das den bestehenden Zugang modernisierte und gestalterisch aufwertete.",
+      "Auf einer Fläche von rund 250 m² wurde das bestehende Shop-Gebäude verlegt, umgebaut und zu einem attraktiven Nebeneingang mit integriertem Zoo-Shop umgestaltet. Gleichzeitig wurden die angrenzenden Sanitäranlagen im Stil der Zoo-CI renoviert und neu gestaltet. Das Projekt wurde im Sommer 2014 termingerecht und innerhalb des vorgesehenen Budgets fertiggestellt und eröffnet."
+    ],
+    "scope": "Architektur & Freianlagen LPH 1-8"
+  },
+  "en": {
+    "title": "Side Entrance with Zoo Shop",
+    "zoo": "Cologne Zoo",
+    "city": "Cologne",
+    "facts": [
+      "approx. 250 m²",
+      "Completed summer 2014"
+    ],
+    "text": [
+      "As part of the implementation of Cologne Zoo’s Masterplan 2020, the side entrance on Riehler Gürtel was redesigned. In close collaboration with the zoo and under the project management of Dipl.-Ing. Sezai I. Candan, a new, functional concept was developed that modernised the existing entrance and enhanced its design.",
+      "On an area of around 250 m², the existing shop building was relocated, converted and transformed into an attractive side entrance with an integrated zoo shop. At the same time, the adjacent toilet facilities were renovated and redesigned in line with the zoo’s corporate identity. The project was completed and opened on schedule and within budget in summer 2014."
+    ],
+    "scope": "Architecture & landscape, HOAI work stages 1–8"
+  },
+  "tr": {
+    "title": "Hayvanat Bahçesi Mağazalı Yan Giriş",
+    "zoo": "Köln Hayvanat Bahçesi",
+    "city": "Köln",
+    "facts": [
+      "yaklaşık 250 m²",
+      "2014 yazında tamamlandı"
+    ],
+    "text": [
+      "Köln Hayvanat Bahçesi’nin Master Plan 2020’sinin uygulanması kapsamında Riehler Gürtel’deki yan girişin yeniden düzenlenmesi hayata geçirildi. Hayvanat bahçesiyle yakın iş birliği içinde, Dipl.-Ing. Sezai I. Candan’ın proje yöneticiliğinde, mevcut girişi modernize eden ve tasarım açısından değerini artıran yeni, işlevsel bir konsept geliştirildi.",
+      "Yaklaşık 250 m²’lik bir alanda mevcut mağaza binasının yeri değiştirildi, yapı dönüştürüldü ve entegre hayvanat bahçesi mağazasına sahip çekici bir yan girişe dönüştürüldü. Aynı zamanda bitişikteki tuvaletler, hayvanat bahçesinin kurumsal kimliğine uygun biçimde yenilendi ve yeniden tasarlandı. Proje 2014 yazında zamanında ve öngörülen bütçe dahilinde tamamlanarak açıldı."
+    ],
+    "scope": "Mimarlık ve peyzaj, HOAI 1–8. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/nebeneingang-koeln/01.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/nebeneingang-koeln/02.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/nebeneingang-koeln/03.jpg",
+      "width": 1825,
+      "height": 1291
+    },
+    {
+      "src": "/media/projects/nebeneingang-koeln/04.jpg",
+      "width": 2048,
+      "height": 1536
+    }
+  ]
+}

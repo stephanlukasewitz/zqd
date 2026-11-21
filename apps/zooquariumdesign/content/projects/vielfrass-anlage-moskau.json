@@ -1,0 +1,59 @@
+{
+  "slug": "vielfrass-anlage-moskau",
+  "type": "Tieranlage",
+  "services": [
+    "Konzept"
+  ],
+  "country": "Russland",
+  "year": null,
+  "de": {
+    "title": "Vielfraß-Anlage",
+    "zoo": "Zoo Moskau",
+    "city": "Moskau",
+    "facts": [],
+    "text": [
+      "Ein neues Konzept wurde entwickelt, um sowohl die Besucherattraktivität als auch die täglichen Arbeitsabläufe der Tierpflege zu optimieren. Aufbauend auf dem bestehenden Gebäude entstand eine Lösung, die mit überschaubarem Aufwand umsetzbar ist und gleichzeitig eine deutliche funktionale Verbesserung ermöglicht.",
+      "Das Ergebnis ist eine moderne und ansprechende Anlage mit optimierten Managementbereichen für die einheimische Tierart, den Vielfraß. Sie vereint Effizienz in der Pflege mit einem attraktiven und naturnahen Besuchererlebnis."
+    ],
+    "scope": "Konzept"
+  },
+  "en": {
+    "title": "Wolverine Enclosure",
+    "zoo": "Moscow Zoo",
+    "city": "Moscow",
+    "facts": [],
+    "text": [
+      "A new concept was developed to optimise both visitor appeal and the daily workflows of animal care. Building on the existing structure, a solution was devised that can be implemented with manageable effort while enabling a significant functional improvement.",
+      "The result is a modern and appealing facility with optimised management areas for the native species, the wolverine. It combines efficiency in animal care with an attractive and naturalistic visitor experience."
+    ],
+    "scope": "Concept"
+  },
+  "tr": {
+    "title": "Ayı Sansarı Alanı",
+    "zoo": "Moskova Hayvanat Bahçesi",
+    "city": "Moskova",
+    "facts": [],
+    "text": [
+      "Hem ziyaretçiler açısından çekiciliği hem de hayvan bakımının günlük iş akışlarını iyileştirmek amacıyla yeni bir konsept geliştirildi. Mevcut binayı temel alan ve makul bir çabayla uygulanabilirken belirgin bir işlevsel iyileşme de sağlayan bir çözüm ortaya çıktı.",
+      "Sonuç, yerli bir tür olan ayı sansarı için iyileştirilmiş yönetim alanlarına sahip, modern ve davetkâr bir tesistir. Tesis, bakımda verimliliği çekici ve doğaya yakın bir ziyaret deneyimiyle bir araya getiriyor."
+    ],
+    "scope": "Konsept"
+  },
+  "images": [
+    {
+      "src": "/media/projects/vielfrass-anlage-moskau/01.jpg",
+      "width": 2048,
+      "height": 1449
+    },
+    {
+      "src": "/media/projects/vielfrass-anlage-moskau/02.jpg",
+      "width": 2048,
+      "height": 1448
+    },
+    {
+      "src": "/media/projects/vielfrass-anlage-moskau/03.jpg",
+      "width": 2048,
+      "height": 1448
+    }
+  ]
+}

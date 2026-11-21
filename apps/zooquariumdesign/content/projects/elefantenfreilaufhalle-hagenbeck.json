@@ -1,0 +1,76 @@
+{
+  "slug": "elefantenfreilaufhalle-hagenbeck",
+  "type": "Tieranlage",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Deutschland",
+  "year": 2006,
+  "de": {
+    "title": "Elefantenfreilaufhalle",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "ca. 1.000 m²",
+      "Eröffnung 2006"
+    ],
+    "text": [
+      "Das Design moderner Elefantenanlagen orientiert sich an höchsten Standards und vereint Besucherattraktivität mit optimalen Bedingungen für Haltung, Zucht und Wohlbefinden dieser hochsozialen Tierart. Der naturnah gestaltete Lebensraum bietet den Tieren alles, was für ein gesundes, aktives Leben sowie für erfolgreiche Fortpflanzung und Aufzucht notwendig ist, während er zugleich den Besuchern ein eindrucksvolles und authentisches Erlebnis vermittelt.",
+      "Die Planung und der Bau solcher Anlagen erfordern spezialisierte Kenntnisse im Elefantenmanagement und ein tiefes Verständnis der Biologie dieser Tiere. Der Tierpark Hagenbeck war die erste zoologische Einrichtung, die eine Herdengeburt von Elefanten in menschlicher Obhut erfolgreich ermöglichte. Die dafür konzipierte Elefantenfreilaufhalle wurde speziell auf diesen Zweck ausgerichtet und 2006 eröffnet. Auf einer Fläche von rund 1.000 m² entstanden großzügige Bewegungsflächen und variable Funktionsbereiche, die ein natürliches Sozialverhalten ermöglichen.",
+      "Mehrere Jungtiere wurden in dieser Anlage bereits innerhalb der stabilen Herdenstruktur geboren und von ihren Müttern und Verwandten auf natürliche Weise großgezogen."
+    ],
+    "scope": "Generalplanung, LPH 1-8"
+  },
+  "en": {
+    "title": "Elephant Free-Roaming Hall",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "approx. 1,000 m²",
+      "Opened 2006"
+    ],
+    "text": [
+      "The design of modern elephant facilities follows the highest standards and combines visitor appeal with optimal conditions for the husbandry, breeding and well-being of this highly social species. The naturalistic habitat offers the animals everything they need for a healthy, active life and for successful reproduction and rearing, while at the same time giving visitors an impressive and authentic experience.",
+      "The planning and construction of such facilities require specialist knowledge of elephant management and a deep understanding of the biology of these animals. Tierpark Hagenbeck was the first zoological institution to successfully enable an elephant birth within the herd in human care. The Elephant Free-Roaming Hall designed for this purpose was tailored specifically to it and opened in 2006. Covering an area of around 1,000 m², it provides generous areas for movement and variable functional zones that allow natural social behaviour.",
+      "Several calves have already been born in this facility within the stable herd structure and raised naturally by their mothers and relatives."
+    ],
+    "scope": "General planning, HOAI work stages 1–8"
+  },
+  "tr": {
+    "title": "Fil Serbest Dolaşım Salonu",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [
+      "yaklaşık 1.000 m²",
+      "2006’da açılış"
+    ],
+    "text": [
+      "Çağdaş fil tesislerinin tasarımı en yüksek standartları esas alıyor ve ziyaretçiler için çekiciliği, son derece sosyal bu türün bakımı, üremesi ve iyi oluşu için en uygun koşullarla bir araya getiriyor. Doğaya yakın biçimde tasarlanan yaşam alanı, hayvanlara sağlıklı ve hareketli bir yaşam ile başarılı üreme ve yavru büyütme için gereken her şeyi sunarken ziyaretçilere de etkileyici ve otantik bir deneyim yaşatıyor.",
+      "Bu tür tesislerin planlanması ve inşası, fil yönetimi konusunda uzmanlık ve bu hayvanların biyolojisine ilişkin derin bir kavrayış gerektiriyor. Tierpark Hagenbeck, insan bakımı altında fillerde sürü içi doğumu başarıyla mümkün kılan ilk zoolojik kurum oldu. Bu amaçla tasarlanan Fil Serbest Dolaşım Salonu, özellikle bu işleve göre kurgulandı ve 2006 yılında açıldı. Yaklaşık 1.000 m²’lik bir alanda, doğal sosyal davranışa olanak tanıyan geniş hareket alanları ve değişken işlev bölgeleri oluşturuldu.",
+      "Bu tesiste şimdiden birçok yavru, istikrarlı sürü yapısı içinde dünyaya geldi ve anneleri ile akrabaları tarafından doğal yollarla büyütüldü."
+    ],
+    "scope": "Genel planlama, HOAI 1–8. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/elefantenfreilaufhalle-hagenbeck/01.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/elefantenfreilaufhalle-hagenbeck/02.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/elefantenfreilaufhalle-hagenbeck/03.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/elefantenfreilaufhalle-hagenbeck/04.jpg",
+      "width": 2048,
+      "height": 537
+    }
+  ]
+}

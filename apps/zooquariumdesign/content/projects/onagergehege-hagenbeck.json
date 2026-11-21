@@ -1,0 +1,72 @@
+{
+  "slug": "onagergehege-hagenbeck",
+  "type": "Tieranlage",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Onagergehege",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [],
+    "text": [
+      "Eines der ersten Gehege auf dem Rundgang durch den Tierpark Hagenbeck ist die Anlage der Onager die diese seltene und stark bedrohte Wildeselart ganzjährig präsentiert.",
+      "Durch eine gezielte Neugestaltung der Geländestruktur wurde das Außengehege so modelliert, dass die Tiere auf unterschiedlichen Ebenen und aus verschiedenen Perspektiven erlebbar sind. Diese räumliche Staffelung erzeugt für die Besucher den Eindruck, dass sich die Onager und die dahinter gehaltenen Kamele in einem gemeinsamen Lebensraum bewegen, obwohl beide Tierarten durch unsichtbare Gräben voneinander getrennt sind.",
+      "Unter authentisch wirkenden Felsformationen befinden sich Futterzonen und schattige Rückzugsbereiche, während offene Flächen und mehrere Rundläufe ausreichend Platz für Bewegung und Rückzug bieten. So entsteht ein naturnahes und abwechslungsreiches Habitat, das sowohl das Wohlbefinden der Tiere als auch das Besuchererlebnis fördert."
+    ],
+    "scope": "Generalplanung, LPH 1-8"
+  },
+  "en": {
+    "title": "Onager Enclosure",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [],
+    "text": [
+      "One of the first enclosures on the route through Tierpark Hagenbeck is the onager enclosure, which presents this rare and highly endangered species of wild ass all year round.",
+      "Through a targeted reshaping of the terrain, the outdoor enclosure was modelled so that the animals can be experienced on different levels and from different perspectives. This spatial layering gives visitors the impression that the onagers and the camels kept behind them share a common habitat, even though the two species are separated by invisible moats.",
+      "Beneath authentic-looking rock formations lie feeding zones and shady retreats, while open areas and several circular routes provide ample space for movement and withdrawal. The result is a naturalistic and varied habitat that promotes both the well-being of the animals and the visitor experience."
+    ],
+    "scope": "General planning, HOAI work stages 1–8"
+  },
+  "tr": {
+    "title": "Onager Alanı",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [],
+    "text": [
+      "Tierpark Hagenbeck’teki ziyaret rotasının ilk alanlarından biri, bu nadir ve ciddi tehlike altındaki yaban eşeği türünü yıl boyunca sergileyen onager alanıdır.",
+      "Arazi yapısının hedefli biçimde yeniden düzenlenmesiyle açık hava alanı, hayvanların farklı kotlarda ve farklı perspektiflerden deneyimlenebileceği şekilde modellendi. Bu mekânsal kademelenme, ziyaretçilerde onagerlerin ve arkalarında barındırılan develerin ortak bir yaşam alanında dolaştığı izlenimini uyandırıyor; oysa her iki tür de görünmez hendeklerle birbirinden ayrılıyor.",
+      "Otantik görünümlü kaya oluşumlarının altında beslenme bölgeleri ve gölgeli çekilme alanları yer alırken, açık alanlar ve birden fazla dairesel parkur hareket ve geri çekilme için yeterli alan sunuyor. Böylece hem hayvanların iyi oluşunu hem de ziyaretçi deneyimini destekleyen, doğaya yakın ve çeşitlilik sunan bir habitat ortaya çıkıyor."
+    ],
+    "scope": "Genel planlama, HOAI 1–8. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/onagergehege-hagenbeck/01.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/onagergehege-hagenbeck/02.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/onagergehege-hagenbeck/03.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/onagergehege-hagenbeck/04.jpg",
+      "width": 2048,
+      "height": 939
+    },
+    {
+      "src": "/media/projects/onagergehege-hagenbeck/05.jpg",
+      "width": 2048,
+      "height": 1536
+    }
+  ]
+}

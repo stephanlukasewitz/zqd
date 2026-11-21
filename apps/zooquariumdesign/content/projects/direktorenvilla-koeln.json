@@ -1,0 +1,59 @@
+{
+  "slug": "direktorenvilla-koeln",
+  "type": "Gebäude",
+  "services": [
+    "Architektur"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Direktorenvilla",
+    "zoo": "Kölner Zoo",
+    "city": "Köln",
+    "facts": [],
+    "text": [
+      "Die Direktorenvilla zählt neben dem Südamerikahaus und dem Antilopenhaus zu den ältesten Bauten aus der Gründungszeit des Zoos und bleibt ein prägender Bestandteil des historischen Gesamtensembles.",
+      "Das historische Gebäude wurde behutsam saniert und der Öffentlichkeit zugänglich gemacht. Heute beherbergt es unter anderem gastronomische Angebote und vereint historischen Charme mit neuer Funktionalität, auch durch seine spezielle Innenarchitektur."
+    ],
+    "scope": "Architektur & Freianlagen, LPH 5-7, Innenarchitektur LPH 1-7"
+  },
+  "en": {
+    "title": "Director’s Villa",
+    "zoo": "Cologne Zoo",
+    "city": "Cologne",
+    "facts": [],
+    "text": [
+      "Together with the South America House and the Antelope House, the Director’s Villa is one of the oldest buildings from the zoo’s founding period and remains a defining part of the historic ensemble.",
+      "The historic building was carefully refurbished and opened to the public. Today it houses, among other things, catering facilities and combines historic charm with new functionality, not least through its distinctive interior design."
+    ],
+    "scope": "Architecture & landscape, HOAI work stages 5–7, interior design, HOAI work stages 1–7"
+  },
+  "tr": {
+    "title": "Müdür Köşkü",
+    "zoo": "Köln Hayvanat Bahçesi",
+    "city": "Köln",
+    "facts": [],
+    "text": [
+      "Müdür Köşkü, Güney Amerika Evi ve Antilop Evi ile birlikte hayvanat bahçesinin kuruluş dönemine ait en eski yapılar arasında yer alıyor ve tarihi yapı topluluğunun belirleyici bir parçası olmayı sürdürüyor.",
+      "Tarihi yapı özenle restore edilerek kamuya açıldı. Bugün başka işlevlerin yanı sıra yeme-içme mekânlarına ev sahipliği yapan bina, özel iç mimarisiyle de tarihi dokunun çekiciliğini yeni bir işlevsellikle buluşturuyor."
+    ],
+    "scope": "Mimarlık ve peyzaj, HOAI 5–7. aşamalar; iç mimarlık, HOAI 1–7. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/direktorenvilla-koeln/01.jpg",
+      "width": 2048,
+      "height": 1505
+    },
+    {
+      "src": "/media/projects/direktorenvilla-koeln/02.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "/media/projects/direktorenvilla-koeln/03.jpg",
+      "width": 1920,
+      "height": 1080
+    }
+  ]
+}

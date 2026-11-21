@@ -1,0 +1,18 @@
+{
+  "name": "ZQD",
+  "legalName": "ZQD GmbH",
+  "brand": "Zooquariumdesign · Architekturgarage",
+  "description": "Architektur und Generalplanung für zoologische Einrichtungen – von der Masterplanung bis zur einzelnen Tieranlage.",
+  "url": "https://zqd-gmbh.com",
+  "email": "info@zqd-gmbh.com",
+  "phone": "+49 40 81 95 13 86",
+  "street": "Große Elbstraße 131",
+  "zip": "22767",
+  "city": "Hamburg",
+  "country": "Deutschland",
+  "mapsQuery": "ZQD GmbH, Große Elbstraße 131, 22767 Hamburg",
+  "geo": {
+    "lat": 53.5451,
+    "lng": 9.9332
+  }
+}

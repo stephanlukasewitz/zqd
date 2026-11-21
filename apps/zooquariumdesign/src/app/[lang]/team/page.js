@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { withDot } from "@/components/fx/Dot";
-import { partners, team } from "@/content/team";
+import { getTeam } from "@/content/team";
 import Reveal from "@/components/fx/Reveal";
 import { fmt } from "@/i18n/config";
 import { pageMeta } from "@/i18n/meta";
@@ -15,6 +15,7 @@ export async function generateMetadata() {
 export default async function TeamPage() {
   const d = await getDict();
   const t = d.team;
+  const { team, partners } = getTeam(await getLang());
   return (
     <>
       {/* T01 */}
@@ -58,7 +59,7 @@ export default async function TeamPage() {
                     />
                   </div>
                   <span className={styles.name}>{m.name}</span>
-                  <span className={styles.role}>{t.roles[m.role] || m.role}</span>
+                  <span className={styles.role}>{m.role}</span>
                   <span className={styles.toggle} aria-hidden="true" />
                 </summary>
                 <dl className={styles.info}>
@@ -114,7 +115,7 @@ export default async function TeamPage() {
                   {p.name}
                   {p.url && <span aria-hidden="true"> ↗</span>}
                 </span>
-                {p.field && <span className={styles.pField}>{t.fields[p.field] || p.field}</span>}
+                {p.field && <span className={styles.pField}>{p.field}</span>}
               </>
             );
             return (

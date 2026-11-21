@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# erzeugt beim Build (scripts/build-og.mjs)
+apps/*/src/assets/og/

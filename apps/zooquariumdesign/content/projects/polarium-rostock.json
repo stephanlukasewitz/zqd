@@ -1,0 +1,84 @@
+{
+  "slug": "polarium-rostock",
+  "type": "Tieranlage",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Deutschland",
+  "year": 2018,
+  "de": {
+    "title": "Polarium",
+    "zoo": "Zoologischer Garten Rostock",
+    "city": "Rostock",
+    "facts": [
+      "Eröffnung 2018",
+      "europaweiter Wettbewerb 2016"
+    ],
+    "text": [
+      "Die 1969 eröffnete Eisbärenanlage im Zoo Rostock galt seinerzeit als eine der modernsten ihrer Art und führte zu zahlreichen Zuchterfolgen. Auf diese erfolgreiche Tradition geht auch die Wahl des Eisbären als Logo des Zoos zurück, ebenso wie die langjährige Führung des Internationalen Zuchtbuchs. Nach über fünf Jahrzehnten entsprach die Anlage jedoch nicht mehr den heutigen Ansprüchen an Tierhaltung und Besuchererlebnis.",
+      "Um eine zukunftsweisende und artgerechte Eisbärzuchtanlage zu schaffen, wurde 2016 ein europaweiter Wettbewerb ausgelobt, der zusätzlich die Neukonzeption der angrenzenden Humboldtpinguinanlage umfasste.",
+      "Das daraus entwickelte Konzept verbindet modernste Erkenntnisse der Zucht- und Haltungspraxis mit einer sensiblen Einbindung in die städtische Umgebung. Unterschiedlich gestaltete Lebensräume bieten den Tieren viel Abwechslung und Bewegungsfreiheit, während die Besucher durch naturnahe Gestaltung und vielfältige Einblicke ein intensives Tiererlebnis erhalten. Das Besucherzentrum „Polarium“ ergänzt die Anlage mit interaktiven und edukativen Ausstellungen, Unterwassereinblicken und Aquarien, die das Leben an den Polen eindrucksvoll vermitteln.",
+      "Das Projekt wurde pünktlich zum 800-jährigen Stadtjubiläum Rostocks im Jahr 2018 erfolgreich eröffnet."
+    ],
+    "scope": "Generalplanung, LPH 1-7"
+  },
+  "en": {
+    "title": "Polarium",
+    "zoo": "Rostock Zoo",
+    "city": "Rostock",
+    "facts": [
+      "Opened 2018",
+      "Europe-wide competition 2016"
+    ],
+    "text": [
+      "Opened in 1969, the polar bear enclosure at Rostock Zoo was considered one of the most modern of its kind at the time and led to numerous breeding successes. This successful tradition is also the origin of the zoo’s choice of the polar bear as its logo, as well as its long-standing management of the International Studbook. After more than five decades, however, the enclosure no longer met today’s requirements for animal husbandry and visitor experience.",
+      "In order to create a forward-looking polar bear breeding facility appropriate to the species, a Europe-wide competition was launched in 2016, which also included the redesign of the adjacent Humboldt penguin enclosure.",
+      "The resulting concept combines the latest findings in breeding and husbandry practice with a sensitive integration into the urban surroundings. Differently designed habitats offer the animals a great deal of variety and freedom of movement, while visitors enjoy an intense animal experience through naturalistic design and a wide range of views. The “Polarium” visitor centre complements the facility with interactive and educational exhibitions, underwater views and aquariums that vividly convey life at the poles.",
+      "The project was successfully opened in 2018, in time for Rostock’s 800th anniversary."
+    ],
+    "scope": "General planning, HOAI work stages 1–7"
+  },
+  "tr": {
+    "title": "Polarium",
+    "zoo": "Rostock Hayvanat Bahçesi",
+    "city": "Rostock",
+    "facts": [
+      "2018’de açılış",
+      "2016’da Avrupa çapında yarışma"
+    ],
+    "text": [
+      "Rostock Hayvanat Bahçesi’nde 1969’da açılan kutup ayısı alanı, döneminde türünün en modern örneklerinden biri olarak kabul ediliyor ve çok sayıda başarılı üremeye sahne oluyordu. Kutup ayısının hayvanat bahçesinin logosu olarak seçilmesi ve uluslararası soy kütüğünün uzun yıllar boyunca burada tutulması da bu başarılı geleneğe dayanıyor. Ne var ki yarım asrı aşkın bir sürenin ardından tesis, hayvan bakımı ve ziyaretçi deneyimi konusundaki günümüz beklentilerini artık karşılamıyordu.",
+      "Geleceğe yönelik ve türe uygun bir kutup ayısı üretim tesisi oluşturmak amacıyla 2016 yılında, bitişikteki Humboldt pengueni alanının yeniden kurgulanmasını da kapsayan Avrupa çapında bir yarışma açıldı.",
+      "Bu yarışmadan doğan konsept, üreme ve bakım pratiğine ilişkin en güncel bilgileri kent dokusuyla özenli bir bütünleşmeyle bir araya getiriyor. Farklı biçimlerde tasarlanmış yaşam alanları hayvanlara bol çeşitlilik ve hareket özgürlüğü sunarken, doğaya yakın tasarım ve çok yönlü bakış noktaları ziyaretçilere yoğun bir hayvan deneyimi yaşatıyor. “Polarium” ziyaretçi merkezi; etkileşimli ve eğitici sergiler, su altı bakış noktaları ve kutuplardaki yaşamı etkileyici biçimde aktaran akvaryumlarla tesisi tamamlıyor.",
+      "Proje, Rostock’un 800. kuruluş yıl dönümüne denk gelecek şekilde 2018 yılında zamanında ve başarıyla açıldı."
+    ],
+    "scope": "Genel planlama, HOAI 1–7. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/polarium-rostock/01.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/polarium-rostock/02.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/polarium-rostock/03.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/polarium-rostock/04.jpg",
+      "width": 2048,
+      "height": 1324
+    },
+    {
+      "src": "/media/projects/polarium-rostock/05.jpg",
+      "width": 2048,
+      "height": 1253
+    }
+  ]
+}

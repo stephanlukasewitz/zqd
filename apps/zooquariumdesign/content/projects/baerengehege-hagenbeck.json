@@ -1,0 +1,73 @@
+{
+  "slug": "baerengehege-hagenbeck",
+  "type": "Tieranlage",
+  "services": [
+    "Beratung",
+    "Konzept"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Erweiterung Bärengehege",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [],
+    "text": [
+      "Ziel des Projekts war die Modernisierung des historischen Bärengeheges, das sich direkt am alten Jugendstil-Eingang befindet. Die Herausforderung bestand darin, auf dem Gelände einer denkmalgeschützten Anlage eine moderne und funktionsgerechte Zuchtanlage für Großbären zu entwickeln.",
+      "Neben der Erneuerung der Innenbereiche – einschließlich Backstage-Bereiche, Käfige und Bruthöhlen – wurde eine zusätzliche Anlage vor dem historischen Gehege geschaffen. Ein breiter Wassergraben ermöglicht den Besuchern ungestörte Einblicke in die naturnah gestaltete Landschaft und ihre imposanten Bewohner. Zwei voneinander getrennte Außengehege, die über eine für Besucher unsichtbare Drehbrücke verbunden werden können, erlauben es den Tierpflegern, Tiere bei Bedarf zu trennen, während für die Besucher der Eindruck eines zusammenhängenden Areals entsteht.",
+      "In der Anlage werden Kamtschatka-Braunbären (Ursus arctos piscator) erfolgreich gezüchtet und auf natürliche Weise aufgezogen."
+    ],
+    "scope": "Beratung / Konzept"
+  },
+  "en": {
+    "title": "Bear Enclosure Extension",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [],
+    "text": [
+      "The aim of the project was to modernise the historic bear enclosure located directly at the old Art Nouveau entrance. The challenge lay in developing a modern, functional breeding facility for large bears on the site of a listed facility.",
+      "In addition to the renewal of the indoor areas – including backstage areas, dens and breeding dens – an additional enclosure was created in front of the historic one. A wide water moat gives visitors unobstructed views into the naturalistic landscape and its imposing inhabitants. Two separate outdoor enclosures, which can be connected via a swing bridge invisible to visitors, allow the keepers to separate animals when necessary, while visitors are given the impression of a single continuous area.",
+      "Kamchatka brown bears (Ursus arctos piscator) are successfully bred and raised naturally in the facility."
+    ],
+    "scope": "Consulting / Concept"
+  },
+  "tr": {
+    "title": "Ayı Alanı Genişletmesi",
+    "zoo": "Tierpark Hagenbeck",
+    "city": "Hamburg",
+    "facts": [],
+    "text": [
+      "Projenin amacı, eski Art Nouveau girişinin hemen yanında yer alan tarihi ayı alanını modernize etmekti. Zorluk, koruma altındaki bir tesisin arazisinde büyük ayılar için modern ve işleve uygun bir üretim tesisi geliştirmekti.",
+      "Perde arkası alanları, kafesler ve doğum inleri dahil iç mekânların yenilenmesinin yanı sıra, tarihi alanın önünde ek bir alan oluşturuldu. Geniş bir su hendeği, ziyaretçilere doğaya yakın biçimde tasarlanmış peyzaja ve heybetli sakinlerine kesintisiz bakışlar sunuyor. Ziyaretçilerin göremediği bir döner köprüyle birbirine bağlanabilen iki ayrı açık hava alanı, hayvan bakıcılarının gerektiğinde hayvanları ayırmasına olanak tanırken ziyaretçilerde bütünlüklü tek bir alan izlenimi yaratıyor.",
+      "Tesiste Kamçatka boz ayıları (Ursus arctos piscator) başarıyla üretiliyor ve doğal yollarla büyütülüyor."
+    ],
+    "scope": "Danışmanlık / Konsept"
+  },
+  "images": [
+    {
+      "src": "/media/projects/baerengehege-hagenbeck/01.jpg",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/media/projects/baerengehege-hagenbeck/02.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/baerengehege-hagenbeck/03.jpg",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/media/projects/baerengehege-hagenbeck/04.jpg",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/media/projects/baerengehege-hagenbeck/05.jpg",
+      "width": 1600,
+      "height": 1200
+    }
+  ]
+}

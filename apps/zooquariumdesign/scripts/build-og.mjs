@@ -1,17 +1,25 @@
 // Zugeschnittene Fotos für die Link-Vorschaubilder (rechte Hälfte, 700 × 630).
-// Aufruf nach neuen Projekten: node scripts/build-og.mjs
+// Läuft automatisch vor dem Build (package.json) – Quelle sind die Titelbilder aus content/.
 import sharp from "sharp";
-import { mkdir, readdir } from "node:fs/promises";
+import { existsSync, mkdirSync, readFileSync } from "node:fs";
+import path from "node:path";
 
 const out = "src/assets/og";
-await mkdir(out, { recursive: true });
+mkdirSync(out, { recursive: true });
+const read = (rel) => JSON.parse(readFileSync(path.join("content", rel), "utf8"));
+const file = (src) => path.join("public", src.replace(/^\//, ""));
 
-const jobs = [["src/assets/home/hero-2.jpg", `${out}/home.jpg`]];
-for (const slug of await readdir("src/assets/projects")) {
-  jobs.push([`src/assets/projects/${slug}/01.jpg`, `${out}/${slug}.jpg`]);
+const home = read("home.json");
+const jobs = [[file(home.hero.image.src), `${out}/home.jpg`]];
+for (const slug of read("projects/index.json")) {
+  const cover = read(`projects/${slug}.json`).images?.[0];
+  if (cover) jobs.push([file(cover.src), `${out}/${slug}.jpg`]);
 }
 
+let made = 0;
 for (const [src, dest] of jobs) {
+  if (!existsSync(src)) continue;
   await sharp(src).resize(700, 630, { fit: "cover", position: "attention" }).jpeg({ quality: 82, mozjpeg: true }).toFile(dest);
+  made++;
 }
-console.log(jobs.length, "Vorschaufotos erzeugt");
+console.log(`${made} Vorschaufotos erzeugt`);

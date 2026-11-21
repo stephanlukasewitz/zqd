@@ -1,0 +1,68 @@
+{
+  "slug": "giraffenanlage-koeln",
+  "type": "Tieranlage",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Giraffenanlage",
+    "zoo": "Kölner Zoo",
+    "city": "Köln",
+    "facts": [
+      "ca. 2.300 m² Außenanlage"
+    ],
+    "text": [
+      "Auf Grundlage des gemeinsam mit dem Zoo Köln entwickelten Masterplans 2030 wird die bestehende Giraffenanlage umfassend modernisiert, um den novellierten Haltungsrichtlinien gerecht zu werden und eine nachhaltige, zukunftsorientierte Tierhaltung zu ermöglichen. Die Vergesellschaftung mit Gazellen und Antilopen bleibt dabei wie im Bestand erhalten.",
+      "Geplant ist eine großzügige Freilaufhalle mit Naturboden, die vielfältige Haltungs- und Bewegungsmöglichkeiten bietet. Als innovative Lösung kann nahezu die gesamte Gebäudefassade über Sektionaltore zum Außengehege geöffnet werden, wodurch ein fließender, barrierefreier Übergang zwischen Innen- und Außenraum entsteht.",
+      "Die Außenanlage wird durch die Verlegung des barrierefreien Besucherweges erweitert und erreicht im finalen Zustand eine Fläche von rund 2.300 m²."
+    ],
+    "scope": "Generalplanung, LPH 1-8"
+  },
+  "en": {
+    "title": "Giraffe Enclosure",
+    "zoo": "Cologne Zoo",
+    "city": "Cologne",
+    "facts": [
+      "approx. 2,300 m² outdoor enclosure"
+    ],
+    "text": [
+      "On the basis of Masterplan 2030, developed together with Cologne Zoo, the existing giraffe enclosure is being comprehensively modernised in order to meet the revised husbandry guidelines and enable sustainable, future-oriented animal husbandry. The mixed-species housing with gazelles and antelopes will be retained as it is today.",
+      "A generous free-roaming hall with natural flooring is planned, offering a wide range of husbandry and movement options. As an innovative solution, almost the entire building façade can be opened to the outdoor enclosure via sectional doors, creating a fluid, barrier-free transition between inside and outside.",
+      "The outdoor enclosure will be enlarged by relocating the barrier-free visitor path and, in its final state, will cover an area of around 2,300 m²."
+    ],
+    "scope": "General planning, HOAI work stages 1–8"
+  },
+  "tr": {
+    "title": "Zürafa Alanı",
+    "zoo": "Köln Hayvanat Bahçesi",
+    "city": "Köln",
+    "facts": [
+      "yaklaşık 2.300 m² açık hava alanı"
+    ],
+    "text": [
+      "Köln Hayvanat Bahçesi ile birlikte geliştirilen Master Plan 2030 temelinde mevcut zürafa alanı, revize edilmiş barındırma yönergelerini karşılamak ve sürdürülebilir, geleceğe yönelik bir hayvan bakımını mümkün kılmak üzere kapsamlı biçimde modernize ediliyor. Ceylanlar ve antiloplarla birlikte barındırma uygulaması ise mevcut durumda olduğu gibi korunuyor.",
+      "Çok yönlü barınma ve hareket olanakları sunan, doğal zeminli geniş bir serbest dolaşım salonu planlanıyor. Yenilikçi bir çözüm olarak bina cephesinin neredeyse tamamı seksiyonel kapılarla açık hava alanına açılabiliyor; böylece iç ve dış mekân arasında akıcı, engelsiz bir geçiş oluşuyor.",
+      "Açık hava alanı, engelsiz ziyaretçi yolunun yeri değiştirilerek genişletiliyor ve nihai durumunda yaklaşık 2.300 m²’lik bir alana ulaşıyor."
+    ],
+    "scope": "Genel planlama, HOAI 1–8. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/giraffenanlage-koeln/01.jpg",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/media/projects/giraffenanlage-koeln/02.jpg",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/media/projects/giraffenanlage-koeln/03.jpg",
+      "width": 2048,
+      "height": 1152
+    }
+  ]
+}

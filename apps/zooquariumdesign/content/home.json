@@ -1,0 +1,99 @@
+{
+  "hero": {
+    "project": "tropen-aquarium-hagenbeck",
+    "image": {
+      "src": "/media/home/hero-2.jpg",
+      "width": 2560,
+      "height": 1707
+    }
+  },
+  "pair": [
+    {
+      "project": "eismeer-hagenbeck",
+      "image": 1
+    },
+    {
+      "project": "elefanten-badeteich-hagenbeck",
+      "image": 1
+    }
+  ],
+  "fields": [
+    {
+      "type": "Masterplanung",
+      "project": "masterplan-erweiterung-sued-schoenbrunn",
+      "image": 2
+    },
+    {
+      "type": "Tieranlage",
+      "project": "orang-utan-dome-hagenbeck",
+      "image": 0
+    },
+    {
+      "type": "Aquarium",
+      "project": "tropen-aquarium-hagenbeck",
+      "image": 0
+    }
+  ],
+  "phases": [
+    {
+      "project": "eisbaergehege-schoenbrunn",
+      "image": 0
+    },
+    {
+      "project": "haus-der-giganten-verona",
+      "image": 1
+    },
+    {
+      "project": "biodome-budapest",
+      "image": 0
+    }
+  ],
+  "band": {
+    "project": "elefantenwelt-wilhelma",
+    "image": 1
+  },
+  "cloud": [
+    "eismeer-hagenbeck",
+    "polarium-rostock",
+    "orang-utan-dome-hagenbeck",
+    "artenschutz-aquarium-schoenbrunn",
+    "haus-der-giganten-verona",
+    "elefantenfreilaufhalle-hagenbeck",
+    "dickhaeuterhaus-tierpark-berlin",
+    "kaenguruhaus-hagenbeck",
+    "robbenanlage-rostock",
+    "elefantenwelt-wilhelma",
+    "asien-anlage-opel-zoo",
+    "elefanten-badeteich-hagenbeck",
+    "baerengehege-hagenbeck",
+    "karawanserei-al-wabra"
+  ],
+  "selected": [
+    "elefantenfreilaufhalle-hagenbeck",
+    "dickhaeuterhaus-tierpark-berlin",
+    "artenschutz-aquarium-schoenbrunn",
+    "polarium-rostock"
+  ],
+  "menu": {
+    "/": {
+      "src": "/media/home/hero-1.jpg",
+      "width": 2560,
+      "height": 1707
+    },
+    "/projekte": {
+      "src": "/media/home/hero-2.jpg",
+      "width": 2560,
+      "height": 1707
+    },
+    "/team": {
+      "src": "/media/team/1dsc-9540-ca.jpg",
+      "width": 1600,
+      "height": 1068
+    },
+    "/kontakt": {
+      "src": "/media/home/competence.jpg",
+      "width": 2560,
+      "height": 1707
+    }
+  }
+}

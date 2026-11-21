@@ -1,0 +1,62 @@
+{
+  "slug": "masterplan-2030-koeln",
+  "type": "Masterplanung",
+  "services": [
+    "Konzept"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Masterplan 2030",
+    "zoo": "Kölner Zoo",
+    "city": "Köln",
+    "facts": [],
+    "text": [
+      "Im Rahmen des Masterplans 2030 wird der Zoo Köln in seiner technischen, betrieblichen und architektonischen Entwicklung umfassend weiterentwickelt. Ziel ist es, das Tierwohl und das Tiererlebnis durch großzügige, authentisch gestaltete Gemeinschaftsanlagen zu fördern, in denen verschiedene Tierarten naturgetreu miteinander vergesellschaftet werden. So entsteht ein unvergleichliches und zeitgemäßes Zooerlebnis.",
+      "Neue Sichtachsen und Perspektiven eröffnen sich durch tief angelegte, panoramische Gehegestrukturen, die den Rundgang auf besondere Weise begleiten. Großzügige, begehbare Freiflugvolieren ermöglichen ein unmittelbares Eintauchen in das Habitat und lassen Besucher Teil des gemeinsamen Lebensraumes werden.",
+      "Die stufenweise Umsetzung der einzelnen Projekte gewährleistet, während des gesamten Entwicklungsprozesses, einen kontinuierlichen Besucherbetrieb und einen reibungslosen Rundgang."
+    ],
+    "scope": "Masterplan- / Konzeptentwicklung"
+  },
+  "en": {
+    "title": "Masterplan 2030",
+    "zoo": "Cologne Zoo",
+    "city": "Cologne",
+    "facts": [],
+    "text": [
+      "As part of Masterplan 2030, Cologne Zoo is undergoing comprehensive development in technical, operational and architectural terms. The aim is to promote animal welfare and the animal experience through generous, authentically designed communal enclosures in which different species are kept together in a true-to-nature way. The result is an incomparable and contemporary zoo experience.",
+      "New sightlines and perspectives open up through low-lying, panoramic enclosure structures that accompany the visitor route in a special way. Generous walk-through free-flight aviaries allow direct immersion in the habitat and let visitors become part of the shared living space.",
+      "The phased implementation of the individual projects ensures continuous visitor operation and a smooth visitor route throughout the entire development process."
+    ],
+    "scope": "Masterplan / concept development"
+  },
+  "tr": {
+    "title": "Master Plan 2030",
+    "zoo": "Köln Hayvanat Bahçesi",
+    "city": "Köln",
+    "facts": [],
+    "text": [
+      "Master Plan 2030 kapsamında Köln Hayvanat Bahçesi teknik, işletme ve mimari açıdan kapsamlı biçimde geliştiriliyor. Amaç, farklı hayvan türlerinin doğaya uygun şekilde birlikte barındırıldığı, geniş ve otantik biçimde tasarlanmış ortak alanlar aracılığıyla hayvan refahını ve hayvan deneyimini güçlendirmek. Böylece eşsiz ve çağdaş bir hayvanat bahçesi deneyimi ortaya çıkıyor.",
+      "Alçak kotta konumlandırılan panoramik alan yapıları, ziyaret rotasına özel bir biçimde eşlik ederek yeni görüş aksları ve perspektifler açıyor. Geniş, içine girilebilen serbest uçuş kuşhaneleri habitata doğrudan dalmayı mümkün kılıyor ve ziyaretçileri ortak yaşam alanının bir parçası hâline getiriyor.",
+      "Tek tek projelerin aşamalı olarak hayata geçirilmesi, gelişim sürecinin tamamı boyunca ziyaretçi işletmesinin kesintisiz sürmesini ve rotanın sorunsuz işlemesini güvence altına alıyor."
+    ],
+    "scope": "Master plan / konsept geliştirme"
+  },
+  "images": [
+    {
+      "src": "/media/projects/masterplan-2030-koeln/01.jpg",
+      "width": 2048,
+      "height": 1448
+    },
+    {
+      "src": "/media/projects/masterplan-2030-koeln/02.jpg",
+      "width": 2048,
+      "height": 1448
+    },
+    {
+      "src": "/media/projects/masterplan-2030-koeln/03.jpg",
+      "width": 2048,
+      "height": 1448
+    }
+  ]
+}

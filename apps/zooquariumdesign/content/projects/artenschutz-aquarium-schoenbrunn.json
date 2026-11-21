@@ -1,0 +1,73 @@
+{
+  "slug": "artenschutz-aquarium-schoenbrunn",
+  "type": "Aquarium",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Österreich",
+  "year": null,
+  "de": {
+    "title": "Artenschutz-Aquarium",
+    "zoo": "Tiergarten Schönbrunn",
+    "city": "Wien",
+    "facts": [
+      "ca. 400 m langer Besucherweg"
+    ],
+    "text": [
+      "Gemeinsam mit Wehdorn Architekten - als ARGE-Partner für die örtliche Bauleitung – wurde der europaweite Wettbewerb gewonnen. Der Neubau soll sich behutsam in das historische Tiergarten Ensemble einfügen und die Unterwasserwelt in seiner Einzigartigkeit präsentieren. Ein rund 400 Meter langer, witterungsunabhängiger und barrierefreier Besucherweg führt mäanderförmig durch die neu geschaffene Unterwasserwelt.",
+      "Zentrale Attraktion sind groß dimensionierte Becken für Amazonas, Korallen und Haie, sowie Quallenkreisel und ein Tunnelbecken. Atemberaubende Süßwasser- und Tiefsee-Erlebnisse werden einzigartig inszeniert und präsentiert.",
+      "Über einen neuen zentralen Platz und Tiergartenshop wird das Aquarium eng mit dem Gesamtbesuch des Tiergartens verbunden und bleibt integraler Bestandteil des Erlebnisses."
+    ],
+    "scope": "Gesamtprojektleitung LPH 1-9, Generalplanung, LPH 1-7, ARGE-Partner Wehdorn Architekten LPH8-9 & BauKG"
+  },
+  "en": {
+    "title": "Species Conservation Aquarium",
+    "zoo": "Tiergarten Schönbrunn",
+    "city": "Vienna",
+    "facts": [
+      "approx. 400 m visitor route"
+    ],
+    "text": [
+      "Together with Wehdorn Architekten – as joint-venture partner for site supervision – the Europe-wide competition was won. The new building is to blend sensitively into the historic ensemble of the Tiergarten and present the underwater world in all its uniqueness. A meandering visitor route around 400 metres long, weather-independent and barrier-free, leads through the newly created underwater world.",
+      "The central attractions are large-scale tanks for the Amazon, corals and sharks, as well as jellyfish kreisels and a tunnel tank. Breathtaking freshwater and deep-sea experiences are staged and presented in a unique way.",
+      "A new central square and Tiergarten shop closely link the aquarium with the overall visit to the Tiergarten, so that it remains an integral part of the experience."
+    ],
+    "scope": "Overall project management, HOAI work stages 1–9, general planning, HOAI work stages 1–7, joint-venture partner Wehdorn Architekten, work stages 8–9 & construction health and safety coordination (BauKG)"
+  },
+  "tr": {
+    "title": "Tür Koruma Akvaryumu",
+    "zoo": "Tiergarten Schönbrunn",
+    "city": "Viyana",
+    "facts": [
+      "yaklaşık 400 m uzunluğunda ziyaretçi yolu"
+    ],
+    "text": [
+      "Avrupa çapındaki yarışma, yerel şantiye yönetimi için iş ortaklığı (ARGE) partneri olarak Wehdorn Architekten ile birlikte kazanıldı. Yeni yapının, tarihi Tiergarten yapı topluluğuna özenle yerleşmesi ve su altı dünyasını tüm benzersizliğiyle sergilemesi hedefleniyor. Yaklaşık 400 metre uzunluğunda, hava koşullarından bağımsız ve engelsiz bir ziyaretçi yolu, yeni oluşturulan su altı dünyasında kıvrılarak ilerliyor.",
+      "Başlıca cazibe noktalarını Amazon, mercan ve köpekbalığı için büyük boyutlu havuzlar ile denizanası akvaryumları ve bir tünel havuzu oluşturuyor. Nefes kesici tatlı su ve derin deniz deneyimleri benzersiz bir kurguyla sahneleniyor ve sergileniyor.",
+      "Yeni bir merkezi meydan ve Tiergarten mağazası aracılığıyla akvaryum, hayvanat bahçesi ziyaretinin bütünüyle sıkı biçimde bağlanıyor ve deneyimin ayrılmaz bir parçası olmayı sürdürüyor."
+    ],
+    "scope": "Genel proje yönetimi, HOAI 1–9. aşamalar; Genel planlama, HOAI 1–7. aşamalar; ARGE partneri Wehdorn Architekten, HOAI 8–9. aşamalar ve şantiye iş sağlığı ve güvenliği koordinasyonu (BauKG)"
+  },
+  "images": [
+    {
+      "src": "/media/projects/artenschutz-aquarium-schoenbrunn/01.jpg",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/media/projects/artenschutz-aquarium-schoenbrunn/02.jpg",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/media/projects/artenschutz-aquarium-schoenbrunn/03.jpg",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/media/projects/artenschutz-aquarium-schoenbrunn/04.jpg",
+      "width": 2048,
+      "height": 1449
+    }
+  ]
+}

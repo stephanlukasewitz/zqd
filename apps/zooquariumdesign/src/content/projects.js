@@ -1,37 +1,34 @@
-import { projects as raw } from "./projects.generated";
-import en from "./i18n/projects.en.json";
-import tr from "./i18n/projects.tr.json";
+import { readContent } from "./load";
 import { dicts } from "@/i18n/dict";
 
-// Projektdaten liegen deutsch vor; Übersetzungen kommen aus i18n/projects.<lang>.json.
-// Werte wie type, services und country bleiben intern deutsch (Filter, Adressen),
-// für die Anzeige gibt es typeLabel und countryLabel.
-const translations = { en, tr };
+// Projekte – content/projects/<slug>.json, Reihenfolge in content/projects/index.json.
+// Je Sprache ein Block (de/en/tr) mit Titel, Zoo, Ort, Kennzahlen, Text und Leistungen;
+// images[0] ist das Titelbild. type, services und country bleiben intern deutsch
+// (Filter, Adressen), für die Anzeige gibt es typeLabel und countryLabel.
+const raw = readContent("projects/index.json").map((slug) => readContent(`projects/${slug}.json`));
 const cache = {};
 
 function localizeProject(p, lang) {
   const d = dicts[lang] || dicts.de;
-  const t = translations[lang]?.[p.slug];
-  const title = t?.title || p.title;
-  const zoo = t?.zoo ?? p.zoo;
-  const city = t?.city ?? p.city;
-  const country = d.values.countries[p.country] || p.country;
-  const name = [title, zoo, city].filter(Boolean).join(", ");
+  const t = { ...p.de, ...Object.fromEntries(Object.entries(p[lang] || {}).filter(([, v]) => v != null && v !== "")) };
+  const name = [t.title, t.zoo, t.city].filter(Boolean).join(", ");
+  const [cover, ...gallery] = p.images || [];
   return {
-    ...p,
-    title,
-    zoo,
-    city,
-    countryLabel: country,
+    slug: p.slug,
+    type: p.type,
+    services: p.services || [],
+    country: p.country,
+    year: p.year,
+    title: t.title,
+    zoo: t.zoo,
+    city: t.city,
+    facts: t.facts?.length ? t.facts : p.de.facts || [],
+    text: t.text?.length ? t.text : p.de.text || [],
+    scope: t.scope,
+    countryLabel: d.values.countries[p.country] || p.country,
     typeLabel: d.values.types[p.type] || p.type,
-    facts: t?.facts || p.facts,
-    text: t?.text || p.text,
-    scope: t?.scope ?? p.scope,
-    cover: { ...p.cover, alt: lang === "de" ? p.cover.alt : t?.alt || name },
-    gallery: (p.gallery || []).map((g, i) => ({
-      ...g,
-      alt: lang === "de" ? g.alt : `${t?.alt || name} – ${d.ui.image} ${i + 2}`,
-    })),
+    cover: { image: cover, alt: name },
+    gallery: gallery.map((image, i) => ({ image, alt: `${name} – ${d.ui.image} ${i + 2}` })),
   };
 }
 

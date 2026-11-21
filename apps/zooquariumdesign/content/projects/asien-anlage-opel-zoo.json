@@ -1,0 +1,69 @@
+{
+  "slug": "asien-anlage-opel-zoo",
+  "type": "Tieranlage",
+  "services": [
+    "Wettbewerb"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Asien-Anlage",
+    "zoo": "Opel-Zoo",
+    "city": "Kronberg im Taunus",
+    "facts": [],
+    "text": [
+      "Der Opel-Zoo plant die Umgestaltung der bestehenden Giraffenanlage sowie der Anlagen für Elenantilopen, Prinz-Alfred-Hirsche und Hirschziegenantilopen zu einer modernen und zukunftsorientierten Asien-Anlage. Geplant sind ein für Besucher begehbares Warmhaus für Panzernashörner und Schabrackentapire sowie eine Schaustallung für Siamangs. Ein neuer Kiosk mit Aussichtsterrasse auf das Nashornhaus ergänzt das Konzept.",
+      "Im Rahmen des beschränkten Wettbewerbs entstand ein Entwurf, der die extreme Hanglage aufgreift und das Warmhaus mit unterschiedlichen Erschließungsebenen integriert. Das Gebäude wurde funktional und schlicht gestaltet und auf einen nachhaltigen Betrieb ausgerichtet. Ergänzend wurden abwechslungsreiche und naturnahe Außengehege konzipiert. Die Besucherwege führen in verschiedenen Ebenen durch die Anlage und schaffen ein authentisches und intensives Naturerlebnis."
+    ],
+    "scope": "Wettbewerbsteilnahme"
+  },
+  "en": {
+    "title": "Asia Exhibit",
+    "zoo": "Opel-Zoo",
+    "city": "Kronberg im Taunus",
+    "facts": [],
+    "text": [
+      "The Opel-Zoo is planning to convert the existing giraffe enclosure and the enclosures for elands, Prince Alfred’s deer and blackbucks into a modern and future-oriented Asia exhibit. Plans include a walk-through heated house for Indian rhinoceroses and Malayan tapirs, as well as a viewing stable for siamangs. A new kiosk with a viewing terrace overlooking the rhino house completes the concept.",
+      "As part of the restricted competition, a design was developed that responds to the extremely steep slope and integrates the heated house with different access levels. The building was given a functional and understated design and geared towards sustainable operation. In addition, varied and naturalistic outdoor enclosures were conceived. The visitor paths lead through the facility on different levels, creating an authentic and intense experience of nature."
+    ],
+    "scope": "Competition entry"
+  },
+  "tr": {
+    "title": "Asya Alanı",
+    "zoo": "Opel-Zoo",
+    "city": "Kronberg im Taunus",
+    "facts": [],
+    "text": [
+      "Opel-Zoo, mevcut zürafa alanını ve elandlar, Prens Alfred geyikleri ve Hint antilopları için ayrılmış alanları modern ve geleceğe yönelik bir Asya Alanı’na dönüştürmeyi planlıyor. Hint gergedanları ve Malaya tapirleri için ziyaretçilerin içinde dolaşabileceği bir ılıman ev ile siamanglar için bir sergileme ahırı planlanıyor. Gergedan evine bakan seyir teraslı yeni bir büfe konsepti tamamlıyor.",
+      "Davetli yarışma kapsamında, son derece eğimli araziyi tasarımın parçası hâline getiren ve ılıman evi farklı erişim kotlarıyla araziye entegre eden bir tasarım geliştirildi. Yapı işlevsel ve sade biçimde tasarlandı ve sürdürülebilir bir işletmeye göre kurgulandı. Buna ek olarak çeşitlilik sunan, doğaya yakın açık hava alanları tasarlandı. Ziyaretçi yolları tesis boyunca farklı kotlarda ilerliyor ve otantik, yoğun bir doğa deneyimi yaratıyor."
+    ],
+    "scope": "Yarışma katılımı"
+  },
+  "images": [
+    {
+      "src": "/media/projects/asien-anlage-opel-zoo/01.jpg",
+      "width": 2048,
+      "height": 1150
+    },
+    {
+      "src": "/media/projects/asien-anlage-opel-zoo/02.jpg",
+      "width": 2048,
+      "height": 1150
+    },
+    {
+      "src": "/media/projects/asien-anlage-opel-zoo/03.jpg",
+      "width": 2048,
+      "height": 1186
+    },
+    {
+      "src": "/media/projects/asien-anlage-opel-zoo/04.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/asien-anlage-opel-zoo/05.jpg",
+      "width": 2048,
+      "height": 1219
+    }
+  ]
+}

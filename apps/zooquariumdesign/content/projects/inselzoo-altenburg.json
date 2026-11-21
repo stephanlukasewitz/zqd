@@ -1,0 +1,56 @@
+{
+  "slug": "inselzoo-altenburg",
+  "type": "Masterplanung",
+  "services": [
+    "Konzept"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Masterplan Inselzoo",
+    "zoo": "Inselzoo Altenburg",
+    "city": "Altenburg",
+    "facts": [],
+    "text": [
+      "Für die Weiterentwicklung des Inselzoos als öffentliche Einrichtung wurde ein ganzheitliches Konzept erarbeitet. In Zusammenarbeit mit Pluswerte entstanden Analysen, Bestandsaufnahmen und Besucherbefragungen, die die Grundlage des Masterplans bildeten. Auf Basis der gewonnenen Erkenntnisse entwickelten sich zentrale Themenschwerpunkte: eine Wasservogelvoliere mit integriertem Leuchtturm, eine Madagaskar-Lemuren-Insel, ein Abenteuerspielplatz sowie überdachte Aufenthaltsbereiche mit Blick auf die Attraktionen gestaltet als Orte zum Entdecken, Erleben und Verweilen."
+    ],
+    "scope": "Masterplan- / Konzeptentwicklung"
+  },
+  "en": {
+    "title": "Inselzoo Masterplan",
+    "zoo": "Inselzoo Altenburg",
+    "city": "Altenburg",
+    "facts": [],
+    "text": [
+      "A holistic concept was drawn up for the further development of the Inselzoo as a public institution. In collaboration with Pluswerte, analyses, surveys of the existing site and visitor surveys were carried out, which formed the basis of the masterplan. The findings gave rise to key thematic focal points: a waterfowl aviary with an integrated lighthouse, a Madagascar lemur island, an adventure playground and covered seating areas overlooking the attractions, designed as places to discover, experience and linger."
+    ],
+    "scope": "Masterplan / concept development"
+  },
+  "tr": {
+    "title": "Inselzoo Master Planı",
+    "zoo": "Inselzoo Altenburg",
+    "city": "Altenburg",
+    "facts": [],
+    "text": [
+      "Bir kamu kurumu olarak Inselzoo’nun geliştirilmesi için bütüncül bir konsept hazırlandı. Pluswerte ile iş birliği içinde, master planın temelini oluşturan analizler, mevcut durum tespitleri ve ziyaretçi anketleri gerçekleştirildi. Elde edilen bulgular doğrultusunda başlıca tematik odaklar belirlendi: entegre bir deniz feneriyle birlikte su kuşları kuşhanesi, bir Madagaskar lemur adası, bir macera oyun alanı ve cazibe noktalarına bakan, keşfetme, deneyimleme ve dinlenme mekânları olarak tasarlanmış üstü kapalı oturma alanları."
+    ],
+    "scope": "Master plan / konsept geliştirme"
+  },
+  "images": [
+    {
+      "src": "/media/projects/inselzoo-altenburg/01.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "/media/projects/inselzoo-altenburg/02.jpg",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "src": "/media/projects/inselzoo-altenburg/03.jpg",
+      "width": 1920,
+      "height": 1080
+    }
+  ]
+}

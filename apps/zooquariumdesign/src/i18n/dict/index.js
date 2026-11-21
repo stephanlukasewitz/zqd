@@ -1,9 +1,12 @@
-import de from "./de";
-import en from "./en";
-import tr from "./tr";
+import { readContent } from "@/content/load";
 
-export const dicts = { de, en, tr };
+// Alle Texte der Oberfläche – content/texts/<sprache>.json
+export const dicts = {
+  de: readContent("texts/de.json"),
+  en: readContent("texts/en.json"),
+  tr: readContent("texts/tr.json"),
+};
 
 export function dictFor(lang) {
-  return dicts[lang] || de;
+  return dicts[lang] || dicts.de;
 }

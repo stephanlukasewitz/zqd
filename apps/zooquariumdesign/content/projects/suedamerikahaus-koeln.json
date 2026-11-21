@@ -1,0 +1,69 @@
+{
+  "slug": "suedamerikahaus-koeln",
+  "type": "Tieranlage",
+  "services": [
+    "Architektur"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Südamerikahaus",
+    "zoo": "Kölner Zoo",
+    "city": "Köln",
+    "facts": [],
+    "text": [
+      "Das Südamerikahaus zählt neben dem Antilopenhaus und der Direktorenvilla zu den ältesten Gebäuden aus der Gründungszeit des Zoos und bleibt ein prägender Bestandteil des historischen Gesamt-Ensembles. Das von Bäumen umrahmte Bauwerk orientiert sich in seiner Formensprache an einer russisch-orthodoxen Kirche.",
+      "Im Rahmen einer umfassenden Kernsanierung des denkmalgeschützten Gebäudes wurden die Ausführungsplanung, die Vergabe der Bauleistungen sowie die Planung der Innengestaltung umgesetzt. Das ehemals als Vogelhaus genutzte Bauwerk wurde zu neuem Leben erweckt und dient nun als Heimat verschiedener südamerikanischer Tierarten. Im Zentrum entstand ein bepflanzter Freiflug- und Laufbereich, der sich von der Kellersohle bis zum lichtdurchlässigen ETFE-Foliendach erstreckt und eine natürliche, offene Raumatmosphäre schafft."
+    ],
+    "scope": "Architektur & Freianlagen, LPH 5 (Teilüberarbeitung & Innenarchitektur) & LPH 6-8"
+  },
+  "en": {
+    "title": "South America House",
+    "zoo": "Cologne Zoo",
+    "city": "Cologne",
+    "facts": [],
+    "text": [
+      "Together with the Antelope House and the Director’s Villa, the South America House is one of the oldest buildings from the zoo’s founding period and remains a defining part of the historic ensemble. Framed by trees, the building’s formal language is modelled on a Russian Orthodox church.",
+      "As part of a comprehensive core refurbishment of the listed building, the detailed design, the tendering and award of construction works and the interior design were carried out. The building, formerly used as a bird house, has been brought back to life and is now home to various South American species. At its centre, a planted free-flight and walk-through area was created, extending from the basement floor up to the translucent ETFE foil roof and creating a natural, open spatial atmosphere."
+    ],
+    "scope": "Architecture & landscape, HOAI work stage 5 (partial revision & interior design) & work stages 6–8"
+  },
+  "tr": {
+    "title": "Güney Amerika Evi",
+    "zoo": "Köln Hayvanat Bahçesi",
+    "city": "Köln",
+    "facts": [],
+    "text": [
+      "Güney Amerika Evi, Antilop Evi ve Müdür Köşkü ile birlikte hayvanat bahçesinin kuruluş dönemine ait en eski yapılar arasında yer alıyor ve tarihi yapı topluluğunun belirleyici bir parçası olmayı sürdürüyor. Ağaçlarla çevrili yapı, biçim dili açısından bir Rus Ortodoks kilisesini referans alıyor.",
+      "Koruma altındaki yapının kapsamlı bir esaslı restorasyonu kapsamında uygulama projesi, yapım işlerinin ihalesi ve iç mekân tasarımının planlaması gerçekleştirildi. Önceden kuş evi olarak kullanılan yapıya yeniden hayat verildi; yapı artık çeşitli Güney Amerika hayvan türlerine yuva oluyor. Merkezde, bodrum tabanından ışık geçiren ETFE folyo çatıya kadar yükselen ve doğal, açık bir mekân atmosferi yaratan bitkilendirilmiş bir serbest uçuş ve dolaşım alanı oluşturuldu."
+    ],
+    "scope": "Mimarlık ve peyzaj, HOAI 5. aşama (kısmi revizyon ve iç mimarlık) ve HOAI 6–8. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/suedamerikahaus-koeln/01.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/suedamerikahaus-koeln/02.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/suedamerikahaus-koeln/03.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/suedamerikahaus-koeln/04.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/suedamerikahaus-koeln/05.jpg",
+      "width": 2048,
+      "height": 1536
+    }
+  ]
+}

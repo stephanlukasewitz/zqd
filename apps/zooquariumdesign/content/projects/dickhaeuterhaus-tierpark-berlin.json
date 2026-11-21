@@ -1,0 +1,82 @@
+{
+  "slug": "dickhaeuterhaus-tierpark-berlin",
+  "type": "Tieranlage",
+  "services": [
+    "Architektur"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Dickhäuterhaus",
+    "zoo": "Tierpark Berlin-Friedrichsfelde",
+    "city": "Berlin",
+    "facts": [
+      "ca. 7.000 m² Grundfläche (Bestand)",
+      "Bestandsbau eröffnet 1989",
+      "Freilaufhalle mit ETFE-Folienkissendach"
+    ],
+    "text": [
+      "Mit seiner imposanten Größe und einer Grundfläche von rund 7.000 Quadratmetern zählt das 1989 eröffnete „Dickhäuterhaus“ im Tierpark Berlin zu den bedeutenden Bauwerken seiner Zeit. Neben afrikanischen und asiatischen Elefanten beherbergt es bislang auch Panzernashörner und Seekühe, die in einer klassisch linearen Stallstruktur präsentiert werden.",
+      "Geplant ist nun eine umfassende Modernisierung und Neugestaltung des Hauses zu einer zeitgemäßen und nachhaltigen Gesamtanlage, die sich vorrangig der Haltung afrikanischer Elefanten widmet. Das bestehende Gebäude wird in einen naturnah und authentisch gestalteten afrikanischen Erlebnisbereich eingebettet. Eine Neuordnung des Innenraums verbessert die Haltungsbedingungen deutlich und schafft mehr Raum für Bewegung und Beschäftigung. Die lichtdurchflutete Freilaufhalle mit ETFE-Folienkissendach, Natursandboden, Badebecken und vielfältigen Tierbeschäftigungsmöglichkeiten ermöglicht eine abwechslungsreiche und artgerechte Präsentation.",
+      "Zitat Dr. Knieriem, Direktor des Tierpark Berlin: „Das neue Elefantenhaus wird nicht nur ein wichtiger Meilenstein für den Tierpark Berlin, sondern auch für die gesamte Elefanten-Haltung in Europa sein.“",
+      "Auch der Besucherbereich wird zu einem eigenständigen Erlebnisraum weiterentwickelt. Barrierefreie, wegbegleitende Habitate für Kleinsäugetiere, Reptilien und Vögel bereichern den Rundgang und machen den Aufenthalt selbst in Abwesenheit der Elefanten attraktiv."
+    ],
+    "scope": "Architektur & Freianlagen, LPH 1-5"
+  },
+  "en": {
+    "title": "Pachyderm House",
+    "zoo": "Tierpark Berlin-Friedrichsfelde",
+    "city": "Berlin",
+    "facts": [
+      "approx. 7,000 m² footprint (existing)",
+      "Existing building opened 1989",
+      "Free-roaming hall with ETFE foil cushion roof"
+    ],
+    "text": [
+      "With its imposing size and a footprint of around 7,000 square metres, the “Pachyderm House” at Tierpark Berlin, opened in 1989, is one of the significant buildings of its time. Alongside African and Asian elephants, it has so far also housed Indian rhinoceroses and manatees, presented in a classic linear stable structure.",
+      "A comprehensive modernisation and redesign of the house is now planned, turning it into a contemporary and sustainable overall facility dedicated primarily to keeping African elephants. The existing building will be embedded in a naturalistic and authentically designed African experience area. A reorganisation of the interior will significantly improve husbandry conditions and create more space for movement and enrichment. The light-filled free-roaming hall with ETFE foil cushion roof, natural sand floor, bathing pool and a wide range of enrichment options enables a varied presentation appropriate to the species.",
+      "Quote from Dr Knieriem, Director of Tierpark Berlin: “The new elephant house will be an important milestone not only for Tierpark Berlin, but for elephant husbandry throughout Europe.”",
+      "The visitor area will also be developed into an experience space in its own right. Barrier-free habitats for small mammals, reptiles and birds along the route enrich the visit and make it attractive even when the elephants are not on view."
+    ],
+    "scope": "Architecture & landscape, HOAI work stages 1–5"
+  },
+  "tr": {
+    "title": "Kalın Derililer Evi",
+    "zoo": "Tierpark Berlin-Friedrichsfelde",
+    "city": "Berlin",
+    "facts": [
+      "yaklaşık 7.000 m² taban alanı (mevcut yapı)",
+      "Mevcut yapı 1989’da açıldı",
+      "ETFE folyo yastık çatılı serbest dolaşım salonu"
+    ],
+    "text": [
+      "Etkileyici boyutları ve yaklaşık 7.000 metrekarelik taban alanıyla, 1989’da açılan Tierpark Berlin’deki “Kalın Derililer Evi”, döneminin önemli yapıları arasında yer alıyor. Yapıda bugüne dek Afrika ve Asya fillerinin yanı sıra, klasik doğrusal bir ahır düzeninde sergilenen Hint gergedanları ve deniz inekleri de barındırılıyor.",
+      "Şimdi yapının, öncelikle Afrika fillerinin barındırılmasına ayrılmış çağdaş ve sürdürülebilir bir bütünleşik tesise dönüştürülmek üzere kapsamlı biçimde modernize edilmesi ve yeniden tasarlanması planlanıyor. Mevcut bina, doğaya yakın ve otantik biçimde tasarlanmış bir Afrika deneyim alanının içine yerleştiriliyor. İç mekânın yeniden düzenlenmesi barınma koşullarını belirgin biçimde iyileştiriyor ve hareket ile uğraş için daha fazla alan yaratıyor. ETFE folyo yastık çatılı, doğal kum zeminli, yüzme havuzlu ve çok çeşitli uğraş olanaklarına sahip, gün ışığıyla dolu serbest dolaşım salonu, çeşitlilik içeren ve türe uygun bir sergilemeye olanak tanıyor.",
+      "Tierpark Berlin Direktörü Dr. Knieriem’den alıntı: “Yeni fil evi yalnızca Tierpark Berlin için değil, Avrupa’daki fil bakımının bütünü için de önemli bir kilometre taşı olacak.”",
+      "Ziyaretçi alanı da kendi başına bir deneyim mekânı olarak geliştiriliyor. Rota boyunca uzanan, küçük memeliler, sürüngenler ve kuşlar için engelsiz habitatlar ziyareti zenginleştiriyor ve filler ortada olmadığında bile alanı çekici kılıyor."
+    ],
+    "scope": "Mimarlık ve peyzaj, HOAI 1–5. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/dickhaeuterhaus-tierpark-berlin/01.jpg",
+      "width": 2048,
+      "height": 1250
+    },
+    {
+      "src": "/media/projects/dickhaeuterhaus-tierpark-berlin/02.jpg",
+      "width": 2048,
+      "height": 1254
+    },
+    {
+      "src": "/media/projects/dickhaeuterhaus-tierpark-berlin/03.jpg",
+      "width": 2048,
+      "height": 1024
+    },
+    {
+      "src": "/media/projects/dickhaeuterhaus-tierpark-berlin/04.jpg",
+      "width": 2048,
+      "height": 1024
+    }
+  ]
+}

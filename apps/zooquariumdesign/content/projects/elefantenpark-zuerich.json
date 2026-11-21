@@ -1,0 +1,65 @@
+{
+  "slug": "elefantenpark-zuerich",
+  "type": "Tieranlage",
+  "services": [
+    "Wettbewerb"
+  ],
+  "country": "Schweiz",
+  "year": null,
+  "de": {
+    "title": "Elefantenhaus und -gehege",
+    "zoo": "Zoo Zürich",
+    "city": "Zürich",
+    "facts": [
+      "ca. 11.000 m²"
+    ],
+    "text": [
+      "Der Wettbewerb stand unter einem festgelegten Budgetrahmen und ließ keinen Spielraum für aufwändige Architektur. Auf einer Fläche von rund 11.000 m² lag der Fokus daher auf der Entwicklung eines funktionalen Konzepts, das eine zukunftsorientierte Tierhaltung und ein effizientes Management dieser wertvollen Tierart ermöglicht.",
+      "Das innovative und richtungsweisende Ergebnis entstand in enger Zusammenarbeit mit internationalen Fachleuten, deren Expertise maßgeblich zur Entwicklung eines nachhaltigen und praxisorientierten Gesamtkonzepts beitrug."
+    ],
+    "scope": null
+  },
+  "en": {
+    "title": "Elephant House and Enclosure",
+    "zoo": "Zurich Zoo",
+    "city": "Zurich",
+    "facts": [
+      "approx. 11,000 m²"
+    ],
+    "text": [
+      "The competition was subject to a fixed budget and left no room for elaborate architecture. On an area of around 11,000 m², the focus was therefore on developing a functional concept that enables future-oriented husbandry and efficient management of this valuable species.",
+      "The innovative and pioneering result was developed in close collaboration with international specialists, whose expertise contributed decisively to the development of a sustainable and practice-oriented overall concept."
+    ],
+    "scope": null
+  },
+  "tr": {
+    "title": "Fil Evi ve Açık Alanı",
+    "zoo": "Zürih Hayvanat Bahçesi",
+    "city": "Zürih",
+    "facts": [
+      "yaklaşık 11.000 m²"
+    ],
+    "text": [
+      "Yarışma belirlenmiş bir bütçe çerçevesine tabiydi ve gösterişli bir mimariye alan bırakmıyordu. Bu nedenle yaklaşık 11.000 m²’lik bir alanda odak, bu değerli türün geleceğe yönelik bakımına ve verimli yönetimine olanak tanıyan işlevsel bir konseptin geliştirilmesiydi.",
+      "Yenilikçi ve yol gösterici sonuç, uzmanlıklarıyla sürdürülebilir ve uygulamaya dönük bir bütünsel konseptin geliştirilmesine belirleyici katkı sağlayan uluslararası uzmanlarla yakın iş birliği içinde ortaya çıktı."
+    ],
+    "scope": null
+  },
+  "images": [
+    {
+      "src": "/media/projects/elefantenpark-zuerich/01.jpg",
+      "width": 2048,
+      "height": 1453
+    },
+    {
+      "src": "/media/projects/elefantenpark-zuerich/02.jpg",
+      "width": 2048,
+      "height": 1453
+    },
+    {
+      "src": "/media/projects/elefantenpark-zuerich/03.jpg",
+      "width": 2048,
+      "height": 1536
+    }
+  ]
+}

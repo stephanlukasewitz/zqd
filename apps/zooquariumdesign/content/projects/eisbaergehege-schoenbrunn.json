@@ -1,0 +1,75 @@
+{
+  "slug": "eisbaergehege-schoenbrunn",
+  "type": "Tieranlage",
+  "services": [
+    "Wettbewerb"
+  ],
+  "country": "Österreich",
+  "year": null,
+  "de": {
+    "title": "Eisbärgehege",
+    "zoo": "Tiergarten Schönbrunn",
+    "city": "Wien",
+    "facts": [
+      "ca. 3.400 m²"
+    ],
+    "text": [
+      "Das sanierungsbedürftige Eisbärengehege im Herzen des Tiergarten Schönbrunn, dem ältesten Zoo der Welt, sollte durch eine moderne, attraktive und zukunftsorientierte Zuchtanlage ersetzt werden. Auf einer Fläche von rund 3.400 m² entstand ein Konzept, das die Haltungsbedingungen der Tiere deutlich verbessert und zugleich ein eindrucksvolles Besuchserlebnis schafft.",
+      "Der Wettbewerbsbeitrag wurde unter Berücksichtigung aller biologischen, zoologischen und technischen Anforderungen in enger Zusammenarbeit mit Habitat-Designern entwickelt. Dabei entstand ein funktionales und zugleich gestalterisch anspruchsvolles Konzept, das sich präzise innerhalb des vorgegebenen Budgetrahmens bewegt."
+    ],
+    "scope": "Wettbewerbsteilnahme"
+  },
+  "en": {
+    "title": "Polar Bear Enclosure",
+    "zoo": "Tiergarten Schönbrunn",
+    "city": "Vienna",
+    "facts": [
+      "approx. 3,400 m²"
+    ],
+    "text": [
+      "The polar bear enclosure at the heart of Tiergarten Schönbrunn, the oldest zoo in the world, was in need of refurbishment and was to be replaced by a modern, attractive and future-oriented breeding facility. On an area of around 3,400 m², a concept was developed that significantly improves the animals’ living conditions while creating an impressive visitor experience.",
+      "The competition entry was developed in close collaboration with habitat designers, taking into account all biological, zoological and technical requirements. The result is a concept that is both functional and sophisticated in design, and that remains precisely within the specified budget."
+    ],
+    "scope": "Competition entry"
+  },
+  "tr": {
+    "title": "Kutup Ayısı Alanı",
+    "zoo": "Tiergarten Schönbrunn",
+    "city": "Viyana",
+    "facts": [
+      "yaklaşık 3.400 m²"
+    ],
+    "text": [
+      "Dünyanın en eski hayvanat bahçesi olan Tiergarten Schönbrunn’un kalbindeki, restorasyona ihtiyaç duyan kutup ayısı alanının modern, çekici ve geleceğe yönelik bir üretim tesisiyle değiştirilmesi öngörülüyordu. Yaklaşık 3.400 m²’lik bir alanda, hayvanların barınma koşullarını belirgin biçimde iyileştiren ve aynı zamanda etkileyici bir ziyaret deneyimi yaratan bir konsept geliştirildi.",
+      "Yarışma önerisi, tüm biyolojik, zoolojik ve teknik gereksinimler gözetilerek habitat tasarımcılarıyla yakın iş birliği içinde geliştirildi. Ortaya, belirlenen bütçe çerçevesinin tam olarak içinde kalan, işlevsel ve aynı zamanda tasarım açısından nitelikli bir konsept çıktı."
+    ],
+    "scope": "Yarışma katılımı"
+  },
+  "images": [
+    {
+      "src": "/media/projects/eisbaergehege-schoenbrunn/01.jpg",
+      "width": 2048,
+      "height": 1371
+    },
+    {
+      "src": "/media/projects/eisbaergehege-schoenbrunn/02.jpg",
+      "width": 2048,
+      "height": 1371
+    },
+    {
+      "src": "/media/projects/eisbaergehege-schoenbrunn/03.jpg",
+      "width": 2048,
+      "height": 1371
+    },
+    {
+      "src": "/media/projects/eisbaergehege-schoenbrunn/04.jpg",
+      "width": 2048,
+      "height": 1446
+    },
+    {
+      "src": "/media/projects/eisbaergehege-schoenbrunn/05.jpg",
+      "width": 1280,
+      "height": 960
+    }
+  ]
+}

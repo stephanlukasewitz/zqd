@@ -1,0 +1,65 @@
+{
+  "slug": "eisbaerenanlage-wuppertal",
+  "type": "Tieranlage",
+  "services": [
+    "Konzept"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Umgestaltung Eisbärenanlage",
+    "zoo": "Zoo Wuppertal",
+    "city": "Wuppertal",
+    "facts": [
+      "historische Anlage von 1911 („Nordlandpanorama“)"
+    ],
+    "text": [
+      "Im Jahr 1911 wurde im heutigen Wuppertaler Zoo, damals Zoo in Elberfeld, das „Nordlandpanorama“ der Öffentlichkeit präsentiert. Beeindruckende künstliche Felslandschaften und ein einzigartiges Panorama ermöglichten den Besuchern die gleichzeitige Beobachtung von Eisbären, Seelöwen und Bergziegen. Der Gründer des Hamburger Tierparks, Carl Hagenbeck (1844–1913), beriet den Zoo damals bei der Errichtung dieser eindrucksvollen Anlage.",
+      "Heute ist geplant, die bestehende Eisbärenanlage sowie die vorgelagerte Robbenanlage grundlegend umzugestalten oder einer neuen Nutzung zuzuführen. Ziel ist die Entwicklung eines innovativen Konzepts, das sich an modernen „Best Practice“-Tierhaltungen orientiert und gegebenenfalls einen angepassten Tierbestand vorsieht. Die neue Anlage soll sich harmonisch in die Umgebung einfügen und den Besuchern ein attraktives, edukatives und zukunftsorientiertes Erlebnis bieten."
+    ],
+    "scope": "Masterplan- / Konzeptentwicklung"
+  },
+  "en": {
+    "title": "Polar Bear Enclosure Redesign",
+    "zoo": "Zoo Wuppertal",
+    "city": "Wuppertal",
+    "facts": [
+      "Historic facility from 1911 (“Nordlandpanorama”)"
+    ],
+    "text": [
+      "In 1911, the “Nordlandpanorama” (Northern Panorama) was presented to the public at today’s Wuppertal Zoo, then the Elberfeld Zoo. Impressive artificial rock landscapes and a unique panorama allowed visitors to observe polar bears, sea lions and mountain goats at the same time. The founder of the Hamburg Tierpark, Carl Hagenbeck (1844–1913), advised the zoo at the time on the construction of this impressive facility.",
+      "Today there are plans to fundamentally redesign the existing polar bear enclosure and the seal enclosure in front of it, or to give them a new use. The aim is to develop an innovative concept based on modern “best practice” animal husbandry, possibly with an adapted animal collection. The new facility is to blend harmoniously into its surroundings and offer visitors an attractive, educational and future-oriented experience."
+    ],
+    "scope": "Masterplan / concept development"
+  },
+  "tr": {
+    "title": "Kutup Ayısı Alanının Yeniden Düzenlenmesi",
+    "zoo": "Wuppertal Hayvanat Bahçesi",
+    "city": "Wuppertal",
+    "facts": [
+      "1911 tarihli tarihi tesis (“Nordlandpanorama”)"
+    ],
+    "text": [
+      "1911 yılında, bugünkü Wuppertal Hayvanat Bahçesi’nde – o zamanki adıyla Elberfeld Hayvanat Bahçesi’nde – “Nordlandpanorama” kamuoyuna tanıtıldı. Etkileyici yapay kaya peyzajları ve benzersiz bir panorama, ziyaretçilerin kutup ayılarını, deniz aslanlarını ve dağ keçilerini aynı anda izlemesine olanak tanıyordu. Hamburg’daki Tierpark’ın kurucusu Carl Hagenbeck (1844–1913), bu etkileyici tesisin inşasında hayvanat bahçesine danışmanlık yapmıştı.",
+      "Bugün mevcut kutup ayısı alanının ve önündeki fok alanının köklü biçimde yeniden düzenlenmesi ya da yeni bir kullanıma kazandırılması planlanıyor. Amaç, modern “en iyi uygulama” hayvan bakımı örneklerini esas alan ve gerekirse uyarlanmış bir hayvan varlığı öngören yenilikçi bir konsept geliştirmek. Yeni tesisin çevresiyle uyum içinde bütünleşmesi ve ziyaretçilere çekici, eğitici ve geleceğe yönelik bir deneyim sunması hedefleniyor."
+    ],
+    "scope": "Master plan / konsept geliştirme"
+  },
+  "images": [
+    {
+      "src": "/media/projects/eisbaerenanlage-wuppertal/01.jpg",
+      "width": 2048,
+      "height": 1479
+    },
+    {
+      "src": "/media/projects/eisbaerenanlage-wuppertal/02.jpg",
+      "width": 2048,
+      "height": 1583
+    },
+    {
+      "src": "/media/projects/eisbaerenanlage-wuppertal/03.jpg",
+      "width": 1650,
+      "height": 1275
+    }
+  ]
+}

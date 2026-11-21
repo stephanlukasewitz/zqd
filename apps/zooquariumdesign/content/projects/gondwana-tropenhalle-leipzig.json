@@ -1,0 +1,59 @@
+{
+  "slug": "gondwana-tropenhalle-leipzig",
+  "type": "Tieranlage",
+  "services": [
+    "Wettbewerb"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Gondwana-Tropenhalle",
+    "zoo": "Zoo Leipzig",
+    "city": "Leipzig",
+    "facts": [],
+    "text": [
+      "Im Rahmen des Masterplans wurde vom Zoo Leipzig ein Wettbewerb für die Gestaltung und Konzeption der weltweit größten Tropenhalle ausgelobt. Als Bestandteil dieser einzigartigen zoologischen Anlage sollte ein großzügiger Restaurant- und Veranstaltungsbereich integriert werden.",
+      "Innerhalb des interdisziplinären Wettbewerbsteams entstand ein innovatives und stimmiges Gesamtkonzept, das architektonische Qualität, funktionale Planung und wirtschaftliche Effizienz vereint und sich vollständig im vorgegebenen Budgetrahmen bewegt."
+    ],
+    "scope": "Wettbewerbsteilnahme"
+  },
+  "en": {
+    "title": "Gondwana Tropical Hall",
+    "zoo": "Zoo Leipzig",
+    "city": "Leipzig",
+    "facts": [],
+    "text": [
+      "As part of its masterplan, Zoo Leipzig launched a competition for the design and concept of the world’s largest tropical hall. A generous restaurant and events area was to be integrated as part of this unique zoological facility.",
+      "Within the interdisciplinary competition team, an innovative and coherent overall concept was developed that unites architectural quality, functional planning and economic efficiency and remains entirely within the specified budget."
+    ],
+    "scope": "Competition entry"
+  },
+  "tr": {
+    "title": "Gondwana Tropikal Salonu",
+    "zoo": "Leipzig Hayvanat Bahçesi",
+    "city": "Leipzig",
+    "facts": [],
+    "text": [
+      "Master plan kapsamında Leipzig Hayvanat Bahçesi, dünyanın en büyük tropikal salonunun tasarımı ve kurgusu için bir yarışma açtı. Bu eşsiz zoolojik tesisin bir parçası olarak geniş bir restoran ve etkinlik alanının da entegre edilmesi öngörülüyordu.",
+      "Disiplinlerarası yarışma ekibi içinde; mimari kaliteyi, işlevsel planlamayı ve ekonomik verimliliği bir araya getiren ve belirlenen bütçe çerçevesinin tamamen içinde kalan yenilikçi ve tutarlı bir bütünsel konsept geliştirildi."
+    ],
+    "scope": "Yarışma katılımı"
+  },
+  "images": [
+    {
+      "src": "/media/projects/gondwana-tropenhalle-leipzig/01.jpg",
+      "width": 2048,
+      "height": 991
+    },
+    {
+      "src": "/media/projects/gondwana-tropenhalle-leipzig/02.jpg",
+      "width": 2048,
+      "height": 1448
+    },
+    {
+      "src": "/media/projects/gondwana-tropenhalle-leipzig/03.jpg",
+      "width": 2048,
+      "height": 1448
+    }
+  ]
+}

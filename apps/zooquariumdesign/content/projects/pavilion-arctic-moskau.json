@@ -1,0 +1,67 @@
+{
+  "slug": "pavilion-arctic-moskau",
+  "type": "Tieranlage",
+  "services": [
+    "Konzept"
+  ],
+  "country": "Russland",
+  "year": null,
+  "de": {
+    "title": "Pavilion Arctic",
+    "zoo": "Zoo Moskau",
+    "city": "Moskau",
+    "facts": [],
+    "text": [
+      "Im Zuge der schrittweisen Modernisierung des historischen Zoos von Moskau wurde ein neues Gehegekonzept für die Flaggschifftierart, den Eisbären, entwickelt. Unter Berücksichtigung der langen Tradition des Zoos und seiner zentralen Lage inmitten der Stadt entstanden zwei alternative Konzepte mit unterschiedlichen Budgetrahmen.",
+      "Die Planung basiert auf den neuesten Erkenntnissen in der Haltung und Zucht von Eisbären und sieht unterschiedlich gestaltete Lebensräume vor, die den Tieren abwechslungsreiche Beschäftigungsmöglichkeiten und eine naturnahe Umgebung bieten. Für die Besucher entsteht durch thematische Gestaltung und vielfältige Einblicke aus verschiedenen Perspektiven ein eindrucksvolles und edukatives Tiererlebnis.",
+      "Darüber hinaus wurde besonderer Wert auf ein integriertes pädagogisches Konzept sowie auf zusätzliche Nutzungsmöglichkeiten in Form von Veranstaltungs- und Eventflächen gelegt."
+    ],
+    "scope": "Masterplanung / Konzept"
+  },
+  "en": {
+    "title": "Pavilion Arctic",
+    "zoo": "Moscow Zoo",
+    "city": "Moscow",
+    "facts": [],
+    "text": [
+      "As part of the gradual modernisation of the historic Moscow Zoo, a new enclosure concept was developed for its flagship species, the polar bear. Taking into account the zoo’s long tradition and its central location in the middle of the city, two alternative concepts with different budgets were produced.",
+      "The planning is based on the latest findings in the husbandry and breeding of polar bears and provides for differently designed habitats that offer the animals varied enrichment and a naturalistic environment. For visitors, themed design and a wide range of views from different perspectives create an impressive and educational animal experience.",
+      "In addition, particular importance was attached to an integrated educational concept and to additional uses in the form of function and event spaces."
+    ],
+    "scope": "Master planning / Concept"
+  },
+  "tr": {
+    "title": "Pavilion Arctic",
+    "zoo": "Moskova Hayvanat Bahçesi",
+    "city": "Moskova",
+    "facts": [],
+    "text": [
+      "Tarihi Moskova Hayvanat Bahçesi’nin aşamalı modernizasyonu kapsamında, simge tür olan kutup ayısı için yeni bir alan konsepti geliştirildi. Hayvanat bahçesinin köklü geleneği ve kentin ortasındaki merkezi konumu göz önünde bulundurularak, farklı bütçe çerçevelerine sahip iki alternatif konsept hazırlandı.",
+      "Planlama, kutup ayılarının barındırılması ve üretimine ilişkin en güncel bilgilere dayanıyor ve hayvanlara çeşitli uğraş olanakları ile doğaya yakın bir ortam sunan, farklı biçimlerde tasarlanmış yaşam alanları öngörüyor. Ziyaretçiler için ise tematik tasarım ve farklı perspektiflerden sunulan çok yönlü bakış noktaları sayesinde etkileyici ve eğitici bir hayvan deneyimi ortaya çıkıyor.",
+      "Bunun yanı sıra entegre bir pedagojik konsepte ve organizasyon ve etkinlik alanları biçimindeki ek kullanım olanaklarına özel önem verildi."
+    ],
+    "scope": "Master planlama / Konsept"
+  },
+  "images": [
+    {
+      "src": "/media/projects/pavilion-arctic-moskau/01.jpg",
+      "width": 2048,
+      "height": 1200
+    },
+    {
+      "src": "/media/projects/pavilion-arctic-moskau/02.jpg",
+      "width": 2048,
+      "height": 1200
+    },
+    {
+      "src": "/media/projects/pavilion-arctic-moskau/03.jpg",
+      "width": 1632,
+      "height": 1193
+    },
+    {
+      "src": "/media/projects/pavilion-arctic-moskau/04.jpg",
+      "width": 2048,
+      "height": 1102
+    }
+  ]
+}

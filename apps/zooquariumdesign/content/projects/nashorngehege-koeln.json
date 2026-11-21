@@ -1,0 +1,65 @@
+{
+  "slug": "nashorngehege-koeln",
+  "type": "Tieranlage",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Nashorngehege",
+    "zoo": "Kölner Zoo",
+    "city": "Köln",
+    "facts": [
+      "3 barrierefreie Besucherterrassen"
+    ],
+    "text": [
+      "Auf Grundlage der novellierten Haltungsrichtlinien für Nashörner wird die bestehende Bison- und Moschusanlage im Zoo Köln nachhaltig und zukunftsorientiert für die Haltung von Nashörnern umgestaltet.",
+      "Im Zuge der Maßnahme entstehen erweiterte Besucher- und Gehegeflächen. Bestehende Holz-Blockhäuser werden unter denkmalpflegerischen Gesichtspunkten zu wetterfesten Stallungen umgebaut und aufgewertet. Ergänzend zum Besucherweg entstehen drei großzügige, barrierefreie Besucherterrassen zum Verweilen und Beobachten – eine davon vollständig überdacht."
+    ],
+    "scope": "Generalplanung, LPH 1-8"
+  },
+  "en": {
+    "title": "Rhino Enclosure",
+    "zoo": "Cologne Zoo",
+    "city": "Cologne",
+    "facts": [
+      "3 barrier-free visitor terraces"
+    ],
+    "text": [
+      "On the basis of the revised husbandry guidelines for rhinoceroses, the existing bison and musk ox enclosure at Cologne Zoo is being converted, sustainably and with a view to the future, for keeping rhinoceroses.",
+      "As part of the project, enlarged visitor and enclosure areas are being created. Existing timber log cabins are being converted and upgraded into weatherproof stables with due regard to heritage conservation. In addition to the visitor path, three generous, barrier-free visitor terraces for lingering and observing are being created – one of them fully roofed."
+    ],
+    "scope": "General planning, HOAI work stages 1–8"
+  },
+  "tr": {
+    "title": "Gergedan Alanı",
+    "zoo": "Köln Hayvanat Bahçesi",
+    "city": "Köln",
+    "facts": [
+      "3 engelsiz ziyaretçi terası"
+    ],
+    "text": [
+      "Gergedanlara yönelik revize edilmiş barındırma yönergeleri temelinde, Köln Hayvanat Bahçesi’ndeki mevcut bizon ve misk öküzü alanı, gergedanların barındırılması için sürdürülebilir ve geleceğe yönelik biçimde yeniden düzenleniyor.",
+      "Bu çalışma kapsamında genişletilmiş ziyaretçi ve hayvan alanları oluşturuluyor. Mevcut ahşap kütük evler, koruma ilkeleri gözetilerek hava koşullarına dayanıklı ahırlara dönüştürülüyor ve değerlendiriliyor. Ziyaretçi yoluna ek olarak, dinlenmek ve gözlem yapmak için üç geniş, engelsiz ziyaretçi terası oluşturuluyor – bunlardan biri tamamen üstü kapalı."
+    ],
+    "scope": "Genel planlama, HOAI 1–8. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/nashorngehege-koeln/01.jpg",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/media/projects/nashorngehege-koeln/02.jpg",
+      "width": 1600,
+      "height": 1200
+    },
+    {
+      "src": "/media/projects/nashorngehege-koeln/03.jpg",
+      "width": 1600,
+      "height": 1200
+    }
+  ]
+}

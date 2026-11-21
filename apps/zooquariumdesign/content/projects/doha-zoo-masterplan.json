@@ -1,0 +1,89 @@
+{
+  "slug": "doha-zoo-masterplan",
+  "type": "Masterplanung",
+  "services": [
+    "Konzept"
+  ],
+  "country": "Katar",
+  "year": null,
+  "de": {
+    "title": "Masterplan Doha Zoo",
+    "zoo": "Doha Zoo",
+    "city": "Doha",
+    "facts": [
+      "ca. 70 ha Gelände",
+      "Szenarien mit 100, 250 und 500 Mio. US-Dollar"
+    ],
+    "text": [
+      "Im Auftrag des katarischen Ministeriums für Stadtentwicklung (ASHGHAL) wurde eine Machbarkeits- und Masterplanstudie zur umfassenden Sanierung und Neugestaltung des Doha Zoo in Katar erstellt. Das Konzept für das rund siebzig Hektar große Gelände integriert erhaltenswerte Bestandteile des bestehenden Zoos und kombiniert sie mit modernen, nachhaltigen Planungsansätzen.",
+      "Die Studie entwickelte verschiedene Zukunftsszenarien, darunter eine Safari-Landschaft, einen Kinderbauernhof, einen Indoor-Spielplatz sowie ein Themenhotel. Eine an die extremen klimatischen Bedingungen des Landes angepasste Tierhaltung, ein ganzheitliches Bildungskonzept und wirtschaftlich tragfähige Nutzungsmöglichkeiten bilden zentrale Bestandteile des Masterplans.",
+      "Untersucht wurden mehrere Realisierungsoptionen mit Investitionsvolumina zwischen 100, 250 und 500 Millionen US-Dollar. Empfohlen wurde ein modularer Ansatz, der mit einem kleineren Budget beginnt und eine spätere Erweiterung ermöglicht.",
+      "Ein wesentlicher Aspekt der Planung war die Entwicklung eines ganzjährig nutzbaren Zoo-Konzepts sowie die räumliche und funktionale Integration des neuen Zoos in den angrenzenden Sportpark."
+    ],
+    "scope": "Masterplanung / Konzept"
+  },
+  "en": {
+    "title": "Doha Zoo Masterplan",
+    "zoo": "Doha Zoo",
+    "city": "Doha",
+    "facts": [
+      "approx. 70 ha site",
+      "Scenarios at 100, 250 and 500 million US dollars"
+    ],
+    "text": [
+      "On behalf of the Qatari Public Works Authority (ASHGHAL), a feasibility and masterplan study was prepared for the comprehensive refurbishment and redesign of Doha Zoo in Qatar. The concept for the site of around seventy hectares integrates elements of the existing zoo worth preserving and combines them with modern, sustainable planning approaches.",
+      "The study developed various future scenarios, including a safari landscape, a children’s farm, an indoor playground and a themed hotel. Animal husbandry adapted to the country’s extreme climatic conditions, a holistic educational concept and economically viable uses are central components of the masterplan.",
+      "Several implementation options with investment volumes of 100, 250 and 500 million US dollars were examined. A modular approach was recommended, starting with a smaller budget and allowing later expansion.",
+      "A key aspect of the planning was the development of a zoo concept usable all year round, as well as the spatial and functional integration of the new zoo into the adjacent sports park."
+    ],
+    "scope": "Master planning / Concept"
+  },
+  "tr": {
+    "title": "Doha Hayvanat Bahçesi Master Planı",
+    "zoo": "Doha Hayvanat Bahçesi",
+    "city": "Doha",
+    "facts": [
+      "yaklaşık 70 hektar arazi",
+      "100, 250 ve 500 milyon ABD dolarlık senaryolar"
+    ],
+    "text": [
+      "Katar Kentsel Gelişim Bakanlığı (ASHGHAL) adına, Katar’daki Doha Hayvanat Bahçesi’nin kapsamlı restorasyonu ve yeniden tasarımına yönelik bir fizibilite ve master plan çalışması hazırlandı. Yaklaşık yetmiş hektarlık arazi için geliştirilen konsept, mevcut hayvanat bahçesinin korunmaya değer unsurlarını bünyesine katıyor ve bunları çağdaş, sürdürülebilir planlama yaklaşımlarıyla birleştiriyor.",
+      "Çalışmada, aralarında bir safari peyzajı, bir çocuk çiftliği, bir kapalı oyun alanı ve bir tema otelinin de bulunduğu farklı gelecek senaryoları geliştirildi. Ülkenin aşırı iklim koşullarına uyarlanmış bir hayvan bakımı, bütüncül bir eğitim konsepti ve ekonomik açıdan sürdürülebilir kullanım olanakları master planın temel bileşenlerini oluşturuyor.",
+      "100, 250 ve 500 milyon ABD doları arasında değişen yatırım hacimlerine sahip birden fazla uygulama seçeneği incelendi. Daha küçük bir bütçeyle başlayan ve ileride genişlemeye olanak tanıyan modüler bir yaklaşım önerildi.",
+      "Planlamanın temel boyutlarından biri, yıl boyunca kullanılabilen bir hayvanat bahçesi konseptinin geliştirilmesi ve yeni hayvanat bahçesinin bitişikteki spor parkıyla mekânsal ve işlevsel olarak bütünleştirilmesiydi."
+    ],
+    "scope": "Master planlama / Konsept"
+  },
+  "images": [
+    {
+      "src": "/media/projects/doha-zoo-masterplan/01.jpg",
+      "width": 2048,
+      "height": 1316
+    },
+    {
+      "src": "/media/projects/doha-zoo-masterplan/02.jpg",
+      "width": 2048,
+      "height": 915
+    },
+    {
+      "src": "/media/projects/doha-zoo-masterplan/03.jpg",
+      "width": 2048,
+      "height": 967
+    },
+    {
+      "src": "/media/projects/doha-zoo-masterplan/04.jpg",
+      "width": 2048,
+      "height": 683
+    },
+    {
+      "src": "/media/projects/doha-zoo-masterplan/05.jpg",
+      "width": 2048,
+      "height": 1362
+    },
+    {
+      "src": "/media/projects/doha-zoo-masterplan/06.jpg",
+      "width": 2048,
+      "height": 1448
+    }
+  ]
+}

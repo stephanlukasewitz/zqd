@@ -1,0 +1,72 @@
+{
+  "slug": "clemenshof-koeln",
+  "type": "Gebäude",
+  "services": [
+    "Architektur"
+  ],
+  "country": "Deutschland",
+  "year": null,
+  "de": {
+    "title": "Bauernhof Clemenshof",
+    "zoo": "Kölner Zoo",
+    "city": "Köln",
+    "facts": [],
+    "text": [
+      "Unter dem Motto „Kölner Zoo 2020 – Begeistert für Tiere“ entstand im Rahmen des Masterplans der neue Bauernhof „Clemenshof“ mit integrierter Zooschule, Streichelzoo und Zoo-Shop.",
+      "Der Zoo-Shop sowie ein exklusiver Veranstaltungsbereich wurden gemeinsam konzipiert und termingerecht eröffnet.",
+      "Der Clemenshof beherbergt seltene und einheimische Nutztierrassen, die in einem authentisch gestalteten historischen Bauernhof und seiner Umgebung gehalten werden. Die integrierte Zooschule bietet Schülerinnen und Schülern die Möglichkeit, Tiere und Landwirtschaft im direkten Erleben kennenzulernen."
+    ],
+    "scope": "Architektur & Freianlagen, Innenarchitektur LPH 5-8"
+  },
+  "en": {
+    "title": "Clemenshof Farm",
+    "zoo": "Cologne Zoo",
+    "city": "Cologne",
+    "facts": [],
+    "text": [
+      "Under the motto “Kölner Zoo 2020 – Begeistert für Tiere” (Cologne Zoo 2020 – Passionate about Animals), the new “Clemenshof” farm with an integrated zoo school, petting zoo and zoo shop was created as part of the masterplan.",
+      "The zoo shop and an exclusive events area were designed jointly and opened on schedule.",
+      "The Clemenshof is home to rare and native livestock breeds, kept in an authentically designed historic farmstead and its surroundings. The integrated zoo school gives pupils the opportunity to get to know animals and agriculture through direct experience."
+    ],
+    "scope": "Architecture & landscape, interior design, HOAI work stages 5–8"
+  },
+  "tr": {
+    "title": "Clemenshof Çiftliği",
+    "zoo": "Köln Hayvanat Bahçesi",
+    "city": "Köln",
+    "facts": [],
+    "text": [
+      "“Kölner Zoo 2020 – Begeistert für Tiere” (Köln Hayvanat Bahçesi 2020 – Hayvanlara Tutkuyla) sloganıyla, master plan kapsamında entegre bir hayvanat bahçesi okulu, sevme hayvanat bahçesi ve hayvanat bahçesi mağazası içeren yeni “Clemenshof” çiftliği hayata geçirildi.",
+      "Hayvanat bahçesi mağazası ve seçkin bir etkinlik alanı birlikte tasarlandı ve zamanında açıldı.",
+      "Clemenshof, otantik biçimde tasarlanmış tarihi bir çiftlikte ve çevresinde barındırılan nadir ve yerli çiftlik hayvanı ırklarına ev sahipliği yapıyor. Entegre hayvanat bahçesi okulu, öğrencilere hayvanları ve tarımı doğrudan deneyimleyerek tanıma olanağı sunuyor."
+    ],
+    "scope": "Mimarlık ve peyzaj, iç mimarlık, HOAI 5–8. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/clemenshof-koeln/01.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/clemenshof-koeln/02.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/clemenshof-koeln/03.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/clemenshof-koeln/04.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/clemenshof-koeln/05.jpg",
+      "width": 2048,
+      "height": 1536
+    }
+  ]
+}

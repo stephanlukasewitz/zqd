@@ -1,0 +1,53 @@
+{
+  "slug": "mandrillgehege",
+  "type": "Tieranlage",
+  "services": [],
+  "country": null,
+  "year": null,
+  "de": {
+    "title": "Mandrillgehege",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [],
+    "scope": null
+  },
+  "en": {
+    "title": "Mandrill Enclosure",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [],
+    "scope": null
+  },
+  "tr": {
+    "title": "Mandril Alanı",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [],
+    "scope": null
+  },
+  "images": [
+    {
+      "src": "/media/projects/mandrillgehege/01.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/mandrillgehege/02.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/mandrillgehege/03.jpg",
+      "width": 1536,
+      "height": 2048
+    },
+    {
+      "src": "/media/projects/mandrillgehege/04.jpg",
+      "width": 1536,
+      "height": 2048
+    }
+  ]
+}

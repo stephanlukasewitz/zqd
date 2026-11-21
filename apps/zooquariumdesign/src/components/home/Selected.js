@@ -2,16 +2,11 @@ import Image from "next/image";
 import TLink from "../transition/TLink";
 import Reveal from "../fx/Reveal";
 import { getProjects, placeOf } from "@/content/projects";
+import { home } from "@/content/home";
 import { fmt } from "@/i18n/config";
 import { getDict, getLang } from "@/i18n/server";
 import styles from "./Selected.module.css";
 
-const PICK = [
-  "elefantenfreilaufhalle-hagenbeck",
-  "dickhaeuterhaus-tierpark-berlin",
-  "artenschutz-aquarium-schoenbrunn",
-  "polarium-rostock",
-];
 
 // Ausgewählte Projekte – vier Projekte in zwei versetzten Spalten, wie Blätter auf dem Tisch.
 // Derzeit nur als Vergleichsvariante (?v=2) neben der Bilderwolke.
@@ -19,7 +14,7 @@ export default async function Selected({ space, id = "auswahl", className = "" }
   const lang = await getLang();
   const d = await getDict();
   const projects = getProjects(lang);
-  const list = PICK.map((s) => projects.find((p) => p.slug === s)).filter(Boolean);
+  const list = home.selected.map((s) => projects.find((p) => p.slug === s)).filter(Boolean);
   const num = (p) => String(projects.indexOf(p) + 1).padStart(2, "0");
 
   return (

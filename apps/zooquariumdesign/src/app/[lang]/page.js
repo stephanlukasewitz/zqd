@@ -8,7 +8,7 @@ import TLink from "@/components/transition/TLink";
 import Reveal from "@/components/fx/Reveal";
 import Depth from "@/components/fx/Depth";
 import { withDot } from "@/components/fx/Dot";
-import { heroImage, phaseImages, pic } from "@/content/home";
+import { heroImage, home, phaseImages, pic } from "@/content/home";
 import { getProjects } from "@/content/projects";
 import { fmt } from "@/i18n/config";
 import { pageMeta } from "@/i18n/meta";
@@ -18,31 +18,6 @@ import styles from "./page.module.css";
 export async function generateMetadata() {
   return pageMeta(await getLang(), "/");
 }
-
-// Projekte der Bilderwolke „Ausgewählte Projekte“
-const CLOUD = [
-  "eismeer-hagenbeck",
-  "polarium-rostock",
-  "orang-utan-dome-hagenbeck",
-  "artenschutz-aquarium-schoenbrunn",
-  "haus-der-giganten-verona",
-  "elefantenfreilaufhalle-hagenbeck",
-  "dickhaeuterhaus-tierpark-berlin",
-  "kaenguruhaus-hagenbeck",
-  "robbenanlage-rostock",
-  "elefantenwelt-wilhelma",
-  "asien-anlage-opel-zoo",
-  "elefanten-badeteich-hagenbeck",
-  "baerengehege-hagenbeck",
-  "karawanserei-al-wabra",
-];
-
-// Bilder der drei Aufgabenfelder (Texte im Wörterbuch)
-const FIELD_IMAGES = [
-  ["Masterplanung", "masterplan-erweiterung-sued-schoenbrunn", 2],
-  ["Tieranlage", "orang-utan-dome-hagenbeck", 0],
-  ["Aquarium", "tropen-aquarium-hagenbeck", 0],
-];
 
 // Abschnittskopf: Titel links, ergänzender Text rechts unten – überall gleich.
 function Head({ id, title, children }) {
@@ -79,15 +54,14 @@ export default async function HomePage() {
   const projects = getProjects(lang);
   const count = (type) => projects.filter((p) => p.type === type).length;
 
-  const robbe = pic("eismeer-hagenbeck", 1, lang);
-  const elefant = pic("elefanten-badeteich-hagenbeck", 1, lang);
-  const band = pic("elefantenwelt-wilhelma", 1, lang);
+  const [robbe, elefant] = home.pair.map((x) => pic(x.project, x.image, lang));
+  const band = pic(home.band.project, home.band.image, lang);
 
-  const fields = FIELD_IMAGES.map(([type, slug, i]) => ({
+  const fields = home.fields.map(({ type, project, image }) => ({
     type,
     word: h.fields[type][0],
     line: h.fields[type][1],
-    image: pic(slug, i, lang).image,
+    image: pic(project, image, lang).image,
     count: fmt(h.count, { n: count(type) }),
   }));
 
@@ -211,7 +185,7 @@ export default async function HomePage() {
       {/* Beweis */}
       <div className="only-default">
         <ProjectCloud
-          items={CLOUD.map((slug) => pic(slug, 0, lang))}
+          items={home.cloud.map((slug) => pic(slug, 0, lang))}
           title={h.selected}
           allLabel={fmt(h.allProjects, { n: projects.length })}
         />

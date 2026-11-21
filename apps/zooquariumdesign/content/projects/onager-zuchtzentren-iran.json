@@ -1,0 +1,60 @@
+{
+  "slug": "onager-zuchtzentren-iran",
+  "type": "Tieranlage",
+  "services": [
+    "Beratung",
+    "Konzept"
+  ],
+  "country": "Iran",
+  "year": null,
+  "de": {
+    "title": "Ex-situ-Onager-Zuchtzentren",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [
+      "Der Onager zählt zu den stark vom Aussterben bedrohten Tierarten und kommt heute nur noch in wenigen Regionen der trockenen Halbwüsten der Islamischen Republik Iran vor. Um den Bestand langfristig zu sichern, initiierte das iranische Naturschutzministerium den Aufbau einer Ex-situ-Zuchtgruppe dieser seltenen Wildeselart.",
+      "Im Rahmen dieses wichtigen Artenschutzprojekts werden Erfahrungen aus dem Ex-situ-Management in der Haltung und Zucht dieser Equiden eingebracht. Auf dieser Grundlage entsteht ein detailliertes Konzept für den Aufbau und die Gestaltung der neuen Zuchtstationen, das zur Erhaltung und Stabilisierung der Art in menschlicher Obhut beiträgt."
+    ],
+    "scope": "Beratung / Konzept"
+  },
+  "en": {
+    "title": "Ex-situ Onager Breeding Centres",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [
+      "The onager is one of the critically endangered animal species and today occurs only in a few regions of the arid semi-deserts of the Islamic Republic of Iran. To secure the population in the long term, the Iranian Department of Environment initiated the establishment of an ex-situ breeding group of this rare species of wild ass.",
+      "As part of this important species conservation project, experience from ex-situ management in the husbandry and breeding of these equids is being contributed. On this basis, a detailed concept for the establishment and design of the new breeding stations is being developed, contributing to the conservation and stabilisation of the species in human care."
+    ],
+    "scope": "Consulting / Concept"
+  },
+  "tr": {
+    "title": "Ex-situ Onager Üretim Merkezleri",
+    "zoo": null,
+    "city": null,
+    "facts": [],
+    "text": [
+      "Onager, nesli ciddi tehlike altındaki türler arasında yer alıyor ve bugün yalnızca İran İslam Cumhuriyeti’nin kurak yarı çöllerindeki birkaç bölgede görülüyor. Popülasyonu uzun vadede güvence altına almak amacıyla İran doğa koruma bakanlığı, bu nadir yaban eşeği türüne ait bir ex-situ üretim grubunun oluşturulmasını başlattı.",
+      "Bu önemli tür koruma projesi kapsamında, bu tek tırnaklıların barındırılması ve üretimine ilişkin ex-situ yönetim deneyimleri projeye aktarılıyor. Bu temelde, yeni üretim istasyonlarının kurulması ve tasarımına yönelik, türün insan bakımı altında korunmasına ve istikrar kazanmasına katkı sağlayan ayrıntılı bir konsept geliştiriliyor."
+    ],
+    "scope": "Danışmanlık / Konsept"
+  },
+  "images": [
+    {
+      "src": "/media/projects/onager-zuchtzentren-iran/01.jpg",
+      "width": 2048,
+      "height": 1365
+    },
+    {
+      "src": "/media/projects/onager-zuchtzentren-iran/02.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/onager-zuchtzentren-iran/03.jpg",
+      "width": 2048,
+      "height": 525
+    }
+  ]
+}

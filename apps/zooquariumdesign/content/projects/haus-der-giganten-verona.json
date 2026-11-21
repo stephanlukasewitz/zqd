@@ -1,0 +1,72 @@
+{
+  "slug": "haus-der-giganten-verona",
+  "type": "Tieranlage",
+  "services": [
+    "Generalplanung"
+  ],
+  "country": "Italien",
+  "year": null,
+  "de": {
+    "title": "Haus der Giganten",
+    "zoo": "Parco Natura Viva",
+    "city": "Verona",
+    "facts": [],
+    "text": [
+      "Das in die Jahre gekommene Tropenhaus, im Herzen des privat geführten Parco Natura Viva in Italien, befindet sich mitten in einem Landschaftsschutzgebiet und im Grenzbereich zweier Kommunen. Auf Grundlage des Bestandschutzes und eines ersten Konzeptansatzes wurde der Neubau einer Halle genehmigt. Anschließend erfolgte die Planung und Gestaltung der gesamten Anlage – von der Tierauswahl und Gehegegestaltung, über die Wasser- und Haustechnik, bis hin zur Besucherführung und den Managementbereichen hinter den Kulissen.",
+      "In enger Zusammenarbeit mit dem Bauherrn sowie dem örtlichen Planungs- und Zoologenteam entstand die neue Attraktion „House of Giants“. Der Rundgang führt durch unterschiedliche Lebensräume der größten Vertreter aus der Welt der Vögel, Reptilien, Amphibien, Fische und Insekten – darunter auch der im Amazonas beheimatete Riesenotter.",
+      "Durch die naturnahe Gestaltung der Lebensräume und die Wegeführung über Stege und durch thematische Hütten entsteht ein eindrucksvolles Besuchererlebnis, bei dem die Grenzen zwischen Mensch und Tier optisch verschwimmen und die Faszination tropischer Artenvielfalt spürbar wird."
+    ],
+    "scope": "Generalplanung, LPH 1-3"
+  },
+  "en": {
+    "title": "House of Giants",
+    "zoo": "Parco Natura Viva",
+    "city": "Verona",
+    "facts": [],
+    "text": [
+      "The ageing tropical house at the heart of the privately run Parco Natura Viva in Italy lies in the middle of a protected landscape area and on the border between two municipalities. On the basis of grandfathering rights and an initial conceptual approach, the construction of a new hall was approved. This was followed by the planning and design of the entire facility – from the selection of animals and enclosure design, through water and building services, to visitor circulation and the management areas behind the scenes.",
+      "In close collaboration with the client and the local planning and zoological team, the new “House of Giants” attraction was created. The visitor route leads through different habitats of the largest representatives of the world of birds, reptiles, amphibians, fish and insects – including the giant otter, native to the Amazon.",
+      "The naturalistic design of the habitats and the route along boardwalks and through themed huts create an impressive visitor experience in which the boundaries between people and animals visually blur and the fascination of tropical biodiversity becomes tangible."
+    ],
+    "scope": "General planning, HOAI work stages 1–3"
+  },
+  "tr": {
+    "title": "Devler Evi",
+    "zoo": "Parco Natura Viva",
+    "city": "Verona",
+    "facts": [],
+    "text": [
+      "İtalya’da özel olarak işletilen Parco Natura Viva’nın kalbindeki eskimiş tropik ev, bir peyzaj koruma alanının ortasında ve iki belediyenin sınır bölgesinde yer alıyor. Mevcut yapı hakları ve ilk konsept yaklaşımı temelinde yeni bir salonun inşasına izin verildi. Ardından, hayvan seçimi ve alan tasarımından su ve bina teknik tesisatına, ziyaretçi yönlendirmesinden perde arkasındaki yönetim alanlarına kadar tesisin tamamının planlaması ve tasarımı gerçekleştirildi.",
+      "İşveren ile yerel planlama ve zoolog ekibiyle yakın iş birliği içinde yeni cazibe merkezi “House of Giants” hayata geçti. Ziyaret rotası; kuşlar, sürüngenler, amfibiler, balıklar ve böcekler dünyasının en büyük temsilcilerine ait farklı yaşam alanlarından geçiyor – bunlar arasında Amazon’a özgü dev su samuru da bulunuyor.",
+      "Yaşam alanlarının doğaya yakın tasarımı ve iskeleler üzerinden, tematik kulübelerin içinden geçen rota sayesinde etkileyici bir ziyaret deneyimi ortaya çıkıyor; bu deneyimde insan ile hayvan arasındaki sınırlar görsel olarak bulanıklaşıyor ve tropik tür çeşitliliğinin büyüsü hissedilir hâle geliyor."
+    ],
+    "scope": "Genel planlama, HOAI 1–3. aşamalar"
+  },
+  "images": [
+    {
+      "src": "/media/projects/haus-der-giganten-verona/01.jpg",
+      "width": 2048,
+      "height": 1114
+    },
+    {
+      "src": "/media/projects/haus-der-giganten-verona/02.jpg",
+      "width": 2048,
+      "height": 1152
+    },
+    {
+      "src": "/media/projects/haus-der-giganten-verona/03.jpg",
+      "width": 2048,
+      "height": 1279
+    },
+    {
+      "src": "/media/projects/haus-der-giganten-verona/04.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/haus-der-giganten-verona/05.jpg",
+      "width": 1024,
+      "height": 767
+    }
+  ]
+}

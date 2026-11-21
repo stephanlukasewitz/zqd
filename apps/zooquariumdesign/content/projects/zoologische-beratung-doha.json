@@ -1,0 +1,62 @@
+{
+  "slug": "zoologische-beratung-doha",
+  "type": "Masterplanung",
+  "services": [
+    "Konzept"
+  ],
+  "country": "Katar",
+  "year": null,
+  "de": {
+    "title": "Zoologische Beratung",
+    "zoo": "Doha Zoo",
+    "city": "Doha",
+    "facts": [],
+    "text": [
+      "Im Rahmen der Masterplan-Entwicklung für den neuen Zoo von Doha wurde eine detaillierte Tierbesatzliste erstellt, die alle relevanten Informationen zu den zukünftigen Arten des Zoos zusammenfasst. Die Auswahl der Tierarten erfolgte auf Grundlage wesentlicher Kriterien wie Anpassungsfähigkeit an extreme klimatische Bedingungen, edukativer Wert und Bedeutung für den Artenschutz.",
+      "Dieses umfangreiche Dokument dient als Leitfaden für zukünftige Planer und Bauunternehmen, um frühzeitig klare Rahmenbedingungen zu schaffen und Fehler in der anschließenden Ausführungsplanung zu vermeiden.",
+      "Im weiteren Verlauf der Masterplan-Umsetzung beauftragte das Ministerium für Stadtentwicklung (ASHGHAL) die fachliche Unterstützung bei der zoologischen und veterinärmedizinischen Bewertung des bestehenden Zoos. Dabei wurden sowohl der aktuelle Tierbestand analysiert als auch Strategien entwickelt, um die Haltung und Versorgung der Tiere während der Bauphase des neuen Zoos sicherzustellen."
+    ],
+    "scope": "Masterplanung / Konzept"
+  },
+  "en": {
+    "title": "Zoological Consulting",
+    "zoo": "Doha Zoo",
+    "city": "Doha",
+    "facts": [],
+    "text": [
+      "As part of the masterplan development for the new Doha Zoo, a detailed animal collection plan was drawn up, compiling all relevant information on the zoo’s future species. The species were selected on the basis of key criteria such as adaptability to extreme climatic conditions, educational value and importance for species conservation.",
+      "This comprehensive document serves as a guideline for future planners and contractors, establishing a clear framework at an early stage and avoiding errors in the subsequent detailed design.",
+      "As the implementation of the masterplan progressed, the Public Works Authority (ASHGHAL) commissioned specialist support for the zoological and veterinary assessment of the existing zoo. This involved both analysing the current animal collection and developing strategies to ensure the husbandry and care of the animals during the construction phase of the new zoo."
+    ],
+    "scope": "Master planning / Concept"
+  },
+  "tr": {
+    "title": "Zoolojik Danışmanlık",
+    "zoo": "Doha Hayvanat Bahçesi",
+    "city": "Doha",
+    "facts": [],
+    "text": [
+      "Yeni Doha Hayvanat Bahçesi’nin master plan geliştirme süreci kapsamında, hayvanat bahçesinin gelecekteki türlerine ilişkin tüm önemli bilgileri bir araya getiren ayrıntılı bir hayvan envanteri listesi hazırlandı. Tür seçimi; aşırı iklim koşullarına uyum yeteneği, eğitsel değer ve tür koruma açısından önem gibi temel ölçütlere dayanılarak yapıldı.",
+      "Bu kapsamlı belge, gelecekteki planlamacılar ve yapı şirketleri için bir rehber işlevi görerek çerçeve koşulların erken aşamada netleştirilmesine ve sonraki uygulama projesi aşamasında hataların önlenmesine yardımcı oluyor.",
+      "Master planın uygulanmasının ilerleyen aşamasında Kentsel Gelişim Bakanlığı (ASHGHAL), mevcut hayvanat bahçesinin zoolojik ve veteriner hekimlik açısından değerlendirilmesinde uzman desteği talep etti. Bu kapsamda hem mevcut hayvan varlığı analiz edildi hem de yeni hayvanat bahçesinin inşaat süresince hayvanların barındırılmasını ve bakımını güvence altına alacak stratejiler geliştirildi."
+    ],
+    "scope": "Master planlama / Konsept"
+  },
+  "images": [
+    {
+      "src": "/media/projects/zoologische-beratung-doha/01.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/zoologische-beratung-doha/02.jpg",
+      "width": 2048,
+      "height": 1536
+    },
+    {
+      "src": "/media/projects/zoologische-beratung-doha/03.jpg",
+      "width": 2048,
+      "height": 1536
+    }
+  ]
+}
