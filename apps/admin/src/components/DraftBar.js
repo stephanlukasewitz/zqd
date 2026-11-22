@@ -130,11 +130,6 @@ export default function DraftBar({ site }) {
           </span>
         )}
         <span className="spacer" />
-        {(liveBuilding || liveFailed) && s.live?.details && (
-          <a className="muted small" href={s.live.details} target="_blank" rel="noreferrer" style={{ textDecoration: "none" }}>
-            Details ↗
-          </a>
-        )}
       </div>
     );
   }
@@ -155,11 +150,6 @@ export default function DraftBar({ site }) {
         </span>
       )}
       <span className="spacer" />
-      {p.details && (
-        <a className="muted small" href={p.details} target="_blank" rel="noreferrer" title="Build bei Vercel" style={{ textDecoration: "none" }}>
-          Details ↗
-        </a>
-      )}
       {ready && (
         <a className="btn ghost sm" href={p.url} target="_blank" rel="noreferrer">
           Vorschau ansehen ↗

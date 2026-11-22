@@ -17,14 +17,9 @@ export default async function SiteLayout({ children, params }) {
           <span className="dot">.</span>
         </Link>
         <Nav site={site.id} />
-        <div className="foot">
-          <a href={site.liveUrl} target="_blank" rel="noreferrer" className="muted" style={{ textDecoration: "none" }}>
-            Live-Seite ↗
-          </a>
-          <form action={logout}>
-            <button>Abmelden</button>
-          </form>
-        </div>
+        <form action={logout} className="foot">
+          <button className="btn ghost sm">Abmelden</button>
+        </form>
       </aside>
       <div className="main">
         <DraftBar site={site.id} />
